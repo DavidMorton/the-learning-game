@@ -51,6 +51,8 @@ DECKS = {
         tag("fabric-data-agents", "Fabric data agents", TECH, r"data agent"),
         tag("genie", "Databricks Genie", TECH, r"Genie"),
         tag("unity-catalog", "Unity Catalog", TECH, r"Unity Catalog|row filter|column mask"),
+        tag("researcher-analyst", "Researcher and Analyst", TECH, r"Researcher|Analyst"),
+        tag("power-bi", "Power BI", TECH, r"Power BI"),
         tag("pricing", "Pricing and cost", THEME, PRICING),
         tag("licensing", "Licensing", THEME, r"licen[cs]|\bSKUs?\b|\bE[357]\b|\bseats?\b|add-on|Copilot Business|subscription|entitle"),
         tag("spend-controls", "Spend controls", THEME, r"spending polic|budget|\blimits?\b|enforce|\bcaps?\b|125%|block(ed|s)? |Auto-apply|billing polic|disconnect|run out|runs out|overage"),
@@ -58,6 +60,8 @@ DECKS = {
         tag("security", "Security and identity", THEME, r"secur|permission|identity|authenticat|Entra|access control|row filter|column mask|encrypt|Private Link|(?-i:\bOBO\b)|on-behalf-of|service principal|least privilege|consent|sign[- ]?in"),
         tag("oversharing", "Oversharing", THEME, r"overshar|Everyone Except External|(?-i:EEEU)|Restricted Content Discovery|Restricted SharePoint Search|Restricted Access Control|site access review|data access governance|No authentication|anyone with the link|author authentication|snapshot|shouldn't|grant(s|ed)? access|permission hygiene|bypass", "qate"),
         tag("residency", "Data residency and privacy", THEME, RESIDENCY, "qate"),
+        tag("seat-strategy", "Seat strategy and adoption", THEME, r"usage report|readiness report|active user|inactive|idle seat|reassign|\bseats?\b|adoption|Copilot Dashboard|Organizational Messages|candidate|renewal|nonreduction|\bpilot"),
+        tag("architecture", "Agent architecture", THEME, r"decision tree|SaaS agent|\bbuild|connected agent|child agent|multi-agent|single agent|evaluation|test set|acceptance threshold|\bALM\b|custom solution|environment routing|knowledge source|ungrounded|declarative agent|custom engine|operational responsibility"),
         tag("whats-new", "New in 2026", THEME, r"Ignite 2026|\b2026\b|\b2027\b", "q"),
     ],
     "fabric-questions.json": [
@@ -114,7 +118,7 @@ DECKS = {
 
 # Every question in these sections gets these tags, so tags agree with the section they sit in.
 SECTION_TAGS = {
-    "copilot-questions.json": {2: ["licensing"], 3: ["pricing"], 4: ["copilot-studio", "governance"], 5: ["governance"], 7: ["genie"]},
+    "copilot-questions.json": {2: ["licensing"], 3: ["pricing"], 4: ["copilot-studio", "governance"], 5: ["governance"], 7: ["genie"], 9: ["seat-strategy", "m365-copilot"], 10: ["architecture"]},
     "fabric-questions.json": {2: ["capacity"], 3: ["throttling", "capacity"], 4: ["onelake"], 6: ["security"], 7: ["copilot-fabric"], 8: ["databricks"]},
     "questions.json": {2: ["ingestion"], 4: ["jobs"], 5: ["cicd"], 6: ["troubleshooting"], 7: ["governance"]},
 }

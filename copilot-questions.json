@@ -10,12 +10,12 @@
 		"source": "The Microsoft (or Databricks) page the question was checked against."
 	},
 	"notes": "Prices, rates and release states change often. Each question reflects its source as of the asOf date.",
-	"totalQuestions": 232,
+	"totalQuestions": 292,
 	"sections": [
 		{
 			"id": 1,
 			"name": "The Copilot and agent estate",
-			"weight": 13,
+			"weight": 11,
 			"objectives": [
 				"Copilot Chat (Basic) vs Microsoft 365 Copilot (Premium), Cowork, Code and Autopilot",
 				"Harnesses, Copilot Managed Runtime, Microsoft IQ and Work IQ",
@@ -26,7 +26,7 @@
 		{
 			"id": 2,
 			"name": "Licensing and SKUs",
-			"weight": 11,
+			"weight": 9,
 			"objectives": [
 				"Microsoft 365 Copilot, Copilot Business, E7 and Agent 365 prices and prerequisites",
 				"What each license includes and excludes",
@@ -37,7 +37,7 @@
 		{
 			"id": 3,
 			"name": "Copilot Credits and billing gotchas",
-			"weight": 20,
+			"weight": 16,
 			"objectives": [
 				"Copilot Studio billing rates and the licensed-user exemption",
 				"Usage-based billing, spending policies, pay-as-you-go and enforcement",
@@ -48,7 +48,7 @@
 		{
 			"id": 4,
 			"name": "Building and governing Copilot Studio agents",
-			"weight": 12,
+			"weight": 9,
 			"objectives": [
 				"Data policies (DLP), channels, connectors and MCP",
 				"Authentication options and publishing controls",
@@ -59,7 +59,7 @@
 		{
 			"id": 5,
 			"name": "Data protection and agent governance",
-			"weight": 13,
+			"weight": 11,
 			"objectives": [
 				"Permissions, residency, training and audit for Copilot",
 				"Oversharing controls: RCD, RSS, SharePoint Advanced Management",
@@ -70,7 +70,7 @@
 		{
 			"id": 6,
 			"name": "Fabric, Foundry and data agents",
-			"weight": 10,
+			"weight": 8,
 			"objectives": [
 				"Fabric data agents: sources, limits, security and capacity",
 				"Copilot in Fabric consumption and Fabric Copilot capacity",
@@ -81,7 +81,7 @@
 		{
 			"id": 7,
 			"name": "Databricks Genie with Microsoft Copilot",
-			"weight": 13,
+			"weight": 11,
 			"objectives": [
 				"Genie One, Genie Agents and Genie pricing",
 				"Integration paths: Teams app, Copilot plugin, Cowork, Copilot Studio, Power Platform",
@@ -92,13 +92,35 @@
 		{
 			"id": 8,
 			"name": "Coaching scenarios",
-			"weight": 8,
+			"weight": 7,
 			"objectives": [
 				"Choosing the right agent path for a customer",
 				"Modeling and controlling cost",
 				"Keeping agents well governed"
 			],
 			"questionCount": 22
+		},
+		{
+			"id": 9,
+			"name": "Seat strategy and value",
+			"weight": 9,
+			"objectives": [
+				"What Premium adds over Copilot Chat; Researcher and Analyst",
+				"Usage, readiness and Copilot Dashboard reporting; reassigning seats",
+				"Commercial terms, adoption context and the value case"
+			],
+			"questionCount": 30
+		},
+		{
+			"id": 10,
+			"name": "Agent architecture decisions",
+			"weight": 9,
+			"objectives": [
+				"Buy before build; Agent Builder, Copilot Studio or Foundry",
+				"Single vs multi-agent, evaluation, knowledge and ALM",
+				"Governed data questions: Genie, Analyst and Copilot in Power BI"
+			],
+			"questionCount": 30
 		}
 	],
 	"tags": [
@@ -106,13 +128,13 @@
 			"id": "m365-copilot",
 			"name": "Microsoft 365 Copilot",
 			"kind": "technology",
-			"count": 55
+			"count": 89
 		},
 		{
 			"id": "copilot-chat",
 			"name": "Copilot Chat",
 			"kind": "technology",
-			"count": 20
+			"count": 25
 		},
 		{
 			"id": "cowork",
@@ -124,19 +146,19 @@
 			"id": "copilot-studio",
 			"name": "Copilot Studio",
 			"kind": "technology",
-			"count": 69
+			"count": 85
 		},
 		{
 			"id": "agent-types",
 			"name": "Agent types and builders",
 			"kind": "technology",
-			"count": 6
+			"count": 8
 		},
 		{
 			"id": "foundry",
 			"name": "Microsoft Foundry",
 			"kind": "technology",
-			"count": 12
+			"count": 13
 		},
 		{
 			"id": "agent-365",
@@ -160,31 +182,31 @@
 			"id": "sharepoint",
 			"name": "SharePoint controls",
 			"kind": "technology",
-			"count": 10
+			"count": 11
 		},
 		{
 			"id": "work-iq",
 			"name": "Work IQ and Microsoft IQ",
 			"kind": "technology",
-			"count": 2
+			"count": 3
 		},
 		{
 			"id": "power-platform",
 			"name": "Power Platform",
 			"kind": "technology",
-			"count": 16
+			"count": 18
 		},
 		{
 			"id": "mcp",
 			"name": "MCP and A2A",
 			"kind": "technology",
-			"count": 11
+			"count": 12
 		},
 		{
 			"id": "teams",
 			"name": "Microsoft Teams",
 			"kind": "technology",
-			"count": 21
+			"count": 23
 		},
 		{
 			"id": "security-copilot",
@@ -196,61 +218,73 @@
 			"id": "fabric",
 			"name": "Microsoft Fabric",
 			"kind": "technology",
-			"count": 23
+			"count": 25
 		},
 		{
 			"id": "fabric-data-agents",
 			"name": "Fabric data agents",
 			"kind": "technology",
-			"count": 17
+			"count": 19
 		},
 		{
 			"id": "genie",
 			"name": "Databricks Genie",
 			"kind": "technology",
-			"count": 42
+			"count": 44
 		},
 		{
 			"id": "unity-catalog",
 			"name": "Unity Catalog",
 			"kind": "technology",
-			"count": 8
+			"count": 9
+		},
+		{
+			"id": "researcher-analyst",
+			"name": "Researcher and Analyst",
+			"kind": "technology",
+			"count": 7
+		},
+		{
+			"id": "power-bi",
+			"name": "Power BI",
+			"kind": "technology",
+			"count": 4
 		},
 		{
 			"id": "pricing",
 			"name": "Pricing and cost",
 			"kind": "theme",
-			"count": 94
+			"count": 100
 		},
 		{
 			"id": "licensing",
 			"name": "Licensing",
 			"kind": "theme",
-			"count": 55
+			"count": 78
 		},
 		{
 			"id": "spend-controls",
 			"name": "Spend controls",
 			"kind": "theme",
-			"count": 38
+			"count": 42
 		},
 		{
 			"id": "governance",
 			"name": "Governance",
 			"kind": "theme",
-			"count": 88
+			"count": 100
 		},
 		{
 			"id": "security",
 			"name": "Security and identity",
 			"kind": "theme",
-			"count": 56
+			"count": 61
 		},
 		{
 			"id": "oversharing",
 			"name": "Oversharing",
 			"kind": "theme",
-			"count": 23
+			"count": 26
 		},
 		{
 			"id": "residency",
@@ -259,10 +293,22 @@
 			"count": 16
 		},
 		{
+			"id": "seat-strategy",
+			"name": "Seat strategy and adoption",
+			"kind": "theme",
+			"count": 47
+		},
+		{
+			"id": "architecture",
+			"name": "Agent architecture",
+			"kind": "theme",
+			"count": 44
+		},
+		{
 			"id": "whats-new",
 			"name": "New in 2026",
 			"kind": "theme",
-			"count": 21
+			"count": 22
 		}
 	],
 	"questions": [
@@ -559,7 +605,8 @@
 			"topic": "Agent types",
 			"tags": [
 				"m365-copilot",
-				"agent-types"
+				"agent-types",
+				"architecture"
 			],
 			"difficulty": "easy",
 			"question": "What is the defining difference between a declarative agent and a custom engine agent in Microsoft 365 Copilot?",
@@ -581,7 +628,8 @@
 			"topic": "Agent types",
 			"tags": [
 				"agent-types",
-				"spend-controls"
+				"spend-controls",
+				"architecture"
 			],
 			"difficulty": "medium",
 			"question": "A customer wants an agent that proactively messages users and runs outside Microsoft 365 too. Per Microsoft's guidance, which agent type fits?",
@@ -602,7 +650,8 @@
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Agent types",
 			"tags": [
-				"agent-types"
+				"agent-types",
+				"architecture"
 			],
 			"difficulty": "medium",
 			"question": "Who is responsible for compliance and responsible AI controls on a custom engine agent, compared with a declarative agent?",
@@ -624,7 +673,8 @@
 			"topic": "Agent types",
 			"tags": [
 				"copilot-studio",
-				"agent-types"
+				"agent-types",
+				"architecture"
 			],
 			"difficulty": "medium",
 			"question": "Which low-code tool does Microsoft position for building custom engine agents, as opposed to declarative agents?",
@@ -649,7 +699,8 @@
 				"copilot-studio",
 				"agent-types",
 				"pricing",
-				"licensing"
+				"licensing",
+				"architecture"
 			],
 			"difficulty": "hard",
 			"question": "Under the Copilot Studio billing rules, when are generative answers from an agent not charged even for a user without a Copilot license?",
@@ -882,6 +933,7 @@
 				"pricing",
 				"licensing",
 				"spend-controls",
+				"seat-strategy",
 				"whats-new"
 			],
 			"difficulty": "medium",
@@ -906,7 +958,8 @@
 				"m365-copilot",
 				"teams",
 				"pricing",
-				"licensing"
+				"licensing",
+				"seat-strategy"
 			],
 			"difficulty": "hard",
 			"question": "Which of these is listed by Microsoft as a usage-based (Copilot Credits) service, not covered by the Copilot seat alone?",
@@ -952,7 +1005,8 @@
 			"tags": [
 				"copilot-studio",
 				"licensing",
-				"governance"
+				"governance",
+				"architecture"
 			],
 			"difficulty": "medium",
 			"question": "What can a user do with a Copilot Studio trial license?",
@@ -1253,6 +1307,7 @@
 			"topic": "Agent 365",
 			"tags": [
 				"agent-365",
+				"researcher-analyst",
 				"pricing",
 				"licensing"
 			],
@@ -1512,7 +1567,8 @@
 			"tags": [
 				"m365-copilot",
 				"copilot-studio",
-				"licensing"
+				"licensing",
+				"architecture"
 			],
 			"difficulty": "easy",
 			"question": "Which channel does Microsoft's Copilot Studio licensing page say a Microsoft 365 Copilot license lets users build agents for?",
@@ -2087,7 +2143,8 @@
 			"tags": [
 				"copilot-chat",
 				"agent-types",
-				"pricing"
+				"pricing",
+				"architecture"
 			],
 			"difficulty": "medium",
 			"question": "For Copilot Chat (Basic) users, which agents are included at no charge?",
@@ -2414,7 +2471,8 @@
 			"tags": [
 				"cowork",
 				"pricing",
-				"licensing"
+				"licensing",
+				"seat-strategy"
 			],
 			"difficulty": "hard",
 			"question": "A customer licenses 2,000 users for Copilot and expects each to run five medium Cowork tasks per week. Using Microsoft's 300–700 credit medium estimate, what's the rough monthly PAYG exposure?",
@@ -2610,7 +2668,8 @@
 			"topic": "Estimators",
 			"tags": [
 				"copilot-studio",
-				"pricing"
+				"pricing",
+				"architecture"
 			],
 			"difficulty": "easy",
 			"question": "Which tool does Microsoft provide to estimate Copilot Studio agent costs before building?",
@@ -2824,7 +2883,8 @@
 				"copilot-studio",
 				"power-platform",
 				"governance",
-				"security"
+				"security",
+				"architecture"
 			],
 			"difficulty": "hard",
 			"question": "Which data policy connector controls whether Copilot Studio agents can use event triggers and automated evaluations with authenticated accounts?",
@@ -3153,7 +3213,8 @@
 			"tags": [
 				"copilot-studio",
 				"genie",
-				"governance"
+				"governance",
+				"architecture"
 			],
 			"difficulty": "medium",
 			"question": "Besides the Genie tool, what other way does Copilot Studio offer to use Azure Databricks data?",
@@ -3284,7 +3345,8 @@
 				"teams",
 				"fabric",
 				"fabric-data-agents",
-				"governance"
+				"governance",
+				"architecture"
 			],
 			"difficulty": "hard",
 			"question": "A team builds a Copilot Studio agent with a connected Fabric data agent and wants to surface it in Microsoft 365 Copilot. What does Microsoft's documentation say?",
@@ -4115,6 +4177,7 @@
 				"m365-copilot",
 				"fabric",
 				"fabric-data-agents",
+				"power-bi",
 				"residency"
 			],
 			"difficulty": "medium",
@@ -4485,7 +4548,9 @@
 			"tags": [
 				"fabric",
 				"fabric-data-agents",
-				"security"
+				"power-bi",
+				"security",
+				"architecture"
 			],
 			"difficulty": "medium",
 			"question": "What permission on a Power BI semantic model does a user need to query it through a Fabric data agent?",
@@ -4574,7 +4639,8 @@
 			"tags": [
 				"genie",
 				"pricing",
-				"licensing"
+				"licensing",
+				"seat-strategy"
 			],
 			"difficulty": "medium",
 			"question": "How does Databricks price Genie One and Genie Agents for end users?",
@@ -5206,7 +5272,8 @@
 			"tags": [
 				"m365-copilot",
 				"pricing",
-				"licensing"
+				"licensing",
+				"seat-strategy"
 			],
 			"difficulty": "hard",
 			"question": "At PAYG list price, roughly how many tenant-grounded agent prompts (12 credits each) per month make an unlicensed user's metered agent usage cost about the same as a $30 Copilot seat?",
@@ -5589,7 +5656,8 @@
 				"mcp",
 				"genie",
 				"unity-catalog",
-				"security"
+				"security",
+				"architecture"
 			],
 			"difficulty": "hard",
 			"question": "A pro-code team builds a Foundry agent that calls Genie through Databricks' managed MCP server. Which auth mode keeps Unity Catalog permissions per user?",
@@ -5612,7 +5680,8 @@
 			"tags": [
 				"cowork",
 				"pricing",
-				"licensing"
+				"licensing",
+				"seat-strategy"
 			],
 			"difficulty": "medium",
 			"question": "A sponsor's business case prices Copilot at '$30 per user, all in.' Which planned use would break that assumption most?",
@@ -5669,6 +5738,1411 @@
 			"answer": "B",
 			"explanation": "8 packs is 200,000 credits a month at $1,600. In a 40,000-credit month, 160,000 credits ($1,280) expire. Options: size packs to the baseline and let PAYG ($0.01) absorb peaks (agents aren't blocked), or use P3's annual pool. Also allocate capacity to critical environments so a quarter-end spike can't trigger 125% enforcement on them.",
 			"source": "https://www.microsoft.com/en-us/microsoft-365/copilot/pricing/copilot-studio"
+		},
+		{
+			"id": "C9-001",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Premium vs Basic",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"work-iq",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "easy",
+			"question": "According to Microsoft's comparison of Copilot Chat with and without a Microsoft 365 Copilot license, what's the biggest difference in work-data reasoning?",
+			"choices": [
+				"Unlicensed users get the same work-data grounding as licensed users, but with a lower daily prompt limit and slower responses at peak",
+				"Both get identical work-data reasoning; the license only adds Copilot inside the desktop Office apps",
+				"Licensed users get web grounding, while unlicensed users get no grounding of any kind, not even on the web",
+				"Licensed users get full Work IQ grounding (meetings, email, chats, files); unlicensed users are limited to files they upload"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Microsoft's table: web reasoning is 'Yes' for both, but work-data reasoning is 'Limited (uploaded files)' without a license and 'Full (meetings, emails, chats, files, and more)' with one. That's the core of the Premium value case. If a role doesn't need Copilot to reason over its own mail, meetings and files, the free Copilot Chat may be enough.",
+			"source": "https://support.microsoft.com/en-us/topic/what-s-the-difference-between-using-copilot-chat-with-or-without-a-microsoft-365-copilot-license-5810b659-fbe0-48ee-9fe6-d731fe86cdeb"
+		},
+		{
+			"id": "C9-002",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Premium vs Basic",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"researcher-analyst",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "Which agents does Microsoft's licensing comparison describe as coming with the Microsoft 365 Copilot license rather than with Copilot Chat alone?",
+			"choices": [
+				"Only agents built in Agent Builder, since Copilot Studio agents need their own per-user license",
+				"Advanced agents such as Researcher and Analyst, plus custom agents",
+				"None; every agent is pay-as-you-go for all users, whether or not they hold the Copilot license",
+				"Only SharePoint agents; Researcher and Analyst are separate $10 add-ons for each licensed user"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Without a license, agent access is 'Limited (no advanced agents)'. With one, it's 'Extensive use (including advanced agents like Researcher, Analyst, and custom agents)'. Copilot Studio access moves from pay-as-you-go to included, for use in Microsoft channels under the user's identity.",
+			"source": "https://support.microsoft.com/en-us/topic/what-s-the-difference-between-using-copilot-chat-with-or-without-a-microsoft-365-copilot-license-5810b659-fbe0-48ee-9fe6-d731fe86cdeb"
+		},
+		{
+			"id": "C9-003",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Premium vs Basic",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "How does Microsoft describe the service priority difference between Copilot Chat users and Microsoft 365 Copilot licensed users?",
+			"choices": [
+				"Standard access that may be limited at peak times, versus priority access that's faster and more reliable",
+				"Licensed users get a dedicated GPU per tenant, while unlicensed users share a regional pool",
+				"Identical priority for both, since all Copilot users run on the same shared capacity with no differentiation",
+				"Unlicensed users get priority because their prompts are simpler and cheaper for Microsoft to process"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "The comparison lists 'Standard (may be limited during peak times)' without a license and 'Priority (faster, more reliable)' with one. For occasional users, standard access is usually fine. Priority matters most for people who depend on Copilot daily.",
+			"source": "https://support.microsoft.com/en-us/topic/what-s-the-difference-between-using-copilot-chat-with-or-without-a-microsoft-365-copilot-license-5810b659-fbe0-48ee-9fe6-d731fe86cdeb"
+		},
+		{
+			"id": "C9-004",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Researcher",
+			"tags": [
+				"m365-copilot",
+				"researcher-analyst",
+				"spend-controls",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "What does Microsoft's Researcher FAQ state as the usage limit for Researcher?",
+			"choices": [
+				"250 queries per tenant per month, shared across all licensed users in the organization",
+				"A maximum of 25 queries per user per month",
+				"Unlimited queries, since Researcher is part of the everyday AI included in the seat",
+				"25 queries per user per day, resetting at midnight in the user's local time zone"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "The Researcher FAQ states a maximum of 25 queries per user per month. Microsoft's June 2025 launch blog described 25 combined queries across Researcher and Analyst, so confirm current counting with Microsoft before quoting it. Either way, deep research is a scarce resource per seat, not unlimited.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/faq-researcher"
+		},
+		{
+			"id": "C9-005",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Researcher",
+			"tags": [
+				"m365-copilot",
+				"researcher-analyst",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "What sources does the Researcher agent use, according to Microsoft's FAQ?",
+			"choices": [
+				"Microsoft Graph, Copilot connectors, and the Bing index for recent web data",
+				"Only the files a user attaches to the prompt, with no access to email, meetings or connectors",
+				"Only public web pages, because Researcher can't read any of the tenant's Microsoft 365 data",
+				"Any enterprise database the user can reach, including Databricks and Snowflake, by default"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Researcher combines Graph (mail, meetings, chats, files), Graph or Copilot connectors and Bing for multi-step research, with citations. Simple queries take under five minutes and complex ones 10 to 45 minutes. The only web control is the tenant-wide web search toggle, with no per-site allow or block list.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/faq-researcher"
+		},
+		{
+			"id": "C9-006",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Researcher",
+			"tags": [
+				"m365-copilot",
+				"researcher-analyst",
+				"spend-controls",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "An admin wants to stop Researcher from using particular external websites. What does the Researcher FAQ say is possible?",
+			"choices": [
+				"A Purview DLP rule that blocks named domains from ever appearing in Researcher's citations",
+				"Only the tenant-wide web search toggle; there's no granular allow or block list for specific sites",
+				"A per-site allow list in Copilot Studio that applies to Researcher and every other agent in the tenant",
+				"An Edge policy that hides specific domains from Bing results for licensed users"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Researcher's only web control is the tenant web search setting. There's no granular site-level control. Regulated customers who need tight control over external sources have to choose between web search on or off.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/faq-researcher"
+		},
+		{
+			"id": "C9-007",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Analyst",
+			"tags": [
+				"m365-copilot",
+				"researcher-analyst",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "What did Microsoft say the Analyst agent does when it launched Researcher and Analyst?",
+			"choices": [
+				"It schedules Power BI refreshes and emails the refreshed results to every report subscriber automatically each day",
+				"It builds Copilot Studio agents from a description of the analysis a user wants to repeat",
+				"It reasons like a data scientist and can run Python, showing the code it runs so users can check its work",
+				"It writes SQL against Unity Catalog and returns governed answers through the Genie API"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Microsoft described Analyst as thinking like a skilled data scientist, using a reasoning model with chain-of-thought, and able to run Python with the code visible. The Researcher FAQ says Analyst is better suited to Excel-related tasks. It analyzes the data a user brings, which is different from querying a governed semantic layer.",
+			"source": "https://www.microsoft.com/en-us/copilot/blog/2025/06/02/researcher-and-analyst-are-now-generally-available-in-microsoft-365-copilot/"
+		},
+		{
+			"id": "C9-008",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Admin controls",
+			"tags": [
+				"m365-copilot",
+				"researcher-analyst",
+				"licensing",
+				"spend-controls",
+				"governance",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "Can admins stop licensed users from using Researcher and Analyst?",
+			"choices": [
+				"Only in E5 tenants, through Microsoft Defender for Cloud Apps session policies",
+				"Yes. Admins can block them, though users themselves can't unpin or disable Researcher",
+				"Only by removing the Microsoft 365 Copilot license from each affected user",
+				"No. Both agents are always on for every licensed user, with no admin control of any kind available"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "The Researcher FAQ says admins can block Researcher and Analyst, while users can't unpin or disable Researcher themselves, since it's part of the default experience for licensed users. That's useful for phased enablement or for regulated groups.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/faq-researcher"
+		},
+		{
+			"id": "C9-009",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Usage reporting",
+			"tags": [
+				"m365-copilot",
+				"governance",
+				"seat-strategy"
+			],
+			"difficulty": "easy",
+			"question": "Where do admins find per-user Microsoft 365 Copilot activity, such as each user's last activity date?",
+			"choices": [
+				"Only in Azure Monitor, after connecting the tenant to a Log Analytics workspace",
+				"In the Microsoft 365 admin center, under Reports > Usage > Microsoft Copilot",
+				"Only in Microsoft Purview, by exporting the unified audit log for every Copilot event",
+				"Only through a Microsoft support request, since usage data is private to each user"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "The Copilot usage report in the Microsoft 365 admin center shows enabled users, active users, active-user rate, prompts submitted, and a per-user table with last activity dates overall and per app. Microsoft says the Purview audit log isn't meant for usage reporting, and its counts may not match.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage"
+		},
+		{
+			"id": "C9-010",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Usage reporting",
+			"tags": [
+				"m365-copilot",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "What counts as an 'active user' in the Microsoft 365 Copilot usage report?",
+			"choices": [
+				"Any user, licensed or not, who saw a Copilot suggestion appear inside an Office document",
+				"A licensed user who has Copilot pinned in Teams, whether or not they ever used it",
+				"A licensed user who intentionally used a Copilot feature, such as submitting a prompt; just opening the pane doesn't count",
+				"Any licensed user who signed in to any Microsoft 365 app at least once during the selected reporting period, whether or not they used Copilot"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Active use means an intentional AI action: submitting a prompt counts, opening the Copilot pane doesn't. The report shows 'Enabled users', 'Active users' and the 'Active users rate' over 7, 28, 90 or 180 days. That rate is the first number to check before buying more seats.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage"
+		},
+		{
+			"id": "C9-011",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Usage reporting",
+			"tags": [
+				"m365-copilot",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "Which time windows does the Microsoft 365 Copilot usage report offer?",
+			"choices": [
+				"1, 7 or 30 days only, with older data deleted after a month",
+				"7, 28, 90 or 180 days",
+				"Only the current calendar month, reset on the first of each month",
+				"Any custom date range back to the day the tenant was created"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "The report supports 7, 28, 90 and 180-day windows, and its user table includes anyone licensed at any point in the past 180 days, with a CSV export. Names are hidden by default unless an admin turns off the report privacy setting.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage"
+		},
+		{
+			"id": "C9-012",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Usage reporting",
+			"tags": [
+				"m365-copilot",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "Admins can't see user names in the Copilot usage report, only anonymized IDs. Why?",
+			"choices": [
+				"Names appear only after the tenant buys Viva Insights licenses for everyone who's licensed",
+				"Copilot usage data is anonymized permanently and can never be tied to individual users",
+				"Usage reports hide names by default; an admin must turn off the concealed-names setting",
+				"Names only appear for users who have consented to telemetry in their Office privacy settings"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "User details are concealed by default. The setting 'Show user, group, or site details in usage reports' controls it. Seat reclamation needs names, so plan this with HR and privacy teams, since some jurisdictions restrict per-person monitoring.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage"
+		},
+		{
+			"id": "C9-013",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Readiness",
+			"tags": [
+				"m365-copilot",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "What is the 'Suggested candidate for Copilot' signal in the Copilot readiness report?",
+			"choices": [
+				"Every user with an E5 license who hasn't yet been assigned a Copilot seat, sorted by department and then job title",
+				"Users whose managers requested a license through the admin center's request form",
+				"The top 25% of unlicensed users by Microsoft 365 app usage, re-evaluated weekly over 28 days",
+				"The top 10% of employees by performance rating, imported from the HR system"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "The readiness report flags the top 25% of unlicensed users by app usage as suggested candidates, re-evaluated weekly over 28 days. It's only available to customers who've bought Copilot licenses, and Microsoft says it isn't meant to evaluate employee performance. It's a data-driven starting point for deciding who gets a seat.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-readiness"
+		},
+		{
+			"id": "C9-014",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Readiness",
+			"tags": [
+				"m365-copilot",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "Which Microsoft 365 Apps update channels does the readiness report check for, because Copilot in the desktop apps needs them?",
+			"choices": [
+				"Any channel, including Semi-Annual Preview",
+				"Beta Channel, for early Copilot features",
+				"Current Channel or Monthly Enterprise Channel",
+				"Semi-Annual Enterprise Channel only, for stability"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Readiness counts users on an eligible update channel (Current or Monthly Enterprise). Many enterprises standardize on Semi-Annual Enterprise Channel, so moving users to a faster channel is often a real deployment workstream to budget before seats deliver value.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-readiness"
+		},
+		{
+			"id": "C9-015",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Usage reporting",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "What does the separate Copilot Chat usage report cover?",
+			"choices": [
+				"Only external guest users who've signed in to Copilot Chat",
+				"Only licensed users, broken down by Microsoft 365 app",
+				"Every user, licensed or not, in a single combined table",
+				"Only users without a Microsoft 365 Copilot license"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The Copilot Chat report currently supports only users without a Copilot license, and it's anonymized by default. Microsoft suggests reviewing heavy Copilot Chat users as license candidates. They've already shown demand.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-copilot-usage"
+		},
+		{
+			"id": "C9-016",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Copilot Dashboard",
+			"tags": [
+				"m365-copilot",
+				"governance",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "What does the Copilot Dashboard in Viva Insights report beyond the admin center's usage numbers?",
+			"choices": [
+				"Only license counts and billing totals, since impact data needs a separate Power BI app",
+				"Per-prompt transcripts for every licensed user, for review by their managers",
+				"Security incidents caused by Copilot, pulled from Microsoft Defender XDR",
+				"Readiness, adoption, impact (such as Copilot-assisted hours) and sentiment"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The Copilot Dashboard covers readiness, adoption, impact (Copilot actions, assisted hours and value) and sentiment (Viva Glint, Viva Pulse or a CSV upload). Microsoft labels its metrics as decision support, and assisted hours are an estimate. Use it to build the value story, not as an exact productivity ledger.",
+			"source": "https://learn.microsoft.com/en-us/viva/insights/org-team-insights/copilot-dashboard"
+		},
+		{
+			"id": "C9-017",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Copilot Dashboard",
+			"tags": [
+				"m365-copilot",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "What changes in the Copilot Dashboard once a tenant has 50 or more Copilot licenses (or 50 Viva Insights licenses)?",
+			"choices": [
+				"It adds agent insights, benchmarks, intelligent summaries, survey sentiment and longer trendlines",
+				"Nothing changes; every tenant sees exactly the same dashboard from its first Copilot license onward",
+				"The dashboard becomes available for the first time, since it needs at least 50 licenses to exist",
+				"Microsoft starts charging Copilot Credits for each dashboard view by leaders"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "With 1 to 49 Copilot licenses the dashboard shows readiness, adoption and impact with group metrics. At 50 or more Copilot (or Viva Insights) licenses it adds agent insights, benchmarks, intelligent summaries, survey sentiment, week and month trendlines and delegation. Size a pilot with the measurement it needs in mind.",
+			"source": "https://learn.microsoft.com/en-us/viva/insights/org-team-insights/copilot-dashboard"
+		},
+		{
+			"id": "C9-018",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Copilot Dashboard",
+			"tags": [
+				"m365-copilot",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "A customer assigns 500 new Copilot licenses on Monday and expects to see their impact in the Copilot Dashboard that week. What should you tell them?",
+			"choices": [
+				"The dashboard only refreshes once a quarter, at the end of Microsoft's fiscal quarter",
+				"Impact is only calculated after users complete Viva Learning training on Copilot",
+				"Data is real-time, so the impact of new licenses shows up in the dashboard the same afternoon they're assigned to users",
+				"New licenses can take up to seven days to appear, and data uses a 28-day window with up to six days of delay"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The dashboard refreshes daily over a 28-day window, with up to six days of delay, and new licenses can take up to seven days to appear. Value reviews need weeks, not days, so build that into the pilot timeline and its stop criteria.",
+			"source": "https://learn.microsoft.com/en-us/viva/insights/org-team-insights/copilot-dashboard"
+		},
+		{
+			"id": "C9-019",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Driving adoption",
+			"tags": [
+				"m365-copilot",
+				"licensing",
+				"governance",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "What built-in tool does the Microsoft 365 admin center offer to nudge licensed users who haven't used Copilot recently?",
+			"choices": [
+				"Organizational Messages cards, targeting licensed users with no Copilot use in a rolling 30 days",
+				"A weekly email to each user's manager listing their Copilot prompt count",
+				"Automatic license removal after 14 days of inactivity, with no admin action or approval needed at any point",
+				"A Teams bot that messages inactive users every day until they submit a prompt"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "From the usage report, admins can launch Organizational Messages ('Encourage people to use Microsoft Copilot', 'Help users save time with Copilot in Teams') aimed at licensed users inactive for a rolling 30 days, and then track views and clicks. Nudge first. Reclaim seats from people who still don't engage.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/track-copilot-adoption"
+		},
+		{
+			"id": "C9-020",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Seat economics",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "A 12,000-person customer wants Microsoft 365 Copilot for everyone at $30 per user per month. What's the annual list cost of the seats alone?",
+			"choices": [
+				"About $4.32 million a year (12,000 × $30 × 12)",
+				"About $43.2 million a year (12,000 × $300 × 12)",
+				"About $432,000 a year (12,000 × $3 × 12)",
+				"About $360,000 a year (12,000 × $30)"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "12,000 × $30 = $360,000 a month, or $4.32 million a year at list, before any Copilot Credits for Cowork, autonomous agents or Work IQ APIs, and before Fabric, Purview or Databricks costs. At that scale, licensing 4,000 heavy users instead of everyone saves about $2.9 million a year for the same core group.",
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-licensing"
+		},
+		{
+			"id": "C9-021",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Seat economics",
+			"tags": [
+				"m365-copilot",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "A pilot shows 40% of licensed users had no Copilot activity in the last 90 days. The customer bought annual seats 3 months ago. What's realistic?",
+			"choices": [
+				"Cancel the idle seats today for a prorated refund covering the remaining nine months of the annual term",
+				"Reassign idle seats to suggested candidates now; the seat count can only go down at renewal",
+				"Pause the idle seats, which stops billing until users become active again",
+				"Convert the idle seats into Copilot Credits at the same dollar value"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Under Microsoft's new commerce rules, licenses can be reduced or cancelled for a prorated refund only within seven days of purchase or renewal. After that, seat counts can't decrease until renewal, though they can be added mid-term. Reassign idle seats using the usage report and the readiness candidates, and right-size at renewal.",
+			"source": "https://learn.microsoft.com/en-us/partner-center/new-commerce-cancellation-policy"
+		},
+		{
+			"id": "C9-022",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Commercial terms",
+			"tags": [
+				"m365-copilot",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "Under Microsoft's new commerce rules for seat-based subscriptions, when can a customer reduce licenses and get a prorated refund?",
+			"choices": [
+				"Within 30 days of purchase, and then quarterly after that",
+				"Any time during the term, with a prorated refund for the months remaining",
+				"Never. Seat-based subscriptions can't be reduced or refunded at all",
+				"Within seven calendar days of purchase or renewal"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The seven-day window (counted in calendar days) is the only time to reduce or cancel seats for a prorated refund. After that, reductions wait for renewal. That's why a big up-front 'everyone' purchase is hard to unwind, and why a smaller start with mid-term additions is lower risk.",
+			"source": "https://learn.microsoft.com/en-us/partner-center/new-commerce-cancellation-policy"
+		},
+		{
+			"id": "C9-023",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Commercial terms",
+			"tags": [
+				"m365-copilot",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "Which subscription term does Microsoft's partner guidance point to when a customer needs the flexibility to cancel at the end of any month?",
+			"choices": [
+				"A three-year term paid monthly",
+				"An annual term paid yearly",
+				"An annual term with auto-renew turned off",
+				"A monthly-term subscription"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Subscriptions come in one-month, one-year and three-year terms. Microsoft's partner guidance notes a monthly term allows cancellation at the end of any month. List prices differ by term, so compare them. Paying for flexibility on a pilot cohort can be cheaper than committing annual seats that end up unused.",
+			"source": "https://learn.microsoft.com/en-us/partner-center/new-commerce-cancellation-policy"
+		},
+		{
+			"id": "C9-024",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Commercial terms",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"seat-strategy",
+				"whats-new"
+			],
+			"difficulty": "hard",
+			"question": "What contract advice did Gartner give buyers of Microsoft's AI bundles in 2026, as reported by The Register?",
+			"choices": [
+				"Avoid nonreduction clauses that prevent taking advantage of later changes, and push for bigger discounts on bigger bundles",
+				"Sign three-year nonreduction commitments to lock in the 2026 promotional discounts before Microsoft raises Copilot prices again",
+				"Avoid enterprise agreements and buy all Copilot seats online by credit card instead",
+				"Buy E7 for every user now, because Agent 365 prices will rise sharply in 2027"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Gartner advised avoiding nonreduction clauses, said bigger bundles should get bigger discounts (it put E7's discount versus à la carte at 13.2%), and didn't recommend upgrading to E7 just for Agent 365. Keep the customer's ability to shrink and switch, especially while agent pricing is still changing.",
+			"source": "https://www.theregister.com/2026/03/09/microsoft_adds_a_premium_tier/"
+		},
+		{
+			"id": "C9-025",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Adoption context",
+			"tags": [
+				"m365-copilot",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "Based on Microsoft's FY26 Q2 results as reported by Office 365 for IT Pros, roughly what share of the Microsoft 365 paid seat base had Copilot?",
+			"choices": [
+				"Around 60%",
+				"Around 30%",
+				"Around 3%",
+				"Around 90%"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Office 365 for IT Pros put Copilot at about 3.3% of a 450-million-plus paid seat base, based on Microsoft's FY26 Q2 results. Most organizations still license selectively. 'Everyone' is the exception, which is useful context when a customer worries about falling behind.",
+			"source": "https://office365itpros.com/2026/03/17/is-the-new-agent-365-worth-99/amp/"
+		},
+		{
+			"id": "C9-026",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Tenant-wide benefits",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"sharepoint",
+				"licensing",
+				"oversharing",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "A customer licenses only a 200-person pilot. Which tenant-wide capabilities does that small purchase unlock?",
+			"choices": [
+				"Nothing outside the 200 licensed users, because every Copilot benefit is strictly per seat",
+				"Free Copilot Credits for every unlicensed user in the tenant",
+				"SharePoint Advanced Management, and tenant graph grounding for Copilot Studio agents",
+				"Copilot in Word and Excel for every user in the tenant, licensed or not"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "SAM becomes available once at least one user has a Microsoft 365 Copilot license, which supports oversharing cleanup across the tenant. Copilot Studio's tenant graph grounding also needs at least one Copilot license in the tenant (the maker doesn't need one). A modest pilot can enable governance work and agent grounding for everyone.",
+			"source": "https://learn.microsoft.com/en-us/sharepoint/sharepoint-advanced-management-prerequisites"
+		},
+		{
+			"id": "C9-027",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Rollout",
+			"tags": [
+				"m365-copilot",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "What does Microsoft recommend completing before deploying Microsoft 365 Copilot, in its IT admin onboarding guide?",
+			"choices": [
+				"A Microsoft 365 E7 upgrade for all users",
+				"The Copilot Optimization Assessment",
+				"Migration of all files to OneDrive",
+				"A Fabric F64 capacity purchase"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "The onboarding guide's five steps: prepare the organization (including the Copilot Optimization Assessment, which Microsoft recommends before deploying), choose the license, get apps and network ready, set up Copilot and assign licenses, then send a welcome email and enable feedback. The Adoption site adds a Success Kit and a scenario library with success measures by role.",
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-setup"
+		},
+		{
+			"id": "C9-028",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Value case",
+			"tags": [
+				"m365-copilot",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "Microsoft's Cloud Adoption Framework lists four elements of an AI ROI case. Which caution does it give about productivity?",
+			"choices": [
+				"Productivity gains always pay back a Copilot seat within three months",
+				"Productivity gains are guaranteed once 80% of licensed users are active weekly",
+				"Productivity can't be measured, so ROI cases should rely on employee sentiment only",
+				"Productivity gains don't automatically translate into financial savings"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "CAF's ROI elements are business baseline, total cost (including governance and monitoring), net business value, and further investment (expand, improve or retire). It warns that productivity gains don't automatically become savings, and that pilots without stop criteria rarely end. Hours saved has to translate into an outcome the CFO recognizes.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan"
+		},
+		{
+			"id": "C9-029",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Seat strategy",
+			"tags": [
+				"m365-copilot",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "hard",
+			"question": "A CIO asks for a single sentence on how to approach 'Premium for everyone'. Which answer best reflects Microsoft's own tooling and the commercial rules?",
+			"choices": [
+				"Buy annual seats for everyone at once, since idle seats can be cancelled later for a prorated refund at any point during the term, and Microsoft will credit the difference",
+				"License nobody yet, because free Copilot Chat already includes Researcher, Analyst and full Work IQ grounding",
+				"Buy E7 for everyone, because it includes unlimited Copilot Credits that remove all usage-based costs",
+				"Start with roles whose work lives in mail, meetings and files, measure with the usage report and dashboard, reassign idle seats, and grow at renewal"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Premium's distinct value is full work-data grounding, advanced agents and priority. Microsoft gives you readiness candidates, active-user rates, dashboard impact and nudges to target seats. New commerce rules make reductions possible only at renewal, while additions are possible anytime. Free Copilot Chat plus targeted pay-as-you-go agents covers lighter users.",
+			"source": "https://support.microsoft.com/en-us/topic/what-s-the-difference-between-using-copilot-chat-with-or-without-a-microsoft-365-copilot-license-5810b659-fbe0-48ee-9fe6-d731fe86cdeb"
+		},
+		{
+			"id": "C9-030",
+			"section": 9,
+			"sectionName": "Seat strategy and value",
+			"topic": "Seat strategy",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"pricing",
+				"licensing",
+				"seat-strategy"
+			],
+			"difficulty": "medium",
+			"question": "Which data source does Microsoft suggest checking to find good candidates for additional Copilot licenses?",
+			"choices": [
+				"Members of the IT department, since they can troubleshoot Copilot for their colleagues",
+				"Heavy users in the Copilot Chat usage report, who are already using the free experience",
+				"Employees with the most unread email, since Copilot will summarize their inbox for them",
+				"Users with the largest OneDrive storage, because they have the most content to ground on"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Microsoft points to Copilot Chat usage (unlicensed users) and the readiness report's suggested candidates as signals. Demand shown in the free experience is a better predictor of value than job title alone.",
+			"source": "https://learn.microsoft.com/en-us/viva/insights/org-team-insights/copilot-dashboard"
+		},
+		{
+			"id": "C10-001",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Decision path",
+			"tags": [
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "What's the first question in the Cloud Adoption Framework's decision tree for AI agents?",
+			"choices": [
+				"Which foundation model has the highest benchmark score for the customer's language?",
+				"How many Copilot Credits will the agent consume in its first month of use?",
+				"Does the task need an agent at all, or would code or a non-generative model do?",
+				"Should the agent be hosted in Copilot Studio, Foundry or a container platform?"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "CAF starts by asking whether the task needs an agent. Structured, predictable tasks suit traditional automation, and static Q&A or generation without reasoning doesn't need one either. Agents fit when AI must reason about information and decide or coordinate actions. Plenty of 'agent' requests are really workflow or search problems.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy"
+		},
+		{
+			"id": "C10-002",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Decision path",
+			"tags": [
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "If a task does need an agent, what does the Cloud Adoption Framework recommend checking next?",
+			"choices": [
+				"Whether Foundry supports the language, since Foundry is the default for all agents",
+				"Whether the team can fine-tune its own model on GPUs, before using any vendor agents",
+				"Whether a SaaS agent already meets the requirements, before building one",
+				"Whether the agent can be built without IT, so makers aren't slowed down by governance"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "CAF's next step is SaaS agents: Microsoft 365 Copilot agents, GitHub Copilot, Fabric data agents, Dynamics 365 agents, Security Copilot and so on. 'Start with existing solutions when they meet business requirements.' Prebuilt agents cut development effort but offer less customization. Coaching angle: Genie is also an existing, governed solution for data questions.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy"
+		},
+		{
+			"id": "C10-003",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Decision path",
+			"tags": [
+				"copilot-studio",
+				"foundry",
+				"oversharing",
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "When building is necessary, which three platform options does the Cloud Adoption Framework name?",
+			"choices": [
+				"Copilot Studio (SaaS, low-code), Microsoft Foundry (PaaS, pro-code), and GPUs and containers (IaaS)",
+				"Azure OpenAI, Azure Machine Learning and Azure Functions, chosen by the expected request volume",
+				"Microsoft 365 Copilot, Teams and SharePoint, chosen by where users spend most of their time",
+				"Agent Builder, Power Automate and Excel macros, chosen according to each business user's skill level"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "CAF names Copilot Studio (SaaS, no/low-code), Foundry (PaaS, pro-code) and GPUs and containers (IaaS). The guidance is to approve the option that meets requirements with the least operational responsibility. Azure infrastructure 'shouldn't be the default approach' unless you need control over models or runtimes that managed platforms can't give.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy"
+		},
+		{
+			"id": "C10-004",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Decision path",
+			"tags": [
+				"governance",
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "What principle does Microsoft's AI adoption guidance give for choosing among SaaS, PaaS and IaaS AI solutions?",
+			"choices": [
+				"Pick whatever the largest internal team already knows, to avoid any retraining",
+				"Pick the cheapest per-request option, because operations cost is negligible for AI",
+				"Approve the solution that meets requirements with the least operational responsibility",
+				"Always pick the most customizable option available, because requirements will inevitably grow over time"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Microsoft's guidance: 'approve the solution that meets their requirements with the least operational responsibility.' More customization needs more specialized skills and more operational ownership. It's a useful lens for steering a customer away from building custom data agents when a governed product such as Genie already does the job.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy"
+		},
+		{
+			"id": "C10-005",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Builder choice",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"agent-types",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "In Microsoft's Copilot Studio maturity model, what's the default for quick, knowledge-based agents in Microsoft 365?",
+			"choices": [
+				"Power Automate desktop flows with generative actions",
+				"Microsoft Foundry hosted agents built in Python",
+				"Custom engine agents built with the Agents SDK",
+				"Agent Builder in Microsoft 365 Copilot"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The maturity model standardizes Agent Builder as the default for quick, knowledge-based agents in Microsoft 365, and Copilot Studio as the standard for agents that need workflows, integrations and enterprise lifecycle management. Foundry is for advanced scenarios.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-technology"
+		},
+		{
+			"id": "C10-006",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Builder choice",
+			"tags": [
+				"copilot-studio",
+				"agent-types",
+				"governance",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "According to the maturity model, when should a team move from Agent Builder to Copilot Studio?",
+			"choices": [
+				"When the agent uses SharePoint, since Agent Builder can't read SharePoint content",
+				"When the agent needs a custom model trained on GPUs inside the tenant",
+				"When the agent has more than 10 users, regardless of what it actually does",
+				"When the agent needs workflows, integrations and enterprise lifecycle management"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Copilot Studio is the standard for agents needing workflows, integrations (connectors, MCP, other agents) and ALM. It also brings Copilot Credit billing for unlicensed and autonomous use, so the move has cost implications as well as capability ones.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-technology"
+		},
+		{
+			"id": "C10-007",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Builder choice",
+			"tags": [
+				"copilot-studio",
+				"pricing",
+				"licensing",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "Microsoft's agent solutions training module describes three approaches: adopt, extend and build. What does 'build' typically cost?",
+			"choices": [
+				"Azure, Copilot Studio or other licenses, plus infrastructure and consumption costs",
+				"Nothing beyond developer time, since agent hosting in Azure is free",
+				"Only the Microsoft 365 Copilot license, since building custom agents is included in every seat",
+				"A one-time fee per agent, paid when the agent is first published"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "The module compares cost: adopt (the Microsoft 365 Copilot license or Copilot Chat), extend (may need connector or Copilot Studio licenses), and build (Azure, Copilot Studio or other licenses plus infrastructure and consumption). Development effort and customization rise from adopt to build.",
+			"source": "https://learn.microsoft.com/en-us/training/modules/introduction-microsoft-ai-agent-solutions/6-choose-your-agent-solution"
+		},
+		{
+			"id": "C10-008",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Use-case selection",
+			"tags": [
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "Which three lenses does the Cloud Adoption Framework use to prioritize agent use cases?",
+			"choices": [
+				"Number of users, number of data sources and number of tools, ranked from highest to lowest",
+				"Executive sponsor seniority, budget size and vendor preference, as set by procurement",
+				"Model accuracy, token cost and response latency, measured in a lab before any business input",
+				"Business impact, user desirability and technical feasibility"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Strong candidates have executive alignment and measurable value, clear personas with a daily pain point, and technical feasibility: errors that are reversible or contained, mature safeguards, and a real need to reason over variable inputs. Weak candidates follow fixed, predictable steps, or touch payments and customer commitments.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan"
+		},
+		{
+			"id": "C10-009",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Use-case selection",
+			"tags": [
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "Under CAF's technical-feasibility lens, which candidate is weakest for a first agent?",
+			"choices": [
+				"An agent that drafts internal summaries, which a person reviews and edits before sending them on",
+				"An agent that triages IT tickets and suggests a category for a technician to confirm",
+				"An agent that answers policy questions from a curated, permission-trimmed SharePoint library",
+				"An agent that commits payments or customer-facing promises, where mistakes are hard to reverse"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "CAF favors use cases where errors are reversible or contained and safeguards are mature, and it names payments and customer commitments as weak candidates. Start where a human checks the output, then expand to actions with approvals.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan"
+		},
+		{
+			"id": "C10-010",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Single vs multi-agent",
+			"tags": [
+				"teams",
+				"security",
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "When does the Cloud Adoption Framework say to start with a multi-agent design rather than a single agent?",
+			"choices": [
+				"Whenever more than one data source is involved, since a single agent can only read from one source at a time",
+				"When the use case crosses security or compliance boundaries, involves multiple teams, or is known to grow",
+				"Whenever the agent will be published to Teams and Microsoft 365 Copilot at the same time",
+				"Always, because multi-agent systems are cheaper to run than single agents"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "CAF: start multi-agent if the use case crosses security and compliance boundaries, has multiple teams, or has known future growth. Otherwise run a single-agent test first. Extra agents add orchestration hops, latency, testing surface and governance overhead, so they need a reason.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy"
+		},
+		{
+			"id": "C10-011",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Single vs multi-agent",
+			"tags": [
+				"copilot-studio",
+				"teams",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "In Copilot Studio, what's Microsoft's rule of thumb for splitting work into connected agents rather than one agent?",
+			"choices": [
+				"Whenever the agent has more than three knowledge sources of any type, or is used by more than 1,000 people each month",
+				"Only when the agents come from different vendors, since agents from the same vendor must be merged into one",
+				"When tool choice degrades (roughly 30 to 40 tools, topics and agents) or teams need separate ALM",
+				"Whenever any action needs a premium Power Platform connector"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Connected agents fit when tool selection degrades (more than about 30 to 40 choices, or many similar descriptions), multiple teams are involved, separate publishing, ALM or settings are needed, or there's reuse. Child agents suit a single task owned by one small team. Mixing both is allowed, but each hop adds latency.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents"
+		},
+		{
+			"id": "C10-012",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Single vs multi-agent",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"fabric",
+				"fabric-data-agents",
+				"governance",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "A Copilot Studio agent connects to a Fabric data agent and is then published to Microsoft 365 Copilot. What does Microsoft's documentation warn?",
+			"choices": [
+				"It works, but only for users who hold both a Fabric capacity license and a Power BI Pro license",
+				"Fabric data agent connections don't work when the main agent is deployed to Microsoft Copilot",
+				"It works, but the Fabric data agent's answers are capped at 10 rows instead of 25",
+				"It works everywhere, as long as the Fabric capacity is F64 or larger"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Microsoft's multi-agent page notes Fabric data agents don't work when the main agent is deployed to Microsoft Copilot, and that connections to Foundry, Fabric and Agents SDK agents are in preview. Check channel support for every agent-to-agent path. Genie's Microsoft 365 Copilot plugin and Teams app are separate, supported paths.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents"
+		},
+		{
+			"id": "C10-013",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Interoperability",
+			"tags": [
+				"mcp",
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "Which protocols does the Cloud Adoption Framework say can reduce integration complexity between agents and tools?",
+			"choices": [
+				"OData and FTP",
+				"SMTP and IMAP",
+				"SOAP and WS-Security",
+				"MCP and A2A"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "CAF names MCP (agent-to-tool) and A2A (agent-to-agent). Copilot Studio supports both, Foundry has A2A v1.0 GA, and Databricks exposes Genie through managed MCP servers. Open protocols keep the architecture multi-vendor and let a customer govern a Genie-backed agent alongside Microsoft agents.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy"
+		},
+		{
+			"id": "C10-014",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Governance by design",
+			"tags": [
+				"governance",
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "How does the Cloud Adoption Framework say agent risk should mainly be managed?",
+			"choices": [
+				"By choosing the most accurate model available, since accuracy removes risk",
+				"By limiting agent access and requiring human approval for higher-risk actions",
+				"By keeping agents out of production until every possible prompt has been tested",
+				"By letting each maker decide their own risk level, to keep innovation fast"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "CAF: manage risk by limiting agent access and requiring human approval for higher-risk actions, backed by Agent 365 for visibility, Entra Agent ID and Defender for security, and Purview for data. The business owner accepts residual risk. Least privilege at the data layer, such as Unity Catalog grants for Genie, is the same principle.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/operational-standards"
+		},
+		{
+			"id": "C10-015",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Evaluation",
+			"tags": [
+				"governance",
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "What does the Cloud Adoption Framework require of every production agent before it goes live?",
+			"choices": [
+				"A signed statement from the model vendor guaranteeing accuracy",
+				"Defined acceptance thresholds, approved by business owners",
+				"A Microsoft certification badge from the Agent Store review team",
+				"At least 1,000 test prompts written by the security team"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "CAF: 'Every production agent should have defined acceptance thresholds,' approved by business owners. Knowledge agents might measure answer accuracy, and action-taking agents also need evidence they pick the right actions and respect approval boundaries. Re-evaluate after model, instruction or permission changes, in proportion to impact.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/operational-standards"
+		},
+		{
+			"id": "C10-016",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Evaluation",
+			"tags": [
+				"copilot-studio",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "What does Copilot Studio's agent evaluation feature let a team do?",
+			"choices": [
+				"Run test sets of questions or conversations, with expected answers, and score each case repeatably",
+				"Fine-tune the agent's model on failed test cases, automatically, after every run",
+				"Simulate thousands of concurrent users to measure the agent's latency under load",
+				"Certify an agent for the Agent Store, which then removes any need for further testing after changes"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Evaluation uses test cases (single questions or whole conversations, optionally with expected responses) grouped into test sets that can be generated from knowledge or topics, imported or hand-written. Each case is scored, with transcripts and activity maps, and runs can be automated through REST APIs and connectors for CI/CD. It complements, rather than replaces, manual test chat.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro"
+		},
+		{
+			"id": "C10-017",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Evaluation",
+			"tags": [
+				"copilot-studio",
+				"security",
+				"oversharing",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "Which limitation of Copilot Studio agent evaluation matters for an agent that uses per-user downstream permissions?",
+			"choices": [
+				"Evaluation runs as a system account, so permission-trimmed answers always look complete during testing",
+				"Evaluation only works for agents published to public websites through Direct Line",
+				"Evaluation only supports agents with no knowledge sources, so grounded agents can't be tested",
+				"Evaluation runs as the signed-in user and doesn't support agents set to 'Authenticate manually'"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Evaluations run as the currently signed-in user (to test as someone else, sign in as them). Only 'No authentication' and 'Authenticate with Microsoft' agents are supported, and Fabric data agents aren't supported. For agents whose answers depend on who's asking, plan persona-based testing deliberately.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro"
+		},
+		{
+			"id": "C10-018",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Cost by design",
+			"tags": [
+				"pricing",
+				"seat-strategy",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "Which cost metric does the Cloud Adoption Framework suggest for agents when outcomes are comparable?",
+			"choices": [
+				"Cost per agent published",
+				"Cost per token generated",
+				"Cost per successful task",
+				"Cost per registered user per month"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "CAF notes one business task can trigger multiple model requests and tool calls, so it suggests cost per successful task, and restrictive consumption limits for experimental agents. That lets you compare a Copilot Studio agent (credits), a Foundry agent (tokens and tools) and Genie (DBUs) on the same basis.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/operational-standards"
+		},
+		{
+			"id": "C10-019",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Cost by design",
+			"tags": [
+				"copilot-studio",
+				"pricing",
+				"licensing",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "A Copilot Studio agent will serve 3,000 unlicensed employees, answering from an HR SharePoint site. Which design choice most reduces Copilot Credit cost?",
+			"choices": [
+				"Publish the agent to a public website so it runs outside the tenant's credit pool",
+				"Switch to a reasoning model, which bills fewer Copilot Credits per answer than the standard models do",
+				"Scope knowledge tightly and avoid tenant graph grounding unless needed, since grounding is 10 credits per use",
+				"Add more knowledge sources so each answer needs fewer generative calls"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "For unlicensed users, a grounded answer is about 2 (generative) + 10 (tenant graph grounding) credits. Tenant graph grounding is optional for non-licensed users and comes at extra cost. Reasoning models add a premium token meter. Steering heavy users into licensed Microsoft channels, or licensing the heaviest users, changes the math too.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio"
+		},
+		{
+			"id": "C10-020",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Knowledge design",
+			"tags": [
+				"copilot-studio",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "How many SharePoint URLs can a Copilot Studio agent use as knowledge with generative orchestration?",
+			"choices": [
+				"Up to 4",
+				"Up to 25",
+				"Unlimited, with no filtering",
+				"Only 1"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "With generative orchestration, SharePoint and public websites allow 25 entries each (classic orchestration allows 4). Beyond 25 knowledge sources, an internal model filters which to use, and uploaded files don't count toward the 25. For broad enterprise search, Copilot connectors or Copilot itself may fit better than one agent with dozens of sources.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio"
+		},
+		{
+			"id": "C10-021",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Knowledge design",
+			"tags": [
+				"copilot-studio",
+				"governance",
+				"security",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "A maker uploads HR policy PDFs directly into a Copilot Studio agent. What's the governance implication?",
+			"choices": [
+				"Uploads are encrypted with each user's key, so only the uploader can read answers",
+				"Uploads are rejected unless every file carries a sensitivity label",
+				"Uploaded files live in Dataverse and aren't permission-trimmed per user, unlike SharePoint knowledge",
+				"Uploads inherit each original file's SharePoint permissions automatically, so access stays exactly as it was"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Uploaded files go to Dataverse with no per-user authentication, while SharePoint, Dataverse and connector knowledge use the user's own access, so the agent only shows what that user can see. Uploads also consume Dataverse storage. Use SharePoint for content where permissions matter.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio"
+		},
+		{
+			"id": "C10-022",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Knowledge design",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"licensing",
+				"security",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "What does tenant graph grounding in Copilot Studio require?",
+			"choices": [
+				"A Copilot license for every user who will chat with the agent",
+				"Generative orchestration, 'Authenticate with Microsoft', and one Copilot license somewhere in the tenant",
+				"Classic orchestration and an Azure OpenAI resource owned by the maker",
+				"A Fabric capacity of F64 or larger, plus a Purview DSPM for AI license for every maker who builds the agent"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Tenant graph grounding with semantic search needs generative orchestration, 'Authenticate with Microsoft', and a Microsoft 365 Copilot license assigned to at least one user in the tenant (not necessarily the maker). Licensed users get it by default, others at extra cost, and it can add latency.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio"
+		},
+		{
+			"id": "C10-023",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Knowledge design",
+			"tags": [
+				"copilot-studio",
+				"spend-controls",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "What happens in Copilot Studio when 'Allow ungrounded responses' is turned off and the agent can't find a knowledge source or tool for a question?",
+			"choices": [
+				"The response is blocked and the fallback topic fires, and knowledge answers also need a citation",
+				"The agent answers from the model's general knowledge and adds a small warning label to the response",
+				"The agent retries with a reasoning model until it finds an answer",
+				"The agent escalates automatically to a human through Omnichannel"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "With ungrounded responses off, turns that use no knowledge or tool are blocked and fallback fires, and answers from knowledge must carry an in-text citation or they're withheld. That's a strong guardrail for regulated content, at the cost of more 'I can't help with that' moments.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio"
+		},
+		{
+			"id": "C10-024",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "ALM",
+			"tags": [
+				"copilot-studio",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "What does a Copilot Studio agent need in order to be moved between development, test and production environments?",
+			"choices": [
+				"Nothing. Agents move automatically between environments when the maker changes the environment dropdown",
+				"A copy-and-paste of each topic into the new environment by the original maker",
+				"A Microsoft support ticket, since agents are pinned to the environment they were created in",
+				"To live in a custom solution, which can be exported and imported or deployed with pipelines"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Agents are created in a solution, the default solution unless changed. Moving them requires a custom solution, deployed by export and import or by Power Platform pipelines. Managed solutions in downstream environments make agents read-only and undeletable there, so fixes flow from the source environment, which is proper ALM.",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-overview"
+		},
+		{
+			"id": "C10-025",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "ALM",
+			"tags": [
+				"power-platform",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "What does Power Platform environment routing do for makers?",
+			"choices": [
+				"It sends makers to their own developer environment instead of the shared default one",
+				"It routes each agent's traffic to the Azure region closest to the user, to reduce latency for global teams",
+				"It assigns makers to the environment their manager uses",
+				"It moves finished agents to production automatically when tests pass"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Routing (a premium governance feature) sends makers in Copilot Studio, Power Apps and Power Automate to personal developer environments, which are managed by default, limit sharing to five individuals and exclude security groups. If no rule matches, makers land in the default environment. Unmanaged developer environments are suspended from December 15, 2026.",
+			"source": "https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing"
+		},
+		{
+			"id": "C10-026",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "ALM",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"licensing",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "What does Microsoft say about licensing for Managed Environments?",
+			"choices": [
+				"It's only available in Microsoft 365 E7 tenants, through Agent 365",
+				"It's a separate $40 per environment per month add-on that every tenant must buy for each environment it manages",
+				"It's included with standalone Power Platform, Copilot Studio and Dynamics 365 licenses",
+				"It's included free for everyone with any Microsoft 365 license, at no extra cost"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Managed Environments bundle premium governance: sharing limits, usage insights, data policies, pipelines, Solution Checker, IP firewall, customer-managed keys and Lockbox. They're included with standalone Power Platform, Copilot Studio and Dynamics 365 licenses, and users running assets in managed developer environments need premium licenses. Factor that into the governance budget.",
+			"source": "https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview"
+		},
+		{
+			"id": "C10-027",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Data questions",
+			"tags": [
+				"power-bi",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "What does Microsoft's documentation say the standalone Copilot experience in Power BI does when a question doesn't relate to a semantic model's data?",
+			"choices": [
+				"It answers from the large language model's general knowledge",
+				"It searches SharePoint for a document that matches the question",
+				"It refuses and shows the 'no relevant data' fallback message",
+				"It escalates the question to a Fabric data agent automatically"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Microsoft's Copilot for Power BI page says standalone Copilot answers from the semantic model when the question relates to its data, and otherwise from the model's general knowledge. That's a governance and accuracy concern for 'ask your data' use. Microsoft also lists the standalone experience as preview and retiring.",
+			"source": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-introduction"
+		},
+		{
+			"id": "C10-028",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Data questions",
+			"tags": [
+				"m365-copilot",
+				"fabric",
+				"power-bi",
+				"licensing",
+				"architecture"
+			],
+			"difficulty": "medium",
+			"question": "What does standalone Copilot in Power BI require beyond a Power BI Pro or PPU license?",
+			"choices": [
+				"Paid Fabric capacity (F2 or higher) or Premium (P1 or higher); Pro or PPU alone isn't enough",
+				"A Databricks SQL warehouse connected through DirectQuery",
+				"Nothing; it's included with Power BI Pro for every licensed user",
+				"A Microsoft 365 Copilot license for every user who asks a question, on top of their Power BI Pro license"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Copilot in Power BI requires organizational capacity: paid F2+ or P1+ (or a Fabric Copilot capacity), and tenant settings for Azure OpenAI and the standalone experience. Trial and free SKUs aren't supported. Microsoft has marked standalone Copilot in Power BI as retiring, so don't build a strategy on it.",
+			"source": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-chat-with-data-standalone"
+		},
+		{
+			"id": "C10-029",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Data questions",
+			"tags": [
+				"genie",
+				"unity-catalog",
+				"governance",
+				"security",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "A sales team wants governed answers on revenue that match the CFO's definitions and each rep's territory. Which option fits best?",
+			"choices": [
+				"Analyst over an Excel export emailed to the team weekly, since it runs Python on the numbers and shows its code",
+				"A Copilot Studio agent with the revenue CSV uploaded as a knowledge file",
+				"A Genie Agent over Unity Catalog metric views, used with each rep's own identity",
+				"Standalone Copilot in Power BI, which falls back to general knowledge when unsure"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Governed metrics and per-user row filters live in Unity Catalog. A Genie Agent over metric views answers with the asking user's identity, so definitions and territories hold. An emailed export loses row-level security and drifts. Uploaded knowledge files aren't permission-trimmed. Standalone Power BI Copilot can fall back to general knowledge and is retiring.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-m365-copilot"
+		},
+		{
+			"id": "C10-030",
+			"section": 10,
+			"sectionName": "Agent architecture decisions",
+			"topic": "Data questions",
+			"tags": [
+				"fabric-data-agents",
+				"genie",
+				"governance",
+				"architecture"
+			],
+			"difficulty": "hard",
+			"question": "Under CAF's buy-before-build guidance, how should a customer treat governed data Q&A when Databricks already holds the data?",
+			"choices": [
+				"Wait for Microsoft to ship a Databricks connector inside Agent Builder",
+				"Always build a custom Foundry agent, because SaaS agents can't reach enterprise data in Databricks or Fabric",
+				"Use an existing governed agent such as Genie before building custom data agents",
+				"Mirror everything into Fabric first, since CAF requires Microsoft-native data for agents"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "CAF says to start with existing solutions when they meet requirements and to choose the least operational responsibility. Genie is a ready-made, governed agent on the data's home platform, and it plugs into Copilot through the plugin, the Teams app or MCP. Building a custom text-to-SQL agent means owning accuracy, evaluation and security yourself.",
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy"
 		}
 	]
 }

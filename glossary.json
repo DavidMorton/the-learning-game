@@ -60,7 +60,9 @@
 				"work-iq",
 				"microsoft-graph",
 				"everyday-advanced-ai",
-				"cowork"
+				"cowork",
+				"researcher",
+				"copilot-usage-report"
 			],
 			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-licensing"
 		},
@@ -310,6 +312,99 @@
 			"source": "https://learn.microsoft.com/en-us/copilot/plan/usage-based-billing-overview-copilot-credits"
 		},
 		{
+			"id": "researcher",
+			"term": "Researcher agent",
+			"category": "m365",
+			"aliases": [
+				"Researcher"
+			],
+			"definition": "A built-in Microsoft 365 Copilot agent for deep, multi-step research across Microsoft Graph, Copilot connectors and the web, with citations. Complex requests can take 10 to 45 minutes. It's included with the Copilot license and capped at 25 queries per user per month in Microsoft's FAQ. Its only web control is the tenant-wide web search setting.",
+			"related": [
+				"analyst",
+				"m365-copilot",
+				"microsoft-graph",
+				"copilot-connectors"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/faq-researcher"
+		},
+		{
+			"id": "analyst",
+			"term": "Analyst agent",
+			"category": "m365",
+			"aliases": [
+				"Analyst"
+			],
+			"definition": "A built-in Microsoft 365 Copilot agent that reasons like a data scientist over the data a user gives it, running Python with the code visible. Microsoft says it suits Excel-related tasks. It's included with the Copilot license. It analyzes the files a user provides rather than querying a governed semantic layer, so check where metric definitions and row-level security come from.",
+			"related": [
+				"researcher",
+				"m365-copilot",
+				"genie-agent",
+				"metric-views"
+			],
+			"source": "https://www.microsoft.com/en-us/copilot/blog/2025/06/02/researcher-and-analyst-are-now-generally-available-in-microsoft-365-copilot/"
+		},
+		{
+			"id": "copilot-usage-report",
+			"term": "Copilot usage and readiness reports",
+			"category": "m365",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"usage report",
+				"readiness report",
+				"Copilot usage report",
+				"Copilot Chat usage report",
+				"Suggested candidate for Copilot",
+				"active users rate"
+			],
+			"definition": "Microsoft 365 admin center reports (Reports > Usage > Microsoft Copilot). They show enabled and active users (an active user submitted a prompt), the active-user rate, prompts, and each user's last activity by app, over 7, 28, 90 or 180 days. The readiness tab flags the top 25% of unlicensed users by app usage as suggested candidates. A separate Copilot Chat report covers unlicensed users only. Names are hidden by default.",
+			"related": [
+				"copilot-dashboard",
+				"organizational-messages",
+				"m365-copilot",
+				"nce"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage"
+		},
+		{
+			"id": "copilot-dashboard",
+			"term": "Copilot Dashboard (Copilot Analytics)",
+			"category": "m365",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"Copilot Dashboard",
+				"Copilot Analytics",
+				"assisted hours",
+				"Viva Insights"
+			],
+			"definition": "The Viva Insights dashboard for Copilot readiness, adoption, impact (actions, estimated assisted hours and value) and sentiment. It starts with one Copilot license. At 50+ Copilot or Viva Insights licenses it adds agent insights, benchmarks and trendlines. Data refreshes daily over 28 days with up to six days of delay. Microsoft calls it decision support, not an exact ledger.",
+			"related": [
+				"copilot-usage-report",
+				"m365-copilot"
+			],
+			"source": "https://learn.microsoft.com/en-us/viva/insights/org-team-insights/copilot-dashboard"
+		},
+		{
+			"id": "organizational-messages",
+			"term": "Organizational Messages",
+			"category": "m365",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"Organizational Messages",
+				"Organizational Messaging"
+			],
+			"definition": "Admin-authored prompts shown inside Windows and Teams. From the Copilot usage report, admins can target licensed users with no Copilot use in a rolling 30 days and track views and clicks: nudge first, reassign seats later.",
+			"related": [
+				"copilot-usage-report"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/track-copilot-adoption"
+		},
+		{
 			"id": "copilot-studio",
 			"term": "Copilot Studio",
 			"category": "agents",
@@ -324,7 +419,10 @@
 				"generative-orchestration",
 				"harness",
 				"mcp",
-				"azure-databricks-connector"
+				"azure-databricks-connector",
+				"knowledge-sources",
+				"connected-agents",
+				"power-platform-alm"
 			],
 			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing"
 		},
@@ -591,7 +689,8 @@
 				"hosted-agent",
 				"mcp",
 				"a2a",
-				"custom-engine-agent"
+				"custom-engine-agent",
+				"caf"
 			],
 			"source": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
 		},
@@ -852,6 +951,38 @@
 				"pay-as-you-go"
 			],
 			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits"
+		},
+		{
+			"id": "nce",
+			"term": "New Commerce Experience (NCE)",
+			"category": "billing",
+			"aliases": [
+				"new commerce",
+				"New Commerce Experience",
+				"NCE"
+			],
+			"definition": "Microsoft's subscription rules for seat-based licenses. Seats can be reduced or cancelled for a prorated refund only within seven calendar days of purchase or renewal. After that the count can rise mid-term but only fall at renewal. Terms are one month, one year or three years, and a monthly term allows cancellation at the end of any month.",
+			"related": [
+				"purchase-channels",
+				"m365-copilot",
+				"copilot-usage-report"
+			],
+			"source": "https://learn.microsoft.com/en-us/partner-center/new-commerce-cancellation-policy"
+		},
+		{
+			"id": "nonreduction-clause",
+			"term": "Nonreduction clause",
+			"category": "billing",
+			"aliases": [
+				"nonreduction clause",
+				"nonreduction clauses",
+				"nonreduction"
+			],
+			"definition": "A contract term that stops a customer from reducing license counts at renewal. Gartner advised avoiding them in 2026 Microsoft AI deals, so customers can respond to price and product changes.",
+			"related": [
+				"nce",
+				"m365-e7"
+			]
 		},
 		{
 			"id": "security-copilot",
@@ -1527,6 +1658,23 @@
 			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
 		},
 		{
+			"id": "standalone-pbi-copilot",
+			"term": "Standalone Copilot in Power BI",
+			"category": "fabric",
+			"aliases": [
+				"standalone Copilot in Power BI",
+				"standalone Copilot"
+			],
+			"definition": "A full-screen Power BI chat (preview) that finds and answers questions across reports and semantic models a user can access. It needs F2+ or P1+ capacity, and Pro or PPU alone isn't enough. When a question isn't about the model's data, it answers from general model knowledge. Microsoft has announced it's retiring, while Copilot within reports continues.",
+			"related": [
+				"copilot-in-fabric",
+				"power-bi",
+				"semantic-model",
+				"fabric-data-agent"
+			],
+			"source": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-chat-with-data-standalone"
+		},
+		{
 			"id": "azure-openai",
 			"term": "Azure OpenAI",
 			"category": "fabric",
@@ -1924,7 +2072,8 @@
 				"power-bi-licenses",
 				"semantic-model",
 				"direct-lake",
-				"fabric-capacity"
+				"fabric-capacity",
+				"standalone-pbi-copilot"
 			],
 			"source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/service-features-license-type"
 		},
@@ -2037,7 +2186,8 @@
 				"semantic-model",
 				"copilot-studio",
 				"fabric-iq",
-				"fabric-copilot-capacity"
+				"fabric-copilot-capacity",
+				"connected-agents"
 			],
 			"source": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
 		},
@@ -3326,6 +3476,139 @@
 				"foundry"
 			],
 			"source": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
+		},
+		{
+			"id": "caf",
+			"term": "Cloud Adoption Framework (AI agents)",
+			"category": "agents",
+			"aliases": [
+				"Cloud Adoption Framework",
+				"CAF"
+			],
+			"definition": "Microsoft's adoption guidance. For agents, it asks whether a task needs an agent at all, prefers existing SaaS agents, and only then builds with Copilot Studio (SaaS), Foundry (PaaS) or infrastructure (IaaS), choosing the least operational responsibility. It also covers use-case prioritization, ROI, acceptance thresholds and cost per successful task.",
+			"related": [
+				"copilot-studio",
+				"foundry",
+				"agent-builder",
+				"agent-evaluation",
+				"connected-agents"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy"
+		},
+		{
+			"id": "connected-agents",
+			"term": "Connected and child agents",
+			"category": "agents",
+			"aliases": [
+				"connected agent",
+				"child agent",
+				"multi-agent"
+			],
+			"definition": "Copilot Studio's multi-agent options. A child agent is a lightweight sub-agent inside one agent. A connected agent is a separate agent with its own settings and ALM, which can also be a Foundry, Fabric data, A2A or Agents SDK agent (several in preview). Microsoft suggests splitting when tool choice degrades beyond roughly 30 to 40 options. Every hop adds latency.",
+			"related": [
+				"copilot-studio",
+				"a2a",
+				"fabric-data-agent",
+				"caf"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents"
+		},
+		{
+			"id": "agent-evaluation",
+			"term": "Agent evaluation",
+			"category": "agents",
+			"aliases": [
+				"agent evaluation",
+				"test set",
+				"acceptance threshold"
+			],
+			"definition": "Repeatable, scored testing of an agent against test sets of questions or conversations with expected answers, with safety evaluators and API automation for CI/CD. Copilot Studio runs evaluations as the signed-in user and doesn't support 'Authenticate manually' agents. CAF expects defined acceptance thresholds for every production agent.",
+			"related": [
+				"caf",
+				"copilot-studio",
+				"foundry"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro"
+		},
+		{
+			"id": "power-platform-alm",
+			"term": "Solutions and pipelines (ALM)",
+			"category": "agents",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"custom solution",
+				"managed solution",
+				"ALM",
+				"Power Platform pipelines"
+			],
+			"definition": "How Copilot Studio agents move from development through test to production. Agents must live in a custom solution, deployed by export and import or by Power Platform pipelines. In a managed solution downstream, the agent is read-only and can't be deleted there.",
+			"related": [
+				"environment-routing",
+				"managed-environments",
+				"copilot-studio"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-overview"
+		},
+		{
+			"id": "environment-routing",
+			"term": "Environment routing",
+			"category": "agents",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"environment routing",
+				"developer environment",
+				"default environment"
+			],
+			"definition": "A Power Platform governance feature that sends makers to their own managed developer environments instead of the shared default environment, with sharing limited to five people. Unmanaged developer environments are suspended from December 15, 2026.",
+			"related": [
+				"managed-environments",
+				"power-platform-alm",
+				"ppac"
+			],
+			"source": "https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing"
+		},
+		{
+			"id": "managed-environments",
+			"term": "Managed Environments",
+			"category": "agents",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"Managed Environment",
+				"Managed Environments"
+			],
+			"definition": "A suite of premium Power Platform governance features: sharing limits, usage insights, data policies, pipelines, Solution Checker, IP firewall, customer-managed keys and Lockbox. It's included with standalone Power Apps, Power Automate, Copilot Studio and Dynamics 365 licenses.",
+			"related": [
+				"environment-routing",
+				"power-platform-alm",
+				"power-platform-data-policies"
+			],
+			"source": "https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview"
+		},
+		{
+			"id": "knowledge-sources",
+			"term": "Knowledge sources (Copilot Studio)",
+			"category": "agents",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"knowledge source",
+				"Allow ungrounded responses",
+				"ungrounded"
+			],
+			"definition": "What a Copilot Studio agent answers from: SharePoint (up to 25 URLs with generative orchestration), public websites, Dataverse, Copilot connectors and uploaded files. SharePoint, Dataverse and connectors are permission-trimmed to the user. Uploaded files sit in Dataverse and aren't. With 'Allow ungrounded responses' off, answers without a source are blocked.",
+			"related": [
+				"tenant-graph-grounding",
+				"copilot-studio",
+				"copilot-connectors"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio"
 		}
 	]
 }
