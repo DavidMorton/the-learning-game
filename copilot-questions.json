@@ -1894,7 +1894,7 @@
 			"choices": [
 				"Fund Copilot Credits plus Foundry, GitHub AI and Security Copilot from one commitment",
 				"Swap Microsoft 365 Copilot seats between users every month and convert unused seats into Copilot Credits at list price",
-				"Reassign Microsoft 365 Copilot seats between users every month at no cost",
+				"Convert unused Microsoft 365 E5 licenses into Copilot Credits at list price",
 				"Buy Copilot seats on a monthly term without the usual monthly-billing premium"
 			],
 			"answerIndex": 0,
@@ -2235,7 +2235,7 @@
 			"question": "Which data does Customer Lockbox not cover, according to Copilot Studio's security and governance guide?",
 			"choices": [
 				"Dataverse tables that Copilot Studio agents read from or write to, and the SharePoint files they use as knowledge",
-				"SharePoint sites and files that agents use as knowledge sources",
+				"Power Automate cloud flows that agents trigger through connectors",
 				"Teams chats and channel messages where users talk to agents",
 				"Copilot Studio security audit logging telemetry and Agent 365 governance events"
 			],
@@ -2633,7 +2633,7 @@
 				"It's a permanent security boundary that replaces permission reviews and applies to OneDrive accounts as well as SharePoint sites",
 				"It takes effect within seconds, even on sites with millions of items",
 				"Microsoft calls it a temporary governance control and warns excessive use reduces Copilot's usefulness",
-				"It applies to OneDrive accounts as well as SharePoint sites"
+				"Delegating it to site admins is on by default, with no justification needed"
 			],
 			"answerIndex": 2,
 			"answer": "C",
@@ -4250,7 +4250,7 @@
 			"difficulty": "medium",
 			"question": "A customer has a large Azure MACC and worries that agent spend outside Microsoft won't count toward it. What's relevant for a Databricks-plus-Copilot strategy?",
 			"choices": [
-				"Neither Copilot Credits nor Azure Databricks spend can count toward it",
+				"Only Azure Databricks counts; Copilot Credits are billed through Microsoft 365",
 				"Only P3 counts toward MACC, and only for plans bought before 2027",
 				"Copilot Credits (PAYG or P3) decrement MACC, and Azure Databricks is Azure spend too",
 				"Only Microsoft 365 seat purchases count toward an Azure MACC; Copilot Credits and Azure Databricks spend never do"

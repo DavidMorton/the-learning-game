@@ -1,0 +1,3111 @@
+{
+	"title": "Microsoft Fabric: coaching question bank",
+	"asOf": "2026-11-24",
+	"generated": "2026-11-24",
+	"format": {
+		"choices": "Four options per question, in display order.",
+		"answerIndex": "Zero-based index into choices of the single correct option.",
+		"answer": "The same answer as a letter, A to D.",
+		"difficulty": "easy | medium | hard, the author's estimate.",
+		"source": "The Microsoft (or Databricks) page the question was checked against."
+	},
+	"notes": "Prices, rates and release states change often. Each question reflects its source as of the asOf date.",
+	"totalQuestions": 167,
+	"sections": [
+		{
+			"id": 1,
+			"name": "Platform and workloads",
+			"weight": 12,
+			"objectives": [
+				"OneLake as the foundation; Lakehouse, Warehouse and SQL database",
+				"Real-Time Intelligence, Data Factory and Spark",
+				"Fabric apps, databases and 2026 additions"
+			],
+			"questionCount": 23
+		},
+		{
+			"id": 2,
+			"name": "Capacity, SKUs and licensing",
+			"weight": 16,
+			"objectives": [
+				"F SKUs, capacity units and P SKU mapping",
+				"Power BI per-user licenses and the F64 viewer threshold",
+				"Reservations, overage, trial, pause and on-demand billing"
+			],
+			"questionCount": 25
+		},
+		{
+			"id": 3,
+			"name": "Smoothing, throttling and capacity health",
+			"weight": 14,
+			"objectives": [
+				"Interactive vs background smoothing and bursting",
+				"Throttling stages, carryforward and pausing",
+				"Surge protection, Spark compute and monitoring"
+			],
+			"questionCount": 21
+		},
+		{
+			"id": 4,
+			"name": "OneLake, shortcuts and storage cost",
+			"weight": 13,
+			"objectives": [
+				"OneLake structure, formats and APIs",
+				"Shortcuts: targets, identity, caching and limits",
+				"Storage and transaction billing, BCDR and soft delete"
+			],
+			"questionCount": 20
+		},
+		{
+			"id": 5,
+			"name": "Mirroring, Direct Lake and Power BI",
+			"weight": 14,
+			"objectives": [
+				"Mirroring types, sources and free storage",
+				"Direct Lake modes, framing, fallback and guardrails",
+				"Power BI license limits that shape design"
+			],
+			"questionCount": 20
+		},
+		{
+			"id": 6,
+			"name": "Security and governance",
+			"weight": 13,
+			"objectives": [
+				"Workspace roles, item permissions and OneLake security",
+				"Domains, Purview, tenant settings and CI/CD",
+				"Private links, workspace identity and customer-managed keys"
+			],
+			"questionCount": 22
+		},
+		{
+			"id": 7,
+			"name": "Copilot and AI in Fabric",
+			"weight": 8,
+			"objectives": [
+				"Copilot in Fabric requirements and tenant settings",
+				"Data agents, Fabric IQ and AI consumption"
+			],
+			"questionCount": 16
+		},
+		{
+			"id": 8,
+			"name": "Fabric with Databricks: coaching",
+			"weight": 10,
+			"objectives": [
+				"Mirroring Unity Catalog and OneLake catalog federation",
+				"Where compute runs, who pays and where governance holds",
+				"Coaching scenarios across both platforms"
+			],
+			"questionCount": 20
+		}
+	],
+	"questions": [
+		{
+			"id": "F1-001",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "OneLake",
+			"difficulty": "easy",
+			"question": "How many OneLake instances does a Fabric tenant get?",
+			"choices": [
+				"As many as the admin provisions, up to 100 per region",
+				"One per workspace, so each team gets an isolated lake",
+				"One per capacity, created automatically when each capacity is purchased in Azure",
+				"Exactly one, which can't be deleted and needs no provisioning"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Every Fabric tenant has a single OneLake: it can't be deleted, and you can't create more. Workspaces appear as containers and items as folders. One logical lake makes 'no copies' easy to promise, but it puts more weight on workspace, item and OneLake security design.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview"
+		},
+		{
+			"id": "F1-002",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "OneLake",
+			"difficulty": "medium",
+			"question": "In what open table formats does OneLake store and expose tables?",
+			"choices": [
+				"CSV files with a separate JSON schema file per table",
+				"ORC only, converted to Delta when Spark reads it",
+				"Delta Parquet, with Iceberg supported through metadata virtualization",
+				"A proprietary columnar format that only Fabric engines can read, exported to Parquet on request"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "OneLake stores tables as Delta Parquet and supports Iceberg via metadata virtualization (Iceberg tables can be written to or shortcut into OneLake). Open formats are the main reason Databricks and Fabric can share data without copying it.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview"
+		},
+		{
+			"id": "F1-003",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "OneLake",
+			"difficulty": "medium",
+			"question": "How can existing ADLS tools and SDKs access OneLake?",
+			"choices": [
+				"OneLake supports ADLS Gen2 APIs; each workspace appears as a container and each item as a folder",
+				"Only through the Fabric REST API, which returns data as JSON pages",
+				"Only through a gateway that copies data into a customer-owned ADLS account",
+				"They can't. OneLake is reachable only through the Fabric portal and Power BI, so external tools need exports"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "OneLake is built on ADLS and supports ADLS Gen2 APIs and SDKs, plus the OneLake file explorer for Windows. That compatibility is how external engines, including Azure Databricks, read and write OneLake data.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview"
+		},
+		{
+			"id": "F1-004",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Warehouse vs lakehouse",
+			"difficulty": "medium",
+			"question": "What's the key difference between a Fabric Warehouse and a Lakehouse's SQL analytics endpoint?",
+			"choices": [
+				"The Warehouse stores data in a proprietary format, while the endpoint stores data as Delta Parquet",
+				"They're the same engine under two names; both accept identical T-SQL writes, but only the endpoint supports transactions",
+				"The endpoint supports DML through T-SQL, while the Warehouse only accepts data loaded by Spark notebooks",
+				"The Warehouse supports full T-SQL DDL and DML with multi-table transactions; the endpoint is read-only for data"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "A Warehouse is developed with T-SQL and has full multi-table ACID transactions. A lakehouse's SQL analytics endpoint can define views, functions and procedures and manage permissions, but can't modify data. Writes go through Spark or another engine. Customers coming from SQL Server often expect the endpoint to accept writes.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing"
+		},
+		{
+			"id": "F1-005",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "SQL analytics endpoint",
+			"difficulty": "hard",
+			"question": "A Spark job writes new rows to a lakehouse table, but a report on the SQL analytics endpoint doesn't show them for a while. Why?",
+			"choices": [
+				"The endpoint only reads Delta checkpoints, which Fabric writes once per hour",
+				"The endpoint copies lakehouse data into a separate warehouse on a fixed 24-hour schedule, so new rows wait for that copy",
+				"Spark writes aren't visible to SQL until someone runs OPTIMIZE on the table manually",
+				"The endpoint relies on a background metadata sync that usually lags by under a minute, and can take longer"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The SQL analytics endpoint picks up lakehouse changes through a metadata sync. Microsoft says the lag is normally under a minute but can vary from seconds to minutes, and the background process stops after 15 minutes without query activity. 'New metadata sync' brings it to seconds, but existing endpoints must be upgraded. Many small files slow sync, so table maintenance matters.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/sql-analytics-endpoint-performance"
+		},
+		{
+			"id": "F1-006",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "SQL analytics endpoint",
+			"difficulty": "hard",
+			"question": "What does Microsoft say about the SQL analytics endpoint's sync when many lakehouses share one workspace?",
+			"choices": [
+				"Sync is disabled automatically once a workspace holds more than ten lakehouses",
+				"Each lakehouse gets its own dedicated sync engine, so the number of lakehouses in a workspace never affects sync latency",
+				"Sync only runs for lakehouses that have a Warehouse defined in the same workspace",
+				"Sync runs as a single instance per workspace, so many lakehouses can increase latency and splitting workspaces may help"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Metadata sync is a single instance per workspace, so large numbers of lakehouses in one workspace can increase sync latency. Microsoft suggests splitting workspaces. Workspace design affects freshness as well as security.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/sql-analytics-endpoint-performance"
+		},
+		{
+			"id": "F1-007",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "SQL database",
+			"difficulty": "medium",
+			"question": "What is SQL database in Fabric?",
+			"choices": [
+				"A Power BI semantic model that can be queried with T-SQL instead of DAX",
+				"A transactional database built on the Azure SQL Database engine, automatically replicated to OneLake as Parquet",
+				"A rebranded Synapse dedicated SQL pool with its own separate capacity billing",
+				"A read-only copy of a lakehouse exposed through a T-SQL endpoint, intended for reporting rather than operational apps"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "SQL database in Fabric uses the same SQL Database engine as Azure SQL Database and is aimed at developers building operational apps. Data is replicated into OneLake automatically, and a SQL analytics endpoint is created, so operational data becomes analytics-ready without building pipelines. Usage draws on the Fabric capacity.",
+			"source": "https://learn.microsoft.com/en-us/fabric/database/sql/overview"
+		},
+		{
+			"id": "F1-008",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Real-Time Intelligence",
+			"difficulty": "easy",
+			"question": "In Fabric Real-Time Intelligence, what is an Eventhouse?",
+			"choices": [
+				"A store optimized for time-based streaming events, queried with KQL",
+				"The alerting engine that triggers actions when conditions are met",
+				"A tenant-wide catalog of every stream available in the organization",
+				"A no-code tool for routing streams between sources and destinations with filters"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Eventhouse is the analytics store for time-based streaming events, organized by arrival time and queried with KQL (or T-SQL in a KQL queryset), with native anomaly detection. Eventstream moves and transforms streams, Activator triggers actions, and the Real-Time hub catalogs streams.",
+			"source": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/overview"
+		},
+		{
+			"id": "F1-009",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Real-Time Intelligence",
+			"difficulty": "medium",
+			"question": "Which Real-Time Intelligence component turns detected conditions into actions such as running a pipeline, a notebook or a Power Automate flow?",
+			"choices": [
+				"KQL queryset",
+				"Eventstream",
+				"Activator",
+				"Real-Time hub"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Activator watches data and triggers actions (pipelines, Spark jobs, Dataflows, User Data Functions, Power Automate). It's the 'do something' piece. Microsoft also notes that 'real-time' data doesn't have to arrive at high rates and volumes.",
+			"source": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/overview"
+		},
+		{
+			"id": "F1-010",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Real-Time Intelligence",
+			"difficulty": "medium",
+			"question": "What does Eventstream do?",
+			"choices": [
+				"Collects, transforms and routes real-time data to destinations without writing code",
+				"Stores years of raw event history for KQL analysis at the lowest possible storage cost",
+				"Runs Spark Structured Streaming jobs written in Scala or PySpark notebooks",
+				"Lists every stream in the tenant so users can discover and subscribe to them"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Eventstream is the no-code stream processor: filtering, windowed aggregations, dedupe and content-based routing to destinations like an Eventhouse or lakehouse. The Real-Time hub is the tenant-wide catalog of streams, including CDC, Event Hubs, IoT Hub and Fabric and Azure events.",
+			"source": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/overview"
+		},
+		{
+			"id": "F1-011",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Data Factory",
+			"difficulty": "medium",
+			"question": "Which Data Factory item does Microsoft describe as the preferred solution for simplified data movement, supporting bulk, incremental and CDC copies?",
+			"choices": [
+				"Apache Airflow job",
+				"Dataflow Gen2",
+				"Copy job",
+				"Notebook activity"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Copy job is Microsoft's preferred simple data-movement item (bulk, incremental and CDC). Pipelines orchestrate activities, Dataflow Gen2 handles low-code transformations, the copy activity gives manual control, and mirroring keeps a near real-time replica.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview"
+		},
+		{
+			"id": "F1-012",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Data Factory",
+			"difficulty": "easy",
+			"question": "What is Dataflow Gen2 used for in Fabric?",
+			"choices": [
+				"Low-code data preparation and transformation (Power Query-style)",
+				"Replicating operational databases into OneLake in near real time",
+				"Scheduling Spark jobs across multiple workspaces with dependencies",
+				"Deploying items between dev, test and prod workspaces"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Dataflow Gen2 is the low-code transformation tool, with Microsoft citing over 300 transformations. It's familiar to Power BI users, but dataflows consume capacity, so heavy transformation logic is worth comparing against Spark or SQL on cost.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview"
+		},
+		{
+			"id": "F1-013",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Spark",
+			"difficulty": "medium",
+			"question": "What is the Native Execution Engine in Fabric Spark?",
+			"choices": [
+				"A caching layer that stores query results in OneLake for repeated reports",
+				"A separate SQL engine that replaces Spark entirely for lakehouse queries once it's turned on, requiring notebook rewrites",
+				"A GPU runtime that requires rewriting notebooks in a Fabric-specific dialect",
+				"A vectorized engine (Velox via Apache Gluten) that runs supported Spark operators natively with no code changes"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The Native Execution Engine accelerates supported operators on Parquet, Delta and CSV and falls back to JVM Spark automatically for unsupported operators. It doesn't accelerate JSON, XML or Structured Streaming. Faster jobs mean fewer capacity units used, but Microsoft says actual results vary.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/native-execution-engine-overview"
+		},
+		{
+			"id": "F1-014",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Spark",
+			"difficulty": "medium",
+			"question": "What is a Fabric environment?",
+			"choices": [
+				"A Git branch that holds a copy of the workspace's items for testing",
+				"A virtual network that isolates Spark clusters from the public internet",
+				"A workspace item that defines Spark session settings: runtime and compute, libraries and resources",
+				"A separate Fabric capacity reserved for development workloads, so testing never affects production users"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Environments bundle Spark compute settings, libraries and resources. Publishing in Full mode takes 3 to 6 minutes plus 1 to 3 minutes at session start, versus about 5 seconds in Quick mode. Library-heavy environments slow session starts, which users notice.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/create-and-use-environment"
+		},
+		{
+			"id": "F1-015",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Data Science",
+			"difficulty": "easy",
+			"question": "What does Microsoft position Fabric Data Science for?",
+			"choices": [
+				"Only for training large language models on GPU clusters in OneLake",
+				"Only for building Power BI reports with AI visuals on top of existing semantic models, without any model training",
+				"Building, deploying and operationalizing machine learning models, integrated with Azure Machine Learning",
+				"Only for running Copilot over notebooks without writing any code"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Fabric Data Science covers the ML lifecycle on OneLake data with notebooks and experiment tracking, integrated with Azure Machine Learning. Customers with mature ML on Databricks will compare model serving, feature management and governance depth, so be precise about which capabilities they actually need.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview"
+		},
+		{
+			"id": "F1-016",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Fabric IQ",
+			"difficulty": "medium",
+			"question": "What does Microsoft's Fabric overview describe Fabric IQ as unifying?",
+			"choices": [
+				"Storage accounts across Azure, AWS and Google Cloud into one billing account, with a single invoice for all clouds",
+				"Git repositories and deployment pipelines across development teams",
+				"Capacity metrics from every workspace into one real-time throttling dashboard",
+				"Business semantics: ontology, planning, Fabric Graph, data agents, operations agents and semantic models"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Fabric IQ is Microsoft's business-semantics layer: ontologies, planning, Fabric Graph, data and operations agents, and semantic models. At Ignite 2026, Fabric IQ integrations in Microsoft Copilot were GA, while Fabric IQ in Excel and connectors for ChatGPT and Claude were in preview.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview"
+		},
+		{
+			"id": "F1-017",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Ignite 2026",
+			"difficulty": "medium",
+			"question": "Which Fabric capabilities did Microsoft announce as generally available at Ignite 2026?",
+			"choices": [
+				"Native Unity Catalog hosting inside every Fabric workspace",
+				"Fabric apps (built with the open-source Rayfin SDK) and Database Hub",
+				"Fabric HorizonDB and the database agents for SQL and PostgreSQL in Database Hub",
+				"A new F0 SKU with unlimited free compute for development"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Per the Book of News, Fabric apps and Rayfin, and Database Hub in Fabric, are GA. Fabric HorizonDB (serverless PostgreSQL that pauses when idle) and SQL and PostgreSQL database agents are in preview. Fabric keeps expanding from analytics into operational apps.",
+			"source": "https://news.microsoft.com/events/ignite/2026/book-of-news/"
+		},
+		{
+			"id": "F1-018",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Ignite 2026",
+			"difficulty": "hard",
+			"question": "What is Fabric HorizonDB, announced in preview at Ignite 2026?",
+			"choices": [
+				"A managed Unity Catalog metastore that Fabric hosts for Databricks customers",
+				"A Delta Lake replacement format optimized for time-series data in Eventhouse, replacing Parquet for streaming tables",
+				"A vector database for Copilot grounding that's billed in Copilot Credits",
+				"A serverless PostgreSQL database in Fabric that pauses when idle and replicates tables to OneLake"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Fabric HorizonDB is a serverless PostgreSQL offering in preview, positioned as a backend for Fabric apps, with tables replicated to OneLake. Azure HorizonDB reached GA separately, and mirroring Azure HorizonDB into Fabric is in preview. For customers, it widens Fabric's operational-database footprint.",
+			"source": "https://news.microsoft.com/events/ignite/2026/book-of-news/"
+		},
+		{
+			"id": "F1-019",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Workloads",
+			"difficulty": "easy",
+			"question": "What underlies every Fabric workload?",
+			"choices": [
+				"OneLake, the single logical data lake for the tenant",
+				"A separate ADLS account per experience",
+				"A Power BI Premium capacity per workload",
+				"Azure Synapse dedicated SQL pools, shared across workloads"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "OneLake is the storage foundation under every workload: Power BI, Data Factory, Data Engineering, Data Warehouse, Databases, Real-Time Intelligence, Data Science, Fabric IQ and industry solutions. Compute is paid through capacity, storage through OneLake.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview"
+		},
+		{
+			"id": "F1-020",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Warehouse",
+			"difficulty": "medium",
+			"question": "How do cross-database queries work in Fabric?",
+			"choices": [
+				"Only Spark can join across items; T-SQL is limited to a single database per query",
+				"Data must first be copied into a single warehouse by a pipeline before any T-SQL query can join it to tables in other items",
+				"T-SQL can reference other warehouses, lakehouse endpoints and SQL databases by three-part name, with no data duplication",
+				"Cross-database queries require a linked server configured by a Fabric admin"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Fabric supports cross-database queries using three-part names (for example ContosoWarehouse.dbo.Sales) across warehouses and SQL analytics endpoints in the workspace, with zero data duplication. It's one of Fabric's practical strengths for SQL-centric teams.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing"
+		},
+		{
+			"id": "F1-021",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Data Factory",
+			"difficulty": "medium",
+			"question": "What availability SLA does Microsoft state for Fabric Data Factory activity runs?",
+			"choices": [
+				"Runs start within one second of schedule 100% of the time",
+				"Runs start within one hour of their scheduled time 95% of the time, with no financial SLA",
+				"Runs start within four minutes of their scheduled time 99.9% of the time",
+				"There's no SLA for Data Factory in Fabric"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Microsoft states a 99.9% request SLA and that activity runs start within four minutes of schedule 99.9% of the time. That's relevant for tight batch windows and downstream SLAs.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview"
+		},
+		{
+			"id": "F1-022",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "SQL analytics endpoint",
+			"difficulty": "hard",
+			"question": "How can a team force a SQL analytics endpoint to pick up a data-only change to one table right away, once new metadata sync is on?",
+			"choices": [
+				"Delete and recreate the lakehouse's SQL analytics endpoint",
+				"Run VACUUM on the Delta table with a zero-hour retention",
+				"Run sys.sp_dw_refresh_ext_table for that table",
+				"Restart the Fabric capacity from the Azure portal"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "With new metadata sync, sys.sp_dw_refresh_ext_table refreshes one table's data. For schema changes use the 'Refresh SQL analytics endpoint metadata' REST API or the portal's Refresh button. It's worth knowing when a customer complains about stale reports after a pipeline finishes.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/sql-analytics-endpoint-metadata-sync"
+		},
+		{
+			"id": "F1-023",
+			"section": 1,
+			"sectionName": "Platform and workloads",
+			"topic": "Spark",
+			"difficulty": "hard",
+			"question": "Which workloads does the Native Execution Engine not accelerate?",
+			"choices": [
+				"Any workload on capacities smaller than F64",
+				"All SQL queries; it only accelerates PySpark DataFrame code",
+				"Any query that reads Delta tables, since the engine only accelerates plain Parquet and CSV",
+				"Structured Streaming, and JSON or XML processing, which fall back to JVM Spark"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The Native Execution Engine supports Parquet, Delta and CSV, and falls back to JVM Spark for unsupported operators, JSON, XML and Structured Streaming. Runtime 1.3 doesn't support ANSI mode with it, while Runtime 2.0 (Spark 4.1) does.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/native-execution-engine-overview"
+		},
+		{
+			"id": "F2-001",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "SKUs",
+			"difficulty": "easy",
+			"question": "How many capacity units (CUs) does an F64 provide?",
+			"choices": [
+				"64 CUs",
+				"128 CUs",
+				"640 CUs",
+				"6.4 CUs"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "The number in an F SKU is its CU count: F2 = 2 CUs up to F2048 = 2,048 CUs. Microsoft's table now runs up to F8192. A useful anchor for Spark: 1 CU = 2 Spark vCores, so an F64 has 128 vCores before bursting.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/licenses"
+		},
+		{
+			"id": "F2-002",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "SKUs",
+			"difficulty": "medium",
+			"question": "Which F SKU does Microsoft's licensing table list alongside Power BI Premium P1?",
+			"choices": [
+				"F32",
+				"F128",
+				"F16",
+				"F64"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The table lines up P1 with F64, P2 with F128 and P3 with F256, and so on. Microsoft cautions that it isn't a statement of functional or licensing equivalence. F64 matters because it's the threshold at which free users can view Power BI content.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/licenses"
+		},
+		{
+			"id": "F2-003",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "P SKU retirement",
+			"difficulty": "medium",
+			"question": "What's Microsoft's position on Power BI Premium per-capacity (P) SKUs?",
+			"choices": [
+				"They're being retired; new and existing customers should consider Fabric F SKUs instead",
+				"They're required for any Fabric workload other than Power BI",
+				"They're the recommended path for all new customers through 2030, with F SKUs reserved for Spark-only workloads",
+				"They're being repriced to match F SKUs but remain fully available to everyone"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Microsoft is consolidating purchase options and retiring P SKUs. P SKUs remain only for customers with them on an active Enterprise Agreement. F SKUs are Azure resources: billed per second with a one-minute minimum, pausable, reservation- and MACC-eligible.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/licenses"
+		},
+		{
+			"id": "F2-004",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Power BI licensing",
+			"difficulty": "medium",
+			"question": "On an F32 capacity, what do report consumers need to view Power BI content shared in a workspace?",
+			"choices": [
+				"Nothing. Any Fabric capacity of any size lets free users view shared Power BI content",
+				"A Pro or PPU license (or an individual trial); free users can't view it below F64",
+				"A Fabric capacity admin role assigned to each consumer",
+				"A Copilot license, since F32 routes reports through Copilot"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Below F64, viewing Power BI content outside My workspace needs Pro, PPU or an individual trial. At F64 and above, free users with a viewer role can view content. Many small-capacity Fabric business cases miss this: an F32 plus 2,000 Pro viewers can cost far more than expected.",
+			"source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/service-features-license-type"
+		},
+		{
+			"id": "F2-005",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Power BI licensing",
+			"difficulty": "easy",
+			"question": "What are the US list prices for Power BI Pro and Premium Per User (PPU), paid yearly?",
+			"choices": [
+				"$10 and $20 per user per month",
+				"$14 and $30 per user per month",
+				"$20 and $40 per user per month",
+				"$14 and $24 per user per month"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Microsoft's pricing page lists Pro at $14 and PPU at $24 per user per month, paid yearly. They rose from $10 and $20 in April 2025. Older business cases often still use the old figures.",
+			"source": "https://www.microsoft.com/en-us/power-platform/products/power-bi/pricing"
+		},
+		{
+			"id": "F2-006",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Power BI licensing",
+			"difficulty": "hard",
+			"question": "A customer buys PPU for its analysts and assumes it can now build lakehouses and notebooks. What's wrong?",
+			"choices": [
+				"PPU allows lakehouses but not notebooks or warehouses",
+				"PPU doesn't provision a Fabric capacity; non-Power BI items still need an F or trial capacity",
+				"PPU only works with P SKUs, so they must buy a P1 first",
+				"Nothing. PPU includes an F8 capacity for each licensed user, which covers lakehouses and notebooks"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Microsoft is explicit that PPU doesn't provision a Fabric capacity. PPU adds Premium Power BI features (48 refreshes a day, models over 1 GB, XMLA) for licensed users, and Microsoft says it's more cost-effective for fewer than 250 users. Fabric items like lakehouses, warehouses and notebooks need F capacity.",
+			"source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/service-features-license-type"
+		},
+		{
+			"id": "F2-007",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Power BI licensing",
+			"difficulty": "medium",
+			"question": "According to Microsoft, below roughly how many users is PPU usually more cost-effective than capacity for Premium Power BI features?",
+			"choices": [
+				"Fewer than 250 users",
+				"Fewer than 2,500 users",
+				"Fewer than 25 users",
+				"Fewer than 10,000 users"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Microsoft's license guide says PPU is more cost-effective for fewer than 250 users. The real comparison also has to include viewers: at F64+ free users can view, which changes the math for broad audiences.",
+			"source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/service-features-license-type"
+		},
+		{
+			"id": "F2-008",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Power BI licensing",
+			"difficulty": "medium",
+			"question": "What limits apply to semantic models in a Pro (shared capacity) workspace?",
+			"choices": [
+				"No size limit and unlimited refreshes",
+				"10 GB model size and 48 scheduled refreshes a day",
+				"100 MB model size and one refresh a day",
+				"1 GB model size and 8 scheduled refreshes a day"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Pro workspaces cap models at 1 GB with 8 refreshes a day and 10 GB storage per user. PPU allows models over 1 GB, 48 refreshes a day and the XMLA endpoint. These limits often push customers toward capacity, and toward Fabric.",
+			"source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/service-features-license-type"
+		},
+		{
+			"id": "F2-009",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Billing",
+			"difficulty": "medium",
+			"question": "How does Azure bill Fabric capacity on pay-as-you-go?",
+			"choices": [
+				"Per month, with no proration",
+				"Per day, regardless of usage",
+				"Per second, with a one-minute minimum",
+				"Per full hour, rounded up to the next whole hour"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Fabric capacities bill per second with a one-minute minimum. That's what makes pause-and-resume and scale-up-for-a-window strategies worthwhile on pay-as-you-go capacity.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/licenses"
+		},
+		{
+			"id": "F2-010",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Reservations",
+			"difficulty": "hard",
+			"question": "How is a Fabric capacity reservation discount applied?",
+			"choices": [
+				"To OneLake storage only, while compute stays at pay-as-you-go",
+				"To the whole Azure bill, including non-Fabric services",
+				"As a lump-sum credit at the start of each month, applied regardless of whether the capacity is used",
+				"To capacity units on an hourly basis; storage and networking stay at pay-as-you-go rates"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Reservation discounts apply to CUs hourly. Microsoft's reservation page notes storage and networking aren't covered. If a reserved capacity sits idle or paused for an hour, that hour's benefit is lost. Microsoft's pricing page cites savings of around 41% versus pay-as-you-go.",
+			"source": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/fabric-capacity"
+		},
+		{
+			"id": "F2-011",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Overage",
+			"difficulty": "hard",
+			"question": "How are Fabric capacity overages priced?",
+			"choices": [
+				"At the reservation rate, because the capacity is already reserved and overage is treated as extra reserved CUs",
+				"Free up to 10% above the purchased CU level",
+				"At half the pay-as-you-go rate to encourage bursting",
+				"At pay-as-you-go rates, even on a reserved capacity; reservation discounts don't apply"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The Azure pricing page says overage can apply to pay-as-you-go or reserved capacities but is priced at the pay-as-you-go rate and isn't eligible for reservation discounts. Overage is on by default, admins can set a 24-hour limit, and checks run every 5 minutes, so billing can exceed the limit.",
+			"source": "https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/"
+		},
+		{
+			"id": "F2-012",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Overage",
+			"difficulty": "hard",
+			"question": "An admin sets a 24-hour limit on paid overages. Why can billed overage still exceed it?",
+			"choices": [
+				"The limit resets every hour, so it never actually caps a day",
+				"Overages are checked every 5 minutes, so usage can pass the limit before enforcement",
+				"The limit applies only to background operations, so interactive overage is never counted toward it",
+				"Reserved capacities ignore overage limits entirely"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "The Azure pricing page notes overage checks run every 5 minutes, so billing can exceed the configured limit. Treat it as a guardrail, not a hard ceiling, the same lesson as many Copilot spend controls.",
+			"source": "https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/"
+		},
+		{
+			"id": "F2-013",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Pause",
+			"difficulty": "medium",
+			"question": "What happens financially when an admin pauses a Fabric capacity that has accumulated smoothed usage and overages?",
+			"choices": [
+				"The accumulated usage is forgiven, which is why pausing to escape throttling also saves money",
+				"It's converted into OneLake storage credit",
+				"It's carried over and charged when the capacity next resumes",
+				"The remaining smoothed usage and overages are summed and added to the Azure bill at pause time"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Pausing bills the outstanding smoothed and overage usage immediately. It also clears throttling and returns the capacity to a healthy state. 'Pause to escape throttling' works, but it isn't free.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/pause-resume"
+		},
+		{
+			"id": "F2-014",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Pause",
+			"difficulty": "medium",
+			"question": "Who can pause or resume a Fabric F SKU?",
+			"choices": [
+				"Only Microsoft support, through a service request",
+				"Only the Fabric administrator, from the admin portal's capacity settings page in Fabric",
+				"Anyone holding the Azure RBAC suspend and resume actions on the capacity resource",
+				"Any workspace admin whose workspace sits on the capacity"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "F SKUs are Azure resources, so pause and resume are Azure RBAC actions (read, write, suspend, resume). Microsoft recommends a custom role rather than broad built-in ones. Pausing makes content on the capacity unavailable, so automation needs care.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/pause-resume"
+		},
+		{
+			"id": "F2-015",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Trial",
+			"difficulty": "medium",
+			"question": "Which capabilities are not available on a Fabric trial capacity?",
+			"choices": [
+				"Copilot and AI experiences (data agents, AI functions), Private Link and free mirroring storage",
+				"Lakehouses, notebooks and warehouses, which require paid capacity because they store data in OneLake",
+				"Warehouses and pipelines",
+				"Power BI reports and dashboards"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Trials last 60 days and don't support Copilot, AI experiences, Trusted Workspace Access, Private Link, autoscale or free mirroring storage. When a trial expires, items go inactive and data is kept for 7 days. Proofs of concept for AI features need paid capacity.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/fabric-trial"
+		},
+		{
+			"id": "F2-016",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Trial",
+			"difficulty": "easy",
+			"question": "How long does a Fabric trial capacity last?",
+			"choices": [
+				"14 days",
+				"180 days",
+				"60 days",
+				"30 days"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "A Fabric trial runs 60 days, and changing its size doesn't extend it. Microsoft describes trial capacities as F4 or F64 in size, with up to 1 TB of OneLake storage. Plan proofs of concept to finish inside that window or budget for paid capacity.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/fabric-trial"
+		},
+		{
+			"id": "F2-017",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Mirroring storage",
+			"difficulty": "medium",
+			"question": "How much free mirroring storage comes with an F64?",
+			"choices": [
+				"64 TB: one free terabyte per capacity unit",
+				"None; mirrored data is billed like any other storage",
+				"Unlimited, as long as the source is Azure SQL",
+				"1 TB per capacity, regardless of size"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Fabric includes 1 TB of free mirroring storage per CU purchased (F2 gives 2 TB, F64 gives 64 TB). Replication compute is free. Querying the mirrored data consumes CUs normally. Trials don't get free mirroring storage.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/overview"
+		},
+		{
+			"id": "F2-018",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "On-demand billing",
+			"difficulty": "hard",
+			"question": "What does Microsoft's pricing page say about 'Fabric zero-provisioned (F0)'?",
+			"choices": [
+				"It's a reserved SKU that requires a three-year commitment",
+				"It's the new name for the 60-day trial capacity",
+				"It includes on-demand billing by default, so usage is billed as consumed without a provisioned CU size",
+				"It's a free capacity that never incurs compute charges, intended for development and learning workloads"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "F0 is listed on the Azure pricing page as including on-demand billing by default, and OneLake documents on-demand billing for F0 and paid capacities. On-demand and Spark on-demand usage bills at regional pay-as-you-go CU-hour rates, and reservation discounts don't apply. Some features, such as surge protection, don't work on F0.",
+			"source": "https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/"
+		},
+		{
+			"id": "F2-019",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Spark billing",
+			"difficulty": "hard",
+			"question": "When on-demand billing for Apache Spark is enabled on a capacity, what changes?",
+			"choices": [
+				"Spark jobs stop consuming the capacity's CUs and bill separately, without bursting or falling back to capacity",
+				"Spark jobs get 3x burst automatically, at no extra cost",
+				"Spark jobs run free as long as the capacity is reserved",
+				"Spark jobs keep using the capacity first and switch to on-demand billing only when the capacity is being throttled"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "With on-demand Spark, jobs no longer consume capacity CUs and are billed pay-as-you-go. The admin sets a max CU limit that governs concurrency. It doesn't burst from or fall back to capacity, and reservation discounts don't apply. This isolates Spark spikes from Power BI, but it's a separate meter to budget.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/autoscale-billing-for-spark-overview"
+		},
+		{
+			"id": "F2-020",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Buying capacity",
+			"difficulty": "medium",
+			"question": "Which of these is a prerequisite for buying a Fabric capacity?",
+			"choices": [
+				"An Azure subscription with the Microsoft.Fabric resource provider registered and enough CU quota",
+				"A Microsoft 365 E5 license for the purchaser and an existing Power BI Premium P SKU in the tenant",
+				"A Power BI Pro license for every user who will read data on the capacity",
+				"An existing Azure Databricks workspace in the same region"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Buying Fabric capacity needs an Azure subscription, a Free or Power BI license, the Microsoft.Fabric resource provider registered, and CU quota. B2B guest users can't be capacity admins, which affects partner-managed setups.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/buy-subscription"
+		},
+		{
+			"id": "F2-021",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "MACC",
+			"difficulty": "medium",
+			"question": "Is Fabric capacity spend eligible to count toward a Microsoft Azure Consumption Commitment (MACC)?",
+			"choices": [
+				"Yes. Microsoft's pricing page says Fabric is MACC-eligible",
+				"No, because Fabric is billed as a Microsoft 365 product, not Azure",
+				"Only P SKUs count toward MACC",
+				"Only Fabric reservations count, not pay-as-you-go"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Fabric F SKUs are Azure resources and MACC-eligible, as are Azure Databricks and Copilot Credits bought PAYG or P3. MACC usually isn't a tiebreaker between Fabric and Databricks on Azure: both burn down the same commitment.",
+			"source": "https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/"
+		},
+		{
+			"id": "F2-022",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Embedding",
+			"difficulty": "hard",
+			"question": "For 'embed for your organization' on an F16 capacity, what do end users need?",
+			"choices": [
+				"Nothing, because embedding bypasses per-user licensing",
+				"A Pro or PPU license each (or an individual trial)",
+				"A Microsoft 365 Copilot license",
+				"A Fabric capacity admin role"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Embedding for your organization on F SKUs below F64 (and on all A SKUs) requires each user to have Pro, PPU or a trial. At F64+ or on P capacities, free users can view. 'App owns data' embedding for external customers needs no end-user license.",
+			"source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/service-features-license-type"
+		},
+		{
+			"id": "F2-023",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "SKUs",
+			"difficulty": "medium",
+			"question": "What can Power BI A SKUs and EM SKUs run?",
+			"choices": [
+				"Everything an F SKU can, plus Copilot",
+				"All Fabric workloads including Spark and Warehouse, at a lower price than the equivalent F SKUs",
+				"Spark and Warehouse, but not Power BI",
+				"Only Power BI items (A SKUs); EM SKUs don't support Fabric workloads either"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "EM SKUs don't support Fabric, and A SKUs support only Power BI items. Customers on embedded SKUs who want lakehouses or warehouses need F capacity.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/licenses"
+		},
+		{
+			"id": "F2-024",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Storage billing",
+			"difficulty": "medium",
+			"question": "Is OneLake storage included in the capacity price?",
+			"choices": [
+				"Yes, but only on reserved capacities",
+				"Yes. Each CU includes 1 TB of OneLake storage for any kind of data, not just mirroring",
+				"No. Storage is billed in CUs at 1 CU per GB",
+				"No. Storage is billed separately per GB per month and doesn't consume CUs"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "OneLake storage is billed pay-as-you-go per GB and doesn't consume CUs. Reads and writes do consume CUs. The 1 TB per CU free allowance applies only to mirroring storage. A Fabric TCO needs separate compute, storage and transaction lines, like any lakehouse.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-consumption"
+		},
+		{
+			"id": "F2-025",
+			"section": 2,
+			"sectionName": "Capacity, SKUs and licensing",
+			"topic": "Deleted workspaces",
+			"difficulty": "hard",
+			"question": "Is storage in a deleted Fabric workspace still billed?",
+			"choices": [
+				"Only for mirrored data, not lakehouse data",
+				"Only if the workspace was on a reserved capacity",
+				"No. Deleting a workspace stops all billing immediately, including for any data it contained",
+				"Yes, during the deleted-workspace retention period, which is configurable from 7 to 90 days"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The pricing page notes storage in deleted workspaces is billed during retention (7 to 90 days, configurable). Soft-deleted files are also billed at the active rate. Cleanups don't reduce cost until retention ends.",
+			"source": "https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/"
+		},
+		{
+			"id": "F3-001",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Smoothing",
+			"difficulty": "medium",
+			"question": "Over what window does Fabric smooth background operations such as scheduled refreshes and pipelines?",
+			"choices": [
+				"1 hour",
+				"24 hours",
+				"7 days",
+				"5 minutes"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Background operations are smoothed over 24 hours. Interactive operations are smoothed over a minimum of 5 minutes and up to 64 minutes, depending on how many CUs they use. Smoothing lets a small capacity run big jobs, but it also means a heavy nightly batch keeps 'costing' capacity for the next day.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-002",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Smoothing",
+			"difficulty": "hard",
+			"question": "How are interactive operations, such as a report query, smoothed?",
+			"choices": [
+				"Over at least 5 minutes, and up to 64 minutes for heavier operations",
+				"Over exactly 24 hours, the same window that's used for background jobs",
+				"They aren't smoothed; they're charged in the 30 seconds they run",
+				"Over 7 days, to avoid throttling during the business week"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Interactive operations are smoothed over a minimum of 5 minutes, up to 64 minutes depending on CU usage. Fabric evaluates capacity in 30-second timepoints (2,880 per day). Ambiguous operations are classed as background.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-003",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Bursting",
+			"difficulty": "easy",
+			"question": "What is bursting in Fabric capacity?",
+			"choices": [
+				"Automatically buying the next bigger SKU when demand spikes, then scaling back down overnight",
+				"Operations temporarily using more compute than the SKU provides, paid back through smoothing",
+				"Running Spark jobs on GPUs for faster results",
+				"Moving workloads to another region during peak hours"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Bursting lets operations temporarily use more compute than provisioned, so smaller capacities can run larger jobs, and smoothing spreads the cost over time. Bursting and smoothing don't apply to Spark when on-demand Spark billing is enabled.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-004",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Throttling stages",
+			"difficulty": "medium",
+			"question": "What does Fabric's 'overage protection' stage allow before any throttling starts?",
+			"choices": [
+				"Interactive jobs are delayed by 10 seconds",
+				"Jobs can use up to 10 minutes of future capacity without throttling",
+				"Jobs can exceed capacity by 10% indefinitely",
+				"Jobs can use up to 24 hours of future capacity before anything is throttled"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Stages by future capacity consumed: up to 10 minutes is overage protection (no throttling); 10 to 60 minutes delays new interactive jobs by 20 seconds; 60 minutes to 24 hours rejects new interactive jobs; beyond 24 hours, all new requests are rejected.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-005",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Throttling stages",
+			"difficulty": "medium",
+			"question": "A capacity has used 30 minutes of future capacity. What do report users experience?",
+			"choices": [
+				"New interactive requests are delayed by 20 seconds at submission",
+				"All interactive requests are rejected with a CapacityLimitExceeded error",
+				"Nothing. Throttling only starts after 24 hours",
+				"Background jobs are cancelled mid-run"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Between 10 and 60 minutes of future usage, Fabric delays new interactive jobs by 20 seconds. Users notice slow reports first, well before errors appear, which is why 'Power BI is slow' tickets often trace back to someone's heavy Spark or dataflow job on the same capacity.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-006",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Throttling stages",
+			"difficulty": "hard",
+			"question": "At what level of future capacity use does Fabric start rejecting all new requests, background jobs included?",
+			"choices": [
+				"More than 7 days",
+				"More than 10 minutes",
+				"More than 60 minutes",
+				"More than 24 hours"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Interactive rejection starts at 60 minutes. Background rejection, which rejects all new requests, starts beyond 24 hours. Users see errors like 'Your organization's Fabric compute capacity has exceeded its limits.' At that stage scheduled pipelines fail too, which can break downstream SLAs.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-007",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Throttling",
+			"difficulty": "medium",
+			"question": "When throttling begins, what happens to operations already running?",
+			"choices": [
+				"They run to completion; throttling applies only to new requests",
+				"They're paused until carryforward is paid down",
+				"They're moved to another capacity automatically",
+				"They're cancelled immediately and must be resubmitted by the user who started them"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Throttling applies only to requests submitted after it starts, and in-flight operations finish. One very large job can therefore push a capacity deep into debt before anything stops it. Surge protection exists to cut that off earlier.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-008",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Carryforward",
+			"difficulty": "hard",
+			"question": "How does a throttled capacity recover?",
+			"choices": [
+				"Unused capacity in each timepoint burns down the carryforward until the overage is paid off",
+				"Carryforward is billed to the customer and throttling ends instantly",
+				"Microsoft forgives all outstanding carryforward at midnight UTC each day, so throttling ends then",
+				"Recovery requires a support ticket to reset the capacity"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Usage beyond the 10-minute window becomes carryforward, and each timepoint's unused CUs burn it down. Throttling continues until it's paid off. Scaling up burns it down faster but doesn't clear it instantly, while pausing clears it by billing the accumulated amount at once.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-009",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Carryforward",
+			"difficulty": "hard",
+			"question": "A capacity is deep in throttling before a board meeting. Which option immediately returns it to a healthy state?",
+			"choices": [
+				"Turning on surge protection, which forgives existing debt",
+				"Pausing and resuming it, which bills the accumulated future usage at pause time",
+				"Moving the reports to a Pro workspace, which resets the capacity",
+				"Scaling up by one SKU, which erases all existing carryforward the moment the new size applies"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Pausing bills the accumulated smoothed and overage usage, and a resumed capacity starts with zero future usage. Scaling up only burns down debt faster, and surge protection prevents future debt rather than clearing existing debt. It's an emergency lever with a cost.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/pause-resume"
+		},
+		{
+			"id": "F3-010",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Throttling",
+			"difficulty": "medium",
+			"question": "The Capacity Metrics app shows utilization above 100%. Does that mean the capacity is throttled?",
+			"choices": [
+				"No. Utilization can never exceed 100% in Fabric",
+				"Not necessarily. Check the Throttling chart, because bursting and smoothing allow utilization above 100%",
+				"Yes. Anything above 100% means every request is being rejected until utilization drops back under 100%",
+				"Yes, and Microsoft automatically bills an upgrade to the next SKU"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Microsoft notes utilization above 100% doesn't automatically mean throttling, because of bursting and smoothing. The Throttling chart shows the real state. Misreading this leads customers to over-buy capacity.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-011",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Surge protection",
+			"difficulty": "medium",
+			"question": "What does capacity-level surge protection do?",
+			"choices": [
+				"Automatically scales the capacity up to the next SKU during spikes and back down when usage returns to normal",
+				"Refunds overage charges caused by unexpected spikes",
+				"Blocks interactive Power BI queries so background jobs can finish",
+				"Rejects new background operations when 24-hour background usage passes a threshold, until it recovers"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Capacity-level surge protection sets a background rejection threshold and a recovery threshold against the 24-hour background percentage. It protects interactive users from runaway background jobs. Microsoft notes the threshold isn't an upper limit, and in-progress jobs aren't stopped.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/surge-protection"
+		},
+		{
+			"id": "F3-012",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Surge protection",
+			"difficulty": "hard",
+			"question": "What does workspace-level surge protection let an admin do?",
+			"choices": [
+				"Cap a workspace's CU use over a rolling 24 hours and block it, with a 'Mission critical' exemption option",
+				"Move a workspace automatically to a larger capacity when it spikes",
+				"Assign each workspace its own dedicated capacity at no extra cost, so busy workspaces never affect each other",
+				"Guarantee each workspace a fixed number of Spark nodes"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Workspace surge protection caps CU use as a percentage of capacity on a rolling 24-hour window (5% of an F2 is 2.4 CU hours a day). Workspaces can be Available, Mission critical or Blocked. Checks run every five minutes, so Microsoft calls these soft limits, and autoscale compute is excluded.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/surge-protection"
+		},
+		{
+			"id": "F3-013",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Surge protection",
+			"difficulty": "hard",
+			"question": "Does marking a workspace 'Mission critical' exempt it from capacity-level surge protection?",
+			"choices": [
+				"Yes, but only for interactive Power BI operations",
+				"Mission critical only changes the workspace's color in the portal",
+				"Yes. Mission-critical workspaces are never rejected by any surge protection setting at any level",
+				"No. Mission critical exempts it from workspace limits only, not capacity-level surge protection"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Microsoft states 'Mission critical' doesn't override capacity-level surge protection. Surge protection works only on provisioned Fabric SKUs, not F0. Critical workloads may still need their own capacity.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/surge-protection"
+		},
+		{
+			"id": "F3-014",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Spark compute",
+			"difficulty": "medium",
+			"question": "How many Spark vCores does one Fabric capacity unit provide?",
+			"choices": [
+				"8 vCores per CU, so an F64 has 512 vCores",
+				"Spark doesn't use CUs; it's always billed separately",
+				"2 vCores per CU, so an F64 has 128 vCores before bursting",
+				"1 vCore per CU, so an F64 has 64 Spark vCores before bursting"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "One CU equals two Spark vCores, so an F64 has 128. With the 3x burst multiplier that's 384 vCores for concurrent Spark work. Bursting is borrowed capacity that's paid back through smoothing.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/spark-compute"
+		},
+		{
+			"id": "F3-015",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Spark compute",
+			"difficulty": "medium",
+			"question": "What burst multiplier does Fabric apply to Spark vCores?",
+			"choices": [
+				"3x",
+				"2x",
+				"10x",
+				"No burst for Spark"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Spark gets a 3x burst multiplier, so an F64's 128 vCores can burst to 384. Starter pools start in about 5 to 10 seconds on Medium nodes, but Microsoft notes their availability isn't guaranteed.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/spark-compute"
+		},
+		{
+			"id": "F3-016",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Monitoring",
+			"difficulty": "medium",
+			"question": "How quickly does usage data appear in the Fabric Capacity Metrics app, and can it send alerts?",
+			"choices": [
+				"Instantly, and it includes built-in email alerts at 80% and 100% utilization that capacity admins can't turn off",
+				"Within about 10 to 15 minutes, and it doesn't support alerts; use Real-Time hub capacity events for that",
+				"Weekly, with alerts sent to the Fabric admin by default",
+				"Once a day, with alerts configured in Azure Monitor"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "The Metrics app shows usage after 10 to 15 minutes and keeps a 14-day view, but it doesn't alert. Microsoft points to Fabric capacity overview events in the Real-Time hub for capacity alerts. Customers should set alerts up, or they'll learn about throttling from users.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app"
+		},
+		{
+			"id": "F3-017",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Planning",
+			"difficulty": "medium",
+			"question": "How many CU-seconds does an F64 have in each 30-second timepoint?",
+			"choices": [
+				"30",
+				"3,840 (64 CUs × 60 seconds per minute)",
+				"64",
+				"1,920 (64 CUs × 30 seconds)"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Capacity per timepoint is CUs × 30 seconds, so 1,920 CU-seconds for an F64. Microsoft also offers a Fabric SKU Estimator (preview) for sizing. Real usage from a pilot beats any estimate.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/plan-capacity"
+		},
+		{
+			"id": "F3-018",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Throttling",
+			"difficulty": "medium",
+			"question": "Are Real-Time Intelligence operations subject to the 20-second interactive delay stage?",
+			"choices": [
+				"No. Microsoft notes Real-Time Intelligence isn't subject to that delay stage",
+				"Yes, and the delay is longer, at 60 seconds",
+				"Only Eventstream is delayed, never Eventhouse",
+				"Yes. Every workload, including Eventhouse and Eventstream, gets the same delay"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "The throttling page notes Real-Time Intelligence isn't subject to the 20-second delay. Throttling behavior varies by workload. Warehouse operations are almost all classed as background.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-019",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Throttling",
+			"difficulty": "hard",
+			"question": "What error status do users see when Fabric rejects requests because of capacity limits?",
+			"choices": [
+				"ThrottledByAzure, which only workspace admins can see",
+				"CapacityLimitExceeded, with messages such as 'Cannot load model due to reaching capacity limits'",
+				"QuotaExceeded, which disappears after the user signs out",
+				"HTTP 402 Payment Required, with a link that lets the user buy more capacity directly in the Azure portal"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Rejected requests return CapacityLimitExceeded with messages like 'Your organization's Fabric compute capacity has exceeded its limits. Try again later.' Rejected operations show only minimal detail in the Metrics app because they never started. It helps to recognize these errors on a support call.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "F3-020",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Workload isolation",
+			"difficulty": "hard",
+			"question": "A customer's finance dashboards slow down every morning after a large overnight Spark load on the same F64. Which approach does Fabric support for isolating them?",
+			"choices": [
+				"Set Power BI to 'priority mode', which lets interactive queries ignore capacity limits during business hours",
+				"Nothing. All workloads in a tenant share one global pool",
+				"Move Spark to on-demand billing or a separate capacity, and use surge protection to cap background use",
+				"Convert the dashboards to Direct Lake, which uses no CUs"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Capacities are the isolation boundary. On-demand Spark takes Spark off the capacity, surge protection limits background usage, and separate capacities isolate workloads fully. Direct Lake still consumes CUs. A 24-hour smoothed overnight load keeps eating the next day's interactive headroom.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/autoscale-billing-for-spark-overview"
+		},
+		{
+			"id": "F3-021",
+			"section": 3,
+			"sectionName": "Smoothing, throttling and capacity health",
+			"topic": "Monitoring",
+			"difficulty": "easy",
+			"question": "How many days of history does the Capacity Metrics app's compute page show?",
+			"choices": [
+				"90 days",
+				"13 months",
+				"14 days",
+				"24 hours"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "The compute page covers 14 days. For longer trend analysis and chargeback, export the data or use workspace monitoring and observability features. Microsoft previewed broader Fabric observability in 2026.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app"
+		},
+		{
+			"id": "F4-001",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Shortcuts",
+			"difficulty": "easy",
+			"question": "What is a OneLake shortcut?",
+			"choices": [
+				"A saved SQL query that materializes results as a new Delta table",
+				"A scheduled copy job that duplicates external data into OneLake each night so engines can read it locally",
+				"A pointer, like a symbolic link, that makes data in another location appear in OneLake without copying it",
+				"A bookmark in the Fabric portal that opens a storage account in Azure"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Shortcuts behave like symbolic links: deleting a shortcut leaves the target alone, but moving or deleting the target breaks it. They're created in lakehouses and KQL databases and are readable by Spark, SQL analytics endpoints (Tables), KQL and Direct Lake.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts"
+		},
+		{
+			"id": "F4-002",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Shortcuts",
+			"difficulty": "medium",
+			"question": "Which external storage can OneLake shortcuts point to?",
+			"choices": [
+				"Only ADLS Gen2 accounts in the same Azure region as the capacity; other clouds and SaaS sources need mirroring or pipelines instead",
+				"Only Amazon S3, since Azure storage must use pipelines instead",
+				"Only other Fabric items; external storage requires mirroring",
+				"ADLS Gen2, Azure Blob, Amazon S3 and S3-compatible storage, Google Cloud Storage, Dataverse, Iceberg, OneDrive and SharePoint"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "External shortcut targets include ADLS Gen2, Blob, S3 and S3-compatible storage, GCS, Dataverse, Iceberg, and OneDrive and SharePoint. On-premises sources go through the on-premises data gateway. Internal targets include lakehouses, warehouses, mirrored databases and mirrored Azure Databricks catalogs.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts"
+		},
+		{
+			"id": "F4-003",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Shortcut identity",
+			"difficulty": "hard",
+			"question": "Whose identity does OneLake use to authorize reads through an internal shortcut (one Fabric item to another)?",
+			"choices": [
+				"The workspace identity of the workspace that holds the target",
+				"A Fabric system account that bypasses item permissions",
+				"The calling user's identity, so the caller needs permission on the target",
+				"The shortcut creator's identity, used for everyone who reads through the shortcut"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "For internal shortcuts, OneLake uses the calling user's identity. One exception: Direct Lake over SQL and T-SQL in Delegated identity mode pass the calling item owner's identity. Microsoft recommends Direct Lake on OneLake, or T-SQL in User identity mode, to avoid this.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts"
+		},
+		{
+			"id": "F4-004",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Shortcut identity",
+			"difficulty": "hard",
+			"question": "How do ADLS and S3 shortcuts authorize access to external storage?",
+			"choices": [
+				"Through the Fabric admin's personal credentials, set once per tenant",
+				"Anonymous access, so the external storage must be made public",
+				"Through cloud connections bound to the shortcut, rather than each reader's own credentials",
+				"Each reader's own Entra ID token is forwarded to S3 or ADLS, so external storage checks every user"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Microsoft says ADLS and S3 shortcuts delegate authorization through cloud connections, and binding one requires permission on that connection. Everyone reading through the shortcut effectively uses the connection's access to the external store, so pair it with OneLake security on the Fabric side.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts"
+		},
+		{
+			"id": "F4-005",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Shortcut caching",
+			"difficulty": "medium",
+			"question": "Why does OneLake offer shortcut caching, and for which sources?",
+			"choices": [
+				"To cut cross-cloud egress costs, for GCS, S3, S3-compatible and on-premises gateway shortcuts",
+				"To create a permanent copy so the source can be deleted safely",
+				"To bypass the source system's security for faster reads",
+				"To speed up ADLS Gen2 shortcuts in the same region, by keeping a permanent local copy of every file"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Shortcut caching reduces egress costs for cross-cloud access. It's supported for GCS, S3, S3-compatible and on-premises gateway shortcuts, with retention of 1 to 28 days that resets on each access, and files over 1 GB aren't cached. It's enabled per workspace under Workspace settings > OneLake.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts"
+		},
+		{
+			"id": "F4-006",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Shortcut billing",
+			"difficulty": "hard",
+			"question": "Workspace A (capacity 1) has a shortcut to data stored in workspace B (capacity 2). Users query through the shortcut in A. Which capacity pays for the read transactions?",
+			"choices": [
+				"Capacity 2, because it's the capacity that stores the data the shortcut points to",
+				"Capacity 1, which holds the workspace where the shortcut was created",
+				"Neither. Shortcut reads are free",
+				"Both, split evenly between the two capacities"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Shortcut transactions count against the capacity of the workspace where the shortcut lives, while the storing capacity pays for storage. A paused source capacity therefore doesn't block downstream consumers' reads. Chargeback models should follow this rule.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-consumption"
+		},
+		{
+			"id": "F4-007",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Transaction billing",
+			"difficulty": "medium",
+			"question": "Do reads and writes to OneLake consume capacity units?",
+			"choices": [
+				"Yes. Reads and writes consume CUs per 10,000 transactions; storage itself is billed per GB",
+				"No. All OneLake operations are free once data is stored",
+				"Only reads by external engines like Databricks consume CUs",
+				"Only writes consume CUs; reads are always free, no matter which engine or shortcut performs them"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "OneLake reads cost 104 CU-seconds and writes 1,626 CU-seconds (hot tier) per 10,000 transactions, counted per 4 MB block. Storage is billed per GB without using CUs. From November 15, 2026, some Spark-driven OneLake operations also count toward CU consumption.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-consumption"
+		},
+		{
+			"id": "F4-008",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Paused capacity",
+			"difficulty": "medium",
+			"question": "What happens to OneLake data when its capacity is paused?",
+			"choices": [
+				"Storage is still billed, but transactions against that capacity are rejected",
+				"Storage billing stops and the data is archived until the capacity is resumed again",
+				"Data is deleted after 24 hours of being paused",
+				"Everything keeps working, but at reduced speed"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Pausing stops transactions (so no CUs are consumed) but storage billing continues. Shortcut reads are charged to the consumer's capacity, so downstream consumers on other capacities can still read through shortcuts.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-consumption"
+		},
+		{
+			"id": "F4-009",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Soft delete",
+			"difficulty": "medium",
+			"question": "How long does OneLake keep soft-deleted files by default, and are they billed?",
+			"choices": [
+				"Soft delete is off by default and must be enabled",
+				"One day by default, billed at half the active rate",
+				"Seven days by default, billed at the same rate as active data",
+				"30 days by default, and soft-deleted data isn't billed during that time"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Soft delete is on by default with 7-day retention, and workspace admins can change it. Soft-deleted data is billed like active data. Deleted workspaces are retained (and billed) for 7 to 90 days.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-disaster-recovery"
+		},
+		{
+			"id": "F4-010",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "BCDR",
+			"difficulty": "hard",
+			"question": "What happens when a customer enables OneLake BCDR on a capacity?",
+			"choices": [
+				"Data replicates asynchronously to the Azure-paired region; storage is billed separately and writes cost more CUs",
+				"Data replicates synchronously to any region the admin chooses, at no extra storage or CU cost for the customer",
+				"Only Power BI semantic models are replicated; lakehouses are excluded",
+				"Fabric guarantees zero data loss and point-in-time consistency after failover"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "BCDR is enabled per capacity. The secondary is the Azure-paired region and can't be changed, and replication is asynchronous per file, so failover can lose data and isn't point-in-time consistent. BCDR storage is billed separately, and BCDR writes cost 3,056 CU-seconds per 10,000 versus 1,626 without it.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-disaster-recovery"
+		},
+		{
+			"id": "F4-011",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Redundancy",
+			"difficulty": "medium",
+			"question": "What storage redundancy does OneLake use by default?",
+			"choices": [
+				"Geo-redundant storage across three continents, with automatic failover by Microsoft",
+				"Single-disk storage with nightly backups",
+				"Zone-redundant storage (ZRS) where available, otherwise locally redundant (LRS)",
+				"Whatever redundancy the customer's own ADLS account uses"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "OneLake uses ZRS where available (at least 12 nines of durability), otherwise LRS (at least 11 nines). Regional disaster recovery needs BCDR, at extra cost.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-disaster-recovery"
+		},
+		{
+			"id": "F4-012",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "OneLake catalog",
+			"difficulty": "easy",
+			"question": "What are the three tabs of the OneLake catalog?",
+			"choices": [
+				"Bronze, Silver and Gold",
+				"Ingest, Transform and Serve",
+				"Read, Write and Admin",
+				"Explore, Govern and Secure"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The OneLake catalog has Explore (discovery, the default tab), Govern (governance health, insights, recommended actions and admin settings) and Secure (a unified view of workspace and OneLake security roles). It's also embedded in Teams, Excel and Copilot Studio.",
+			"source": "https://learn.microsoft.com/en-us/fabric/governance/onelake-catalog-overview"
+		},
+		{
+			"id": "F4-013",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Shortcut limits",
+			"difficulty": "hard",
+			"question": "What's the limit on chaining shortcuts that point to other shortcuts?",
+			"choices": [
+				"A maximum of 100 links per chain",
+				"Unlimited chaining, as long as all items are in one workspace",
+				"A maximum of 5 direct shortcut-to-shortcut links",
+				"Shortcuts can't point to other shortcuts at all"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Limits include up to 100,000 shortcuts per item, 100 unique external connections per item, 10 shortcuts per path, and at most 5 chained shortcut links. Names can't contain '%' or '+'. Deep chains are a design smell.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts"
+		},
+		{
+			"id": "F4-014",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Shortcuts",
+			"difficulty": "hard",
+			"question": "A user deletes a file through a shortcut. What happens to the target data?",
+			"choices": [
+				"The deletion is queued for an admin to approve",
+				"Nothing happens to the target, because shortcuts are always read-only, whatever the user's permissions",
+				"If the user has write permission on the target, the file is deleted at the target too",
+				"The file is hidden in the shortcut but kept at the target"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Deleting the shortcut itself leaves the target alone, but deleting files or folders through a shortcut deletes them at the target if the user has write permission there. Treat shortcuts to shared or production data with least-privilege permissions.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts"
+		},
+		{
+			"id": "F4-015",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Storage tiers",
+			"difficulty": "hard",
+			"question": "What extra charge applies when reading OneLake data stored in the cool or cold tier?",
+			"choices": [
+				"Cold data can't be read until it's rehydrated by Microsoft support",
+				"No charge at all, because the tier only changes the monthly storage price per GB",
+				"A flat $10 per retrieval request",
+				"A per-GB retrieval fee in CUs (200 CU-seconds per GB cool, 600 per GB cold)"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Cool and cold tiers lower storage cost but add retrieval fees in CU-seconds per GB (200 cool, 600 cold). Tiering pays off for rarely read data and backfires for data that's queried often.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-consumption"
+		},
+		{
+			"id": "F4-016",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "On-demand",
+			"difficulty": "hard",
+			"question": "Where can OneLake on-demand billing (preview) be enabled?",
+			"choices": [
+				"On paid capacities (F2 and above) or on F0, where it's on by default",
+				"Only on P SKUs",
+				"Only on F64 and above",
+				"Only on trial capacities, where it replaces the fixed 60-day trial period"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "OneLake documents on-demand billing (preview) for operations and storage on paid capacities from F2, and on F0, where it's the default. It's part of Microsoft's 2026 move toward consumption-style Fabric billing alongside provisioned capacity.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-consumption"
+		},
+		{
+			"id": "F4-017",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "OneLake security cost",
+			"difficulty": "hard",
+			"question": "What does OneLake charge to enforce row-level security on a secured table?",
+			"choices": [
+				"Nothing, because security enforcement is always free in OneLake",
+				"A flat F2 capacity reserved for security",
+				"1 CU-second per million rows in the secured table",
+				"10 Copilot Credits per query"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "The consumption page lists OneLake security RLS at 1 CU-second per million rows, and the Table read API at 8 CU-seconds per million rows scanned (billed to the caller). Fine-grained security in Fabric has a small but real compute cost.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-consumption"
+		},
+		{
+			"id": "F4-018",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "OneLake",
+			"difficulty": "medium",
+			"question": "How is each workspace's OneLake data tied to capacity and region?",
+			"choices": [
+				"Workspaces have no region; OneLake replicates everywhere automatically",
+				"Region is chosen per file when data is written",
+				"All workspaces share one global region chosen at tenant creation, which can't be changed",
+				"Each workspace sits on a capacity, which is tied to a region and billed separately"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The hierarchy is tenant, then workspace, then item. Each workspace is assigned to a capacity in a specific region. Region placement drives data residency, latency and cross-region charges. Fabric data agents, for example, fail if source and agent capacities are in different regions.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview"
+		},
+		{
+			"id": "F4-019",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Shortcuts",
+			"difficulty": "medium",
+			"question": "Which Fabric engines can read data through OneLake shortcuts?",
+			"choices": [
+				"Only Spark notebooks; SQL endpoints and Direct Lake can't follow shortcuts",
+				"Spark, SQL analytics endpoints (for Tables), KQL and Power BI Direct Lake",
+				"Only the Data Factory copy activity",
+				"Only Power BI import models after a refresh"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Shortcuts work across engines: Spark, SQL analytics endpoints (Tables folder), KQL via external tables, and Direct Lake. 'One copy, many engines' is the core value of OneLake. Schema-enabled lakehouses also support schema-level shortcuts.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts"
+		},
+		{
+			"id": "F4-020",
+			"section": 4,
+			"sectionName": "OneLake, shortcuts and storage cost",
+			"topic": "Lineage",
+			"difficulty": "medium",
+			"question": "What does Microsoft note about lineage for shortcuts?",
+			"choices": [
+				"Lineage isn't available for any Fabric item",
+				"Lineage is complete across every tenant and cloud automatically, including all shortcuts and their external targets too",
+				"Shortcuts appear in lineage only after a Purview scan",
+				"Lineage shows only same-workspace shortcuts, and shortcuts to warehouses and semantic models have no lineage view"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "OneLake lineage has gaps for shortcuts: only same-workspace shortcuts show, and those pointing to warehouses or semantic models have no lineage view. For impact analysis across many workspaces, that's a governance gap to plan around.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts"
+		},
+		{
+			"id": "F5-001",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Mirroring types",
+			"difficulty": "medium",
+			"question": "What are Fabric's three types of mirroring?",
+			"choices": [
+				"Azure mirroring, AWS mirroring and on-premises mirroring, based on source location",
+				"Full, incremental and snapshot mirroring, chosen per table depending on how often its source data changes",
+				"Hot mirroring, cool mirroring and cold mirroring, based on storage tier",
+				"Database mirroring (copies data), metadata mirroring (shortcuts) and open mirroring (apps push changes)"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Database mirroring replicates databases into Delta tables; metadata mirroring (Azure Databricks, Dremio) syncs metadata and reads data through shortcuts; open mirroring lets any app write change data into a landing zone. The type determines what's copied, what's free and how fresh the data is.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/overview"
+		},
+		{
+			"id": "F5-002",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Mirroring sources",
+			"difficulty": "medium",
+			"question": "Which mirroring type does Fabric use for Azure Databricks?",
+			"choices": [
+				"Metadata mirroring. Catalog structure syncs and data is read through shortcuts",
+				"There's no mirroring for Azure Databricks; it requires pipelines",
+				"Open mirroring. Databricks must push changes through APIs",
+				"Database mirroring. Every Delta table is copied into OneLake on a fixed schedule"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Azure Databricks uses metadata mirroring: only the catalog structure is mirrored, and data is read in place through shortcuts. Snowflake supports database and metadata mirroring, and Azure SQL, Cosmos DB, PostgreSQL, Oracle, SAP, SQL Server and BigQuery use database mirroring.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/overview"
+		},
+		{
+			"id": "F5-003",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Mirroring cost",
+			"difficulty": "medium",
+			"question": "What does Fabric charge for the compute that replicates data into a mirrored database?",
+			"choices": [
+				"Replication compute is billed at 3x the normal CU rate",
+				"It consumes the source database's Fabric capacity at the standard rate",
+				"Nothing. Replication compute is free and doesn't consume capacity",
+				"It's billed in Copilot Credits"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Background replication compute is free. Storage is free up to 1 TB per CU. Querying mirrored data (SQL, Power BI, Spark) consumes CUs normally. Source-side costs, such as change-feed load on the source database, aren't covered by Fabric.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/overview"
+		},
+		{
+			"id": "F5-004",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Mirroring cost",
+			"difficulty": "hard",
+			"question": "When is mirrored data billed as regular OneLake storage?",
+			"choices": [
+				"Only when the source is outside Azure",
+				"Never. Mirrored storage is free without any limit, whatever the capacity size",
+				"When it exceeds the free mirroring allowance, or while the capacity is paused",
+				"Only during the first 30 days after mirroring starts"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Microsoft: you pay for OneLake storage if you exceed the free mirroring limit or when the capacity is paused. A running capacity is also required for replication, and pausing stops it. 'Pause at night to save money' breaks near-real-time mirroring.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/overview"
+		},
+		{
+			"id": "F5-005",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Mirroring latency",
+			"difficulty": "medium",
+			"question": "How fresh can database-mirrored data be, according to Microsoft?",
+			"choices": [
+				"Guaranteed under one second with a financially backed SLA",
+				"Only when an admin manually triggers a sync",
+				"Changes can be published as fast as every 15 seconds, depending on volume, region and network",
+				"Exactly once every 24 hours on a fixed schedule, regardless of how much the source data changes"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Database mirroring is near real-time: changes can publish as often as every 15 seconds, but there's no numeric SLA and latency depends on change volume, region, network and gateway compute. Set expectations carefully for operational reporting.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/overview"
+		},
+		{
+			"id": "F5-006",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Open mirroring",
+			"difficulty": "medium",
+			"question": "What is open mirroring?",
+			"choices": [
+				"A way to mirror Fabric data out to Snowflake and Databricks",
+				"Any application or partner writes change files into a OneLake landing zone, and Fabric merges them into Delta tables",
+				"A free Microsoft service that mirrors any SaaS application automatically, with no code or partner involvement needed",
+				"Mirroring that makes Fabric data publicly readable on the internet"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Open mirroring gives you a landing-zone URL. Your app or an ecosystem partner writes files in the landing-zone format, and Fabric merges inserts, updates and deletes into Delta tables with a read-only SQL analytics endpoint. It extends mirroring to sources Microsoft doesn't support natively.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/open-mirroring"
+		},
+		{
+			"id": "F5-007",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake",
+			"difficulty": "easy",
+			"question": "How does Direct Lake differ from Import mode in Power BI?",
+			"choices": [
+				"It copies the full data into the model on each scheduled refresh",
+				"It caches report images rather than data",
+				"It queries the source database live for every visual, exactly like DirectQuery, with no in-memory caching at all",
+				"It reads Delta tables in OneLake directly, loading columns into memory on demand rather than importing a copy"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Direct Lake avoids import copies: a 'refresh' (framing) only updates metadata pointers to the latest Parquet files, and columns are paged into memory when a query first needs them. It combines import-like speed with freshness, within guardrails.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-overview"
+		},
+		{
+			"id": "F5-008",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake",
+			"difficulty": "medium",
+			"question": "What is 'framing' in Direct Lake?",
+			"choices": [
+				"A report feature that freezes a visual's layout",
+				"A refresh that copies only metadata, pointing the model at the latest Delta Parquet files",
+				"A refresh that re-imports every row into the VertiPaq engine, just like an Import model",
+				"Partitioning a model into date ranges for incremental refresh"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Framing updates the model's references to the current Delta version. Queries see data as of the last framing. 'Keep your Direct Lake data up to date' is on by default and reframes when changes are detected.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-how-it-works"
+		},
+		{
+			"id": "F5-009",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake modes",
+			"difficulty": "hard",
+			"question": "What's the key behavioral difference between Direct Lake on OneLake and Direct Lake on SQL endpoints?",
+			"choices": [
+				"Direct Lake on OneLake never falls back to DirectQuery; Direct Lake on SQL can fall back silently by default",
+				"Direct Lake on OneLake supports only import mode, while Direct Lake on SQL is live",
+				"Direct Lake on SQL can't use Delta tables, only Parquet files",
+				"They behave identically; the only difference is whether the model is stored in OneLake or in the SQL endpoint"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Direct Lake on OneLake is Microsoft's recommended mode for new models and runs in DirectLakeOnly. Direct Lake on SQL defaults to Automatic, which silently falls back to DirectQuery when it can't load from Delta. Silent fallback can make reports slow without anyone noticing.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-how-it-works"
+		},
+		{
+			"id": "F5-010",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake fallback",
+			"difficulty": "hard",
+			"question": "With DirectLakeBehavior set to DirectLakeOnly on a Direct Lake on SQL model, what happens when a query can't run in Direct Lake?",
+			"choices": [
+				"The query fails with an error instead of falling back",
+				"It's queued until the next framing",
+				"It falls back to Import mode for that table",
+				"It silently falls back to DirectQuery for that one query"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "DirectLakeBehavior has three values: Automatic (default, silent fallback), DirectLakeOnly (fail with an error) and DirectQueryOnly (always DirectQuery). Fallback triggers include SQL RLS, OLS or dynamic masking at the endpoint, tables over unmaterialized views, guardrail breaches, and stale framing.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-how-it-works"
+		},
+		{
+			"id": "F5-011",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake guardrails",
+			"difficulty": "hard",
+			"question": "What are the Direct Lake guardrails on an F64 for rows per table and memory?",
+			"choices": [
+				"10 billion rows per table and 400 GB max memory",
+				"1.5 billion rows per table and 25 GB max memory (5,000 Parquet files and row groups)",
+				"Unlimited rows and unlimited memory",
+				"300 million rows per table and 3 GB max memory, the same limits as the smallest SKUs"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "F64 guardrails: 5,000 Parquet files, 5,000 row groups, 1.5 billion rows per table, unlimited model size on disk, 25 GB max memory. F8 is 300 million rows, 10 GB model size and 3 GB memory. Large fact tables can force a bigger SKU, and one table over a guardrail blocks Direct Lake for the whole model.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-overview"
+		},
+		{
+			"id": "F5-012",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake guardrails",
+			"difficulty": "hard",
+			"question": "What happens when a Direct Lake on OneLake model exceeds a guardrail?",
+			"choices": [
+				"Refresh fails, since that mode has no DirectQuery fallback",
+				"The model is automatically moved to a larger capacity",
+				"Only the affected visual shows an error; everything else is unaffected",
+				"Queries silently fall back to DirectQuery"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "On Direct Lake on OneLake, exceeding a guardrail makes refresh fail. On Direct Lake on SQL, refresh succeeds with a warning and queries fall back if fallback is enabled. Know your largest tables' row counts before choosing an SKU.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-overview"
+		},
+		{
+			"id": "F5-013",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake security",
+			"difficulty": "hard",
+			"question": "A team secured a lakehouse with SQL-endpoint row-level security, then built a Direct Lake on OneLake model. What happens?",
+			"choices": [
+				"The model falls back to DirectQuery so the RLS is enforced",
+				"Queries succeed without the SQL-endpoint RLS; use OneLake security or model RLS instead",
+				"Queries fail until the RLS is removed from the SQL endpoint, because the two security models conflict",
+				"The SQL RLS is copied into the model automatically"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Microsoft: with Direct Lake on OneLake, queries succeed and SQL-based RLS isn't applied, because that mode isn't coupled to the SQL endpoint. It does work with OneLake security. On Direct Lake on SQL, endpoint RLS forces fallback or failure. Security must be enforced where the engine actually reads.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-how-it-works"
+		},
+		{
+			"id": "F5-014",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake",
+			"difficulty": "medium",
+			"question": "Which data types or features does Direct Lake not support?",
+			"choices": [
+				"Complex column types, binary and GUID columns, and model-defined partitions",
+				"Date and datetime columns",
+				"Integer and decimal columns, which must be converted to strings before framing",
+				"Delta tables with more than one Parquet file"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Direct Lake doesn't support complex types, binary and GUID types, NaN values or hybrid tables. Strings are capped at 32,764 characters, gateway refresh isn't supported, and model partitions aren't supported (Delta partitioning is). Wide JSON-ish tables from a lakehouse may need flattening first.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-overview"
+		},
+		{
+			"id": "F5-015",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake",
+			"difficulty": "medium",
+			"question": "When does a Direct Lake column get loaded into memory?",
+			"choices": [
+				"Columns are never loaded; every query reads Parquet from disk",
+				"Every column loads at framing time, before any query",
+				"Only columns marked 'hot' by the admin load into memory",
+				"Only when a query first requests it, and it stays until evicted"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Transcoding loads columns on first use. They stay resident until a refresh picks up changes, they go unused for a while, or memory pressure evicts them. First-query latency after framing is normal behavior, not a bug.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-how-it-works"
+		},
+		{
+			"id": "F5-016",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake",
+			"difficulty": "hard",
+			"question": "A Direct Lake on SQL model has a table built on a non-materialized SQL view. What happens to queries on it?",
+			"choices": [
+				"The model refuses to publish until the view is removed",
+				"They run in Direct Lake normally, since views are just metadata",
+				"They fall back to DirectQuery (or fail, if fallback is disabled)",
+				"The view is materialized automatically during framing"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Tables over unmaterialized SQL views can't be read directly from Delta, so Direct Lake on SQL falls back. On Direct Lake on OneLake you can't use them at all, and Microsoft suggests lakehouse materialized views. Business logic kept in SQL views silently changes the performance profile.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-how-it-works"
+		},
+		{
+			"id": "F5-017",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Mirroring",
+			"difficulty": "medium",
+			"question": "What does mirroring a database produce in Fabric, beyond the replicated Delta tables?",
+			"choices": [
+				"A read-only SQL analytics endpoint, usable by Power BI Direct Lake and Spark",
+				"A writable copy of the source database that syncs changes back to the source",
+				"A Copilot Studio agent that answers questions about the data",
+				"A Power BI import model refreshed every 15 minutes"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Mirrored databases expose a read-only SQL analytics endpoint and Delta tables usable by Spark, SQL and Direct Lake. Writes still go to the source system. That makes mirroring a strong analytics-offload pattern, not a replacement for the operational database.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/overview"
+		},
+		{
+			"id": "F5-018",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Mirroring sources",
+			"difficulty": "hard",
+			"question": "Which mirroring source did Microsoft's mirroring overview mark as now generally available, with a banner?",
+			"choices": [
+				"Teradata",
+				"Google BigQuery",
+				"Amazon Redshift",
+				"MongoDB Atlas"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "The overview flags Google BigQuery mirroring as generally available, while Azure Database for MySQL, Dremio and SharePoint Lists are labeled preview. Release status varies by source and moves fast, so check before promising it to a customer.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/overview"
+		},
+		{
+			"id": "F5-019",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Power BI limits",
+			"difficulty": "medium",
+			"question": "How much native Power BI storage does a Pro user get, compared with PPU?",
+			"choices": [
+				"10 GB per Pro user versus up to 100 TB for PPU",
+				"100 MB per Pro user and 1 GB for PPU",
+				"Unlimited for both, as storage moved to OneLake",
+				"1 TB per Pro user and 10 TB for PPU"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Power BI native storage is free up to 10 GB per Pro user and 100 TB for PPU. Import-model data in OneLake is included in the Power BI license price. Storage rarely decides the license on its own, but it adds up for heavy self-service users.",
+			"source": "https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/"
+		},
+		{
+			"id": "F5-020",
+			"section": 5,
+			"sectionName": "Mirroring, Direct Lake and Power BI",
+			"topic": "Direct Lake",
+			"difficulty": "medium",
+			"question": "Can Direct Lake models refresh through an on-premises data gateway?",
+			"choices": [
+				"Yes. A gateway is required for every Direct Lake refresh, even for cloud sources",
+				"No. Direct Lake doesn't support gateway refresh; it uses cloud connections",
+				"Only VNet gateways, not on-premises ones",
+				"Only for tables larger than 1 billion rows"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Direct Lake works with cloud connections only and doesn't support gateway refresh. Microsoft recommends a fixed-identity cloud connection for model RLS and service principals. On-premises data must land in OneLake first, for example through mirroring or pipelines.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-overview"
+		},
+		{
+			"id": "F6-001",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Workspace roles",
+			"difficulty": "easy",
+			"question": "What are Fabric's four workspace roles?",
+			"choices": [
+				"Admin, Developer, Analyst and Consumer",
+				"Owner, Editor, Reader and Guest",
+				"Admin, Member, Contributor and Viewer",
+				"Capacity admin, Domain admin, Builder and Viewer"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Workspace roles can be assigned to users, security groups, Microsoft 365 groups, distribution lists and service principals. With multiple group memberships, the highest permission applies, so membership hygiene matters.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/roles-workspaces"
+		},
+		{
+			"id": "F6-002",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Workspace roles",
+			"difficulty": "hard",
+			"question": "A user has the Viewer role on a workspace with a lakehouse. How can they read its data?",
+			"choices": [
+				"Only by downloading files from the Lakehouse explorer",
+				"Not at all. Viewers can only see reports, never data",
+				"Through Spark, the OneLake APIs and the SQL endpoint, exactly like any other workspace role",
+				"Only through the SQL analytics endpoint (T-SQL), not through Spark or the OneLake APIs"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "All four roles can read lakehouse and warehouse data through the SQL endpoint (ReadData). Only Admin, Member and Contributor can read through Spark, the OneLake APIs and the Lakehouse explorer (ReadAll). Viewers also see no data in OneLake unless OneLake security roles grant it.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/roles-workspaces"
+		},
+		{
+			"id": "F6-003",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Workspace roles",
+			"difficulty": "medium",
+			"question": "Which workspace actions are reserved for the Admin role?",
+			"choices": [
+				"Deleting the workspace, managing all membership including admins, creating a workspace identity and connecting to Git",
+				"Reading lakehouse data through Spark",
+				"Creating shortcuts and writing warehouse data",
+				"Running notebooks, scheduling pipeline refreshes and writing warehouse data, none of which Contributors or Members can do"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Admin-only actions include updating or deleting the workspace, adding or removing anyone (including admins), creating a workspace identity and connecting the workspace to Git. Contributors can create and modify most items and run jobs. Git connection being admin-only shapes how CI/CD is set up.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/roles-workspaces"
+		},
+		{
+			"id": "F6-004",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "OneLake security",
+			"difficulty": "hard",
+			"question": "Which workspace roles bypass OneLake security data-access roles?",
+			"choices": [
+				"Only Viewer, because Viewers can't be assigned OneLake roles",
+				"None. OneLake security restricts every role equally",
+				"Admin, Member and Contributor, which already have read and write on all workspace data",
+				"Only Admin; Members and Contributors are restricted by OneLake security roles like everyone else"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Microsoft: Admins, Members and Contributors have read and write on all workspace data, so OneLake security roles don't affect them. They restrict only Viewers or users with item Read permission. For least privilege, give data consumers Viewer plus OneLake roles, not Contributor.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/security/get-started-security"
+		},
+		{
+			"id": "F6-005",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "OneLake security",
+			"difficulty": "medium",
+			"question": "What kinds of roles does OneLake security support?",
+			"choices": [
+				"Grant-only roles: each grants access to specified data for its members, with no deny roles",
+				"Deny-only roles layered on top of workspace roles",
+				"Grant and deny roles, where a deny on any table or folder always takes precedence over grants",
+				"Roles defined only in Purview, not in Fabric"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "OneLake security supports only Grant roles, each with permissions, data scope and members. Lakehouses include a DefaultReader role that gives ReadAll users access, which you can edit or delete. Without deny roles, scope grants carefully.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/security/get-started-security"
+		},
+		{
+			"id": "F6-006",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "OneLake security",
+			"difficulty": "hard",
+			"question": "A team creates one OneLake security role with row-level security and a separate role with column-level security, and assigns a user to both. What happens?",
+			"choices": [
+				"It's unsupported and errors; RLS and CLS can be combined only within a single role",
+				"The most restrictive role wins",
+				"The most permissive of the two roles wins, so the user sees all rows and all columns",
+				"Both rules apply and are merged automatically"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "RLS and CLS can be combined only inside a single role. Combining an RLS role with a separate CLS role is unsupported and errors. RLS also doesn't support dynamic or multi-table predicates. Unity Catalog's row filters, column masks and ABAC are more flexible here, a legitimate comparison point.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/security/table-column-row-security"
+		},
+		{
+			"id": "F6-007",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "OneLake security",
+			"difficulty": "medium",
+			"question": "Which engines enforce OneLake row- and column-level security?",
+			"choices": [
+				"Only Power BI reports",
+				"Spark, the SQL analytics endpoint, semantic models and Power BI, plus authorized third-party engines (preview)",
+				"Only Spark notebooks enforce it today; SQL endpoints and Power BI ignore OneLake security until a future release",
+				"None yet; it's metadata only"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "OneLake security is enforced across Spark, SQL endpoints, semantic models and Power BI, for Delta Parquet and virtualized Iceberg tables. Other table types are blocked for role members. Authorized third-party engines are in preview, and unauthorized ones are blocked from secured tables.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/security/table-column-row-security"
+		},
+		{
+			"id": "F6-008",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Domains",
+			"difficulty": "medium",
+			"question": "Does assigning a workspace to a Fabric domain control who can access its data?",
+			"choices": [
+				"No. Domains organize and delegate governance; access still comes from workspace roles and item permissions",
+				"Yes. Only members of a domain can open its workspaces, and domain membership replaces item-level sharing entirely",
+				"Yes. Domains replace workspace roles entirely",
+				"Only for workspaces on F64 or larger capacities"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Microsoft: domain assignment doesn't affect item visibility or accessibility. Domains group data by business area for discovery in the OneLake catalog and for delegated settings such as default sensitivity labels and certification. Don't sell domains as a security boundary.",
+			"source": "https://learn.microsoft.com/en-us/fabric/governance/domains"
+		},
+		{
+			"id": "F6-009",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Domains",
+			"difficulty": "hard",
+			"question": "What can a Fabric domain admin not do?",
+			"choices": [
+				"Assign workspaces to the domain",
+				"Edit the domain's description or change which workspaces belong to it",
+				"Change the domain's contributors",
+				"Delete or rename the domain, or add and remove other domain admins"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Fabric admins create domains and appoint domain admins. Domain admins can edit descriptions, contributors, workspace assignments and delegated overrides, but can't delete or rename the domain or manage other domain admins. Subdomains have no admins of their own.",
+			"source": "https://learn.microsoft.com/en-us/fabric/governance/domains"
+		},
+		{
+			"id": "F6-010",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Purview",
+			"difficulty": "medium",
+			"question": "What does Microsoft Purview provide for Fabric?",
+			"choices": [
+				"Capacity billing reports for Fabric",
+				"Only a data catalog scan of Fabric items, with no labeling, DLP, audit or insider risk features at all",
+				"Sensitivity labels on all Fabric items, DLP for structured data, audit, insider risk and AI governance",
+				"Encryption keys for OneLake, replacing customer-managed keys"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Purview adds Information Protection (labels on all items, persisting through supported export paths), DLP for lakehouses, warehouses, databases and semantic models, a full audit log, Insider Risk indicators, and support for Copilot and agents. The OneLake catalog is the primary in-Fabric governance experience.",
+			"source": "https://learn.microsoft.com/en-us/fabric/governance/microsoft-purview-fabric"
+		},
+		{
+			"id": "F6-011",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Private links",
+			"difficulty": "medium",
+			"question": "What does enabling tenant-level Private Link with 'Block Public Internet Access' do to Fabric?",
+			"choices": [
+				"It turns on workspace-level customer-managed keys for every workspace",
+				"It moves the tenant to a sovereign cloud",
+				"Supported items become reachable only from private endpoints, and some features stop working",
+				"It encrypts all OneLake data with customer-managed keys and blocks all external guest users"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "With Private Link and public access blocked, supported items are reachable only through private endpoints. Several features break: Copilot, the on-premises data gateway (use the VNet gateway), Publish to web, PDF and PowerPoint export, trial capacities, the Metrics app and Spark starter pools. That's a big tradeoff to surface early.",
+			"source": "https://learn.microsoft.com/en-us/fabric/security/security-private-links-overview"
+		},
+		{
+			"id": "F6-012",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Private links",
+			"difficulty": "hard",
+			"question": "A security team insists on tenant-level Private Link with public access blocked, and the business wants Copilot in Fabric. What's the conflict?",
+			"choices": [
+				"Copilot works, but only on trial capacities",
+				"None. Copilot runs entirely inside the private endpoint like other Fabric features",
+				"Copilot isn't supported when tenant-level Private Link blocks public access",
+				"Copilot works, but only in Power BI Desktop"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Microsoft lists Copilot as unsupported with tenant-level Private Link and public access blocked. Workspace-level private links are the more granular alternative. Security posture and AI ambitions have to be reconciled up front.",
+			"source": "https://learn.microsoft.com/en-us/fabric/security/security-private-links-overview"
+		},
+		{
+			"id": "F6-013",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Workspace identity",
+			"difficulty": "medium",
+			"question": "What is a Fabric workspace identity used for?",
+			"choices": [
+				"A Purview label applied to every item in the workspace",
+				"The Git identity used to sign commits",
+				"A Fabric-managed service principal for trusted access to firewalled ADLS Gen2 and for connections",
+				"A personal account created for each workspace member so that their activity can be audited separately"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "A workspace identity is an automatically managed service principal. It enables trusted workspace access to firewall-enabled ADLS Gen2 through shortcuts, and authentication for shortcuts, pipelines, semantic models and Dataflows Gen2. Trusted access requires a purchased F SKU.",
+			"source": "https://learn.microsoft.com/en-us/fabric/security/workspace-identity"
+		},
+		{
+			"id": "F6-014",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Workspace identity",
+			"difficulty": "hard",
+			"question": "What happens if a workspace identity is deleted?",
+			"choices": [
+				"It's moved to the recycle bin for 90 days",
+				"Nothing. Items fall back to the creator's identity",
+				"Dependent items break, and the deletion can't be undone, even if the workspace is restored",
+				"Fabric recreates it automatically within an hour, and dependent items reconnect on their own"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Deleting a workspace identity is permanent: dependent items break, and restoring the workspace doesn't restore the identity. Modifying the underlying Entra app also breaks it. Treat it like production credentials.",
+			"source": "https://learn.microsoft.com/en-us/fabric/security/workspace-identity"
+		},
+		{
+			"id": "F6-015",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "CMK",
+			"difficulty": "hard",
+			"question": "Which items prevent a workspace from enabling customer-managed keys (CMK)?",
+			"choices": [
+				"Notebooks and pipelines",
+				"Any unsupported item, including mirrored Azure Databricks catalogs and mirrored Dataverse",
+				"Lakehouses and warehouses, because CMK only supports notebooks, pipelines and SQL databases",
+				"SQL databases and Eventhouses"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Workspace CMK covers lakehouses, warehouses, notebooks, pipelines, SQL databases, Eventhouse (preview) and more, but a workspace with an unsupported item can't enable it. Mirrored Azure Databricks catalogs and mirrored Dataverse aren't supported. CMK needs an F SKU (not trial), and revoking the key makes reads and writes fail within 60 minutes.",
+			"source": "https://learn.microsoft.com/en-us/fabric/security/workspace-customer-managed-keys"
+		},
+		{
+			"id": "F6-016",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "CMK",
+			"difficulty": "hard",
+			"question": "Which data is not protected by Fabric workspace CMK?",
+			"choices": [
+				"Lakehouse Delta tables and warehouse tables, because CMK covers only metadata such as item names and descriptions",
+				"SQL database data files",
+				"Warehouse tables",
+				"Spark temp and shuffle data, environment libraries, pipeline metadata and the warehouse query cache"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "CMK uses envelope encryption over OneLake data, but Spark cluster temp and shuffle data, libraries attached through environments, pipeline and copy job metadata, ML model metadata and the warehouse query cache aren't covered. Regulated customers should check this list against their requirements.",
+			"source": "https://learn.microsoft.com/en-us/fabric/security/workspace-customer-managed-keys"
+		},
+		{
+			"id": "F6-017",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Tenant settings",
+			"difficulty": "medium",
+			"question": "Are Fabric tenant settings a security boundary?",
+			"choices": [
+				"Only when combined with Private Link",
+				"Yes, but only for settings marked 'Security'",
+				"Yes. Tenant settings override every workspace role and item permission, which makes them the primary access control",
+				"No. Microsoft says they aren't a security measure; for example, 'Export data' doesn't restrict model read permission"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Microsoft states tenant settings aren't a security measure. They enable or disable features for groups and take up to 15 minutes to apply. Real access control comes from workspace roles, item permissions, OneLake security and labels.",
+			"source": "https://learn.microsoft.com/en-us/fabric/admin/about-tenant-settings"
+		},
+		{
+			"id": "F6-018",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "CI/CD",
+			"difficulty": "medium",
+			"question": "Which Fabric CI/CD tools does Microsoft document?",
+			"choices": [
+				"Git integration (Azure DevOps or GitHub), deployment pipelines, variable libraries, the Fabric CLI and REST APIs",
+				"Only Terraform; Git isn't supported",
+				"Only Azure DevOps Classic Release pipelines",
+				"Only manual export and import of .pbix files between workspaces; Git and deployment pipelines aren't supported"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Fabric CI/CD combines Git integration, deployment pipelines (dev, test, prod with rules), variable libraries, deployment plans, the open-source Fabric CLI, REST APIs, a Terraform provider and the fabric-cicd Python library. Item support varies, so check before promising full automation.",
+			"source": "https://learn.microsoft.com/en-us/fabric/cicd/cicd-overview"
+		},
+		{
+			"id": "F6-019",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Private links",
+			"difficulty": "medium",
+			"question": "Which gateway works with tenant-level Private Link?",
+			"choices": [
+				"Neither gateway type is supported",
+				"The VNet data gateway; the on-premises data gateway isn't supported",
+				"Any gateway, as long as it's in the same region",
+				"The on-premises data gateway only, installed on a server inside the VNet"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "The on-premises gateway isn't supported with tenant-level Private Link, but the VNet data gateway works. Customers with on-premises sources must plan connectivity differently in a locked-down tenant.",
+			"source": "https://learn.microsoft.com/en-us/fabric/security/security-private-links-overview"
+		},
+		{
+			"id": "F6-020",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Purview",
+			"difficulty": "hard",
+			"question": "In a network-isolated environment, what does Microsoft note about Purview sensitivity labels in Power BI Desktop?",
+			"choices": [
+				"Purview Information Protection doesn't support Private Link, so labeling and .pbix decryption can fail",
+				"Labels are converted to OneLake security roles",
+				"Desktop stops opening any file until labels are removed",
+				"Labels are enforced more strictly with Private Link on, so every protected file opens read-only in Desktop"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Purview Information Protection doesn't support Private Link. In isolated networks, Power BI Desktop's Sensitivity button is grayed out and decrypting protected .pbix files fails unless service tags allow it. Security features can conflict with each other.",
+			"source": "https://learn.microsoft.com/en-us/fabric/security/security-private-links-overview"
+		},
+		{
+			"id": "F6-021",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "Workspace identity",
+			"difficulty": "medium",
+			"question": "What stops trusted workspace access to a firewall-enabled storage account from working?",
+			"choices": [
+				"Enabling soft delete on OneLake",
+				"Moving the workspace to a trial or non-F capacity",
+				"Adding more than ten members to the workspace at once",
+				"Using Direct Lake on OneLake"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Trusted workspace access requires a purchased F SKU. Migrating to a trial or non-F capacity stops it. Workspace identities also aren't supported across B2B or cross-tenant scenarios.",
+			"source": "https://learn.microsoft.com/en-us/fabric/security/workspace-identity"
+		},
+		{
+			"id": "F6-022",
+			"section": 6,
+			"sectionName": "Security and governance",
+			"topic": "OneLake security",
+			"difficulty": "hard",
+			"question": "What does OneLake security do with table formats other than Delta Parquet and virtualized Iceberg for users in a security role?",
+			"choices": [
+				"It converts them to Delta automatically",
+				"It blocks those tables entirely for role members",
+				"It lets those tables through with no filtering at all",
+				"It applies only column security to them"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Row and column security are enforced for Delta Parquet and virtualized Iceberg tables. Other table types are blocked entirely for role members. Legacy formats in a lakehouse can vanish for restricted users once OneLake security is turned on.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/security/table-column-row-security"
+		},
+		{
+			"id": "F7-001",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Copilot in Fabric",
+			"difficulty": "easy",
+			"question": "What capacity does Copilot in Fabric need?",
+			"choices": [
+				"No capacity; Copilot in Fabric is licensed per user like Microsoft 365 Copilot",
+				"Any capacity, including trial",
+				"F64 or higher only",
+				"A paid Fabric capacity of F2 or higher, or Power BI Premium P1 or higher"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Copilot is enabled by default for tenants with paid F2+ capacities, and also works on P1+. Pro and PPU workspaces aren't directly supported, and trial SKUs don't get Azure OpenAI. The old F64 minimum is gone, but small capacities can throttle under AI load.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-enable-fabric"
+		},
+		{
+			"id": "F7-002",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Copilot in Fabric",
+			"difficulty": "medium",
+			"question": "Is Copilot in Fabric licensed per user, like Microsoft 365 Copilot?",
+			"choices": [
+				"Yes, it's included only with Power BI PPU",
+				"It's billed in Copilot Credits per prompt",
+				"Yes. Every Fabric Copilot user needs a $30 Microsoft 365 Copilot license assigned to them",
+				"No. It consumes the Fabric capacity's CUs; there's no per-user Copilot in Fabric license"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Copilot in Fabric runs on capacity: 100 CU-seconds per 1,000 input tokens and 400 per 1,000 output tokens, billed to the content's capacity or a designated Fabric Copilot capacity. Copilot in Power BI Desktop consumes the selected workspace's capacity. Don't confuse it with the Microsoft 365 Copilot seat.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
+		},
+		{
+			"id": "F7-003",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Copilot in Fabric",
+			"difficulty": "hard",
+			"question": "A UK customer's Fabric capacity is in UK South. What must the admin enable for Copilot to work?",
+			"choices": [
+				"Nothing. Azure OpenAI is hosted in every Fabric region",
+				"A Private Link from UK South to the EU Data Boundary, since Copilot can't reach Azure OpenAI over the internet",
+				"The tenant setting allowing processing outside the capacity's geography, since UK requests go to the EU",
+				"A Microsoft 365 Copilot license for each user"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Azure OpenAI for Fabric is hosted in the US and the EU Data Boundary. UK capacities process in the EU, and many other geographies (Australia, Canada, India, Japan and more) process in the US, so the cross-geo processing tenant setting must be enabled. That's a residency decision for the customer's DPO.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
+		},
+		{
+			"id": "F7-004",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Copilot in Fabric",
+			"difficulty": "medium",
+			"question": "Which Fabric experiences include Copilot?",
+			"choices": [
+				"Only notebooks",
+				"Only the Fabric admin portal",
+				"Notebooks, Data Factory, Data Warehouse, SQL database, Power BI and Real-Time Intelligence",
+				"Only Power BI reports and dashboards, because other Fabric workloads don't include Copilot yet"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Copilot appears across notebooks, Data Factory, Warehouse, SQL database, Power BI (Desktop and apps) and Real-Time Intelligence (KQL querysets and dashboards). Admins can control Copilot at the workload level but not per experience, and sovereign clouds aren't supported.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
+		},
+		{
+			"id": "F7-005",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Copilot settings",
+			"difficulty": "hard",
+			"question": "What do Fabric admins control through Copilot tenant settings?",
+			"choices": [
+				"The model version, temperature and maximum tokens that each workspace's Copilot uses, set per capacity by the Fabric admin",
+				"A per-user monthly token budget for Copilot",
+				"Which Microsoft 365 Copilot licenses apply to Fabric",
+				"Who can use Azure OpenAI and OpenAI-powered features, and whether data may leave the capacity's geography"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "There are four tenant settings: use of Azure OpenAI features, cross-geo processing for Azure OpenAI, use of OpenAI as a Microsoft subprocessor (Copilot, AI agents), and cross-geo processing for that. Each can be scoped to security groups and delegated to capacity admins.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
+		},
+		{
+			"id": "F7-006",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Data agents",
+			"difficulty": "medium",
+			"question": "How many data sources can a Fabric data agent combine, and which types?",
+			"choices": [
+				"Up to 50 sources of any type, including PDF and Word documents in lakehouse Files folders and SharePoint libraries",
+				"Unlimited, but only from one workspace",
+				"Up to five: lakehouses, warehouses, KQL databases, Power BI semantic models, ontologies and Microsoft Graph",
+				"One, which must be a semantic model"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Data agents (GA) answer from up to five structured sources, read-only, with results capped at 25 rows and 25 columns. They're English only, the LLM can't be changed, and there's no unstructured data. They query with the requesting user's identity.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
+		},
+		{
+			"id": "F7-007",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Data agents",
+			"difficulty": "medium",
+			"question": "Which tenant setting must be on for Fabric data agents to work?",
+			"choices": [
+				"Cross-geo processing and storing for AI",
+				"External sharing to anyone",
+				"Publish to web for the whole organization",
+				"Allow Pro workspaces on capacity"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Data agents require the tenant setting that allows cross-geo processing and storing for AI, plus a paid F2+ or P1+ capacity. They aren't supported on trial capacities.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
+		},
+		{
+			"id": "F7-008",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Data agents",
+			"difficulty": "hard",
+			"question": "Where are Fabric data agent responses processed when the agent is used from Microsoft 365 Copilot?",
+			"choices": [
+				"They may be processed outside Fabric's compliance boundary or geographic region, as Microsoft warns",
+				"Always inside the capacity's own region with no exceptions, as with any other Fabric workload today",
+				"Only on the user's device",
+				"Inside the Databricks workspace that holds the data"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Microsoft warns that responses used through Microsoft 365 Copilot and Copilot Studio may leave Fabric's compliance boundary or region. Each hop in an agent chain is a data flow to document.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-365-copilot"
+		},
+		{
+			"id": "F7-009",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Fabric Copilot capacity",
+			"difficulty": "medium",
+			"question": "What is a Fabric Copilot capacity?",
+			"choices": [
+				"A capacity that runs only Microsoft 365 Copilot",
+				"A per-user Copilot license for Fabric",
+				"A designated capacity that absorbs Copilot and data agent usage for chosen users instead of the content's capacity",
+				"A free capacity that Microsoft provides for AI features, so Copilot usage never counts against paid capacity at all"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Fabric Copilot capacity (minimum F2 or P1, home region only) bills selected users' Copilot and data agent usage to one capacity. It's good for chargeback and for protecting production capacity. Each user maps to one Copilot capacity, and the most recently created one wins.",
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/fabric-copilot-capacity"
+		},
+		{
+			"id": "F7-010",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Fabric IQ",
+			"difficulty": "medium",
+			"question": "What was the status of Fabric IQ integrations in Microsoft Copilot after Ignite 2026?",
+			"choices": [
+				"Generally available, while Fabric IQ in Excel and the ChatGPT and Claude connectors were in preview",
+				"Retired in favor of Fabric data agents, which now cover every scenario Fabric IQ used to support in Copilot",
+				"Private preview for Frontier customers only",
+				"Available only in sovereign clouds"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Per the Book of News, Fabric IQ integrations in Microsoft Copilot are GA. Fabric IQ in Excel, connectors for ChatGPT and Claude, ontologies in GitHub Copilot, and IQ sharing for ontologies are in preview. Microsoft IQ (Work IQ, Fabric IQ, Foundry IQ) came with no new SKU.",
+			"source": "https://news.microsoft.com/events/ignite/2026/book-of-news/"
+		},
+		{
+			"id": "F7-011",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Copilot in Power BI",
+			"difficulty": "medium",
+			"question": "When an analyst uses Copilot in Power BI Desktop, which capacity pays?",
+			"choices": [
+				"The analyst's Microsoft 365 Copilot license, so no capacity is used",
+				"The tenant's largest capacity automatically",
+				"The capacity of the workspace the analyst selects for Copilot",
+				"Nothing. Desktop Copilot is free"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Copilot in Power BI Desktop consumes the selected workspace's capacity. Point Desktop Copilot at a development or Copilot capacity, not the production capacity serving executive dashboards.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
+		},
+		{
+			"id": "F7-012",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Data agents",
+			"difficulty": "hard",
+			"question": "A Fabric data agent's results feel truncated for a detailed list request. Why?",
+			"choices": [
+				"Copilot hides rows the user isn't licensed to see",
+				"Semantic models return only their top 25 measures",
+				"The capacity is throttled to 25 rows during business hours",
+				"Data agent responses are capped at 25 rows and 25 columns"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "The 25 × 25 cap is by design. Data agents give answers, not extracts. For detailed lists, point users to a report, or compare with Genie Agents, which support up to 50 tables and richer analytical answers.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
+		},
+		{
+			"id": "F7-013",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Data agents",
+			"difficulty": "medium",
+			"question": "How do Fabric data agents enforce semantic model security?",
+			"choices": [
+				"They apply the creator's RLS role to everyone",
+				"They require turning RLS off before publishing",
+				"They ignore RLS, so data agents should only ever be built on non-sensitive data",
+				"They query as the requesting user, so semantic model RLS and CLS still apply"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Data agents use the requesting user's identity, and for semantic models RLS and CLS still apply (Read permission needed, Build not). That's the same principle Genie follows with Unity Catalog, so both can be governed in a comparable way.",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
+		},
+		{
+			"id": "F7-014",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Copilot in Fabric",
+			"difficulty": "medium",
+			"question": "Is Copilot in Fabric available on a trial capacity?",
+			"choices": [
+				"Only during the first 7 days of the trial",
+				"No. Azure OpenAI isn't available on trial SKUs",
+				"Yes, with the same features as F64",
+				"Yes, but limited to Power BI"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Trials don't support Copilot or AI experiences (data agents, AI functions), so a Fabric AI proof of concept needs paid capacity. An F2 is enough to start.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/fabric-trial"
+		},
+		{
+			"id": "F7-015",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "AI consumption",
+			"difficulty": "hard",
+			"question": "A Copilot request in Fabric uses 2,000 input and 500 output tokens. Using Microsoft's rates, how many CU-seconds does it consume?",
+			"choices": [
+				"400 CU-seconds (200 for input + 200 for output)",
+				"2,500 CU-seconds, at one CU-second per token used",
+				"4,000 CU-seconds",
+				"40 CU-seconds"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Input: 2 × 100 = 200. Output: 0.5 × 400 = 200. Total 400 CU-seconds, which matches Microsoft's own example. An F2 has 60 CU-seconds per 30-second timepoint, so a few heavy Copilot users can push small capacities into smoothing debt, even though it runs as a background job.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-consumption"
+		},
+		{
+			"id": "F7-016",
+			"section": 7,
+			"sectionName": "Copilot and AI in Fabric",
+			"topic": "Copilot in Fabric",
+			"difficulty": "medium",
+			"question": "Can Copilot in Fabric be turned on or off per individual experience, such as only in notebooks?",
+			"choices": [
+				"No. Control is at the workload level, not per experience",
+				"Only for Power BI, which has a separate switch per report",
+				"Yes. Each experience has its own tenant switch",
+				"Yes, but only through PowerShell"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Copilot can't be enabled per experience. Control sits at the workload and tenant-setting level, scoped to security groups. Granular governance means choosing which groups get Copilot, not which features.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
+		},
+		{
+			"id": "F8-001",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Mirroring Unity Catalog",
+			"difficulty": "medium",
+			"question": "When a Unity Catalog catalog is mirrored into Fabric, how does Fabric access the table data?",
+			"choices": [
+				"By exporting tables to Parquet through Delta Sharing each hour",
+				"By running queries on the Databricks SQL warehouse for every request",
+				"Through OneLake shortcuts to the existing Delta files; only metadata is synchronized",
+				"By copying every table into OneLake nightly, through a pipeline that Fabric manages"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Mirroring an Azure Databricks catalog syncs the catalog structure and reads data through shortcuts, with no data movement. Fabric creates a mirrored item and a read-only SQL analytics endpoint, and Power BI can use Direct Lake against it. Queries then run on Fabric capacity, not Databricks.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/azure-databricks"
+		},
+		{
+			"id": "F8-002",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Mirroring Unity Catalog",
+			"difficulty": "hard",
+			"question": "A mirrored Unity Catalog catalog in Fabric shows fewer tables than the Databricks catalog. Which are documented reasons?",
+			"choices": [
+				"Tables larger than 1 TB are skipped automatically, so the mirrored catalog stays within the free mirroring storage allowance",
+				"Tables owned by service principals are hidden from Fabric users",
+				"Tables with row filters or column masks, views and metric views, and federated and Delta Sharing tables aren't mirrored",
+				"Only tables created in the last 90 days are mirrored"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Fabric's limitations exclude tables with RLS or column-masking policies, views, metric views, lakehouse federated tables and Delta Sharing tables, and non-Delta external tables aren't shown. The governed and semantic assets (policies, metric views) are what don't carry over. That's the core reason to keep consumption on Genie and Unity Catalog where governance holds.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/azure-databricks-limitations"
+		},
+		{
+			"id": "F8-003",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Mirroring Unity Catalog",
+			"difficulty": "hard",
+			"question": "What does mirroring Unity Catalog into Fabric require at the storage layer?",
+			"choices": [
+				"The storage account must first be copied into a Fabric-managed Azure subscription",
+				"The ADLS Gen2 account behind the Databricks tables must be reachable by Fabric",
+				"Disabling the storage firewall entirely",
+				"Converting tables from Delta to Iceberg first"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Because Fabric reads through shortcuts, it needs network access to the underlying ADLS Gen2 account. That's a second path to the data outside Unity Catalog's enforcement, so it should be part of the security review. Workspace identity and trusted workspace access can help with firewalled storage.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/azure-databricks-limitations"
+		},
+		{
+			"id": "F8-004",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Mirroring Unity Catalog",
+			"difficulty": "medium",
+			"question": "How quickly do Unity Catalog schema changes appear in a mirrored catalog in Fabric?",
+			"choices": [
+				"Once a day at midnight UTC",
+				"Only after a manual resync by a Fabric admin",
+				"Instantly, inside the same transaction",
+				"Anywhere from a few seconds to several minutes"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Metadata sync is on by default but not instantaneous: Microsoft says propagation takes seconds to several minutes. Mirrored catalogs also can't live in CMK-enabled workspaces, a constraint for regulated customers.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/azure-databricks"
+		},
+		{
+			"id": "F8-005",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "OneLake federation",
+			"difficulty": "medium",
+			"question": "What does OneLake catalog federation let Azure Databricks do?",
+			"choices": [
+				"Query Fabric lakehouse and warehouse data in place on Databricks compute, read-only and without copying",
+				"Write directly into Fabric warehouses with full DML, running the queries on Fabric capacity instead of Databricks",
+				"Run Databricks notebooks on Fabric capacity",
+				"Copy OneLake tables into Unity Catalog managed storage nightly"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "OneLake catalog federation creates a foreign catalog in Unity Catalog over a Fabric Lakehouse or Warehouse. Queries run on Databricks compute and read OneLake data with zero copy. It's read-only (SELECT only), so Databricks can be the governed AI and BI layer even over data that lives in Fabric.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/query-federation/onelake"
+		},
+		{
+			"id": "F8-006",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "OneLake federation",
+			"difficulty": "hard",
+			"question": "What identity does Azure Databricks use to read OneLake through catalog federation?",
+			"choices": [
+				"An Access Connector managed identity (recommended) or a service principal, not end-user passthrough",
+				"Anonymous access, since federation is read-only",
+				"Each Databricks user's own Fabric credentials, passed through so OneLake checks every individual user",
+				"A Fabric workspace identity created by Databricks automatically"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Federation authenticates to Fabric as a managed identity or service principal. Per-user access is then governed in Unity Catalog (USE CATALOG, USE SCHEMA, SELECT). On the Fabric side, the SQL-only 'Read all with SQL analytics endpoint' permission isn't enough; use 'Read all with Apache Spark' or broader. Cross-tenant setups need a service principal.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/query-federation/onelake"
+		},
+		{
+			"id": "F8-007",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "OneLake federation",
+			"difficulty": "hard",
+			"question": "Which is a documented limitation of OneLake catalog federation?",
+			"choices": [
+				"No complex types, no views or materialized views, and no dedicated access mode",
+				"It requires every Fabric workspace to be on F64 or above",
+				"It's limited to 10 queries per minute per workspace",
+				"It only works for tables under 1 GB, so larger lakehouse tables must be split first"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Limits include read-only SELECT access, Lakehouse and Warehouse items only, Databricks Runtime 18.0+ in standard access mode (SQL warehouses 2025.40+), no complex types, no views or materialized views, and connection options that can't change after creation. Cross-region reads incur data transfer charges, so keep both in the same region.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/query-federation/onelake"
+		},
+		{
+			"id": "F8-008",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "OneLake federation",
+			"difficulty": "hard",
+			"question": "Which Fabric tenant settings does OneLake catalog federation require?",
+			"choices": [
+				"Publish to web, external sharing with anyone, and Copilot cross-geo processing, all enabled for the whole organization",
+				"Allow Copilot cross-geo processing",
+				"Service principals calling Fabric APIs, external apps accessing OneLake, and short-lived user-delegated SAS tokens",
+				"Block public internet access"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Federation needs three tenant settings plus the workspace setting 'Authenticate with OneLake user-delegated SAS tokens'. Locked-down tenants often have these off, so involve the Fabric admin early in any 'Databricks reads Fabric data' design.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/query-federation/onelake"
+		},
+		{
+			"id": "F8-009",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Who pays",
+			"difficulty": "medium",
+			"question": "A Power BI report uses Direct Lake over a mirrored Unity Catalog catalog. Which platform's compute serves the report queries?",
+			"choices": [
+				"Fabric capacity (CUs); Databricks compute isn't involved in serving those queries",
+				"Databricks SQL warehouse DBUs, because the underlying data still lives in Databricks storage",
+				"Neither. Direct Lake queries are free",
+				"Both platforms, billed twice per query"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "With mirroring plus Direct Lake, Fabric reads the Delta files through shortcuts and serves queries on its own capacity. Workload moves from Databricks DBUs to Fabric CUs, and Unity Catalog row filters and masks aren't in the path. Make that compute and governance shift explicit when the customer compares options.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/azure-databricks"
+		},
+		{
+			"id": "F8-010",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Who pays",
+			"difficulty": "medium",
+			"question": "When Databricks queries Fabric data through OneLake catalog federation, whose compute does the work?",
+			"choices": [
+				"The Fabric SQL analytics endpoint, billed in CUs",
+				"Azure Databricks compute; Fabric isn't copying or serving the data",
+				"Fabric capacity, billed in CUs to the workspace that owns the lakehouse",
+				"A shared Microsoft–Databricks pool billed to neither"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Federated queries run on Databricks compute and read OneLake files in place. OneLake read transactions may still register on the Fabric side, and cross-region reads add transfer charges. The direction of the integration decides who pays.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/external-integration"
+		},
+		{
+			"id": "F8-011",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "UC tables in OneLake",
+			"difficulty": "medium",
+			"question": "What did Microsoft announce in 2026 about Unity Catalog and OneLake storage?",
+			"choices": [
+				"OneLake will no longer accept Delta tables written by Databricks",
+				"Databricks must copy all tables into Fabric warehouses to share them",
+				"Unity Catalog is being replaced by the OneLake catalog for every Azure Databricks customer starting in 2027",
+				"Azure Databricks can store Unity Catalog managed tables in OneLake, read by Fabric via a mirrored catalog"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Microsoft's Fabric blog announced that Azure Databricks can store Unity Catalog managed tables directly in OneLake. Unity Catalog stays the governing catalog on the Databricks side, and Fabric users read through a mirrored catalog item. One copy of the data, two engines: the open-lakehouse story both vendors now tell.",
+			"source": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Extending-interoperability-Azure-Databricks-can-now-store-Unity/ba-p/5199741"
+		},
+		{
+			"id": "F8-012",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Power BI with Databricks",
+			"difficulty": "medium",
+			"question": "How can Azure Databricks data get into the Power BI service without mirroring?",
+			"choices": [
+				"Only through Fabric mirroring, because Power BI has no direct connector to Azure Databricks clusters or warehouses",
+				"Publish datasets from Databricks to Power BI, or connect Power BI Desktop to a cluster or SQL warehouse",
+				"Only by exporting CSV files to SharePoint",
+				"Only by rebuilding the tables in a Fabric warehouse"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Databricks supports Publish to Power BI and the Power BI Desktop connector to clusters and SQL warehouses, with OAuth or service principal setups. Connecting Unity Catalog metric views to Power BI is in private preview. In this path, queries run on Databricks compute with Unity Catalog permissions in force.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/partners/bi/power-bi"
+		},
+		{
+			"id": "F8-013",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Coaching",
+			"difficulty": "hard",
+			"question": "A customer wants governed self-service BI over Databricks data for 3,000 viewers and is choosing between an F32 and an F64. What's the key licensing fact?",
+			"choices": [
+				"Below F64, every viewer needs Pro or PPU; at F64+ free users can view, which changes the cost comparison",
+				"F32 and F64 have identical Power BI licensing rules",
+				"Viewers never need any Power BI license on a Fabric capacity of any size, as long as they view in Teams",
+				"Viewers need Microsoft 365 Copilot licenses on F32"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "At $14 per Pro user, 3,000 viewers is $42,000 a month on top of an F32. F64 lets free users view. Work out the true cost (capacity, Pro seats, storage, the Databricks compute behind it) and compare with alternatives such as Databricks AI/BI dashboards and Genie for consumption.",
+			"source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/service-features-license-type"
+		},
+		{
+			"id": "F8-014",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Coaching",
+			"difficulty": "hard",
+			"question": "A customer's data platform team runs everything on Databricks with Unity Catalog row filters. The BI team proposes mirroring into Fabric for Direct Lake reports. What's the strongest governance concern?",
+			"choices": [
+				"Fabric caps mirrored catalogs at 100 report users unless the capacity is F128 or larger",
+				"Direct Lake can't read Delta tables created by Databricks",
+				"Mirroring copies every Delta table into OneLake a second time, so storage doubles and the copies drift from the source within hours",
+				"Policy-protected tables won't mirror, and Fabric access bypasses Unity Catalog, creating a second governance model"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Mirroring is metadata plus shortcuts (no double storage), and Direct Lake reads Delta fine. But policy-protected tables are excluded, and whatever is mirrored is governed by Fabric permissions, not Unity Catalog. Options: keep consumption on Databricks (Genie, AI/BI dashboards, Power BI DirectQuery with Unity Catalog), or deliberately re-implement security in OneLake security and semantic-model RLS, accepting two places to manage policy.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/azure-databricks-limitations"
+		},
+		{
+			"id": "F8-015",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Coaching",
+			"difficulty": "medium",
+			"question": "When is Fabric arguably the better fit than adding Databricks, to give fair, credible coaching?",
+			"choices": [
+				"When Unity Catalog row filters and ABAC must govern every access path",
+				"When data lives across AWS, GCP and Azure and must stay in place",
+				"For Power BI-centric teams with modest data volumes and SQL skills who want one SaaS bill and Direct Lake reporting",
+				"When the customer needs advanced ML, streaming at massive scale and multi-cloud portability across AWS and GCP"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Fabric's strengths are a unified SaaS experience, Power BI integration (Direct Lake), T-SQL warehousing, low-friction mirroring and F2 entry pricing. Databricks tends to win on advanced data engineering and ML, open multi-cloud governance, fine-grained policy and agentic analytics with Genie. Acknowledging where Fabric fits makes the rest of your advice more credible.",
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview"
+		},
+		{
+			"id": "F8-016",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Coaching",
+			"difficulty": "hard",
+			"question": "A customer plans to pause its F64 every night to save money, and it has database mirroring running from Azure SQL. What breaks?",
+			"choices": [
+				"Nothing, because mirroring runs on Microsoft's free replication compute whether or not the capacity is running at all",
+				"The mirrored tables are deleted and must be re-seeded each morning",
+				"Mirroring stops replicating while paused, and mirrored storage is billed as regular OneLake storage during the pause",
+				"Only Power BI refreshes are affected; mirroring is unaffected"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "A running capacity is required for mirroring, and pausing stops replication. Storage that was free under the mirroring allowance is billed while paused, and pausing also bills accumulated smoothed usage. Night pausing can still make sense, but model the side effects first.",
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/overview"
+		},
+		{
+			"id": "F8-017",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Coaching",
+			"difficulty": "medium",
+			"question": "Do Fabric capacity and Azure Databricks consumption compete for a customer's Azure MACC?",
+			"choices": [
+				"Only Databricks counts toward MACC; Fabric is Microsoft 365 spend",
+				"Neither counts toward MACC",
+				"Both are Azure spend that burns down the same MACC, so MACC isn't a reason to pick one over the other",
+				"Only Fabric counts toward MACC, because Azure Databricks is billed as a third-party marketplace charge"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Fabric F SKUs are MACC-eligible, and Azure Databricks is a first-party Azure service billed through the customer's subscription. Steer the decision to capability, governance and total cost rather than which product burns down the commitment.",
+			"source": "https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/"
+		},
+		{
+			"id": "F8-018",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Coaching",
+			"difficulty": "hard",
+			"question": "A customer wants one semantic definition of revenue used by both Power BI and AI agents. What's the tradeoff between Unity Catalog metric views and Power BI semantic models?",
+			"choices": [
+				"Metric views are mirrored into Fabric automatically as Power BI semantic models, so one definition serves both platforms",
+				"There's no tradeoff; both platforms read each other's semantic layers fully",
+				"Power BI semantic models can be queried by Genie natively today",
+				"Metric views govern metrics for Genie and SQL, but don't mirror to Fabric, and their Power BI link is in private preview"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Unity Catalog metric views give a governed semantic layer for Genie, dashboards and SQL, but they don't appear in mirrored catalogs, and the Power BI connection to them is in private preview. Power BI semantic models serve Power BI and Fabric data agents. Choose deliberately where the 'golden' definition lives, and avoid two that drift apart.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/partners/bi/power-bi"
+		},
+		{
+			"id": "F8-019",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Coaching",
+			"difficulty": "medium",
+			"question": "A customer's Fabric security relies on workspace Contributor roles for analysts who only need to read curated data. What should you recommend?",
+			"choices": [
+				"Use Viewer plus OneLake security roles (or item permissions), since Contributors bypass OneLake security and can write",
+				"Use domains to restrict which tables they can see",
+				"Keep them as Contributors, because that's the least-privileged role able to read lakehouse data through every engine",
+				"Make them Admins so they can manage their own access"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Contributors can read and write all workspace data and aren't restricted by OneLake security roles. Least privilege means Viewer (SQL endpoint read) plus OneLake roles for Spark and OneLake access, or item-level sharing. Domains don't control access. The same principle applies in Unity Catalog: grant what's needed, at the data layer.",
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/security/get-started-security"
+		},
+		{
+			"id": "F8-020",
+			"section": 8,
+			"sectionName": "Fabric with Databricks: coaching",
+			"topic": "Coaching",
+			"difficulty": "hard",
+			"question": "A customer in a network-isolated tenant wants Databricks to read Fabric lakehouses through catalog federation. What networking detail matters on newer Databricks runtimes?",
+			"choices": [
+				"Federation requires disabling Private Link on both sides",
+				"Runtime 19+ uses per-workspace OneLake endpoints, so firewall rules written for the global endpoint may need updating",
+				"Databricks must be moved into the Fabric tenant's VNet",
+				"Federation works only over the public internet, so the firewalls on both platforms must be fully disabled before setup"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "From Databricks Runtime 19, federation uses per-workspace endpoints (<workspace-id>.z<xy>.dfs.fabric.microsoft.com), so firewall allow-lists for the global endpoint may need changes. Workspaces that block public access need a resource instance rule (same tenant) or a private endpoint (cross-tenant).",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/query-federation/onelake"
+		}
+	]
+}

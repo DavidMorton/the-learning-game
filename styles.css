@@ -51,6 +51,22 @@
 :root[data-deck="copilot"] .btn.primary { box-shadow: 0 10px 24px -10px rgba(124, 108, 255, 0.7); }
 :root[data-deck="copilot"] .brand-mark { box-shadow: 0 6px 18px -6px rgba(124, 108, 255, 0.8); }
 
+/* The Fabric deck uses teal accents. */
+:root[data-deck="fabric"] {
+  --accent: #12a4b8;
+  --accent-2: #3fd0c9;
+  --accent-soft: rgba(18, 164, 184, 0.16);
+}
+:root[data-deck="fabric"] body {
+  background:
+    radial-gradient(900px 520px at 0% -10%, rgba(18, 164, 184, 0.18), transparent 60%),
+    radial-gradient(800px 520px at 100% 0%, rgba(63, 208, 201, 0.1), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+:root[data-deck="fabric"] .btn.primary { box-shadow: 0 10px 24px -10px rgba(18, 164, 184, 0.7); }
+:root[data-deck="fabric"] .brand-mark { box-shadow: 0 6px 18px -6px rgba(18, 164, 184, 0.8); }
+
 html { -webkit-text-size-adjust: 100%; }
 
 body {

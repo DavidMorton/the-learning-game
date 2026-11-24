@@ -1,5 +1,5 @@
 /* Lakehouse Quest: a practice game with several question decks (the Databricks Certified Data
-   Engineer Associate exam, Microsoft Copilot and agents). Plain browser JavaScript with no
+   Engineer Associate exam, Microsoft Copilot and agents, Microsoft Fabric). Plain browser JavaScript with no
    build step. Each deck is a JSON file listed in DECKS, and each deck keeps its own progress
    in localStorage. */
 (() => {
@@ -36,6 +36,7 @@
       icon: '🧱',
       brand: ['Lakehouse', 'Quest'],
       label: 'Databricks',
+      tab: 'Databricks',
       mock: { questions: 45, minutes: 90 },
       levels: levels(['Raw File', 'Bronze Ingestor', 'Silver Refiner', 'Gold Curator', 'Stream Wrangler',
         'Pipeline Pilot', 'Job Orchestrator', 'Catalog Keeper', 'Lakehouse Architect', 'Delta Legend']),
@@ -52,6 +53,7 @@
       icon: '🤖',
       brand: ['Copilot', 'Quest'],
       label: 'Microsoft Copilot',
+      tab: 'Copilot',
       mock: { questions: 40, minutes: 60 },
       levels: levels(['Curious Prompter', 'Chat Explorer', 'Agent Builder', 'Credit Counter', 'Connector Wrangler',
         'Governance Guardian', 'Licensing Navigator', 'Estate Strategist', 'Agent Architect', 'Trusted Advisor']),
@@ -61,6 +63,26 @@
       },
       achievements: {
         first: { name: 'Hello, Copilot' },
+        mockPass: { name: 'Customer Ready' },
+      },
+    },
+    {
+      id: 'fabric',
+      file: 'fabric-questions.json',
+      storageKey: 'lakehouse-quest:v1:fabric',
+      icon: '🧵',
+      brand: ['Fabric', 'Quest'],
+      label: 'Microsoft Fabric',
+      tab: 'Fabric',
+      mock: { questions: 40, minutes: 60 },
+      levels: levels(['Trial Tenant', 'F2 Explorer', 'Shortcut Maker', 'Lakehouse Builder', 'Capacity Planner',
+        'Smoothing Sage', 'Direct Lake Pilot', 'Mirroring Master', 'OneLake Steward', 'Fabric Architect']),
+      copy: {
+        readiness: 'Coaching readiness', nearly: 'Nearly customer-ready', ready: 'Customer-ready',
+        weightNote: 'weighted by how much it matters in customer conversations', weightUnit: 'of deck',
+      },
+      achievements: {
+        first: { name: 'Hello, Fabric' },
         mockPass: { name: 'Customer Ready' },
       },
     },
@@ -703,7 +725,7 @@
   function deckSwitch() {
     return `
       <nav class="deck-switch" aria-label="Question deck">
-        ${DECKS.map(d => `<button class="${d.id === deck.id ? 'on' : ''}" data-action="deck" data-deck="${esc(d.id)}" aria-pressed="${d.id === deck.id}"><span aria-hidden="true">${d.icon}</span> ${esc(d.label)}</button>`).join('')}
+        ${DECKS.map(d => `<button class="${d.id === deck.id ? 'on' : ''}" data-action="deck" data-deck="${esc(d.id)}" aria-pressed="${d.id === deck.id}" title="${esc(d.label)}"><span aria-hidden="true">${d.icon}</span> ${esc(d.tab)}</button>`).join('')}
       </nav>`;
   }
 
