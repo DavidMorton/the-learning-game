@@ -1,10 +1,10 @@
 {
-	"title": "Glossary: Databricks, Microsoft Copilot and Microsoft Fabric",
+	"title": "Glossary: Databricks, Microsoft Copilot, Microsoft Fabric and other agent platforms",
 	"asOf": "2026-11-24",
 	"format": {
 		"aliases": "Words that count as a mention of the term in a question. Matching ignores case and allows a plural 's', except for all-capital acronyms and aliases that start with '=', which must match exactly.",
 		"related": "Ids of terms to read alongside this one.",
-		"decks": "Optional. When present, the term is only matched in these decks (databricks, copilot, fabric)."
+		"decks": "Optional. When present, the term is only matched in these decks (databricks, copilot, fabric, agents)."
 	},
 	"categories": [
 		{
@@ -38,6 +38,10 @@
 		{
 			"id": "integration",
 			"name": "Integration and protocols"
+		},
+		{
+			"id": "landscape",
+			"name": "Other agent platforms"
 		}
 	],
 	"terms": [
@@ -2726,7 +2730,8 @@
 			"term": "Declarative Automation Bundles",
 			"category": "databricks",
 			"decks": [
-				"databricks"
+				"databricks",
+				"agents"
 			],
 			"aliases": [
 				"Declarative Automation Bundles",
@@ -2930,7 +2935,8 @@
 			"term": "Change data capture and change data feed",
 			"category": "databricks",
 			"decks": [
-				"databricks"
+				"databricks",
+				"agents"
 			],
 			"aliases": [
 				"change data feed",
@@ -3091,7 +3097,8 @@
 			"term": "Unity Catalog volume",
 			"category": "databricks",
 			"decks": [
-				"databricks"
+				"databricks",
+				"agents"
 			],
 			"aliases": [
 				"volume",
@@ -3110,7 +3117,8 @@
 			"term": "Unity Catalog privileges",
 			"category": "databricks",
 			"decks": [
-				"databricks"
+				"databricks",
+				"agents"
 			],
 			"aliases": [
 				"=GRANT",
@@ -3243,7 +3251,8 @@
 			"term": "System tables",
 			"category": "databricks",
 			"decks": [
-				"databricks"
+				"databricks",
+				"agents"
 			],
 			"aliases": [
 				"system tables",
@@ -3528,7 +3537,10 @@
 				"copilot-studio",
 				"foundry"
 			],
-			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro"
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro",
+			"decks": [
+				"copilot"
+			]
 		},
 		{
 			"id": "power-platform-alm",
@@ -3609,6 +3621,678 @@
 				"copilot-connectors"
 			],
 			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio"
+		},
+		{
+			"id": "agent-bricks",
+			"term": "Agent Bricks",
+			"category": "databricks",
+			"aliases": [
+				"Agent Bricks",
+				"Agent Bricks CLI",
+				"Mosaic AI Agent Framework"
+			],
+			"definition": "Databricks' agent developer platform: Agent Runtime, durable execution, Databricks Sandbox, Lakebase-backed memory, MCP tools, AI Search, MLflow Tracing and Unity Gateway. New code-based agents are built and deployed with the Agent Bricks CLI. The earlier low-code types (Knowledge Assistant, Supervisor Agent, Information Extraction) are now labeled legacy.",
+			"related": [
+				"agent-runtime",
+				"knowledge-assistant",
+				"supervisor-agent",
+				"responses-agent",
+				"unity-gateway",
+				"mlflow"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-bricks/"
+		},
+		{
+			"id": "agent-runtime",
+			"term": "Agent Runtime",
+			"category": "databricks",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Agent Runtime",
+				"DurableAgentServer",
+				"AgentServer",
+				"AgentKit"
+			],
+			"definition": "Where code-based Databricks agents run, on Databricks Apps compute. The Agent Bricks CLI serves agents with DurableAgentServer, which adds persistent run state, crash recovery, idempotent invocations and ordered sessions. The older MLflow AgentServer and Model Serving's agents.deploy() are legacy paths.",
+			"related": [
+				"agent-bricks",
+				"databricks-apps",
+				"model-serving"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-framework/author-agent"
+		},
+		{
+			"id": "knowledge-assistant",
+			"term": "Knowledge Assistant",
+			"category": "databricks",
+			"aliases": [
+				"Knowledge Assistant"
+			],
+			"definition": "An Agent Bricks agent that answers questions over documents with citations, from files in a Unity Catalog volume, a table with a content column or an AI Search index (up to 10 sources). Experts improve it with natural-language guidelines. Learn now labels it legacy and points new document agents to Genie Agents.",
+			"related": [
+				"agent-bricks",
+				"ai-search",
+				"genie-agent"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-bricks/knowledge-assistant"
+		},
+		{
+			"id": "supervisor-agent",
+			"term": "Supervisor Agent",
+			"category": "databricks",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Supervisor Agent",
+				"Multi-Agent Supervisor",
+				"supervisor"
+			],
+			"definition": "An Agent Bricks agent that coordinates up to 50 subagents and tools (Genie Agents, serving endpoints, UC functions, AI Search, MCP servers, other agents). Each user reaches only the subagents and data they can access. Learn labels it legacy.",
+			"related": [
+				"agent-bricks",
+				"genie-agent",
+				"mcp"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-bricks/multi-agent-supervisor"
+		},
+		{
+			"id": "information-extraction",
+			"term": "Information Extraction",
+			"category": "databricks",
+			"aliases": [
+				"Information Extraction"
+			],
+			"definition": "A legacy Agent Bricks agent (Beta) that turns unstructured documents into structured tables, with 'Optimize for Scale' or 'Optimize for Complexity' model options. The GA path is now the ai_extract SQL function.",
+			"related": [
+				"ai-functions",
+				"agent-bricks"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-bricks/key-info-extraction"
+		},
+		{
+			"id": "responses-agent",
+			"term": "ResponsesAgent",
+			"category": "databricks",
+			"aliases": [
+				"ResponsesAgent"
+			],
+			"definition": "The MLflow interface Databricks recommends for wrapping agent code from any framework (LangGraph, OpenAI Agents SDK and others). It supports streaming and tool calls and is compatible with the OpenAI Responses schema.",
+			"related": [
+				"agent-bricks",
+				"mlflow"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-framework/author-agent"
+		},
+		{
+			"id": "mlflow",
+			"term": "MLflow",
+			"category": "databricks",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"MLflow",
+				"MLflow Tracing",
+				"MLflow 3",
+				"trace",
+				"tracing"
+			],
+			"definition": "The open-source platform Databricks manages for tracing, evaluating and monitoring agents. Tracing records each model call, tool call and retrieval with latency, tokens and cost; traces can be stored and governed in Unity Catalog.",
+			"related": [
+				"mlflow-scorers",
+				"review-app",
+				"inference-tables"
+			],
+			"source": "https://docs.databricks.com/aws/en/mlflow3/genai/"
+		},
+		{
+			"id": "mlflow-scorers",
+			"term": "MLflow scorers and LLM judges",
+			"category": "databricks",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"scorer",
+				"LLM judge",
+				"LLM-as-a-judge",
+				"mlflow.genai.evaluate"
+			],
+			"definition": "Checks that grade agent traces: prebuilt LLM judges (such as Correctness, Completeness and Fluency) and custom code-based checks. The same scorers run on evaluation datasets during development and on live traffic in production monitoring (beta).",
+			"related": [
+				"mlflow",
+				"review-app"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/mlflow3/genai/eval-monitor/"
+		},
+		{
+			"id": "review-app",
+			"term": "Review App and labeling sessions",
+			"category": "databricks",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Review App",
+				"labeling session",
+				"labeling sessions",
+				"log_feedback"
+			],
+			"definition": "Ways for business experts to give feedback on an agent. The Review App lets stakeholders chat with an agent and rate answers; labeling sessions let them label existing traces. The Review App doesn't support agents deployed on Databricks Apps.",
+			"related": [
+				"mlflow",
+				"mlflow-scorers"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-framework/agent-authentication"
+		},
+		{
+			"id": "unity-gateway",
+			"term": "Unity Gateway",
+			"category": "governance",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Unity Gateway",
+				"Unity AI Gateway",
+				"AI Gateway",
+				"Mosaic AI Gateway"
+			],
+			"definition": "Databricks' AI governance layer, built on Unity Catalog (formerly Mosaic AI Gateway). It covers Databricks-hosted and external models, MCP services, UC functions and HTTP connections, with usage tracking, inference tables, rate limits, fallbacks, budgets, guardrails and service policies.",
+			"related": [
+				"ug-budgets",
+				"inference-tables",
+				"contextual-service-policies",
+				"external-models",
+				"foundation-model-apis"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/"
+		},
+		{
+			"id": "ug-budgets",
+			"term": "Unity Gateway budgets",
+			"category": "billing",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"budget",
+				"budgets",
+				"block usage",
+				"per-user threshold"
+			],
+			"definition": "Spend limits for pay-per-token models, AI Functions, Genie and optionally external models (not provisioned throughput). Shared and per-user daily or monthly thresholds can email, trigger a webhook or block usage. Enforcement is near real-time but approximate, so it isn't an absolute cap.",
+			"related": [
+				"unity-gateway",
+				"system-tables",
+				"dbu"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/budgets"
+		},
+		{
+			"id": "inference-tables",
+			"term": "Inference tables",
+			"category": "governance",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"inference table",
+				"inference tables"
+			],
+			"definition": "Unity Catalog Delta tables that log the requests and responses passing through governed model and agent endpoints, for audit, debugging and cost analysis. Payloads over 1 MB aren't logged.",
+			"related": [
+				"unity-gateway",
+				"mlflow"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/"
+		},
+		{
+			"id": "contextual-service-policies",
+			"term": "Contextual Service Policies",
+			"category": "governance",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Contextual Service Policies",
+				"Contextual Service Policy",
+				"service policies",
+				"guardrails"
+			],
+			"definition": "Unity Gateway rules (Beta) that allow, deny or require approval for a request based on the user, agent, model, MCP service, tool or request content, alongside guardrails for PII, prompt injection, jailbreaks and unsafe content.",
+			"related": [
+				"unity-gateway"
+			],
+			"source": "https://www.databricks.com/blog/ai-governance-data-ai-summit-2026-whats-new-unity-ai-gateway"
+		},
+		{
+			"id": "foundation-model-apis",
+			"term": "Foundation Model APIs",
+			"category": "databricks",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Foundation Model APIs",
+				"Foundation Model API",
+				"FMAPI",
+				"pay-per-token"
+			],
+			"definition": "Databricks-hosted models (open-weight and proprietary, such as Llama, GPT, Claude and Gemini) served through endpoints with the databricks- prefix. Pay-per-token is the default; priority pay-per-token costs more per request; provisioned throughput reserves capacity by the hour.",
+			"related": [
+				"provisioned-throughput",
+				"model-serving",
+				"dbu",
+				"unity-gateway"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/machine-learning/foundation-model-apis/"
+		},
+		{
+			"id": "provisioned-throughput",
+			"term": "Provisioned throughput",
+			"category": "billing",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"provisioned throughput",
+				"model unit",
+				"model units"
+			],
+			"definition": "A Foundation Model API mode that reserves model units, billed in DBUs per hour, for production workloads that need performance guarantees, custom or fine-tuned weights, Private Link or certain compliance needs. Unity Gateway budgets don't cover it.",
+			"related": [
+				"foundation-model-apis",
+				"ug-budgets"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/machine-learning/foundation-model-apis/"
+		},
+		{
+			"id": "model-serving",
+			"term": "Model Serving",
+			"category": "databricks",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Model Serving",
+				"serving endpoint",
+				"serving endpoints",
+				"agents.deploy"
+			],
+			"definition": "Databricks' serverless service for serving foundation models, custom models and agents as REST endpoints. Custom CPU and GPU endpoints bill in DBUs per hour; scale to zero saves cost at the price of slower first responses.",
+			"related": [
+				"foundation-model-apis",
+				"external-models",
+				"agent-runtime"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/machine-learning/model-serving/"
+		},
+		{
+			"id": "external-models",
+			"term": "External models",
+			"category": "integration",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"external model",
+				"external models",
+				"external model endpoint"
+			],
+			"definition": "Databricks endpoints that route to third-party providers (OpenAI and Azure OpenAI, Anthropic, Cohere, Amazon Bedrock, Google Vertex AI or OpenAI-compatible APIs). Keys are stored centrally and encrypted, and Unity Gateway can apply limits, logging and guardrails.",
+			"related": [
+				"unity-gateway",
+				"model-serving"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/external-models/"
+		},
+		{
+			"id": "lakebase",
+			"term": "Lakebase",
+			"category": "databricks",
+			"aliases": [
+				"Lakebase",
+				"synced table",
+				"synced tables"
+			],
+			"definition": "Databricks' fully managed Postgres with autoscaling, scale to zero, branching, instant restore and Unity Catalog registration. Synced tables bring lakehouse data in for low-latency reads; it also stores agent memory and app state.",
+			"related": [
+				"databricks-apps",
+				"agent-runtime",
+				"unity-catalog"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/oltp/"
+		},
+		{
+			"id": "databricks-apps",
+			"term": "Databricks Apps",
+			"category": "databricks",
+			"aliases": [
+				"Databricks Apps",
+				"Databricks App"
+			],
+			"definition": "Python or Node.js apps hosted on serverless compute inside the workspace, billed per hour while running and requiring a Premium workspace. Apps act either as their own service principal (app authorization) or as the signed-in user (user authorization).",
+			"related": [
+				"app-authorization",
+				"agent-runtime",
+				"lakebase"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/dev-tools/databricks-apps/"
+		},
+		{
+			"id": "app-authorization",
+			"term": "App authorization and user authorization",
+			"category": "governance",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"app authorization",
+				"user authorization",
+				"x-forwarded-access-token",
+				"user_api_scopes"
+			],
+			"definition": "The two ways a Databricks App or agent authenticates. App authorization (formerly service principal auth) uses the app's own service principal for every user. User authorization (formerly on-behalf-of, Public Preview) acts as each signed-in user so row filters and column masks apply.",
+			"related": [
+				"databricks-apps",
+				"oauth-obo",
+				"service-principal",
+				"row-filters-masks"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-framework/agent-authentication"
+		},
+		{
+			"id": "ai-search",
+			"term": "Databricks AI Search",
+			"category": "databricks",
+			"aliases": [
+				"AI Search",
+				"Vector Search",
+				"Delta Sync index",
+				"Direct Vector Access",
+				"storage-optimized endpoint"
+			],
+			"definition": "Databricks' vector and full-text search service (formerly Vector Search). Delta Sync indexes stay in sync with a source table; Direct Vector Access indexes are updated by API. Indexes are governed in Unity Catalog, but row- and column-level security isn't supported.",
+			"related": [
+				"knowledge-assistant",
+				"unity-catalog"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/vector-search"
+		},
+		{
+			"id": "ai-functions",
+			"term": "AI Functions",
+			"category": "databricks",
+			"aliases": [
+				"AI Functions",
+				"AI Function",
+				"ai_query",
+				"ai_extract",
+				"ai_classify",
+				"Document Intelligence"
+			],
+			"definition": "SQL functions that apply AI to data at scale: ai_query calls any supported model endpoint; task functions such as ai_extract, ai_classify, ai_summarize and ai_parse_document run on Databricks-managed systems. You pay for the query compute plus inference for most functions.",
+			"related": [
+				"ai-parse-document",
+				"foundation-model-apis"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/large-language-models/ai-functions"
+		},
+		{
+			"id": "ai-parse-document",
+			"term": "ai_parse_document",
+			"category": "databricks",
+			"aliases": [
+				"ai_parse_document"
+			],
+			"definition": "A SQL function that turns PDFs, images, Word and PowerPoint files into structured elements (text, tables, figures) with bounding boxes. Limits: 500 pages without a page range and 100 MB per file.",
+			"related": [
+				"ai-functions"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/functions/ai_parse_document"
+		},
+		{
+			"id": "trusted-assets",
+			"term": "Trusted assets",
+			"category": "genie",
+			"aliases": [
+				"trusted asset",
+				"trusted assets",
+				"verified answer",
+				"verified answers"
+			],
+			"definition": "Parameterized example SQL queries and Unity Catalog SQL functions in a Genie Agent that produce verified answers. Genie can call registered functions but can't see or change their SQL; users need EXECUTE on them.",
+			"related": [
+				"genie-agent",
+				"genie-benchmarks"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie-agents/tune-quality"
+		},
+		{
+			"id": "genie-benchmarks",
+			"term": "Genie benchmarks",
+			"category": "genie",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"benchmark",
+				"benchmarks",
+				"benchmark question"
+			],
+			"definition": "Up to 500 test questions per Genie Agent, ideally two to four phrasings each with a SQL answer. Chat mode compares results with the SQL answer; Agent mode uses an LLM judge. Genie doesn't learn from benchmarks; they only measure accuracy.",
+			"related": [
+				"genie-agent",
+				"trusted-assets"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie-agents/monitor"
+		},
+		{
+			"id": "genie-conversation-api",
+			"term": "Genie Conversation API",
+			"category": "genie",
+			"aliases": [
+				"Conversation API",
+				"Genie API",
+				"Genie Management API"
+			],
+			"definition": "REST APIs to ask Genie questions from code (Chat mode and Agent mode) and to create and deploy Genie Agents for CI/CD. Use OAuth user-to-machine auth for user-facing apps, and add your own retries and polling.",
+			"related": [
+				"genie-agent",
+				"oauth-obo"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie-agents/conversation-api"
+		},
+		{
+			"id": "omnigent",
+			"term": "Omnigent",
+			"category": "databricks",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Omnigent"
+			],
+			"definition": "An agent meta-harness Databricks introduced at its June 2026 summit, with a managed version on Databricks in Beta, governed through Unity Gateway.",
+			"related": [
+				"agent-bricks",
+				"unity-gateway"
+			],
+			"source": "https://www.databricks.com/blog/agent-bricks-dais-2026"
+		},
+		{
+			"id": "databricks-sandbox",
+			"term": "Databricks Sandbox",
+			"category": "databricks",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Databricks Sandbox",
+				"Sandbox"
+			],
+			"definition": "Secure VMs where agents can run code, with downscoped access to Unity Catalog data.",
+			"related": [
+				"agent-bricks"
+			],
+			"source": "https://www.databricks.com/blog/agent-bricks-dais-2026"
+		},
+		{
+			"id": "chatgpt-enterprise",
+			"term": "ChatGPT Business and Enterprise",
+			"category": "landscape",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"ChatGPT Business",
+				"ChatGPT Enterprise",
+				"ChatGPT Team",
+				"ChatGPT Work",
+				"ChatGPT"
+			],
+			"definition": "OpenAI's plans for organizations. Business (formerly Team) lists Standard seats at $20 a month annually or $25 monthly and Premium at $100 or $125; Enterprise is priced by sales and adds the Compliance API and admin retention controls. Both can buy credits for more usage.",
+			"related": [
+				"claude-enterprise",
+				"gemini-enterprise",
+				"m365-copilot"
+			],
+			"source": "https://help.openai.com/en/articles/8792828-what-is-chatgpt-team"
+		},
+		{
+			"id": "claude-enterprise",
+			"term": "Claude Team and Enterprise",
+			"category": "landscape",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Claude Enterprise",
+				"Claude Team"
+			],
+			"definition": "Anthropic's plans for organizations. Team (2 to 150 users) has Standard and Premium seats; Enterprise is $20 per seat per month annually with a 20-seat minimum plus usage at API rates, and adds SCIM, audit logs, the Compliance API, custom retention and US-only inference.",
+			"related": [
+				"chatgpt-enterprise",
+				"gemini-enterprise",
+				"mcp"
+			],
+			"source": "https://claude.com/pricing"
+		},
+		{
+			"id": "gemini-enterprise",
+			"term": "Gemini Enterprise",
+			"category": "landscape",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Gemini Enterprise"
+			],
+			"definition": "Google's agent platform for work, in Business, Standard, Plus, Frontline and pay-as-you-go editions. Included seat credits cover first-party Gemini models only; partner models such as Claude and usage above quota are pay-as-you-go.",
+			"related": [
+				"chatgpt-enterprise",
+				"claude-enterprise"
+			],
+			"source": "https://docs.cloud.google.com/gemini/enterprise/docs/editions"
+		},
+		{
+			"id": "bedrock-agentcore",
+			"term": "Amazon Bedrock AgentCore",
+			"category": "landscape",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"AgentCore",
+				"Bedrock AgentCore",
+				"Amazon Bedrock AgentCore"
+			],
+			"definition": "AWS's building blocks for running agents (Runtime, Memory, Gateway, Identity, Policy, Observability, Evaluations and more), each metered separately with no seats or minimum fee.",
+			"related": [
+				"amazon-quick"
+			],
+			"source": "https://aws.amazon.com/bedrock/agentcore/pricing/"
+		},
+		{
+			"id": "amazon-quick",
+			"term": "AWS Quick",
+			"category": "landscape",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Quick Suite",
+				"AWS Quick",
+				"Amazon Quick"
+			],
+			"definition": "AWS's agentic workspace for business users, priced per user by edition with included agent hours (for example 8 for Professional at $20) plus a $250 monthly account fee; extra agent hours cost $3 each.",
+			"related": [
+				"bedrock-agentcore"
+			],
+			"source": "https://aws.amazon.com/quicksuite/pricing/"
+		},
+		{
+			"id": "snowflake-cortex",
+			"term": "Snowflake Cortex Agents",
+			"category": "landscape",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Cortex Agents",
+				"Cortex Agent",
+				"Cortex Analyst",
+				"Cortex Search",
+				"Snowflake Intelligence",
+				"semantic view",
+				"semantic views",
+				"AI Credits"
+			],
+			"definition": "Snowflake's agent platform. Cortex Analyst writes SQL over semantic views, Cortex Search retrieves unstructured data, and agents orchestrate them. Agents bill in AI Credits ($2.00 global or $2.20 regional) per million tokens, with warehouse compute for generated SQL billed separately.",
+			"related": [
+				"genie-agent",
+				"metric-views"
+			],
+			"source": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing"
+		},
+		{
+			"id": "agentforce",
+			"term": "Salesforce Agentforce",
+			"category": "landscape",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Agentforce",
+				"Flex Credits",
+				"Flex Credit"
+			],
+			"definition": "Salesforce's agent platform, priced by Flex Credits ($500 per 100,000; an action is 20 credits, about $0.10), $2 per customer-facing conversation, or per-user add-ons such as $150 per user per month for unmetered employee use. Data 360 consumption is extra.",
+			"related": [
+				"chatgpt-enterprise"
+			],
+			"source": "https://www.salesforce.com/agentforce/pricing/"
+		},
+		{
+			"id": "glean",
+			"term": "Glean",
+			"category": "landscape",
+			"decks": [
+				"agents"
+			],
+			"aliases": [
+				"Glean"
+			],
+			"definition": "An enterprise AI platform for permission-aware search and agents across 275+ app connectors. Pricing isn't published.",
+			"related": [
+				"m365-copilot",
+				"gemini-enterprise"
+			],
+			"source": "https://www.glean.com/product/agents"
 		}
 	]
 }

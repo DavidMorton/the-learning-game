@@ -67,6 +67,22 @@
 :root[data-deck="fabric"] .btn.primary { box-shadow: 0 10px 24px -10px rgba(18, 164, 184, 0.7); }
 :root[data-deck="fabric"] .brand-mark { box-shadow: 0 6px 18px -6px rgba(18, 164, 184, 0.8); }
 
+/* The Databricks agents deck uses fuchsia accents. */
+:root[data-deck="agents"] {
+  --accent: #d946ef;
+  --accent-2: #f472b6;
+  --accent-soft: rgba(217, 70, 239, 0.16);
+}
+:root[data-deck="agents"] body {
+  background:
+    radial-gradient(900px 520px at 0% -10%, rgba(217, 70, 239, 0.16), transparent 60%),
+    radial-gradient(800px 520px at 100% 0%, rgba(244, 114, 182, 0.1), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+:root[data-deck="agents"] .btn.primary { box-shadow: 0 10px 24px -10px rgba(217, 70, 239, 0.7); }
+:root[data-deck="agents"] .brand-mark { box-shadow: 0 6px 18px -6px rgba(217, 70, 239, 0.8); }
+
 html { -webkit-text-size-adjust: 100%; }
 
 body {
@@ -183,29 +199,43 @@ kbd {
   box-shadow: 0 6px 18px -6px rgba(255, 90, 54, 0.8);
 }
 .top-actions { display: flex; align-items: center; gap: 10px; }
+/* Deck picker: a styled face with a transparent native select laid over it. */
 .deck-switch {
+  position: relative;
   display: inline-flex;
-  gap: 4px;
-  padding: 4px;
+  align-items: center;
   margin-right: auto;
   border-radius: 13px;
   background: var(--surface-2);
   border: 1px solid var(--border);
-}
-.deck-switch button {
-  padding: 6px 12px;
-  border: 0;
-  border-radius: 9px;
-  background: transparent;
-  color: var(--muted);
   font-weight: 650;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.15s, color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
-.deck-switch button:hover { color: var(--text); }
-.deck-switch button.on { background: var(--accent-soft); color: var(--text); box-shadow: inset 0 0 0 1px var(--accent); }
+.deck-switch:hover { border-color: var(--border-strong); }
+.deck-switch:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.deck-face {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.deck-caret { margin-left: 4px; color: var(--muted); font-size: 0.8em; }
+.deck-switch select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px; /* at least 16px so iOS doesn't zoom when the picker opens */
+  background: var(--surface-2);
+  color: var(--text);
+}
 .chip {
   display: inline-flex;
   align-items: center;
@@ -897,8 +927,12 @@ kbd {
   .lvl-badge { justify-self: start; }
   .brand { font-size: 1.1rem; }
   .topbar { flex-wrap: wrap; }
-  .deck-switch { order: 3; width: 100%; margin-right: 0; }
-  .deck-switch button { flex: 1; padding: 8px 6px; }
+  /* Brand on its own row; the deck picker shares the second row with the actions. */
+  .brand { flex-basis: 100%; }
+  .deck-switch { flex: 1; min-width: 0; margin-right: 0; }
+  .deck-face { width: 100%; min-width: 0; }
+  .deck-name { overflow: hidden; text-overflow: ellipsis; }
+  .deck-caret { margin-left: auto; }
   .readiness { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .readiness-info { width: 100%; }
   .kv li { text-align: left; }

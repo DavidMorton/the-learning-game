@@ -1,5 +1,6 @@
 /* Lakehouse Quest: a practice game with several question decks (the Databricks Certified Data
-   Engineer Associate exam, Microsoft Copilot and agents, Microsoft Fabric). Plain browser JavaScript with no
+   Engineer Associate exam, Microsoft Copilot and agents, Microsoft Fabric, Databricks agents and the
+   competitive landscape). Plain browser JavaScript with no
    build step. Each deck is a JSON file listed in DECKS, and each deck keeps its own progress
    in localStorage. */
 (() => {
@@ -35,7 +36,7 @@
       storageKey: 'lakehouse-quest:v1',
       icon: '🧱',
       brand: ['Lakehouse', 'Quest'],
-      label: 'Databricks',
+      label: 'Databricks Data Engineer exam',
       tab: 'Databricks',
       mock: { questions: 45, minutes: 90 },
       levels: levels(['Raw File', 'Bronze Ingestor', 'Silver Refiner', 'Gold Curator', 'Stream Wrangler',
@@ -83,6 +84,26 @@
       },
       achievements: {
         first: { name: 'Hello, Fabric' },
+        mockPass: { name: 'Customer Ready' },
+      },
+    },
+    {
+      id: 'agents',
+      file: 'agents-questions.json',
+      storageKey: 'lakehouse-quest:v1:agents',
+      icon: '🧠',
+      brand: ['Agent', 'Quest'],
+      label: 'Databricks agents and the competitive landscape',
+      tab: 'Agents',
+      mock: { questions: 40, minutes: 60 },
+      levels: levels(['Prompt Tinkerer', 'Genie Wrangler', 'Tool Caller', 'Trace Reader', 'Brick Layer',
+        'Budget Keeper', 'Gateway Guardian', 'Landscape Scout', 'Platform Strategist', 'Agent Platform Advisor']),
+      copy: {
+        readiness: 'Coaching readiness', nearly: 'Nearly customer-ready', ready: 'Customer-ready',
+        weightNote: 'weighted by how much it matters in customer conversations', weightUnit: 'of deck',
+      },
+      achievements: {
+        first: { name: 'Hello, Agents' },
         mockPass: { name: 'Customer Ready' },
       },
     },
@@ -891,11 +912,17 @@
     return `<div class="brand"><span class="brand-mark" aria-hidden="true">${deck.icon}</span><span>${esc(first)} <b>${esc(second)}</b></span></div>`;
   }
 
+  // A native select keeps the deck picker accessible and gives phones their own picker. It sits
+  // invisibly over a compact face that shows the current deck, so the full deck names only appear
+  // in the open list and the top bar stays the same width however many decks there are.
   function deckSwitch() {
     return `
-      <nav class="deck-switch" aria-label="Question deck">
-        ${DECKS.map(d => `<button class="${d.id === deck.id ? 'on' : ''}" data-action="deck" data-deck="${esc(d.id)}" aria-pressed="${d.id === deck.id}" title="${esc(d.label)}"><span aria-hidden="true">${d.icon}</span> ${esc(d.tab)}</button>`).join('')}
-      </nav>`;
+      <label class="deck-switch" title="Switch question deck">
+        <span class="deck-face" aria-hidden="true"><span>${deck.icon}</span><span class="deck-name">${esc(deck.tab)}</span><span class="deck-caret">▾</span></span>
+        <select data-change="deck" aria-label="Question deck">
+          ${DECKS.map(d => `<option value="${esc(d.id)}"${d.id === deck.id ? ' selected' : ''}>${d.icon} ${esc(d.label)}</option>`).join('')}
+        </select>
+      </label>`;
   }
 
   function soundButton() {
@@ -1953,7 +1980,6 @@
     'gloss-jump': el => glossJump(el.dataset.term),
     'gloss-toggle': () => toggleGlossary(),
     'term': el => toggleTerm(el.dataset.term),
-    'deck': el => switchDeck(el.dataset.deck),
     'reset': async () => {
       const ok = await confirmModal(`Reset ${deck.label} progress?`, `This clears your XP, mastery, achievements and history for the ${deck.label} deck. Other decks are not affected. It cannot be undone.`, 'Reset this deck', 'Cancel');
       if (!ok) return;
@@ -2002,6 +2028,10 @@
     if (!el || el.disabled || !app.contains(el)) return;
     const fn = ACTIONS[el.dataset.action];
     if (fn) fn(el, e);
+  });
+
+  app.addEventListener('change', e => {
+    if (e.target.matches('[data-change="deck"]')) switchDeck(e.target.value);
   });
 
   function keyToPos(key) {
