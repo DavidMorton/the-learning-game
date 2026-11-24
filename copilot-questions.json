@@ -101,12 +101,181 @@
 			"questionCount": 22
 		}
 	],
+	"tags": [
+		{
+			"id": "m365-copilot",
+			"name": "Microsoft 365 Copilot",
+			"kind": "technology",
+			"count": 55
+		},
+		{
+			"id": "copilot-chat",
+			"name": "Copilot Chat",
+			"kind": "technology",
+			"count": 20
+		},
+		{
+			"id": "cowork",
+			"name": "Cowork, Code and Autopilot",
+			"kind": "technology",
+			"count": 16
+		},
+		{
+			"id": "copilot-studio",
+			"name": "Copilot Studio",
+			"kind": "technology",
+			"count": 69
+		},
+		{
+			"id": "agent-types",
+			"name": "Agent types and builders",
+			"kind": "technology",
+			"count": 6
+		},
+		{
+			"id": "foundry",
+			"name": "Microsoft Foundry",
+			"kind": "technology",
+			"count": 12
+		},
+		{
+			"id": "agent-365",
+			"name": "Agent 365",
+			"kind": "technology",
+			"count": 12
+		},
+		{
+			"id": "entra",
+			"name": "Entra and agent identity",
+			"kind": "technology",
+			"count": 21
+		},
+		{
+			"id": "purview",
+			"name": "Microsoft Purview",
+			"kind": "technology",
+			"count": 9
+		},
+		{
+			"id": "sharepoint",
+			"name": "SharePoint controls",
+			"kind": "technology",
+			"count": 10
+		},
+		{
+			"id": "work-iq",
+			"name": "Work IQ and Microsoft IQ",
+			"kind": "technology",
+			"count": 2
+		},
+		{
+			"id": "power-platform",
+			"name": "Power Platform",
+			"kind": "technology",
+			"count": 16
+		},
+		{
+			"id": "mcp",
+			"name": "MCP and A2A",
+			"kind": "technology",
+			"count": 11
+		},
+		{
+			"id": "teams",
+			"name": "Microsoft Teams",
+			"kind": "technology",
+			"count": 21
+		},
+		{
+			"id": "security-copilot",
+			"name": "Security Copilot",
+			"kind": "technology",
+			"count": 3
+		},
+		{
+			"id": "fabric",
+			"name": "Microsoft Fabric",
+			"kind": "technology",
+			"count": 23
+		},
+		{
+			"id": "fabric-data-agents",
+			"name": "Fabric data agents",
+			"kind": "technology",
+			"count": 17
+		},
+		{
+			"id": "genie",
+			"name": "Databricks Genie",
+			"kind": "technology",
+			"count": 42
+		},
+		{
+			"id": "unity-catalog",
+			"name": "Unity Catalog",
+			"kind": "technology",
+			"count": 8
+		},
+		{
+			"id": "pricing",
+			"name": "Pricing and cost",
+			"kind": "theme",
+			"count": 94
+		},
+		{
+			"id": "licensing",
+			"name": "Licensing",
+			"kind": "theme",
+			"count": 55
+		},
+		{
+			"id": "spend-controls",
+			"name": "Spend controls",
+			"kind": "theme",
+			"count": 38
+		},
+		{
+			"id": "governance",
+			"name": "Governance",
+			"kind": "theme",
+			"count": 88
+		},
+		{
+			"id": "security",
+			"name": "Security and identity",
+			"kind": "theme",
+			"count": 56
+		},
+		{
+			"id": "oversharing",
+			"name": "Oversharing",
+			"kind": "theme",
+			"count": 23
+		},
+		{
+			"id": "residency",
+			"name": "Data residency and privacy",
+			"kind": "theme",
+			"count": 16
+		},
+		{
+			"id": "whats-new",
+			"name": "New in 2026",
+			"kind": "theme",
+			"count": 21
+		}
+	],
 	"questions": [
 		{
 			"id": "C1-001",
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Copilot tiers",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "A user has an eligible Microsoft 365 license but no Microsoft 365 Copilot add-on. What grounding does their Copilot Chat (Basic) experience use by default?",
 			"choices": [
@@ -125,6 +294,11 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Copilot tiers",
+			"tags": [
+				"copilot-chat",
+				"teams",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "Which three routes does Microsoft list for getting organizational content into a Copilot Chat (Basic) conversation?",
 			"choices": [
@@ -143,6 +317,11 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Copilot tiers",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "Microsoft's license comparison labels some users 'Microsoft 365 Copilot (Basic)'. What distinguishes them from 'Copilot Chat (Basic)' users?",
 			"choices": [
@@ -161,6 +340,13 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Copilot tiers",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"work-iq",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "What does the Microsoft 365 Copilot (Premium) license add over the free Copilot Chat baseline, according to Microsoft's overview?",
 			"choices": [
@@ -179,6 +365,13 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Copilot tiers",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"entra",
+				"licensing",
+				"security"
+			],
 			"difficulty": "easy",
 			"question": "What protects Copilot Chat conversations for users who sign in with a Microsoft Entra work account, even without a paid Copilot license?",
 			"choices": [
@@ -197,6 +390,12 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Cowork",
+			"tags": [
+				"cowork",
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "How does Microsoft's Cowork admin documentation classify Copilot Cowork?",
 			"choices": [
@@ -215,6 +414,12 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Cowork",
+			"tags": [
+				"cowork",
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "An admin wants to stop a group of users from using Copilot Cowork. According to Microsoft's Cowork governance guidance, what actually blocks access?",
 			"choices": [
@@ -233,6 +438,13 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Cowork",
+			"tags": [
+				"cowork",
+				"pricing",
+				"spend-controls",
+				"governance",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "An admin creates a spending policy scoped to 'All users' with a 1-credit limit that selects Cowork, intending it as a placeholder. What is the effect?",
 			"choices": [
@@ -251,6 +463,13 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Frontier features",
+			"tags": [
+				"m365-copilot",
+				"cowork",
+				"entra",
+				"security",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "As of Ignite 2026, what is Autopilot in Microsoft 365 Copilot?",
 			"choices": [
@@ -269,6 +488,10 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Harnesses",
+			"tags": [
+				"copilot-studio",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "Copilot Studio documentation now talks about 'harnesses'. Which statement matches Microsoft's description?",
 			"choices": [
@@ -287,6 +510,11 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Harnesses",
+			"tags": [
+				"cowork",
+				"copilot-studio",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "What did Microsoft announce as generally available at Ignite 2026 for hosting apps and agents built with Copilot Code, Cowork and Copilot Studio?",
 			"choices": [
@@ -305,6 +533,12 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Microsoft IQ",
+			"tags": [
+				"m365-copilot",
+				"work-iq",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "Which statement about Work IQ APIs is correct according to Microsoft's Copilot Credits licensing guidance?",
 			"choices": [
@@ -323,6 +557,10 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Agent types",
+			"tags": [
+				"m365-copilot",
+				"agent-types"
+			],
 			"difficulty": "easy",
 			"question": "What is the defining difference between a declarative agent and a custom engine agent in Microsoft 365 Copilot?",
 			"choices": [
@@ -341,6 +579,10 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Agent types",
+			"tags": [
+				"agent-types",
+				"spend-controls"
+			],
 			"difficulty": "medium",
 			"question": "A customer wants an agent that proactively messages users and runs outside Microsoft 365 too. Per Microsoft's guidance, which agent type fits?",
 			"choices": [
@@ -359,6 +601,9 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Agent types",
+			"tags": [
+				"agent-types"
+			],
 			"difficulty": "medium",
 			"question": "Who is responsible for compliance and responsible AI controls on a custom engine agent, compared with a declarative agent?",
 			"choices": [
@@ -377,6 +622,10 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Agent types",
+			"tags": [
+				"copilot-studio",
+				"agent-types"
+			],
 			"difficulty": "medium",
 			"question": "Which low-code tool does Microsoft position for building custom engine agents, as opposed to declarative agents?",
 			"choices": [
@@ -395,6 +644,13 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Agent Builder",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"agent-types",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "Under the Copilot Studio billing rules, when are generative answers from an agent not charged even for a user without a Copilot license?",
 			"choices": [
@@ -413,6 +669,10 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Foundry",
+			"tags": [
+				"foundry",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "In Microsoft Foundry Agent Service, what distinguishes a hosted agent from a prompt agent?",
 			"choices": [
@@ -431,6 +691,14 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Foundry",
+			"tags": [
+				"foundry",
+				"agent-365",
+				"entra",
+				"teams",
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Where can a Microsoft Foundry agent be published so that Microsoft 365 users can reach it?",
 			"choices": [
@@ -449,6 +717,10 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Foundry",
+			"tags": [
+				"foundry",
+				"mcp"
+			],
 			"difficulty": "easy",
 			"question": "Which interoperability protocol does Foundry Agent Service list as generally available at version 1.0 for agent-to-agent communication?",
 			"choices": [
@@ -467,6 +739,13 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Foundry",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"foundry",
+				"teams",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "Which Foundry agent type can't be published to Teams or Microsoft 365 Copilot as a text agent, according to the Foundry overview?",
 			"choices": [
@@ -485,6 +764,10 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Foundry",
+			"tags": [
+				"foundry",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "What does Microsoft's pricing page say about the cost of using Foundry itself?",
 			"choices": [
@@ -503,6 +786,11 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Agent 365",
+			"tags": [
+				"agent-365",
+				"governance",
+				"security"
+			],
 			"difficulty": "easy",
 			"question": "How does Microsoft's Agent 365 documentation describe the product?",
 			"choices": [
@@ -521,6 +809,10 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Agent 365",
+			"tags": [
+				"agent-365",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Which agents can Agent 365 bring into its registry and governance, per Microsoft's GA announcement?",
 			"choices": [
@@ -539,6 +831,11 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Ignite 2026",
+			"tags": [
+				"entra",
+				"security",
+				"whats-new"
+			],
 			"difficulty": "hard",
 			"question": "What did Microsoft announce at Ignite 2026 about Entra Agent ID and local agents?",
 			"choices": [
@@ -557,6 +854,11 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Ignite 2026",
+			"tags": [
+				"copilot-studio",
+				"pricing",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "How does Windows 365 for Agents relate to Copilot Studio after Ignite 2026?",
 			"choices": [
@@ -575,6 +877,13 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Everyday vs advanced AI",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"licensing",
+				"spend-controls",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "Microsoft's September 2026 Copilot Credits guidance splits Copilot into two consumption tracks. What are they?",
 			"choices": [
@@ -593,6 +902,12 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Everyday vs advanced AI",
+			"tags": [
+				"m365-copilot",
+				"teams",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "Which of these is listed by Microsoft as a usage-based (Copilot Credits) service, not covered by the Copilot seat alone?",
 			"choices": [
@@ -611,6 +926,11 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Agents in Copilot Chat",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "What is the default state of pay-as-you-go agents for Copilot Chat (Basic) and Microsoft 365 Copilot (Basic) users?",
 			"choices": [
@@ -629,6 +949,11 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Copilot Studio license",
+			"tags": [
+				"copilot-studio",
+				"licensing",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "What can a user do with a Copilot Studio trial license?",
 			"choices": [
@@ -647,6 +972,11 @@
 			"section": 1,
 			"sectionName": "The Copilot and agent estate",
 			"topic": "Copilot Studio license",
+			"tags": [
+				"copilot-studio",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "The Copilot Studio user license for makers is free. What tenant-level prerequisite does Microsoft attach to getting it?",
 			"choices": [
@@ -665,6 +995,10 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot license",
+			"tags": [
+				"m365-copilot",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "How is Microsoft 365 Copilot (the enterprise Premium experience) sold to a commercial customer that already has Microsoft 365 E5?",
 			"choices": [
@@ -683,6 +1017,11 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot license",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "What is the widely cited US list price of the enterprise Microsoft 365 Copilot add-on?",
 			"choices": [
@@ -701,6 +1040,10 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot Business",
+			"tags": [
+				"m365-copilot",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "Which organizations is Microsoft 365 Copilot Business designed for?",
 			"choices": [
@@ -719,6 +1062,11 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot Business",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "What did Microsoft list as the price of Copilot Business when it became generally available in December 2025?",
 			"choices": [
@@ -737,6 +1085,12 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot Business",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"licensing",
+				"whats-new"
+			],
 			"difficulty": "hard",
 			"question": "What happened to Microsoft 365 Business + Copilot Business bundle prices on July 1, 2026?",
 			"choices": [
@@ -755,6 +1109,13 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "E7",
+			"tags": [
+				"m365-copilot",
+				"agent-365",
+				"entra",
+				"licensing",
+				"security"
+			],
 			"difficulty": "easy",
 			"question": "What does Microsoft 365 E7, the 'Frontier Suite', bundle?",
 			"choices": [
@@ -773,6 +1134,12 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "E7",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"licensing",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A customer assumes E7 at $99 covers the cost of running their agents. What's the gotcha?",
 			"choices": [
@@ -791,6 +1158,12 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "E7",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"licensing",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "Using list prices after July 1, 2026, how much does E7 ($99) cost compared with buying E5 plus the Copilot add-on separately?",
 			"choices": [
@@ -809,6 +1182,10 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "E7",
+			"tags": [
+				"m365-copilot",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "Can a customer license only some users with Microsoft 365 E7 and keep others on E3 or E5?",
 			"choices": [
@@ -827,6 +1204,11 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Agent 365",
+			"tags": [
+				"agent-365",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "How is Agent 365 licensed as a standalone product?",
 			"choices": [
@@ -845,6 +1227,12 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Agent 365",
+			"tags": [
+				"agent-365",
+				"entra",
+				"licensing",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "According to the Entra Agent ID documentation, what licensing is needed to extend Microsoft Entra security features (such as Conditional Access) to agents?",
 			"choices": [
@@ -863,6 +1251,11 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Agent 365",
+			"tags": [
+				"agent-365",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "Which industry analyst firm called Agent 365 'a work in progress with limited net new functionality' for its price at launch?",
 			"choices": [
@@ -881,6 +1274,12 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Security Copilot",
+			"tags": [
+				"m365-copilot",
+				"security-copilot",
+				"licensing",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "How much Security Copilot capacity does Microsoft include for eligible Microsoft 365 E5 and E7 customers?",
 			"choices": [
@@ -899,6 +1298,11 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Security Copilot",
+			"tags": [
+				"security-copilot",
+				"licensing",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "A customer with 400 E5 licenses asks how much included Security Copilot capacity they get. What's the answer?",
 			"choices": [
@@ -917,6 +1321,12 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "SharePoint Advanced Management",
+			"tags": [
+				"m365-copilot",
+				"sharepoint",
+				"licensing",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "How does a tenant become entitled to SharePoint Advanced Management (SAM) for Copilot deployments?",
 			"choices": [
@@ -935,6 +1345,12 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot license",
+			"tags": [
+				"m365-copilot",
+				"cowork",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "Which experiences does Microsoft's usage-based billing overview mark as 'Copilot license required' even though they're also metered in Copilot Credits?",
 			"choices": [
@@ -953,6 +1369,11 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot Studio license",
+			"tags": [
+				"copilot-studio",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "What is the list price of a Copilot Studio Copilot Credit capacity pack in the US?",
 			"choices": [
@@ -971,6 +1392,13 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot license",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"teams",
+				"licensing",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What does Microsoft include with a Microsoft 365 Copilot license for Copilot Studio agents?",
 			"choices": [
@@ -989,6 +1417,11 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Price changes",
+			"tags": [
+				"pricing",
+				"licensing",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "What was the reported change to Microsoft 365 E5 list pricing on July 1, 2026?",
 			"choices": [
@@ -1007,6 +1440,10 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Agent 365",
+			"tags": [
+				"agent-365",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "Per Agent 365's overview, what licensing is needed for a tenant to start using Agent 365?",
 			"choices": [
@@ -1025,6 +1462,12 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot Business",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"licensing",
+				"whats-new"
+			],
 			"difficulty": "hard",
 			"question": "What limited-time promotion did Microsoft run on the standalone Copilot Business add-on through June 30, 2026?",
 			"choices": [
@@ -1043,6 +1486,11 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot license",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "What did Microsoft say about how E7's price compares with buying its components individually?",
 			"choices": [
@@ -1061,6 +1509,11 @@
 			"section": 2,
 			"sectionName": "Licensing and SKUs",
 			"topic": "Copilot license",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "Which channel does Microsoft's Copilot Studio licensing page say a Microsoft 365 Copilot license lets users build agents for?",
 			"choices": [
@@ -1079,6 +1532,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Billing rates",
+			"tags": [
+				"copilot-studio",
+				"pricing"
+			],
 			"difficulty": "easy",
 			"question": "In the Copilot Studio standard-harness billing table, how many Copilot Credits does a generative answer cost?",
 			"choices": [
@@ -1097,6 +1554,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Billing rates",
+			"tags": [
+				"copilot-studio",
+				"pricing"
+			],
 			"difficulty": "easy",
 			"question": "What does one 'agent action' cost in Copilot Studio?",
 			"choices": [
@@ -1115,6 +1576,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Billing rates",
+			"tags": [
+				"copilot-studio",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "What does tenant graph grounding add to a Copilot Studio response for an unlicensed user?",
 			"choices": [
@@ -1133,6 +1599,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Billing rates",
+			"tags": [
+				"copilot-studio",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "How are Copilot Studio agent flow actions billed?",
 			"choices": [
@@ -1151,6 +1621,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Billing rates",
+			"tags": [
+				"copilot-studio",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "A Copilot Studio agent uses a document-extraction ('content processing') tool on a 40-page PDF. What does the billing table charge for that processing?",
 			"choices": [
@@ -1169,6 +1643,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Billing rates",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "How is voice billed for Copilot Studio agents using generative AI voice (not premium)?",
 			"choices": [
@@ -1187,6 +1666,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Billing rates",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "When a Copilot Studio agent uses a reasoning-capable model, how is it billed?",
 			"choices": [
@@ -1205,6 +1689,9 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Billing rates",
+			"tags": [
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "In Microsoft's reasoning-model example, which tokens are not billed?",
 			"choices": [
@@ -1223,6 +1710,12 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Billing rates",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "How are computer-using agents (CUA) in Copilot Studio billed for a Microsoft 365 Copilot licensed user?",
 			"choices": [
@@ -1241,6 +1734,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Billing rates",
+			"tags": [
+				"copilot-studio",
+				"foundry",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "A team wants to use a bring-your-own model (for example a Foundry model) in Copilot Studio. How is that model's usage billed?",
 			"choices": [
@@ -1259,6 +1757,13 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Licensed-user exemption",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"pricing",
+				"licensing",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Under what condition is a Copilot Studio agent's usage not charged for a user who holds a Microsoft 365 Copilot license?",
 			"choices": [
@@ -1277,6 +1782,12 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Licensed-user exemption",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "An autonomous Copilot Studio agent fires on a new email and calls an agent flow. Every user in the tenant has Microsoft 365 Copilot. Is the flow billed?",
 			"choices": [
@@ -1295,6 +1806,13 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Licensed-user exemption",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"pricing",
+				"licensing",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "For agent flows, which trigger keeps a licensed Microsoft 365 Copilot user's flow runs at no charge?",
 			"choices": [
@@ -1313,6 +1831,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Licensed-user exemption",
+			"tags": [
+				"copilot-chat",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "Microsoft's 'sales performance agent' example has 50 licensed and 100 unlicensed users, each asking 4 tenant-grounded questions in Copilot Chat. Which users drive the bill?",
 			"choices": [
@@ -1331,6 +1854,13 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Licensed-user exemption",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"pricing",
+				"licensing",
+				"spend-controls"
+			],
 			"difficulty": "medium",
 			"question": "If a tenant runs out of prepaid Copilot Studio capacity, what does Microsoft say may happen to users with a Microsoft 365 Copilot license?",
 			"choices": [
@@ -1349,6 +1879,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Capacity enforcement",
+			"tags": [
+				"copilot-studio",
+				"pricing",
+				"spend-controls"
+			],
 			"difficulty": "medium",
 			"question": "At what point does Copilot Studio technically enforce prepaid capacity and start blocking agents?",
 			"choices": [
@@ -1367,6 +1902,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Capacity enforcement",
+			"tags": [
+				"pricing",
+				"spend-controls"
+			],
 			"difficulty": "hard",
 			"question": "A tenant pool is at 125% and enforcement has started. Environment A has its own 10,000-credit allocation with credits left. What happens to agents in Environment A?",
 			"choices": [
@@ -1385,6 +1924,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Capacity enforcement",
+			"tags": [
+				"copilot-studio",
+				"pricing",
+				"spend-controls"
+			],
 			"difficulty": "medium",
 			"question": "How does adding pay-as-you-go change what happens when prepaid Copilot Studio credits run out?",
 			"choices": [
@@ -1403,6 +1947,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Capacity enforcement",
+			"tags": [
+				"copilot-studio",
+				"pricing",
+				"spend-controls"
+			],
 			"difficulty": "medium",
 			"question": "What happens to unused Copilot Studio prepaid credits at the end of a month?",
 			"choices": [
@@ -1421,6 +1970,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Capacity enforcement",
+			"tags": [
+				"pricing",
+				"spend-controls"
+			],
 			"difficulty": "hard",
 			"question": "When agent-flow enforcement is triggered for lack of credits, what happens to the parent agent?",
 			"choices": [
@@ -1439,6 +1992,12 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Capacity enforcement",
+			"tags": [
+				"copilot-studio",
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "An admin sets a monthly credit limit on a Copilot Studio agent in the admin center. Does that limit stop the agent flows the agent calls?",
 			"choices": [
@@ -1457,6 +2016,9 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Pay-as-you-go",
+			"tags": [
+				"pricing"
+			],
 			"difficulty": "easy",
 			"question": "What is the pay-as-you-go list price of one Copilot Credit?",
 			"choices": [
@@ -1475,6 +2037,14 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Pay-as-you-go",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"pricing",
+				"licensing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "How is Copilot Studio pay-as-you-go billing set up?",
 			"choices": [
@@ -1493,6 +2063,9 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Pay-as-you-go",
+			"tags": [
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "Do Copilot Credits bought pay-as-you-go or through P3 count toward a customer's Microsoft Azure Consumption Commitment (MACC)?",
 			"choices": [
@@ -1511,6 +2084,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Copilot Chat PAYG",
+			"tags": [
+				"copilot-chat",
+				"agent-types",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "For Copilot Chat (Basic) users, which agents are included at no charge?",
 			"choices": [
@@ -1529,6 +2107,13 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Copilot Chat PAYG",
+			"tags": [
+				"copilot-chat",
+				"pricing",
+				"licensing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Where is the billing policy for Copilot Chat pay-as-you-go agents created?",
 			"choices": [
@@ -1547,6 +2132,12 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Copilot Chat PAYG",
+			"tags": [
+				"copilot-chat",
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "An admin sets a $5,000 budget on a Copilot Chat pay-as-you-go billing policy. What happens when usage passes $5,000?",
 			"choices": [
@@ -1565,6 +2156,12 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Copilot Chat PAYG",
+			"tags": [
+				"copilot-chat",
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "After an admin disconnects a Copilot Chat pay-as-you-go billing policy, how long can users keep using metered agents?",
 			"choices": [
@@ -1583,6 +2180,12 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Copilot Chat PAYG",
+			"tags": [
+				"copilot-chat",
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A tenant connects a billing policy covering a specific user group, but an 'all users' policy is already connected. What does Microsoft tell admins to do?",
 			"choices": [
@@ -1601,6 +2204,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Copilot Chat PAYG",
+			"tags": [
+				"copilot-chat",
+				"pricing"
+			],
 			"difficulty": "easy",
 			"question": "Roughly how many credits does Microsoft say a test prompt to a built-in agent like 'Writing Coach' consumes when validating PAYG setup?",
 			"choices": [
@@ -1619,6 +2226,12 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Spending policies",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "In Microsoft 365 Copilot Cost Management, what happens when users reach a policy's 'Limited monthly budget'?",
 			"choices": [
@@ -1637,6 +2250,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Spending policies",
+			"tags": [
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A user is covered by two spending policies with different limits. How does Copilot Cost Management decide which applies?",
 			"choices": [
@@ -1655,6 +2273,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Spending policies",
+			"tags": [
+				"cowork",
+				"pricing",
+				"spend-controls"
+			],
 			"difficulty": "hard",
 			"question": "Why can a user sometimes start new Cowork tasks after their spending limit has already been reached?",
 			"choices": [
@@ -1673,6 +2296,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Spending policies",
+			"tags": [
+				"pricing",
+				"spend-controls"
+			],
 			"difficulty": "hard",
 			"question": "What is the default for the 'Auto-apply new services' setting on spending policies, and why does it matter?",
 			"choices": [
@@ -1691,6 +2318,13 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Spending policies",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A customer configures a Microsoft 365 resource-based spending policy for a Copilot Studio environment that already has Power Platform billing policies. What happens?",
 			"choices": [
@@ -1709,6 +2343,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Spending policies",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"spend-controls"
+			],
 			"difficulty": "medium",
 			"question": "What does the Microsoft 365 Copilot Cost Management API report usage in?",
 			"choices": [
@@ -1727,6 +2366,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Spending policies",
+			"tags": [
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Once usage-based billing is activated with the default spending policy, what happens when prepaid credits run out?",
 			"choices": [
@@ -1745,6 +2389,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Cowork costs",
+			"tags": [
+				"cowork",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "What are Microsoft's rough planning estimates for Copilot Cowork credit consumption per task?",
 			"choices": [
@@ -1763,6 +2411,11 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Cowork costs",
+			"tags": [
+				"cowork",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "A customer licenses 2,000 users for Copilot and expects each to run five medium Cowork tasks per week. Using Microsoft's 300–700 credit medium estimate, what's the rough monthly PAYG exposure?",
 			"choices": [
@@ -1781,6 +2434,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Cowork costs",
+			"tags": [
+				"cowork",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "Which Cowork activities count toward the organization's Copilot Credit consumption?",
 			"choices": [
@@ -1799,6 +2456,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Autopilot costs",
+			"tags": [
+				"cowork",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "Besides usage, what recurring charge does Microsoft's guidance list for an Autopilot agent account?",
 			"choices": [
@@ -1817,6 +2478,9 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "P3",
+			"tags": [
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "What is the Copilot Credit Pre-Purchase Plan (P3)?",
 			"choices": [
@@ -1835,6 +2499,9 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "P3",
+			"tags": [
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "What discount does the largest P3 tier (300,000,000 credits) carry, and what does the smallest tier (300,000) carry?",
 			"choices": [
@@ -1853,6 +2520,9 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "P3",
+			"tags": [
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "A customer over-buys a P3 plan and wants to cancel or exchange it mid-term. What does Microsoft's documentation say?",
 			"choices": [
@@ -1871,6 +2541,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "P3",
+			"tags": [
+				"pricing",
+				"whats-new"
+			],
 			"difficulty": "hard",
 			"question": "What changes for Copilot Credit P3 purchases starting January 1, 2027?",
 			"choices": [
@@ -1889,6 +2563,12 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "AI Flex",
+			"tags": [
+				"foundry",
+				"security-copilot",
+				"pricing",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "What does Microsoft's AI Flex Plan let a customer do?",
 			"choices": [
@@ -1907,6 +2587,9 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Pooling",
+			"tags": [
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "At what level are Copilot Credits pooled?",
 			"choices": [
@@ -1925,6 +2608,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Estimators",
+			"tags": [
+				"copilot-studio",
+				"pricing"
+			],
 			"difficulty": "easy",
 			"question": "Which tool does Microsoft provide to estimate Copilot Studio agent costs before building?",
 			"choices": [
@@ -1943,6 +2630,10 @@
 			"section": 3,
 			"sectionName": "Copilot Credits and billing gotchas",
 			"topic": "Terminology",
+			"tags": [
+				"copilot-studio",
+				"pricing"
+			],
 			"difficulty": "easy",
 			"question": "What did Copilot Studio 'messages' become on September 1, 2025?",
 			"choices": [
@@ -1961,6 +2652,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Data policies",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "Where do admins configure data policies (DLP) that govern Copilot Studio agents?",
 			"choices": [
@@ -1979,6 +2675,12 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Data policies",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Are Power Platform data policies enforced for Copilot Studio agents in every tenant today?",
 			"choices": [
@@ -1997,6 +2699,15 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Data policies",
+			"tags": [
+				"copilot-studio",
+				"entra",
+				"power-platform",
+				"spend-controls",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "Which data policy connector should an admin block to stop makers publishing agents that anyone with the link can use without signing in?",
 			"choices": [
@@ -2015,6 +2726,13 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Data policies",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"mcp",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "An admin blocks a Power Platform connector in a data policy. What happens to Copilot Studio MCP server tools that rely on that connector?",
 			"choices": [
@@ -2033,6 +2751,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Data policies",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "Which data policy groups does Power Platform use to classify connectors, and what is the key constraint between them?",
 			"choices": [
@@ -2051,6 +2774,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Data policies",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A customer wants agents to call only approved HTTP endpoints rather than blocking HTTP entirely. What does Copilot Studio support?",
 			"choices": [
@@ -2069,6 +2797,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Data policies",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "If a data policy leaves no channel allowed for Copilot Studio, what happens?",
 			"choices": [
@@ -2087,6 +2820,12 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Data policies",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "Which data policy connector controls whether Copilot Studio agents can use event triggers and automated evaluations with authenticated accounts?",
 			"choices": [
@@ -2105,6 +2844,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Authentication",
+			"tags": [
+				"copilot-studio",
+				"governance",
+				"security"
+			],
 			"difficulty": "easy",
 			"question": "What is the default authentication option for new Copilot Studio agents?",
 			"choices": [
@@ -2123,6 +2867,13 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Authentication",
+			"tags": [
+				"copilot-studio",
+				"spend-controls",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "What's the risk of the 'No authentication' option in Copilot Studio?",
 			"choices": [
@@ -2141,6 +2892,12 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Authentication",
+			"tags": [
+				"copilot-studio",
+				"entra",
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Which authentication option is needed when an agent must call downstream APIs with the user's own token (User.AccessToken)?",
 			"choices": [
@@ -2159,6 +2916,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Authentication",
+			"tags": [
+				"copilot-studio",
+				"governance",
+				"security"
+			],
 			"difficulty": "easy",
 			"question": "A maker changes an agent's authentication setting. When does the change take effect for users?",
 			"choices": [
@@ -2177,6 +2939,12 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Governance controls",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"governance",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "Which Power Platform admin control stops makers from publishing generative AI agents at all?",
 			"choices": [
@@ -2195,6 +2963,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Governance controls",
+			"tags": [
+				"copilot-studio",
+				"governance",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "A European customer wants Copilot Studio's generative AI features to stay in-region. Which admin control is relevant?",
 			"choices": [
@@ -2213,6 +2986,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Governance controls",
+			"tags": [
+				"copilot-studio",
+				"purview",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Where are Copilot Studio maker audit logs available?",
 			"choices": [
@@ -2231,6 +3009,12 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Governance controls",
+			"tags": [
+				"copilot-studio",
+				"agent-365",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "Which data does Customer Lockbox not cover, according to Copilot Studio's security and governance guide?",
 			"choices": [
@@ -2249,6 +3033,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Governance controls",
+			"tags": [
+				"copilot-studio",
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Can admins encrypt Copilot Studio environment data with their own keys?",
 			"choices": [
@@ -2267,6 +3056,12 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Governance controls",
+			"tags": [
+				"copilot-studio",
+				"spend-controls",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "What can't a tenant-wide Copilot Studio policy do, per Microsoft's security guide?",
 			"choices": [
@@ -2285,6 +3080,12 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Genie in Copilot Studio",
+			"tags": [
+				"copilot-studio",
+				"mcp",
+				"genie",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "How do you add an Azure Databricks Genie Agent to a Copilot Studio agent?",
 			"choices": [
@@ -2303,6 +3104,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Genie in Copilot Studio",
+			"tags": [
+				"copilot-studio",
+				"genie",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "What orchestration setting must be on for a Copilot Studio agent to use the Azure Databricks Genie tool?",
 			"choices": [
@@ -2321,6 +3127,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Genie in Copilot Studio",
+			"tags": [
+				"copilot-studio",
+				"genie",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "Which instruction does Databricks recommend adding to a Copilot Studio agent that uses Genie?",
 			"choices": [
@@ -2339,6 +3150,11 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Genie in Copilot Studio",
+			"tags": [
+				"copilot-studio",
+				"genie",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Besides the Genie tool, what other way does Copilot Studio offer to use Azure Databricks data?",
 			"choices": [
@@ -2357,6 +3173,13 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Power Platform connection",
+			"tags": [
+				"copilot-studio",
+				"entra",
+				"power-platform",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "When must the Power Platform Azure Databricks connection use a service principal instead of OAuth?",
 			"choices": [
@@ -2375,6 +3198,15 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Power Platform connection",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"entra",
+				"power-platform",
+				"licensing",
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What does Databricks list as prerequisites for creating the Azure Databricks connection in Power Platform?",
 			"choices": [
@@ -2393,6 +3225,15 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Power Platform connection",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"fabric",
+				"governance",
+				"security",
+				"oversharing",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "Is the Power Platform Azure Databricks connector supported in government clouds?",
 			"choices": [
@@ -2411,6 +3252,14 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Fabric agents in Copilot Studio",
+			"tags": [
+				"copilot-studio",
+				"fabric",
+				"fabric-data-agents",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "When connecting a Fabric data agent to Copilot Studio, which authentication choices are offered?",
 			"choices": [
@@ -2429,6 +3278,14 @@
 			"section": 4,
 			"sectionName": "Building and governing Copilot Studio agents",
 			"topic": "Fabric agents in Copilot Studio",
+			"tags": [
+				"m365-copilot",
+				"copilot-studio",
+				"teams",
+				"fabric",
+				"fabric-data-agents",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A team builds a Copilot Studio agent with a connected Fabric data agent and wants to surface it in Microsoft 365 Copilot. What does Microsoft's documentation say?",
 			"choices": [
@@ -2447,6 +3304,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Permissions",
+			"tags": [
+				"m365-copilot",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "easy",
 			"question": "Which organizational content can Microsoft 365 Copilot surface to a user?",
 			"choices": [
@@ -2465,6 +3328,11 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Training",
+			"tags": [
+				"m365-copilot",
+				"governance",
+				"residency"
+			],
 			"difficulty": "easy",
 			"question": "Are Microsoft 365 Copilot prompts, responses and Graph data used to train foundation LLMs?",
 			"choices": [
@@ -2483,6 +3351,10 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Residency",
+			"tags": [
+				"governance",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "What exception does Microsoft call out to Copilot's EU Data Boundary commitment?",
 			"choices": [
@@ -2501,6 +3373,10 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Residency",
+			"tags": [
+				"governance",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "When Copilot uses web search, what is sent outside the Microsoft 365 service boundary?",
 			"choices": [
@@ -2519,6 +3395,10 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Retention",
+			"tags": [
+				"purview",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Where are Copilot prompts and responses stored for eDiscovery?",
 			"choices": [
@@ -2537,6 +3417,11 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Labels",
+			"tags": [
+				"purview",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "A document is encrypted with a sensitivity label. Which usage rights must the user have for Copilot to return its content?",
 			"choices": [
@@ -2555,6 +3440,11 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "DLP",
+			"tags": [
+				"m365-copilot",
+				"purview",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "What can a Purview DLP policy for Microsoft 365 Copilot do with labeled content?",
 			"choices": [
@@ -2573,6 +3463,10 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Purview",
+			"tags": [
+				"purview",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Which Insider Risk Management template detects risky AI use such as prompt injection attempts and access to protected materials?",
 			"choices": [
@@ -2591,6 +3485,11 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "DSPM for AI",
+			"tags": [
+				"purview",
+				"governance",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "What does DSPM for AI's default data risk assessment cover?",
 			"choices": [
@@ -2609,6 +3508,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Oversharing",
+			"tags": [
+				"sharepoint",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "What does Restricted Content Discovery (RCD) do to a SharePoint site?",
 			"choices": [
@@ -2627,6 +3532,11 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Oversharing",
+			"tags": [
+				"sharepoint",
+				"governance",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "Which statement about Restricted Content Discovery is true?",
 			"choices": [
@@ -2645,6 +3555,13 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Oversharing",
+			"tags": [
+				"sharepoint",
+				"spend-controls",
+				"governance",
+				"oversharing",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "What's the status of Restricted SharePoint Search (RSS) as of late 2026?",
 			"choices": [
@@ -2663,6 +3580,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Oversharing",
+			"tags": [
+				"sharepoint",
+				"teams",
+				"governance",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "Under Restricted SharePoint Search, which content could users still get in Copilot even if the site wasn't on the allow list?",
 			"choices": [
@@ -2681,6 +3604,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Oversharing",
+			"tags": [
+				"sharepoint",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "Which SharePoint Advanced Management feature restricts a site so only members of specified groups can access it, even if content was shared more broadly?",
 			"choices": [
@@ -2699,6 +3628,11 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Oversharing",
+			"tags": [
+				"sharepoint",
+				"governance",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "Which SAM report helps find content shared with 'Everyone Except External Users' (EEEU), a common cause of Copilot oversharing?",
 			"choices": [
@@ -2717,6 +3651,10 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Agent 365",
+			"tags": [
+				"agent-365",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Which governance capabilities does Agent 365 provide for agents in the registry?",
 			"choices": [
@@ -2735,6 +3673,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Entra Agent ID",
+			"tags": [
+				"entra",
+				"mcp",
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What is Microsoft Entra Agent ID?",
 			"choices": [
@@ -2753,6 +3697,11 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Entra Agent ID",
+			"tags": [
+				"entra",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "How can non-Microsoft agents (for example on AWS Bedrock or n8n) get Entra agent identities?",
 			"choices": [
@@ -2771,6 +3720,11 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Copilot Studio audit",
+			"tags": [
+				"copilot-studio",
+				"purview",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "Where are Copilot prompts and responses captured for audit?",
 			"choices": [
@@ -2789,6 +3743,10 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Third-party agents",
+			"tags": [
+				"m365-copilot",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "What does Microsoft say about the data terms for third-party agents used inside Copilot?",
 			"choices": [
@@ -2807,6 +3765,10 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Encryption",
+			"tags": [
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "What caveat does Microsoft note about encryption and content accessed through agents?",
 			"choices": [
@@ -2825,6 +3787,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Password-protected files",
+			"tags": [
+				"m365-copilot",
+				"purview",
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Can Copilot read a password-protected document the user hasn't opened?",
 			"choices": [
@@ -2843,6 +3811,11 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Connected experiences",
+			"tags": [
+				"m365-copilot",
+				"governance",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "What happens if an admin turns off 'connected experiences that analyze content' to tighten privacy?",
 			"choices": [
@@ -2861,6 +3834,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Agent identity",
+			"tags": [
+				"foundry",
+				"entra",
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What identity do Foundry hosted agents get?",
 			"choices": [
@@ -2879,6 +3858,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Ignite 2026",
+			"tags": [
+				"purview",
+				"spend-controls",
+				"governance",
+				"whats-new"
+			],
 			"difficulty": "hard",
 			"question": "What did Microsoft announce at Ignite 2026 for Purview DLP and Copilot?",
 			"choices": [
@@ -2897,6 +3882,10 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Ignite 2026",
+			"tags": [
+				"governance",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "What did Microsoft announce at Ignite 2026 to protect local agents such as Claude Code or GitHub Copilot CLI on endpoints?",
 			"choices": [
@@ -2915,6 +3904,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Oversharing",
+			"tags": [
+				"sharepoint",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "Why does Microsoft describe Restricted SharePoint Search as not a security boundary?",
 			"choices": [
@@ -2933,6 +3928,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Agent 365",
+			"tags": [
+				"agent-365",
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "What does Agent 365 offer for agent cost governance?",
 			"choices": [
@@ -2951,6 +3952,12 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "SAM",
+			"tags": [
+				"sharepoint",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "Which SharePoint Advanced Management capability lets an organization delegate permission clean-up to site owners at scale?",
 			"choices": [
@@ -2969,6 +3976,11 @@
 			"section": 5,
 			"sectionName": "Data protection and agent governance",
 			"topic": "Ownerless agents",
+			"tags": [
+				"agent-365",
+				"governance",
+				"security"
+			],
 			"difficulty": "easy",
 			"question": "Which Agent 365 governance feature addresses agents whose creators have left the company?",
 			"choices": [
@@ -2987,6 +3999,11 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent",
+			"tags": [
+				"fabric",
+				"fabric-data-agents",
+				"whats-new"
+			],
 			"difficulty": "easy",
 			"question": "What is the release status of Microsoft Fabric data agents as of late 2026?",
 			"choices": [
@@ -3005,6 +4022,10 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent",
+			"tags": [
+				"fabric",
+				"fabric-data-agents"
+			],
 			"difficulty": "medium",
 			"question": "How many data sources can a single Fabric data agent use?",
 			"choices": [
@@ -3023,6 +4044,10 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent",
+			"tags": [
+				"fabric",
+				"fabric-data-agents"
+			],
 			"difficulty": "hard",
 			"question": "What is the maximum size of a result a Fabric data agent will return?",
 			"choices": [
@@ -3041,6 +4066,10 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent",
+			"tags": [
+				"fabric",
+				"fabric-data-agents"
+			],
 			"difficulty": "medium",
 			"question": "Which of these is a documented limitation of Fabric data agents?",
 			"choices": [
@@ -3059,6 +4088,11 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent",
+			"tags": [
+				"fabric",
+				"fabric-data-agents",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "A Fabric data agent's capacity is in West Europe but one of its lakehouse sources is on a capacity in East US. What happens?",
 			"choices": [
@@ -3077,6 +4111,12 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent",
+			"tags": [
+				"m365-copilot",
+				"fabric",
+				"fabric-data-agents",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "What Fabric capacity does a data agent require?",
 			"choices": [
@@ -3095,6 +4135,12 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent",
+			"tags": [
+				"fabric",
+				"fabric-data-agents",
+				"governance",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "Which tenant setting does Microsoft list as a prerequisite for Fabric data agents?",
 			"choices": [
@@ -3113,6 +4159,12 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent security",
+			"tags": [
+				"fabric",
+				"fabric-data-agents",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "Whose permissions does a Fabric data agent use when it queries data?",
 			"choices": [
@@ -3131,6 +4183,10 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Copilot in Fabric consumption",
+			"tags": [
+				"fabric",
+				"fabric-data-agents"
+			],
 			"difficulty": "hard",
 			"question": "How are Copilot and data agent tokens metered against Fabric capacity?",
 			"choices": [
@@ -3149,6 +4205,12 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric Copilot capacity",
+			"tags": [
+				"fabric",
+				"fabric-data-agents",
+				"pricing",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "What does a Fabric Copilot capacity do?",
 			"choices": [
@@ -3167,6 +4229,10 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric Copilot capacity",
+			"tags": [
+				"fabric",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "A user is assigned to two Fabric Copilot capacities. Which one is billed?",
 			"choices": [
@@ -3185,6 +4251,15 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent in M365",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"teams",
+				"fabric",
+				"fabric-data-agents",
+				"governance",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "How do users consume a published Fabric data agent from Microsoft 365 Copilot or Teams?",
 			"choices": [
@@ -3203,6 +4278,10 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Mirroring Azure Databricks",
+			"tags": [
+				"fabric",
+				"unity-catalog"
+			],
 			"difficulty": "medium",
 			"question": "When you mirror an Azure Databricks Unity Catalog catalog into Fabric, what is actually copied?",
 			"choices": [
@@ -3221,6 +4300,11 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Mirroring Azure Databricks",
+			"tags": [
+				"fabric",
+				"unity-catalog",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "Which Unity Catalog tables does Microsoft list as not supported for mirroring into Fabric?",
 			"choices": [
@@ -3239,6 +4323,9 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Mirroring Azure Databricks",
+			"tags": [
+				"fabric"
+			],
 			"difficulty": "hard",
 			"question": "What networking prerequisite applies to mirroring an Azure Databricks catalog into Fabric?",
 			"choices": [
@@ -3257,6 +4344,10 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Mirroring Azure Databricks",
+			"tags": [
+				"fabric",
+				"unity-catalog"
+			],
 			"difficulty": "medium",
 			"question": "Do Unity Catalog views and metric views appear in a mirrored Azure Databricks item in Fabric?",
 			"choices": [
@@ -3275,6 +4366,10 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Foundry",
+			"tags": [
+				"foundry",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "What does Foundry Agent Service charge for a prompt agent?",
 			"choices": [
@@ -3293,6 +4388,13 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Foundry",
+			"tags": [
+				"foundry",
+				"entra",
+				"mcp",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "Which MCP authentication options does Foundry Agent Service support for tools?",
 			"choices": [
@@ -3311,6 +4413,10 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Foundry",
+			"tags": [
+				"foundry",
+				"mcp"
+			],
 			"difficulty": "medium",
 			"question": "Which tools does the Foundry overview list as available to agents?",
 			"choices": [
@@ -3329,6 +4435,11 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent",
+			"tags": [
+				"fabric",
+				"fabric-data-agents",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "Does configuring or sharing a Fabric data agent grant users access to its underlying data?",
 			"choices": [
@@ -3347,6 +4458,12 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent",
+			"tags": [
+				"m365-copilot",
+				"fabric",
+				"fabric-data-agents",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "What does Microsoft warn about responses from a Fabric data agent used in Microsoft 365 Copilot?",
 			"choices": [
@@ -3365,6 +4482,11 @@
 			"section": 6,
 			"sectionName": "Fabric, Foundry and data agents",
 			"topic": "Fabric data agent",
+			"tags": [
+				"fabric",
+				"fabric-data-agents",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What permission on a Power BI semantic model does a user need to query it through a Fabric data agent?",
 			"choices": [
@@ -3383,6 +4505,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie family",
+			"tags": [
+				"teams",
+				"genie",
+				"whats-new"
+			],
 			"difficulty": "easy",
 			"question": "What are the three members of Databricks' Genie family as of late 2026, and who is each for?",
 			"choices": [
@@ -3401,6 +4528,10 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie family",
+			"tags": [
+				"genie",
+				"whats-new"
+			],
 			"difficulty": "easy",
 			"question": "What were Genie Agents called before mid-2026?",
 			"choices": [
@@ -3419,6 +4550,9 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie family",
+			"tags": [
+				"genie"
+			],
 			"difficulty": "medium",
 			"question": "What is Genie Ontology?",
 			"choices": [
@@ -3437,6 +4571,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie pricing",
+			"tags": [
+				"genie",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "How does Databricks price Genie One and Genie Agents for end users?",
 			"choices": [
@@ -3455,6 +4594,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie pricing",
+			"tags": [
+				"genie",
+				"pricing",
+				"whats-new"
+			],
 			"difficulty": "hard",
 			"question": "What did Databricks announce in July 2026 about billing for Genie One and Genie Agents?",
 			"choices": [
@@ -3473,6 +4617,13 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie pricing",
+			"tags": [
+				"copilot-studio",
+				"entra",
+				"genie",
+				"pricing",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "A customer runs Genie through a service principal for a shared Copilot Studio agent. How is that usage billed?",
 			"choices": [
@@ -3491,6 +4642,14 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie governance",
+			"tags": [
+				"genie",
+				"unity-catalog",
+				"spend-controls",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "How does Genie enforce data access in its answers?",
 			"choices": [
@@ -3509,6 +4668,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie governance",
+			"tags": [
+				"genie",
+				"governance",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "What caveat does Databricks note about Genie One artifacts?",
 			"choices": [
@@ -3527,6 +4691,12 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Integration paths",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"cowork",
+				"genie"
+			],
 			"difficulty": "medium",
 			"question": "Which Genie integration does the Azure Databricks Microsoft 365 Copilot page label as recommended?",
 			"choices": [
@@ -3545,6 +4715,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Integration paths",
+			"tags": [
+				"m365-copilot",
+				"genie",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "What does the Azure Databricks Genie plugin require on the Microsoft side?",
 			"choices": [
@@ -3563,6 +4738,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Integration paths",
+			"tags": [
+				"copilot-chat",
+				"cowork",
+				"genie"
+			],
 			"difficulty": "hard",
 			"question": "Which limitations does Databricks list for the Genie plugin in Copilot Chat and Cowork?",
 			"choices": [
@@ -3581,6 +4761,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Integration paths",
+			"tags": [
+				"copilot-studio",
+				"teams",
+				"genie"
+			],
 			"difficulty": "medium",
 			"question": "What's the key scope difference between the Copilot Studio path and the plugin or Teams app paths for Genie?",
 			"choices": [
@@ -3599,6 +4784,12 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Teams app",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"teams",
+				"genie"
+			],
 			"difficulty": "medium",
 			"question": "How do users invoke Databricks Genie from Microsoft 365 Copilot when the Genie app for Teams is installed?",
 			"choices": [
@@ -3617,6 +4808,13 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Teams app",
+			"tags": [
+				"entra",
+				"teams",
+				"genie",
+				"security",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "Where does the central service behind the Databricks Genie app for Teams run, and what does it store?",
 			"choices": [
@@ -3635,6 +4833,13 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Teams app",
+			"tags": [
+				"entra",
+				"teams",
+				"genie",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "Users see 'Need admin approval' when signing in to the Databricks Genie app in Teams. What's the fix?",
 			"choices": [
@@ -3653,6 +4858,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Teams app",
+			"tags": [
+				"teams",
+				"genie",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "A customer's workspace uses Azure Private Link. What does the Genie Teams app need?",
 			"choices": [
@@ -3671,6 +4881,10 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Teams app",
+			"tags": [
+				"teams",
+				"genie"
+			],
 			"difficulty": "medium",
 			"question": "Can users pick which SQL warehouse the Genie Teams app uses?",
 			"choices": [
@@ -3689,6 +4903,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Teams app",
+			"tags": [
+				"teams",
+				"genie",
+				"spend-controls"
+			],
 			"difficulty": "medium",
 			"question": "What file-upload limits apply in the Genie Teams app?",
 			"choices": [
@@ -3707,6 +4926,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Cowork plugin",
+			"tags": [
+				"cowork",
+				"mcp",
+				"genie"
+			],
 			"difficulty": "medium",
 			"question": "How does Copilot Cowork reach Databricks data?",
 			"choices": [
@@ -3725,6 +4949,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Cowork plugin",
+			"tags": [
+				"cowork",
+				"genie",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "When a Cowork task calls Genie One through the plugin, which two meters run?",
 			"choices": [
@@ -3743,6 +4972,10 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Managed MCP",
+			"tags": [
+				"mcp",
+				"genie"
+			],
 			"difficulty": "medium",
 			"question": "What is the URL pattern for a Genie Agent's Databricks managed MCP server?",
 			"choices": [
@@ -3761,6 +4994,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Managed MCP",
+			"tags": [
+				"copilot-studio",
+				"mcp",
+				"genie"
+			],
 			"difficulty": "medium",
 			"question": "What must a workspace admin enable before Copilot Studio can use the Azure Databricks Genie tool?",
 			"choices": [
@@ -3779,6 +5017,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie limits",
+			"tags": [
+				"genie",
+				"spend-controls",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "How many tables, views or metric views can a Genie Agent include after Databricks' September 2026 update?",
 			"choices": [
@@ -3797,6 +5040,10 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie access",
+			"tags": [
+				"genie",
+				"whats-new"
+			],
 			"difficulty": "hard",
 			"question": "What does 'account-only user access to Genie One' (beta, September 2026) allow?",
 			"choices": [
@@ -3815,6 +5062,11 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie access",
+			"tags": [
+				"genie",
+				"licensing",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What does Databricks' 'consumer access' entitlement grant?",
 			"choices": [
@@ -3833,6 +5085,10 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie quality",
+			"tags": [
+				"genie",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "In Databricks' June 2026 internal benchmark of 28 real-world questions, how did Genie compare with the strongest general-purpose coding agent tested?",
 			"choices": [
@@ -3851,6 +5107,12 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Genie in Microsoft 365",
+			"tags": [
+				"mcp",
+				"teams",
+				"genie",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "Databricks also ships an MCP connector so Genie One can reach Microsoft 365 content. What does it cover and how do users authenticate?",
 			"choices": [
@@ -3869,6 +5131,10 @@
 			"section": 7,
 			"sectionName": "Databricks Genie with Microsoft Copilot",
 			"topic": "Teams app",
+			"tags": [
+				"teams",
+				"genie"
+			],
 			"difficulty": "medium",
 			"question": "In the Genie Teams app, an admin pins a Genie Agent. What happens to existing Genie One conversations?",
 			"choices": [
@@ -3887,6 +5153,13 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Reaching unlicensed users",
+			"tags": [
+				"m365-copilot",
+				"teams",
+				"genie",
+				"licensing",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A 20,000-person customer is licensing Microsoft 365 Copilot for only 3,000 people but wants governed self-service analytics for everyone. Which documented Genie path doesn't depend on a Microsoft 365 Copilot license?",
 			"choices": [
@@ -3905,6 +5178,13 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Cost modeling",
+			"tags": [
+				"m365-copilot",
+				"copilot-chat",
+				"copilot-studio",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "A Copilot Studio agent grounded on SharePoint is offered to 15,000 users without Copilot licenses in Copilot Chat. Each asks 10 grounded questions a month. Using standard rates, what's the monthly PAYG cost?",
 			"choices": [
@@ -3923,6 +5203,11 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Cost modeling",
+			"tags": [
+				"m365-copilot",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "At PAYG list price, roughly how many tenant-grounded agent prompts (12 credits each) per month make an unlicensed user's metered agent usage cost about the same as a $30 Copilot seat?",
 			"choices": [
@@ -3941,6 +5226,12 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Cost modeling",
+			"tags": [
+				"copilot-studio",
+				"genie",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "A Copilot Studio agent with the Genie tool serves 5,000 unlicensed users, each asking 20 questions a month. Assuming each question is one agent action plus one generative answer, what's the Microsoft-side credit consumption?",
 			"choices": [
@@ -3959,6 +5250,14 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Mirroring vs in-place",
+			"tags": [
+				"fabric",
+				"fabric-data-agents",
+				"genie",
+				"unity-catalog",
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "A customer's Microsoft team proposes mirroring Unity Catalog into Fabric so Fabric data agents can answer questions in Copilot. Which point most directly protects governance?",
 			"choices": [
@@ -3977,6 +5276,15 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Identity choice",
+			"tags": [
+				"copilot-studio",
+				"entra",
+				"power-platform",
+				"genie",
+				"unity-catalog",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "Power Platform and Databricks are in different Entra tenants, so the Copilot Studio Genie connection must use a service principal. What's the main governance consequence?",
 			"choices": [
@@ -3995,6 +5303,12 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Budget controls",
+			"tags": [
+				"copilot-chat",
+				"pricing",
+				"spend-controls",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Finance wants a hard monthly ceiling on Copilot Chat pay-as-you-go agent spend. They've set a budget on the PAYG billing policy. What should you tell them?",
 			"choices": [
@@ -4013,6 +5327,10 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Purchase timing",
+			"tags": [
+				"pricing",
+				"whats-new"
+			],
 			"difficulty": "hard",
 			"question": "An MCA-E customer plans to buy a Copilot Credit P3 plan in February 2027 for the discount. What's the problem?",
 			"choices": [
@@ -4031,6 +5349,11 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Autonomous agents",
+			"tags": [
+				"pricing",
+				"licensing",
+				"spend-controls"
+			],
 			"difficulty": "medium",
 			"question": "A customer says, 'We bought Copilot for everyone, so our autonomous invoice-processing agent is free.' What's the right response?",
 			"choices": [
@@ -4049,6 +5372,11 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Oversharing plan",
+			"tags": [
+				"sharepoint",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "A customer plans to use Restricted SharePoint Search as their long-term Copilot oversharing control. How should you coach them?",
 			"choices": [
@@ -4067,6 +5395,10 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "E7 decision",
+			"tags": [
+				"m365-copilot",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "A customer wants to move all 10,000 users to E7 so 'all the agent stuff is covered'. What's the most accurate coaching?",
 			"choices": [
@@ -4085,6 +5417,13 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Security concern",
+			"tags": [
+				"entra",
+				"genie",
+				"unity-catalog",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "An executive worries that bringing Genie into Copilot will let people see data they shouldn't. Which facts best address it?",
 			"choices": [
@@ -4103,6 +5442,12 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Choosing a path",
+			"tags": [
+				"copilot-studio",
+				"teams",
+				"genie",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A finance team wants one Teams agent that answers revenue questions from a curated Genie Agent, cites policy documents from SharePoint, and follows a custom approval flow. Which path fits best?",
 			"choices": [
@@ -4121,6 +5466,11 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Choosing a path",
+			"tags": [
+				"copilot-chat",
+				"genie",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "A customer's Copilot-licensed knowledge workers want to ask data questions in Copilot Chat with the least setup. Which Genie path does Databricks recommend?",
 			"choices": [
@@ -4139,6 +5489,13 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Government cloud",
+			"tags": [
+				"copilot-studio",
+				"power-platform",
+				"genie",
+				"governance",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "A US government (GCC) customer wants the Copilot Studio-to-Genie integration. What should you check first?",
 			"choices": [
@@ -4157,6 +5514,13 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Residency",
+			"tags": [
+				"entra",
+				"teams",
+				"genie",
+				"security",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "An EU customer asks where data flows when using the Genie Teams app. What's accurate?",
 			"choices": [
@@ -4175,6 +5539,10 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Rollout hygiene",
+			"tags": [
+				"pricing",
+				"spend-controls"
+			],
 			"difficulty": "medium",
 			"question": "A customer wants usage-based Copilot services rolled out deliberately, one at a time. Which default should they change?",
 			"choices": [
@@ -4193,6 +5561,10 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Data readiness",
+			"tags": [
+				"security",
+				"oversharing"
+			],
 			"difficulty": "easy",
 			"question": "A customer says, 'Copilot respects permissions, so we're safe to turn it on for everyone.' What's the coaching point?",
 			"choices": [
@@ -4211,6 +5583,14 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Foundry with Genie",
+			"tags": [
+				"foundry",
+				"entra",
+				"mcp",
+				"genie",
+				"unity-catalog",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "A pro-code team builds a Foundry agent that calls Genie through Databricks' managed MCP server. Which auth mode keeps Unity Catalog permissions per user?",
 			"choices": [
@@ -4229,6 +5609,11 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Seat vs usage",
+			"tags": [
+				"cowork",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "A sponsor's business case prices Copilot at '$30 per user, all in.' Which planned use would break that assumption most?",
 			"choices": [
@@ -4247,6 +5632,9 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "MACC strategy",
+			"tags": [
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "A customer has a large Azure MACC and worries that agent spend outside Microsoft won't count toward it. What's relevant for a Databricks-plus-Copilot strategy?",
 			"choices": [
@@ -4265,6 +5653,10 @@
 			"section": 8,
 			"sectionName": "Coaching scenarios",
 			"topic": "Capacity planning",
+			"tags": [
+				"copilot-studio",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "A customer's Copilot Studio usage swings between 40,000 credits in quiet months and 200,000 in quarter-end months. What's the problem with buying 8 capacity packs?",
 			"choices": [

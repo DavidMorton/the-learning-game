@@ -1,0 +1,3331 @@
+{
+	"title": "Glossary: Databricks, Microsoft Copilot and Microsoft Fabric",
+	"asOf": "2026-11-24",
+	"format": {
+		"aliases": "Words that count as a mention of the term in a question. Matching ignores case and allows a plural 's', except for all-capital acronyms and aliases that start with '=', which must match exactly.",
+		"related": "Ids of terms to read alongside this one.",
+		"decks": "Optional. When present, the term is only matched in these decks (databricks, copilot, fabric)."
+	},
+	"categories": [
+		{
+			"id": "m365",
+			"name": "Microsoft 365 Copilot"
+		},
+		{
+			"id": "agents",
+			"name": "Building agents"
+		},
+		{
+			"id": "billing",
+			"name": "Licensing and billing"
+		},
+		{
+			"id": "governance",
+			"name": "Security, identity and governance"
+		},
+		{
+			"id": "fabric",
+			"name": "Microsoft Fabric and Power BI"
+		},
+		{
+			"id": "databricks",
+			"name": "Databricks"
+		},
+		{
+			"id": "genie",
+			"name": "Databricks Genie"
+		},
+		{
+			"id": "integration",
+			"name": "Integration and protocols"
+		}
+	],
+	"terms": [
+		{
+			"id": "m365-copilot",
+			"term": "Microsoft 365 Copilot",
+			"category": "m365",
+			"aliases": [
+				"Microsoft 365 Copilot",
+				"M365 Copilot",
+				"Copilot license",
+				"Copilot seat",
+				"Microsoft 365 Copilot (Premium)"
+			],
+			"definition": "Microsoft's paid AI assistant for work: $30 per user per month (list) as an add-on to eligible Microsoft 365 plans, or included in E7. It grounds answers in each user's work data through Microsoft Graph and Work IQ and adds Copilot inside Word, Excel, PowerPoint, Outlook and Teams. The seat covers 'everyday AI'. Long-running agentic work such as Cowork is billed separately in Copilot Credits.",
+			"related": [
+				"copilot-chat",
+				"copilot-business",
+				"m365-e7",
+				"work-iq",
+				"microsoft-graph",
+				"everyday-advanced-ai",
+				"cowork"
+			],
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-licensing"
+		},
+		{
+			"id": "copilot-chat",
+			"term": "Copilot Chat (Basic)",
+			"category": "m365",
+			"aliases": [
+				"Copilot Chat",
+				"Microsoft 365 Copilot Chat",
+				"Microsoft 365 Copilot (Basic)"
+			],
+			"definition": "The AI chat that comes at no extra cost with eligible Microsoft 365 licenses. It's grounded on the web, not on organizational data through Microsoft Graph, and is protected by Enterprise Data Protection when users sign in with Entra ID. Work content gets in only through uploads, open documents in Teams or Outlook, or pay-as-you-go agents.",
+			"related": [
+				"m365-copilot",
+				"edp",
+				"pay-as-you-go",
+				"declarative-agent",
+				"tenant-graph-grounding"
+			],
+			"source": "https://learn.microsoft.com/en-us/copilot/overview"
+		},
+		{
+			"id": "copilot-business",
+			"term": "Copilot Business",
+			"category": "m365",
+			"aliases": [
+				"Copilot Business",
+				"Microsoft 365 Copilot Business"
+			],
+			"definition": "The small and medium business version of Microsoft 365 Copilot for organizations with up to 300 users on Microsoft 365 Business plans. It has the same Copilot capabilities at $21 per user per month (list), on an annual commitment.",
+			"related": [
+				"m365-copilot"
+			],
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-licensing"
+		},
+		{
+			"id": "m365-e7",
+			"term": "Microsoft 365 E7 (Frontier Suite)",
+			"category": "billing",
+			"aliases": [
+				"E7",
+				"Microsoft 365 E7",
+				"Frontier Suite"
+			],
+			"definition": "A $99 per user per month bundle (GA May 1, 2026) of Microsoft 365 E5, Microsoft 365 Copilot, Entra Suite and Agent 365. It doesn't include agent consumption such as Copilot Credits or Foundry usage, and it can be mixed with other licenses, so only some users need it.",
+			"related": [
+				"m365-e5",
+				"m365-copilot",
+				"agent-365",
+				"entra-id",
+				"copilot-credits"
+			],
+			"source": "https://techcommunity.microsoft.com/blog/microsoft_365blog/microsoft-365-e7-and-agent-365-are-now-generally-available/4516295"
+		},
+		{
+			"id": "m365-e5",
+			"term": "Microsoft 365 E3 and E5",
+			"category": "billing",
+			"aliases": [
+				"E5",
+				"E3",
+				"Microsoft 365 E5",
+				"Microsoft 365 E3"
+			],
+			"definition": "Microsoft's enterprise suites. E5 ($60 list from July 2026) adds advanced security, compliance and analytics to E3 ($39). Both are eligible base plans for the Microsoft 365 Copilot add-on, and E5 includes some Security Copilot capacity.",
+			"related": [
+				"m365-e7",
+				"m365-copilot",
+				"security-copilot"
+			],
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/compare-copilot-e3-e5-e7"
+		},
+		{
+			"id": "frontier",
+			"term": "Frontier program",
+			"category": "m365",
+			"aliases": [
+				"Frontier program",
+				"Frontier"
+			],
+			"definition": "Microsoft's early-access program for experimental Copilot features such as Autopilot and Copilot Code. Frontier features aren't generally available and can change.",
+			"related": [
+				"autopilot",
+				"copilot-code",
+				"cowork"
+			]
+		},
+		{
+			"id": "cowork",
+			"term": "Copilot Cowork",
+			"category": "m365",
+			"aliases": [
+				"Cowork",
+				"Copilot Cowork"
+			],
+			"definition": "An agentic system in Microsoft 365 Copilot that plans and runs long, multi-step tasks and returns a finished deliverable. It needs a Copilot license plus usage-based billing: model responses, tool calls and browser tasks consume Copilot Credits (Microsoft estimates about 100 to 700+ per task). Spending policies decide who can use it.",
+			"related": [
+				"m365-copilot",
+				"copilot-credits",
+				"spending-policy",
+				"everyday-advanced-ai",
+				"genie-plugin"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance"
+		},
+		{
+			"id": "copilot-code",
+			"term": "Copilot Code",
+			"category": "m365",
+			"aliases": [
+				"Copilot Code"
+			],
+			"definition": "Microsoft's Copilot experience for building apps and code. It was in the Frontier program as of late 2026 and is metered in Copilot Credits. Apps it builds can run on Copilot Managed Runtime.",
+			"related": [
+				"cowork",
+				"copilot-managed-runtime",
+				"frontier"
+			]
+		},
+		{
+			"id": "autopilot",
+			"term": "Autopilot",
+			"category": "m365",
+			"aliases": [
+				"Autopilot"
+			],
+			"definition": "A persistent personal agent in the Frontier program that acts on a user's behalf, with its own Entra Agent ID and a named human manager. Its agent account carries a recurring 100 Copilot Credits per month, plus usage.",
+			"related": [
+				"entra-agent-id",
+				"cowork",
+				"copilot-credits",
+				"frontier"
+			],
+			"source": "https://www.microsoft.com/licensing/guidance/CopilotCreditsGuide"
+		},
+		{
+			"id": "edp",
+			"term": "Enterprise Data Protection (EDP)",
+			"category": "governance",
+			"aliases": [
+				"Enterprise Data Protection",
+				"EDP"
+			],
+			"definition": "The commercial data protection terms for Copilot Chat and Microsoft 365 Copilot when users sign in with an Entra work account. Prompts and responses are covered by Microsoft's enterprise data commitments and aren't used to train foundation models.",
+			"related": [
+				"copilot-chat",
+				"entra-id"
+			],
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy"
+		},
+		{
+			"id": "microsoft-graph",
+			"term": "Microsoft Graph",
+			"category": "m365",
+			"aliases": [
+				"Microsoft Graph",
+				"Graph grounding"
+			],
+			"definition": "The API and data layer over a tenant's Microsoft 365 content: mail, files, chats, calendars, sites and people. Copilot grounds its answers in Graph data, respecting each user's permissions. In Copilot Studio, grounding on it is billed as tenant graph grounding.",
+			"related": [
+				"tenant-graph-grounding",
+				"semantic-index",
+				"m365-copilot",
+				"copilot-connectors"
+			]
+		},
+		{
+			"id": "semantic-index",
+			"term": "Semantic index",
+			"category": "m365",
+			"aliases": [
+				"semantic index"
+			],
+			"definition": "Microsoft 365's vector index of tenant content, which helps Copilot find relevant information. It honors each user's access, so it surfaces anything a user can technically open, overshared files included.",
+			"related": [
+				"microsoft-graph",
+				"oversharing"
+			]
+		},
+		{
+			"id": "work-iq",
+			"term": "Work IQ",
+			"category": "m365",
+			"aliases": [
+				"Work IQ",
+				"Work IQ API",
+				"Work IQ APIs"
+			],
+			"definition": "The Microsoft 365 context layer (people, content, meetings, activity) that grounds Copilot and agents, and that other agent platforms can reach through APIs and MCP. Work IQ API calls aren't included in the Copilot license and consume Copilot Credits.",
+			"related": [
+				"microsoft-iq",
+				"microsoft-graph",
+				"copilot-credits",
+				"mcp"
+			]
+		},
+		{
+			"id": "microsoft-iq",
+			"term": "Microsoft IQ",
+			"category": "m365",
+			"aliases": [
+				"Microsoft IQ",
+				"Foundry IQ",
+				"Web IQ"
+			],
+			"definition": "Microsoft's umbrella for the context layers that ground agents: Work IQ (Microsoft 365), Fabric IQ (business data and ontologies), Foundry IQ (knowledge for Foundry agents) and Web IQ. It reached GA at Ignite 2026 with no new SKU.",
+			"related": [
+				"work-iq",
+				"fabric-iq",
+				"foundry"
+			],
+			"source": "https://news.microsoft.com/events/ignite/2026/book-of-news/"
+		},
+		{
+			"id": "copilot-connectors",
+			"term": "Copilot connectors",
+			"category": "m365",
+			"aliases": [
+				"Copilot connector",
+				"Copilot connectors",
+				"Graph connector",
+				"Graph connectors"
+			],
+			"definition": "Connectors, formerly Microsoft Graph connectors, that index external content into Microsoft 365 so Copilot and agents can ground on it. In Copilot Chat, agents grounded on connector content are metered for unlicensed users.",
+			"related": [
+				"microsoft-graph",
+				"pay-as-you-go"
+			]
+		},
+		{
+			"id": "everyday-advanced-ai",
+			"term": "Everyday AI vs advanced AI",
+			"category": "billing",
+			"aliases": [
+				"everyday AI",
+				"advanced AI",
+				"usage-based billing"
+			],
+			"definition": "Microsoft's 2026 split of Copilot pricing. 'Everyday AI' (chat, Copilot in the Office apps, automatic model selection) is included in the per-user license, within limits. 'Advanced AI' (Cowork, Code, Autopilot, Work IQ APIs, some frontier models, advanced SharePoint work) is usage-based and billed in Copilot Credits.",
+			"related": [
+				"copilot-credits",
+				"cowork",
+				"m365-copilot",
+				"spending-policy"
+			],
+			"source": "https://learn.microsoft.com/en-us/copilot/plan/usage-based-billing-overview-copilot-credits"
+		},
+		{
+			"id": "copilot-studio",
+			"term": "Copilot Studio",
+			"category": "agents",
+			"aliases": [
+				"Copilot Studio"
+			],
+			"definition": "Microsoft's low-code platform for building agents, including custom engine agents, from knowledge sources, tools (connectors, MCP), topics and agent flows. Usage is billed in Copilot Credits, except employee-facing use by Microsoft 365 Copilot licensed users in Microsoft channels. Power Platform data policies govern it.",
+			"related": [
+				"copilot-credits",
+				"agent-flow",
+				"power-platform-data-policies",
+				"generative-orchestration",
+				"harness",
+				"mcp",
+				"azure-databricks-connector"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing"
+		},
+		{
+			"id": "agent-builder",
+			"term": "Agent Builder",
+			"category": "agents",
+			"aliases": [
+				"Agent Builder"
+			],
+			"definition": "The lightweight builder inside Microsoft 365 Copilot for creating declarative agents from instructions and knowledge. Generative answers from Agent Builder agents aren't charged unless they use tenant graph grounding.",
+			"related": [
+				"declarative-agent",
+				"copilot-studio",
+				"tenant-graph-grounding"
+			]
+		},
+		{
+			"id": "declarative-agent",
+			"term": "Declarative agent",
+			"category": "agents",
+			"aliases": [
+				"declarative agent"
+			],
+			"definition": "An agent that customizes Microsoft 365 Copilot with instructions, knowledge and actions but runs on Copilot's own orchestrator and models, with no extra hosting. It inherits Microsoft 365 compliance controls but can't send proactive messages.",
+			"related": [
+				"custom-engine-agent",
+				"agent-builder",
+				"m365-copilot"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agents-overview"
+		},
+		{
+			"id": "custom-engine-agent",
+			"term": "Custom engine agent",
+			"category": "agents",
+			"aliases": [
+				"custom engine agent"
+			],
+			"definition": "An agent that brings its own orchestrator and models, usually hosted in Azure at extra cost and built with Copilot Studio or the Agents Toolkit. It can message proactively and work outside Microsoft 365, but the builder owns compliance and responsible-AI controls.",
+			"related": [
+				"declarative-agent",
+				"copilot-studio",
+				"foundry"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agents-overview"
+		},
+		{
+			"id": "agent-store",
+			"term": "Agent Store",
+			"category": "agents",
+			"aliases": [
+				"Agent Store"
+			],
+			"definition": "The catalog in Microsoft 365 Copilot and Teams where users find and add agents published by their organization, Microsoft or partners.",
+			"related": [
+				"declarative-agent",
+				"fabric-data-agent"
+			]
+		},
+		{
+			"id": "harness",
+			"term": "Harness (Copilot Studio)",
+			"category": "agents",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"standard harness",
+				"Microsoft Copilot harness",
+				"customer conversation harness",
+				"harness"
+			],
+			"definition": "The runtime a Copilot Studio agent runs on. The standard harness is the established runtime that the published billing rate table covers. The Microsoft Copilot harness and the customer conversation harness bill differently, so check which harness a rate applies to.",
+			"related": [
+				"copilot-studio",
+				"copilot-credits"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing"
+		},
+		{
+			"id": "copilot-managed-runtime",
+			"term": "Copilot Managed Runtime",
+			"category": "agents",
+			"aliases": [
+				"Copilot Managed Runtime",
+				"Managed Runtime"
+			],
+			"definition": "Microsoft's hosting layer (GA at Ignite 2026) for apps and agents built with Copilot Code, Cowork and Copilot Studio. Running apps consume Copilot Credits.",
+			"related": [
+				"copilot-code",
+				"cowork",
+				"copilot-studio",
+				"copilot-credits"
+			]
+		},
+		{
+			"id": "agent-flow",
+			"term": "Agent flow",
+			"category": "agents",
+			"aliases": [
+				"agent flow"
+			],
+			"definition": "A deterministic workflow in Copilot Studio that an agent can call, billed at 13 Copilot Credits per 100 actions. Runs are free for licensed Microsoft 365 Copilot users only when triggered by 'When an agent calls the flow'. Other triggers, autonomous ones included, are billed.",
+			"related": [
+				"copilot-studio",
+				"power-automate",
+				"copilot-credits",
+				"autonomous-agent"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+		},
+		{
+			"id": "autonomous-agent",
+			"term": "Autonomous agent",
+			"category": "agents",
+			"aliases": [
+				"autonomous agent",
+				"autonomously triggered",
+				"event trigger",
+				"event-triggered"
+			],
+			"definition": "An agent started by an event (a new email, a file, a schedule) rather than by a person in a chat. With no licensed user interacting, its usage consumes Copilot Credits even in a fully licensed tenant.",
+			"related": [
+				"agent-flow",
+				"copilot-credits",
+				"copilot-studio"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+		},
+		{
+			"id": "generative-orchestration",
+			"term": "Generative orchestration",
+			"category": "agents",
+			"aliases": [
+				"generative orchestration",
+				"generative AI orchestration",
+				"AI orchestration"
+			],
+			"definition": "Copilot Studio's mode in which the model decides which tools, knowledge and topics to use for each request. Tools such as the Azure Databricks Genie tool require it, and each tool call counts as an agent action for billing.",
+			"related": [
+				"agent-action",
+				"copilot-studio",
+				"genie-agent"
+			]
+		},
+		{
+			"id": "classic-answer",
+			"term": "Classic answer",
+			"category": "billing",
+			"aliases": [
+				"classic answer"
+			],
+			"definition": "A scripted response from a Copilot Studio topic, billed at 1 Copilot Credit for unlicensed or external use.",
+			"related": [
+				"generative-answer",
+				"copilot-credits"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+		},
+		{
+			"id": "generative-answer",
+			"term": "Generative answer",
+			"category": "billing",
+			"aliases": [
+				"generative answer"
+			],
+			"definition": "A model-generated response in Copilot Studio, billed at 2 Copilot Credits. It stacks with other meters, such as tenant graph grounding (10 credits) when the answer draws on Microsoft 365 data.",
+			"related": [
+				"classic-answer",
+				"tenant-graph-grounding",
+				"agent-action"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+		},
+		{
+			"id": "agent-action",
+			"term": "Agent action",
+			"category": "billing",
+			"aliases": [
+				"agent action"
+			],
+			"definition": "A Copilot Studio billing meter (5 Copilot Credits) that covers steps such as tool and connector calls, triggers, deep reasoning and topic transitions. Computer use is billed at this rate too.",
+			"related": [
+				"generative-orchestration",
+				"computer-use",
+				"copilot-credits"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+		},
+		{
+			"id": "tenant-graph-grounding",
+			"term": "Tenant graph grounding",
+			"category": "billing",
+			"aliases": [
+				"tenant graph grounding",
+				"tenant graph"
+			],
+			"definition": "Grounding an agent's answer in Microsoft 365 data through Microsoft Graph, billed at 10 Copilot Credits per use for unlicensed users. It's often the largest line in an agent's bill.",
+			"related": [
+				"microsoft-graph",
+				"generative-answer",
+				"copilot-chat"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+		},
+		{
+			"id": "reasoning-model",
+			"term": "Reasoning model",
+			"category": "agents",
+			"aliases": [
+				"reasoning model",
+				"reasoning-capable model"
+			],
+			"definition": "A model that works through a problem before it answers. In Copilot Studio it bills on two meters: the normal feature rate plus premium AI tools at 10 Copilot Credits per 1,000 billed tokens. Output and reasoning tokens are billed, and cache reads are free.",
+			"related": [
+				"copilot-credits",
+				"copilot-studio"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+		},
+		{
+			"id": "computer-use",
+			"term": "Computer use",
+			"category": "agents",
+			"aliases": [
+				"computer use",
+				"computer-using agent",
+				"computer-using agents",
+				"CUA"
+			],
+			"definition": "Agents operating apps and websites through the user interface, the way a person would. In Copilot Studio it's billed at the agent action rate and isn't covered by the Microsoft 365 Copilot inclusion. Windows 365 for Agents provides Cloud PCs for it.",
+			"related": [
+				"agent-action",
+				"windows-365-agents"
+			]
+		},
+		{
+			"id": "windows-365-agents",
+			"term": "Windows 365 for Agents",
+			"category": "agents",
+			"aliases": [
+				"Windows 365 for Agents"
+			],
+			"definition": "Cloud PCs that agents use for computer-use tasks. It's available as a tool in Copilot Studio and is eligible for Copilot Credits.",
+			"related": [
+				"computer-use",
+				"copilot-studio"
+			]
+		},
+		{
+			"id": "foundry",
+			"term": "Microsoft Foundry",
+			"category": "agents",
+			"aliases": [
+				"Microsoft Foundry",
+				"Foundry",
+				"Azure AI Foundry",
+				"Foundry Agent Service"
+			],
+			"definition": "Microsoft's Azure platform for building AI apps and agents with a broad model catalog. Foundry Agent Service runs prompt agents and hosted agents (your own code in containers) with tools such as file search, code interpreter and MCP. It's billed by model inference, tools and compute, not per agent.",
+			"related": [
+				"prompt-agent",
+				"hosted-agent",
+				"mcp",
+				"a2a",
+				"custom-engine-agent"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
+		},
+		{
+			"id": "prompt-agent",
+			"term": "Prompt agent (Foundry)",
+			"category": "agents",
+			"aliases": [
+				"prompt agent"
+			],
+			"definition": "A no-code Foundry agent, defined by a model, instructions and tools, that Foundry runs for you. It's billed per model call plus tool usage.",
+			"related": [
+				"foundry",
+				"hosted-agent"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
+		},
+		{
+			"id": "hosted-agent",
+			"term": "Hosted agent (Foundry)",
+			"category": "agents",
+			"aliases": [
+				"hosted agent"
+			],
+			"definition": "A Foundry agent that runs your own code in a container, built with frameworks such as Agent Framework, LangGraph, the OpenAI Agents SDK or the Anthropic Agent SDK. It gets a dedicated Entra identity and adds container compute cost.",
+			"related": [
+				"foundry",
+				"prompt-agent",
+				"entra-agent-id"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
+		},
+		{
+			"id": "power-automate",
+			"term": "Power Automate",
+			"category": "agents",
+			"aliases": [
+				"Power Automate"
+			],
+			"definition": "Microsoft's workflow automation service. Classic Power Automate cloud flows use Power Automate licensing, not Copilot Credits, while Copilot Studio agent flows are billed in credits.",
+			"related": [
+				"agent-flow"
+			]
+		},
+		{
+			"id": "power-platform-data-policies",
+			"term": "Power Platform data policies (DLP)",
+			"category": "governance",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"data policy",
+				"data policies"
+			],
+			"definition": "Tenant or environment rules in the Power Platform admin center that classify connectors as Business, Non-business or Blocked. They also govern Copilot Studio channels, authentication, HTTP calls and MCP tools, and they're enforced in every tenant.",
+			"related": [
+				"copilot-studio",
+				"ppac",
+				"azure-databricks-connector"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention"
+		},
+		{
+			"id": "ppac",
+			"term": "Power Platform admin center",
+			"category": "governance",
+			"aliases": [
+				"Power Platform admin center",
+				"PPAC"
+			],
+			"definition": "The admin portal for Power Platform and Copilot Studio, covering environments, data policies, capacity allocation and the pay-as-you-go billing policies for Copilot Studio.",
+			"related": [
+				"power-platform-data-policies",
+				"pay-as-you-go",
+				"copilot-studio"
+			]
+		},
+		{
+			"id": "azure-databricks-connector",
+			"term": "Azure Databricks connector (Power Platform)",
+			"category": "integration",
+			"aliases": [
+				"Azure Databricks connector",
+				"Azure Databricks connection",
+				"Azure Databricks Genie tool"
+			],
+			"definition": "The Power Platform connector that Power Apps, Power Automate and Copilot Studio use to reach Databricks SQL warehouses and Genie. It uses OAuth when both sides are in the same Entra tenant and a service principal otherwise, needs a premium Power Apps license, and isn't available in government clouds.",
+			"related": [
+				"genie-agent",
+				"copilot-studio",
+				"service-principal",
+				"oauth-obo"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-power-platform/setup"
+		},
+		{
+			"id": "copilot-credits",
+			"term": "Copilot Credits",
+			"category": "billing",
+			"aliases": [
+				"Copilot Credit",
+				"Copilot Credits"
+			],
+			"definition": "The common consumption currency for Microsoft's agentic services: Copilot Studio agents, Cowork, Code, Autopilot, Work IQ APIs, Dynamics 365 agents and more. Each costs $0.01 pay-as-you-go, less through capacity packs or P3, and credits are pooled at the tenant level. They were called 'messages' before September 2025.",
+			"related": [
+				"pay-as-you-go",
+				"capacity-pack",
+				"p3",
+				"spending-policy",
+				"everyday-advanced-ai"
+			],
+			"source": "https://www.microsoft.com/licensing/guidance/CopilotCreditsGuide"
+		},
+		{
+			"id": "pay-as-you-go",
+			"term": "Pay-as-you-go (PAYG)",
+			"category": "billing",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"pay-as-you-go",
+				"PAYG",
+				"billing policy",
+				"billing policies"
+			],
+			"definition": "Consumption billed monthly in arrears through an Azure subscription, with no commitment. For Copilot it's set up with billing policies: in the Power Platform admin center for Copilot Studio, and in the Microsoft 365 admin center for Copilot Chat agents. Budgets on these billing policies only notify. They don't stop usage.",
+			"related": [
+				"copilot-credits",
+				"macc",
+				"spending-policy",
+				"ppac"
+			],
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/pay-as-you-go/setup"
+		},
+		{
+			"id": "capacity-pack",
+			"term": "Copilot Credit capacity pack",
+			"category": "billing",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"capacity pack",
+				"Copilot Credit pack"
+			],
+			"definition": "Prepaid Copilot Studio capacity: 25,000 Copilot Credits for $200 per pack per month, billed annually. Credits pool across the tenant and don't roll over. At 125% of capacity, agents are blocked unless pay-as-you-go is attached.",
+			"related": [
+				"copilot-credits",
+				"capacity-enforcement",
+				"pay-as-you-go"
+			],
+			"source": "https://www.microsoft.com/en-us/microsoft-365/copilot/pricing/copilot-studio"
+		},
+		{
+			"id": "capacity-enforcement",
+			"term": "125% capacity enforcement",
+			"category": "billing",
+			"aliases": [
+				"125%"
+			],
+			"definition": "Copilot Studio's enforcement point. When a tenant reaches 125% of its prepaid capacity, agents in affected environments are blocked, conversations in progress included, unless overage is billed to pay-as-you-go or the environment has its own allocation.",
+			"related": [
+				"capacity-pack",
+				"pay-as-you-go"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+		},
+		{
+			"id": "p3",
+			"term": "Copilot Credit Pre-Purchase Plan (P3)",
+			"category": "billing",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"P3",
+				"pre-purchase plan",
+				"Copilot Credit Commit Units",
+				"CCCU",
+				"CCCUs"
+			],
+			"definition": "A one-year, pay-upfront pool of Copilot Credit Commit Units bought in the Azure portal, with tiered discounts from 5% (300,000 credits) to 20% (300 million). Purchases are final and unused credits expire. From January 1, 2027, P3 is sold only through EA or CSP.",
+			"related": [
+				"copilot-credits",
+				"ai-flex",
+				"macc",
+				"purchase-channels"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/copilot-credit-p3"
+		},
+		{
+			"id": "ai-flex",
+			"term": "AI Flex Plan",
+			"category": "billing",
+			"aliases": [
+				"AI Flex Plan",
+				"AI Flex"
+			],
+			"definition": "A one- or three-year Microsoft commitment, through MCA-E, that funds Copilot Credits along with Foundry, GitHub AI and Security Copilot usage from a single monetary commitment.",
+			"related": [
+				"p3",
+				"copilot-credits",
+				"foundry",
+				"macc"
+			],
+			"source": "https://www.microsoft.com/licensing/guidance/CopilotCreditsGuide"
+		},
+		{
+			"id": "macc",
+			"term": "MACC (Microsoft Azure Consumption Commitment)",
+			"category": "billing",
+			"aliases": [
+				"MACC",
+				"Microsoft Azure Consumption Commitment",
+				"Azure Consumption Commitment"
+			],
+			"definition": "A customer's contractual commitment to spend a set amount on Azure. Eligible spend burns it down: Copilot Credits bought pay-as-you-go or through P3, Fabric capacity, and Azure Databricks.",
+			"related": [
+				"p3",
+				"pay-as-you-go",
+				"fabric-capacity",
+				"dbu"
+			]
+		},
+		{
+			"id": "purchase-channels",
+			"term": "EA, MCA-E and CSP",
+			"category": "billing",
+			"aliases": [
+				"Enterprise Agreement",
+				"MCA-E",
+				"CSP"
+			],
+			"definition": "Microsoft's main purchasing channels: the Enterprise Agreement (EA), the Microsoft Customer Agreement for enterprise (MCA-E), and Cloud Solution Provider partners (CSP). Some offers are tied to specific channels, such as P3 from 2027.",
+			"related": [
+				"p3",
+				"ai-flex"
+			]
+		},
+		{
+			"id": "spending-policy",
+			"term": "Spending policy",
+			"category": "billing",
+			"decks": [
+				"copilot"
+			],
+			"aliases": [
+				"spending policy",
+				"spending policies",
+				"Cost Management"
+			],
+			"definition": "A Microsoft 365 admin center control for usage-based Copilot services. It decides who can use which metered services (it grants access, not just a budget), sets per-user and policy limits, and picks the billing method. A limited monthly budget cuts users off until the 1st, and 'Auto-apply new services' is on by default.",
+			"related": [
+				"copilot-credits",
+				"cowork",
+				"pay-as-you-go"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits"
+		},
+		{
+			"id": "security-copilot",
+			"term": "Security Copilot",
+			"category": "governance",
+			"aliases": [
+				"Security Copilot",
+				"Security Compute Unit",
+				"Security Compute Units",
+				"SCU",
+				"SCUs"
+			],
+			"definition": "Microsoft's AI assistant for security operations, consumed in Security Compute Units (SCUs). Microsoft 365 E5 and E7 include 400 SCUs a month for every 1,000 paid licenses (up to 10,000), with no rollover.",
+			"related": [
+				"m365-e5",
+				"m365-e7"
+			],
+			"source": "https://learn.microsoft.com/en-us/copilot/security/security-copilot-inclusion"
+		},
+		{
+			"id": "entra-id",
+			"term": "Microsoft Entra ID",
+			"category": "governance",
+			"aliases": [
+				"Entra ID",
+				"Microsoft Entra",
+				"Entra"
+			],
+			"definition": "Microsoft's cloud identity service, formerly Azure Active Directory. It authenticates users, groups, service principals and managed identities, and enforces Conditional Access. Copilot, Fabric and Azure Databricks all sign users in with it.",
+			"related": [
+				"entra-agent-id",
+				"service-principal",
+				"managed-identity",
+				"conditional-access",
+				"oauth-obo"
+			]
+		},
+		{
+			"id": "entra-agent-id",
+			"term": "Entra Agent ID",
+			"category": "governance",
+			"aliases": [
+				"Entra Agent ID",
+				"Agent ID",
+				"agent identity",
+				"agent identities"
+			],
+			"definition": "A dedicated identity type for AI agents in Entra. Agent identities are created from blueprints and support OAuth 2.0, MCP and A2A. Extending Entra security features such as Conditional Access to agents requires Agent 365. At Ignite 2026, Microsoft previewed agent identities for local agents such as GitHub Copilot CLI and Claude Code.",
+			"related": [
+				"entra-id",
+				"agent-365",
+				"autopilot",
+				"hosted-agent"
+			],
+			"source": "https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id"
+		},
+		{
+			"id": "conditional-access",
+			"term": "Conditional Access",
+			"category": "governance",
+			"aliases": [
+				"Conditional Access"
+			],
+			"definition": "Entra policies that allow, block or require extra checks for sign-ins based on user, device, location and risk. Agent 365 extends it to agents.",
+			"related": [
+				"entra-id",
+				"entra-agent-id",
+				"agent-365"
+			]
+		},
+		{
+			"id": "service-principal",
+			"term": "Service principal",
+			"category": "governance",
+			"aliases": [
+				"service principal"
+			],
+			"definition": "A non-human identity in Entra for an app or automation. When an integration runs as a service principal, every user effectively gets that principal's access, so per-user data permissions such as Unity Catalog row filters can't tell users apart.",
+			"related": [
+				"managed-identity",
+				"oauth-obo",
+				"entra-id",
+				"unity-catalog"
+			]
+		},
+		{
+			"id": "managed-identity",
+			"term": "Managed identity",
+			"category": "governance",
+			"aliases": [
+				"managed identity",
+				"managed identities"
+			],
+			"definition": "An Entra identity that Azure manages for a resource, such as a Foundry project or a Databricks Access Connector, so no secrets need storing. Like a service principal, it represents the workload, not the end user.",
+			"related": [
+				"service-principal",
+				"entra-id"
+			]
+		},
+		{
+			"id": "oauth-obo",
+			"term": "On-behalf-of (OBO) authentication",
+			"category": "governance",
+			"aliases": [
+				"on-behalf-of",
+				"OBO",
+				"user passthrough"
+			],
+			"definition": "An OAuth flow in which a service calls a downstream API with the signed-in user's identity rather than its own. Genie integrations and Foundry MCP tools use it to keep per-user Unity Catalog permissions in force.",
+			"related": [
+				"service-principal",
+				"entra-id",
+				"genie-one",
+				"unity-catalog"
+			]
+		},
+		{
+			"id": "agent-365",
+			"term": "Agent 365",
+			"category": "governance",
+			"aliases": [
+				"Agent 365"
+			],
+			"definition": "Microsoft's control plane for agents (GA May 2026, $15 per user per month standalone or included in E7). It provides an agent registry in the Microsoft 365 admin center, approval workflows, ownerless-agent detection, risk signals from Defender, Entra and Purview, and Copilot Credits cost management, covering Microsoft, partner and third-party agents.",
+			"related": [
+				"entra-agent-id",
+				"m365-e7",
+				"purview",
+				"spending-policy"
+			],
+			"source": "https://learn.microsoft.com/en-us/microsoft-agent-365/overview"
+		},
+		{
+			"id": "purview",
+			"term": "Microsoft Purview",
+			"category": "governance",
+			"aliases": [
+				"Purview",
+				"Microsoft Purview"
+			],
+			"definition": "Microsoft's data security and compliance suite: sensitivity labels, DLP, audit, eDiscovery, retention, Insider Risk and DSPM for AI. It covers Copilot interactions and Fabric items.",
+			"related": [
+				"sensitivity-labels",
+				"purview-dlp",
+				"dspm-ai",
+				"audit-log",
+				"insider-risk"
+			],
+			"source": "https://learn.microsoft.com/en-us/purview/ai-microsoft-purview"
+		},
+		{
+			"id": "sensitivity-labels",
+			"term": "Sensitivity labels",
+			"category": "governance",
+			"aliases": [
+				"sensitivity label",
+				"sensitivity labels"
+			],
+			"definition": "Purview labels, such as Confidential, applied to files, emails and Fabric items, optionally with encryption. For Copilot to return encrypted content, the user needs both EXTRACT and VIEW usage rights.",
+			"related": [
+				"purview",
+				"purview-dlp"
+			],
+			"source": "https://learn.microsoft.com/en-us/purview/ai-microsoft-purview"
+		},
+		{
+			"id": "purview-dlp",
+			"term": "Purview DLP",
+			"category": "governance",
+			"aliases": [
+				"DLP for Copilot",
+				"DLP for Microsoft 365 Copilot",
+				"Purview DLP",
+				"DLP policy"
+			],
+			"definition": "Purview data loss prevention policies. For Copilot, they can stop Copilot and agents from processing items with chosen sensitivity labels, and a 2026 preview extends that to sensitive files without labels. In Fabric, DLP covers lakehouses, warehouses, databases and semantic models.",
+			"related": [
+				"purview",
+				"sensitivity-labels",
+				"power-platform-data-policies"
+			],
+			"source": "https://learn.microsoft.com/en-us/purview/ai-microsoft-purview"
+		},
+		{
+			"id": "dspm-ai",
+			"term": "DSPM for AI",
+			"category": "governance",
+			"aliases": [
+				"DSPM for AI",
+				"DSPM"
+			],
+			"definition": "Purview's data security posture management for AI. It reports AI activity, offers ready-made policies and runs weekly oversharing assessments on the top 100 SharePoint sites, with remediation links.",
+			"related": [
+				"purview",
+				"oversharing",
+				"sharepoint-advanced-management"
+			],
+			"source": "https://learn.microsoft.com/en-us/purview/dspm-for-ai"
+		},
+		{
+			"id": "insider-risk",
+			"term": "Insider Risk Management",
+			"category": "governance",
+			"aliases": [
+				"Insider Risk",
+				"Insider Risk Management"
+			],
+			"definition": "A Purview solution that detects risky user behavior. Its 'Risky AI usage' template flags prompt injection attempts and access to protected material through AI.",
+			"related": [
+				"purview"
+			]
+		},
+		{
+			"id": "audit-log",
+			"term": "Unified audit log",
+			"category": "governance",
+			"aliases": [
+				"unified audit log",
+				"Purview audit"
+			],
+			"definition": "Purview's tenant-wide activity log. It records Copilot prompts and responses, Copilot Studio maker activity and Fabric user activity for investigations and compliance.",
+			"related": [
+				"purview",
+				"ediscovery"
+			]
+		},
+		{
+			"id": "ediscovery",
+			"term": "eDiscovery",
+			"category": "governance",
+			"aliases": [
+				"eDiscovery"
+			],
+			"definition": "Purview's legal search and hold tool. Copilot prompts and responses are stored in users' mailboxes and can be found with a 'Copilot activity' condition.",
+			"related": [
+				"audit-log",
+				"purview"
+			]
+		},
+		{
+			"id": "oversharing",
+			"term": "Oversharing",
+			"category": "governance",
+			"aliases": [
+				"oversharing",
+				"overshared",
+				"overshare"
+			],
+			"definition": "Content that more people can access than should, such as sites shared with 'Everyone Except External Users'. AI assistants respect permissions, so they surface overshared content quickly. The fix is at the permission layer, with temporary discovery controls such as RCD only while you clean up.",
+			"related": [
+				"eeeu",
+				"restricted-content-discovery",
+				"sharepoint-advanced-management",
+				"dspm-ai",
+				"semantic-index"
+			]
+		},
+		{
+			"id": "eeeu",
+			"term": "Everyone Except External Users (EEEU)",
+			"category": "governance",
+			"aliases": [
+				"Everyone Except External Users",
+				"EEEU"
+			],
+			"definition": "A built-in group that covers every internal user. Content shared with it is a common source of Copilot oversharing, and SharePoint Advanced Management reports highlight it.",
+			"related": [
+				"oversharing",
+				"sharepoint-advanced-management",
+				"data-access-governance"
+			]
+		},
+		{
+			"id": "restricted-content-discovery",
+			"term": "Restricted Content Discovery (RCD)",
+			"category": "governance",
+			"aliases": [
+				"Restricted Content Discovery",
+				"RCD"
+			],
+			"definition": "A SharePoint site setting that hides the site's content from org-wide search and Copilot discovery without changing permissions, so users with access can still open the content directly. Microsoft calls it a temporary control, and it doesn't cover OneDrive.",
+			"related": [
+				"restricted-sharepoint-search",
+				"oversharing",
+				"sharepoint-advanced-management",
+				"restricted-access-control"
+			],
+			"source": "https://learn.microsoft.com/en-us/sharepoint/restricted-content-discovery"
+		},
+		{
+			"id": "restricted-sharepoint-search",
+			"term": "Restricted SharePoint Search (RSS)",
+			"category": "governance",
+			"aliases": [
+				"Restricted SharePoint Search",
+				"RSS"
+			],
+			"definition": "A retiring control that limited org-wide search and Copilot to an allow list of up to 100 sites. It isn't a security boundary, and new enablement has been blocked since July 31, 2026, in favor of RCD.",
+			"related": [
+				"restricted-content-discovery",
+				"oversharing"
+			],
+			"source": "https://learn.microsoft.com/en-us/sharepoint/restricted-sharepoint-search"
+		},
+		{
+			"id": "restricted-access-control",
+			"term": "Restricted Access Control (RAC)",
+			"category": "governance",
+			"aliases": [
+				"Restricted Access Control",
+				"RAC"
+			],
+			"definition": "A SharePoint Advanced Management policy that limits a site to members of specified groups, even if items were shared more widely. Unlike RCD, it's a real access boundary.",
+			"related": [
+				"sharepoint-advanced-management",
+				"restricted-content-discovery"
+			],
+			"source": "https://learn.microsoft.com/en-us/sharepoint/advanced-management"
+		},
+		{
+			"id": "sharepoint-advanced-management",
+			"term": "SharePoint Advanced Management (SAM)",
+			"category": "governance",
+			"aliases": [
+				"SharePoint Advanced Management",
+				"SAM"
+			],
+			"definition": "SharePoint's governance tools for content sprawl, lifecycle and oversharing: data access governance reports, site access reviews, RAC, RCD, block download and agent insights. A tenant gets them once it has at least one Microsoft 365 Copilot license.",
+			"related": [
+				"restricted-access-control",
+				"restricted-content-discovery",
+				"data-access-governance",
+				"oversharing"
+			],
+			"source": "https://learn.microsoft.com/en-us/sharepoint/advanced-management"
+		},
+		{
+			"id": "data-access-governance",
+			"term": "Data access governance reports",
+			"category": "governance",
+			"aliases": [
+				"data access governance",
+				"site access review",
+				"site access reviews"
+			],
+			"definition": "SharePoint Advanced Management reports on sites with broad permissions, sharing links, EEEU exposure and sensitivity labels. They feed site access reviews, in which site owners fix their own sharing.",
+			"related": [
+				"sharepoint-advanced-management",
+				"eeeu"
+			],
+			"source": "https://learn.microsoft.com/en-us/sharepoint/advanced-management"
+		},
+		{
+			"id": "eu-data-boundary",
+			"term": "EU Data Boundary",
+			"category": "governance",
+			"aliases": [
+				"EU Data Boundary",
+				"EUDB"
+			],
+			"definition": "Microsoft's commitment to store and process EU customers' data within the EU for covered services, Copilot included. Anthropic models used in Copilot are currently excluded.",
+			"related": [
+				"cross-geo-processing"
+			],
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy"
+		},
+		{
+			"id": "customer-lockbox",
+			"term": "Customer Lockbox",
+			"category": "governance",
+			"aliases": [
+				"Customer Lockbox",
+				"Lockbox"
+			],
+			"definition": "A control that requires customer approval before Microsoft engineers access customer content during support. It doesn't cover Copilot Studio security audit telemetry or Agent 365 governance events.",
+			"related": [
+				"audit-log"
+			]
+		},
+		{
+			"id": "cmk",
+			"term": "Customer-managed keys (CMK)",
+			"category": "governance",
+			"aliases": [
+				"customer-managed key",
+				"customer-managed keys",
+				"CMK"
+			],
+			"definition": "Encryption keys the customer controls in Azure Key Vault instead of Microsoft-managed keys. They're available for Copilot Studio environments and Fabric workspaces (F SKUs only), and revoking a key cuts off access to the data.",
+			"related": [
+				"fabric-workspace-roles"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/security/workspace-customer-managed-keys"
+		},
+		{
+			"id": "private-link",
+			"term": "Private Link",
+			"category": "governance",
+			"aliases": [
+				"Private Link",
+				"private endpoint",
+				"private endpoints"
+			],
+			"definition": "Azure networking that reaches a service over private IP addresses instead of the public internet. In Fabric, tenant-level Private Link with public access blocked disables several features, Copilot among them.",
+			"related": [
+				"data-gateway",
+				"workspace-identity"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/security/security-private-links-overview"
+		},
+		{
+			"id": "microsoft-fabric",
+			"term": "Microsoft Fabric",
+			"category": "fabric",
+			"aliases": [
+				"Microsoft Fabric"
+			],
+			"definition": "Microsoft's SaaS analytics platform. It brings data engineering (Spark), Data Factory, warehousing, databases, Real-Time Intelligence, data science, Power BI and Fabric IQ together on one lake (OneLake), paid for with capacity.",
+			"related": [
+				"onelake",
+				"fabric-capacity",
+				"power-bi",
+				"fabric-iq"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview"
+		},
+		{
+			"id": "fabric-capacity",
+			"term": "Fabric capacity and capacity units (CUs)",
+			"category": "fabric",
+			"aliases": [
+				"capacity unit",
+				"capacity units",
+				"CU",
+				"CUs",
+				"Fabric capacity",
+				"F SKU",
+				"F SKUs",
+				"F2",
+				"F8",
+				"F16",
+				"F32",
+				"F64",
+				"F128"
+			],
+			"definition": "The compute pool that Fabric workloads run on, sized in capacity units (an F64 has 64 CUs). It's billed per second pay-as-you-go or reserved, and it's MACC-eligible. Storage is billed separately. For Spark, each CU gives 2 vCores.",
+			"related": [
+				"p-sku",
+				"smoothing",
+				"throttling",
+				"fabric-reservation",
+				"f0",
+				"power-bi"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/licenses"
+		},
+		{
+			"id": "p-sku",
+			"term": "Power BI Premium (P SKUs)",
+			"category": "fabric",
+			"aliases": [
+				"P SKU",
+				"P SKUs",
+				"P1",
+				"Power BI Premium"
+			],
+			"definition": "The older Power BI capacity SKUs (P1 lines up with F64). They're being retired in favor of Fabric F SKUs and remain only for existing Enterprise Agreement customers.",
+			"related": [
+				"fabric-capacity"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/licenses"
+		},
+		{
+			"id": "f0",
+			"term": "F0 (zero-provisioned)",
+			"category": "fabric",
+			"aliases": [
+				"F0",
+				"zero-provisioned"
+			],
+			"definition": "A Fabric capacity with no provisioned compute, listed on Microsoft's pricing page with on-demand billing by default, so usage is billed as it's consumed. Some features, such as surge protection, need provisioned capacity.",
+			"related": [
+				"on-demand-billing",
+				"fabric-capacity"
+			],
+			"source": "https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/"
+		},
+		{
+			"id": "on-demand-billing",
+			"term": "On-demand billing (Fabric)",
+			"category": "fabric",
+			"aliases": [
+				"on-demand billing",
+				"Autoscale Billing for Spark"
+			],
+			"definition": "Pay-as-you-go billing for Fabric usage outside a provisioned capacity. With on-demand Spark, jobs stop drawing on capacity CUs and are billed separately, with no bursting or fallback. Reservation discounts don't apply.",
+			"related": [
+				"f0",
+				"spark",
+				"fabric-capacity"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/autoscale-billing-for-spark-overview"
+		},
+		{
+			"id": "fabric-trial",
+			"term": "Fabric trial capacity",
+			"category": "fabric",
+			"aliases": [
+				"trial capacity",
+				"trial capacities",
+				"Fabric trial"
+			],
+			"definition": "A free 60-day capacity (F4 or F64 size) for evaluation. It doesn't support Copilot, AI experiences such as data agents, Private Link or free mirroring storage, and its items go inactive when it ends.",
+			"related": [
+				"fabric-capacity"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/fabric-trial"
+		},
+		{
+			"id": "fabric-reservation",
+			"term": "Fabric reservation",
+			"category": "fabric",
+			"aliases": [
+				"reserved capacity",
+				"reservation discount",
+				"reservation discounts"
+			],
+			"definition": "A commitment to a number of Fabric CUs at a discount versus pay-as-you-go. The discount applies hourly to CUs only, not to storage or networking, and overage is still billed at pay-as-you-go rates.",
+			"related": [
+				"fabric-capacity",
+				"overage"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/fabric-capacity"
+		},
+		{
+			"id": "overage",
+			"term": "Overage (Fabric)",
+			"category": "fabric",
+			"decks": [
+				"fabric"
+			],
+			"aliases": [
+				"overage",
+				"overages"
+			],
+			"definition": "Capacity use beyond what's provisioned. In Fabric, paid overage is on by default, priced at pay-as-you-go rates even on reserved capacity, and checked every 5 minutes, so it can pass the limit an admin sets.",
+			"related": [
+				"fabric-reservation",
+				"throttling"
+			],
+			"source": "https://azure.microsoft.com/en-us/pricing/details/microsoft-fabric/"
+		},
+		{
+			"id": "smoothing",
+			"term": "Smoothing",
+			"category": "fabric",
+			"aliases": [
+				"smoothing",
+				"smoothed"
+			],
+			"definition": "How Fabric spreads the cost of an operation over time: interactive operations over 5 to 64 minutes, background operations over 24 hours. It lets small capacities run big jobs, but heavy jobs keep using headroom long after they finish.",
+			"related": [
+				"bursting",
+				"throttling",
+				"carryforward"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "bursting",
+			"term": "Bursting",
+			"category": "fabric",
+			"aliases": [
+				"bursting",
+				"burst"
+			],
+			"definition": "Fabric operations temporarily using more compute than the SKU provides (Spark can burst to 3x), with smoothing paying it back over time.",
+			"related": [
+				"smoothing",
+				"throttling"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "throttling",
+			"term": "Throttling (Fabric)",
+			"category": "fabric",
+			"aliases": [
+				"throttling",
+				"throttled"
+			],
+			"definition": "What Fabric does when a capacity has used too much future capacity. After 10 minutes it delays interactive requests, after 60 minutes it rejects them, and after 24 hours it rejects every new request. Jobs already running finish.",
+			"related": [
+				"smoothing",
+				"carryforward",
+				"surge-protection",
+				"capacity-metrics-app"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "carryforward",
+			"term": "Carryforward",
+			"category": "fabric",
+			"aliases": [
+				"carryforward"
+			],
+			"definition": "The capacity debt that builds up when usage exceeds what smoothing can absorb. Unused CUs in later timepoints pay it down. Pausing the capacity bills it immediately and resets it.",
+			"related": [
+				"throttling",
+				"smoothing"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/throttling"
+		},
+		{
+			"id": "surge-protection",
+			"term": "Surge protection",
+			"category": "fabric",
+			"aliases": [
+				"surge protection"
+			],
+			"definition": "Fabric settings that reject new background operations once a capacity, or a single workspace, passes a threshold over 24 hours, protecting interactive users from runaway jobs. Workspace limits are soft and checked every five minutes.",
+			"related": [
+				"throttling"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/surge-protection"
+		},
+		{
+			"id": "capacity-metrics-app",
+			"term": "Capacity Metrics app",
+			"category": "fabric",
+			"aliases": [
+				"Capacity Metrics app",
+				"Metrics app"
+			],
+			"definition": "Microsoft's Power BI app for monitoring Fabric capacity use and throttling over 14 days, with 10 to 15 minutes of delay. It can't alert, so use Real-Time hub capacity events for alerts.",
+			"related": [
+				"throttling",
+				"real-time-intelligence"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app"
+		},
+		{
+			"id": "fabric-copilot-capacity",
+			"term": "Fabric Copilot capacity",
+			"category": "fabric",
+			"aliases": [
+				"Fabric Copilot capacity",
+				"Copilot capacity"
+			],
+			"definition": "A Fabric capacity set aside to absorb Copilot and data agent usage for chosen users, instead of billing the capacity that holds the content. The minimum is F2 or P1.",
+			"related": [
+				"fabric-capacity",
+				"copilot-in-fabric",
+				"fabric-data-agent"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/enterprise/fabric-copilot-capacity"
+		},
+		{
+			"id": "copilot-in-fabric",
+			"term": "Copilot in Fabric",
+			"category": "fabric",
+			"aliases": [
+				"Copilot in Fabric",
+				"Copilot in Power BI"
+			],
+			"definition": "AI assistance inside Fabric and Power BI experiences: notebooks, Data Factory, warehouse, SQL, Real-Time Intelligence and reports. It runs on Fabric capacity (F2+ or P1+) rather than per-user licenses and isn't available on trial capacities.",
+			"related": [
+				"fabric-copilot-capacity",
+				"azure-openai",
+				"cross-geo-processing"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
+		},
+		{
+			"id": "azure-openai",
+			"term": "Azure OpenAI",
+			"category": "fabric",
+			"aliases": [
+				"Azure OpenAI"
+			],
+			"definition": "OpenAI models hosted in Azure, which Copilot in Fabric uses. They're hosted in US and EU regions, so other geographies need cross-geo processing turned on.",
+			"related": [
+				"copilot-in-fabric",
+				"cross-geo-processing"
+			]
+		},
+		{
+			"id": "cross-geo-processing",
+			"term": "Cross-geo processing",
+			"category": "governance",
+			"aliases": [
+				"cross-geo processing",
+				"cross-geo"
+			],
+			"definition": "A tenant setting that lets AI requests be processed outside the capacity's or workspace's geography. Fabric AI features such as Copilot and data agents need it in many regions, and Databricks has a similar setting, so turning it on is a data residency decision.",
+			"related": [
+				"eu-data-boundary",
+				"copilot-in-fabric",
+				"fabric-data-agent"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview"
+		},
+		{
+			"id": "onelake",
+			"term": "OneLake",
+			"category": "fabric",
+			"aliases": [
+				"OneLake"
+			],
+			"definition": "Fabric's single, tenant-wide data lake, built on ADLS, with tables stored as Delta Parquet (Iceberg is also supported). Every workspace is a container in it. Storage is billed per GB, and reads and writes consume capacity CUs.",
+			"related": [
+				"shortcut",
+				"onelake-security",
+				"onelake-catalog",
+				"delta-lake",
+				"microsoft-fabric"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview"
+		},
+		{
+			"id": "shortcut",
+			"term": "OneLake shortcut",
+			"category": "fabric",
+			"aliases": [
+				"shortcut"
+			],
+			"definition": "A pointer that makes data stored elsewhere (another Fabric item, ADLS, S3, GCS, Dataverse and more) appear in OneLake without copying it. Internal shortcuts use the caller's identity, and external ones use a cloud connection's credentials. Reads are billed to the capacity of the workspace that holds the shortcut.",
+			"related": [
+				"onelake",
+				"mirroring",
+				"onelake-security"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts"
+		},
+		{
+			"id": "onelake-security",
+			"term": "OneLake security",
+			"category": "fabric",
+			"aliases": [
+				"OneLake security"
+			],
+			"definition": "Grant-only data access roles in OneLake with table, row and column security, enforced across Spark, SQL endpoints, semantic models and Power BI. Workspace Admins, Members and Contributors bypass it, so it restricts only Viewers and users with item Read permission.",
+			"related": [
+				"fabric-workspace-roles",
+				"onelake",
+				"direct-lake"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/security/get-started-security"
+		},
+		{
+			"id": "onelake-catalog",
+			"term": "OneLake catalog",
+			"category": "fabric",
+			"aliases": [
+				"OneLake catalog"
+			],
+			"definition": "Fabric's central place to discover, govern and secure data, with Explore, Govern and Secure tabs plus admin settings.",
+			"related": [
+				"onelake",
+				"fabric-domain",
+				"purview"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/governance/onelake-catalog-overview"
+		},
+		{
+			"id": "bcdr",
+			"term": "OneLake BCDR",
+			"category": "fabric",
+			"aliases": [
+				"BCDR"
+			],
+			"definition": "Optional disaster recovery that replicates OneLake data asynchronously to the Azure-paired region. It adds separate storage charges and makes writes cost more, and a failover can lose data.",
+			"related": [
+				"onelake"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-disaster-recovery"
+		},
+		{
+			"id": "fabric-workspace-roles",
+			"term": "Workspace roles (Fabric)",
+			"category": "fabric",
+			"aliases": [
+				"workspace role",
+				"workspace roles"
+			],
+			"definition": "Admin, Member, Contributor and Viewer. All four can read lakehouse data through the SQL endpoint, but only Admin, Member and Contributor can read through Spark and OneLake, and they also bypass OneLake security. Read-only users should be Viewers.",
+			"related": [
+				"onelake-security",
+				"fabric-domain"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/roles-workspaces"
+		},
+		{
+			"id": "fabric-domain",
+			"term": "Domain (Fabric)",
+			"category": "fabric",
+			"aliases": [
+				"Fabric domain",
+				"domain admin",
+				"domain admins"
+			],
+			"definition": "A business grouping of workspaces, such as Finance, used for discovery and for delegating some governance settings. Domains don't control access.",
+			"related": [
+				"onelake-catalog",
+				"fabric-workspace-roles"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/governance/domains"
+		},
+		{
+			"id": "workspace-identity",
+			"term": "Workspace identity",
+			"category": "fabric",
+			"aliases": [
+				"workspace identity"
+			],
+			"definition": "A Fabric-managed service principal for a workspace, used for trusted access to firewall-enabled ADLS Gen2 and for connections. Deleting it is permanent and breaks the items that depend on it.",
+			"related": [
+				"service-principal",
+				"shortcut",
+				"private-link"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/security/workspace-identity"
+		},
+		{
+			"id": "tenant-settings",
+			"term": "Tenant settings (Fabric)",
+			"category": "fabric",
+			"aliases": [
+				"tenant setting",
+				"tenant settings"
+			],
+			"definition": "Admin switches that turn Fabric features on for everyone or for chosen groups. Changes take up to 15 minutes, and Microsoft says tenant settings aren't a security boundary.",
+			"related": [
+				"onelake-catalog",
+				"cross-geo-processing"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/admin/about-tenant-settings"
+		},
+		{
+			"id": "lakehouse",
+			"term": "Lakehouse (Fabric)",
+			"category": "fabric",
+			"decks": [
+				"copilot",
+				"fabric"
+			],
+			"aliases": [
+				"lakehouse"
+			],
+			"definition": "A Fabric item that stores files and Delta tables in OneLake. Spark writes to it, and its automatic SQL analytics endpoint gives read-only T-SQL access. Databricks uses 'lakehouse' for its whole platform architecture.",
+			"related": [
+				"sql-analytics-endpoint",
+				"fabric-warehouse",
+				"onelake",
+				"delta-lake"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing"
+		},
+		{
+			"id": "fabric-warehouse",
+			"term": "Warehouse (Fabric)",
+			"category": "fabric",
+			"decks": [
+				"copilot",
+				"fabric"
+			],
+			"aliases": [
+				"Fabric Warehouse",
+				"=Warehouse"
+			],
+			"definition": "Fabric's SQL data warehouse, with full T-SQL DDL and DML and multi-table transactions, storing data as Delta in OneLake. Unlike a lakehouse's SQL endpoint, it accepts writes.",
+			"related": [
+				"lakehouse",
+				"sql-analytics-endpoint",
+				"sql-database-fabric"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing"
+		},
+		{
+			"id": "sql-analytics-endpoint",
+			"term": "SQL analytics endpoint",
+			"category": "fabric",
+			"decks": [
+				"copilot",
+				"fabric"
+			],
+			"aliases": [
+				"SQL analytics endpoint",
+				"SQL endpoint"
+			],
+			"definition": "The read-only T-SQL endpoint that Fabric creates for each lakehouse, mirrored database and SQL database. It picks up changes through a metadata sync that normally lags by under a minute.",
+			"related": [
+				"lakehouse",
+				"fabric-warehouse",
+				"direct-lake"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/sql-analytics-endpoint-performance"
+		},
+		{
+			"id": "sql-database-fabric",
+			"term": "SQL database in Fabric",
+			"category": "fabric",
+			"decks": [
+				"copilot",
+				"fabric"
+			],
+			"aliases": [
+				"SQL database in Fabric",
+				"Fabric SQL database",
+				"SQL database"
+			],
+			"definition": "An operational database built on the Azure SQL Database engine. It runs on Fabric capacity and is replicated into OneLake automatically for analytics.",
+			"related": [
+				"fabric-warehouse",
+				"mirroring"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/database/sql/overview"
+		},
+		{
+			"id": "mirroring",
+			"term": "Mirroring (Fabric)",
+			"category": "fabric",
+			"aliases": [
+				"mirroring",
+				"mirrored",
+				"mirror"
+			],
+			"definition": "Fabric's way of bringing external data into OneLake, in three forms. Database mirroring replicates data in near real time, with free replication compute and 1 TB of free storage per CU. Metadata mirroring, which Azure Databricks uses, works through shortcuts. Open mirroring lets apps push changes in. Queries against mirrored data use capacity.",
+			"related": [
+				"open-mirroring",
+				"shortcut",
+				"onelake",
+				"uc-mirroring"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/overview"
+		},
+		{
+			"id": "open-mirroring",
+			"term": "Open mirroring",
+			"category": "fabric",
+			"aliases": [
+				"open mirroring"
+			],
+			"definition": "Fabric mirroring in which any app or partner writes change files into a OneLake landing zone and Fabric merges them into Delta tables.",
+			"related": [
+				"mirroring"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/open-mirroring"
+		},
+		{
+			"id": "uc-mirroring",
+			"term": "Mirrored Azure Databricks catalog",
+			"category": "integration",
+			"aliases": [
+				"mirrored Azure Databricks catalog",
+				"Mirrored Azure Databricks",
+				"mirrored catalog"
+			],
+			"definition": "A Fabric item that mirrors a Unity Catalog catalog's metadata and reads its Delta files through shortcuts. Tables with row filters or column masks, views and metric views aren't mirrored, and access through Fabric is governed by Fabric, not Unity Catalog.",
+			"related": [
+				"mirroring",
+				"unity-catalog",
+				"onelake-catalog-federation",
+				"row-filters-masks"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/azure-databricks-limitations"
+		},
+		{
+			"id": "onelake-catalog-federation",
+			"term": "OneLake catalog federation",
+			"category": "integration",
+			"aliases": [
+				"OneLake catalog federation",
+				"catalog federation"
+			],
+			"definition": "A Databricks feature that exposes Fabric lakehouses and warehouses as a foreign catalog in Unity Catalog, so Databricks compute can query OneLake data in place, read-only. It authenticates with a managed identity or service principal.",
+			"related": [
+				"unity-catalog",
+				"onelake",
+				"uc-mirroring",
+				"lakehouse-federation"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/query-federation/onelake"
+		},
+		{
+			"id": "direct-lake",
+			"term": "Direct Lake",
+			"category": "fabric",
+			"aliases": [
+				"Direct Lake",
+				"Direct Lake on OneLake",
+				"Direct Lake on SQL"
+			],
+			"definition": "A Power BI storage mode that reads Delta tables in OneLake directly, loading columns into memory on demand instead of importing a copy. Direct Lake on SQL can fall back to DirectQuery. Direct Lake on OneLake can't, and it ignores row-level security set on the SQL endpoint. Each SKU has guardrails.",
+			"related": [
+				"framing",
+				"directquery",
+				"import-mode",
+				"semantic-model",
+				"onelake-security"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-overview"
+		},
+		{
+			"id": "framing",
+			"term": "Framing",
+			"category": "fabric",
+			"aliases": [
+				"framing"
+			],
+			"definition": "A Direct Lake refresh that only updates metadata so the model points at the latest Delta Parquet files. Queries see data as of the last framing.",
+			"related": [
+				"direct-lake"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/direct-lake-how-it-works"
+		},
+		{
+			"id": "directquery",
+			"term": "DirectQuery",
+			"category": "fabric",
+			"aliases": [
+				"DirectQuery"
+			],
+			"definition": "A Power BI mode that sends queries to the source system live for every visual. Data is always fresh, but performance depends on the source. Direct Lake on SQL falls back to it in some cases.",
+			"related": [
+				"direct-lake",
+				"import-mode"
+			]
+		},
+		{
+			"id": "import-mode",
+			"term": "Import mode",
+			"category": "fabric",
+			"aliases": [
+				"Import mode",
+				"import model"
+			],
+			"definition": "A Power BI mode that copies data into the semantic model on each refresh. Queries are fast, but data is only as fresh as the last refresh, and model size limits depend on the license or capacity.",
+			"related": [
+				"direct-lake",
+				"directquery",
+				"semantic-model"
+			]
+		},
+		{
+			"id": "semantic-model",
+			"term": "Semantic model (Power BI)",
+			"category": "fabric",
+			"aliases": [
+				"semantic model"
+			],
+			"definition": "A Power BI model (formerly called a dataset) with the tables, relationships, measures and security that reports query. Fabric data agents can use semantic models, and their RLS and CLS still apply.",
+			"related": [
+				"direct-lake",
+				"power-bi",
+				"fabric-data-agent",
+				"metric-views"
+			]
+		},
+		{
+			"id": "power-bi",
+			"term": "Power BI",
+			"category": "fabric",
+			"aliases": [
+				"Power BI"
+			],
+			"definition": "Microsoft's BI service, now part of Fabric. Building and sharing need Pro ($14) or Premium Per User ($24). On capacities below F64, viewers also need Pro or PPU, while at F64 and above free users can view.",
+			"related": [
+				"power-bi-licenses",
+				"semantic-model",
+				"direct-lake",
+				"fabric-capacity"
+			],
+			"source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/service-features-license-type"
+		},
+		{
+			"id": "power-bi-licenses",
+			"term": "Power BI Pro and Premium Per User",
+			"category": "fabric",
+			"aliases": [
+				"Power BI Pro",
+				"Premium Per User",
+				"PPU"
+			],
+			"definition": "Power BI's per-user licenses. Pro ($14) is for publishing and sharing. Premium Per User ($24) adds premium features: larger models, 48 refreshes a day and XMLA. PPU doesn't provision Fabric capacity.",
+			"related": [
+				"power-bi",
+				"fabric-capacity"
+			],
+			"source": "https://www.microsoft.com/en-us/power-platform/products/power-bi/pricing"
+		},
+		{
+			"id": "spark",
+			"term": "Apache Spark",
+			"category": "databricks",
+			"aliases": [
+				"Apache Spark",
+				"Spark",
+				"PySpark"
+			],
+			"definition": "The open-source distributed compute engine behind Databricks, where Photon accelerates it, and behind Fabric data engineering, with the Native Execution Engine. It's used from Python (PySpark), SQL, Scala and R.",
+			"related": [
+				"photon",
+				"native-execution-engine",
+				"structured-streaming",
+				"spark-ui"
+			]
+		},
+		{
+			"id": "native-execution-engine",
+			"term": "Native Execution Engine (Fabric)",
+			"category": "fabric",
+			"aliases": [
+				"Native Execution Engine"
+			],
+			"definition": "Fabric's vectorized Spark engine (Velox through Apache Gluten). It speeds up supported operations on Parquet, Delta and CSV without code changes and falls back to standard Spark when it needs to.",
+			"related": [
+				"spark",
+				"photon"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/data-engineering/native-execution-engine-overview"
+		},
+		{
+			"id": "data-factory",
+			"term": "Data Factory (Fabric)",
+			"category": "fabric",
+			"aliases": [
+				"Data Factory",
+				"Dataflow Gen2",
+				"Copy job"
+			],
+			"definition": "Fabric's data integration workload: pipelines for orchestration, Dataflow Gen2 for low-code transformation, Copy job for simple bulk, incremental and CDC movement, and mirroring.",
+			"related": [
+				"mirroring",
+				"lakehouse",
+				"data-gateway"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/data-factory/data-factory-overview"
+		},
+		{
+			"id": "real-time-intelligence",
+			"term": "Real-Time Intelligence",
+			"category": "fabric",
+			"aliases": [
+				"Real-Time Intelligence",
+				"Eventhouse",
+				"Eventstream",
+				"Activator",
+				"Real-Time hub"
+			],
+			"definition": "Fabric's streaming workload. Eventstream moves and transforms streams without code, Eventhouse stores time-based events for KQL queries, Activator triggers actions when conditions are met, and the Real-Time hub catalogs every stream in the tenant.",
+			"related": [
+				"kql",
+				"capacity-metrics-app"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/real-time-intelligence/overview"
+		},
+		{
+			"id": "kql",
+			"term": "KQL (Kusto Query Language)",
+			"category": "fabric",
+			"aliases": [
+				"KQL",
+				"Kusto Query Language"
+			],
+			"definition": "The query language for Eventhouse and KQL databases in Real-Time Intelligence, built for fast analysis of time-series and log data.",
+			"related": [
+				"real-time-intelligence"
+			]
+		},
+		{
+			"id": "fabric-data-agent",
+			"term": "Fabric data agent",
+			"category": "fabric",
+			"aliases": [
+				"Fabric data agent",
+				"data agent"
+			],
+			"definition": "A Fabric item (GA) that answers natural-language questions over up to five sources: lakehouses, warehouses, KQL databases, semantic models, ontologies or Microsoft Graph. It queries read-only with the asking user's identity and caps results at 25 rows by 25 columns. It can be used from Copilot Studio, Microsoft 365 Copilot and Teams, and it runs on Fabric capacity.",
+			"related": [
+				"genie-agent",
+				"semantic-model",
+				"copilot-studio",
+				"fabric-iq",
+				"fabric-copilot-capacity"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent"
+		},
+		{
+			"id": "fabric-iq",
+			"term": "Fabric IQ",
+			"category": "fabric",
+			"aliases": [
+				"Fabric IQ"
+			],
+			"definition": "Fabric's business-semantics layer: ontologies, planning, Fabric Graph, data and operations agents, and semantic models. Its integrations in Microsoft Copilot reached GA at Ignite 2026.",
+			"related": [
+				"ontology",
+				"microsoft-iq",
+				"fabric-data-agent",
+				"genie-ontology"
+			],
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview"
+		},
+		{
+			"id": "ontology",
+			"term": "Ontology",
+			"category": "fabric",
+			"aliases": [
+				"ontology",
+				"ontologies"
+			],
+			"definition": "A model of business entities and how they relate (customer, order, product) that agents use to interpret questions. Fabric IQ uses ontologies, and Databricks' Genie Ontology is a comparable, automatically built context layer.",
+			"related": [
+				"fabric-iq",
+				"genie-ontology"
+			]
+		},
+		{
+			"id": "fabric-apps",
+			"term": "Fabric apps",
+			"category": "fabric",
+			"aliases": [
+				"Fabric apps",
+				"Rayfin"
+			],
+			"definition": "Apps built on Fabric with the open-source Rayfin SDK and CLI, GA at Ignite 2026, with backends such as SQL database or HorizonDB.",
+			"related": [
+				"horizondb",
+				"copilot-managed-runtime"
+			],
+			"source": "https://news.microsoft.com/events/ignite/2026/book-of-news/"
+		},
+		{
+			"id": "horizondb",
+			"term": "HorizonDB",
+			"category": "fabric",
+			"aliases": [
+				"HorizonDB",
+				"Fabric HorizonDB",
+				"Azure HorizonDB"
+			],
+			"definition": "Microsoft's serverless PostgreSQL database. Fabric HorizonDB, in preview, pauses when idle and replicates to OneLake. Azure HorizonDB is GA.",
+			"related": [
+				"fabric-apps",
+				"sql-database-fabric"
+			],
+			"source": "https://news.microsoft.com/events/ignite/2026/book-of-news/"
+		},
+		{
+			"id": "data-gateway",
+			"term": "Data gateways",
+			"category": "fabric",
+			"aliases": [
+				"on-premises data gateway",
+				"VNet data gateway",
+				"data gateway"
+			],
+			"definition": "Software or managed services that let Fabric and Power BI reach private data sources. The on-premises gateway doesn't work with tenant-level Private Link, but the VNet data gateway does.",
+			"related": [
+				"private-link",
+				"data-factory"
+			]
+		},
+		{
+			"id": "azure-databricks",
+			"term": "Azure Databricks",
+			"category": "databricks",
+			"aliases": [
+				"Azure Databricks"
+			],
+			"definition": "Databricks' data and AI platform delivered as a first-party Azure service. It provides the lakehouse (Delta Lake and Unity Catalog), Spark and SQL compute, Lakeflow ingestion and orchestration, and AI/BI with Genie. It's billed in DBUs, and the spend is MACC-eligible.",
+			"related": [
+				"unity-catalog",
+				"delta-lake",
+				"dbu",
+				"genie"
+			]
+		},
+		{
+			"id": "dbu",
+			"term": "DBU (Databricks Unit)",
+			"category": "databricks",
+			"aliases": [
+				"DBU",
+				"DBUs",
+				"Databricks Unit"
+			],
+			"definition": "The normalized unit of compute that Databricks bills by. The rate per DBU depends on the workload type and tier.",
+			"related": [
+				"azure-databricks",
+				"serverless",
+				"sql-warehouse",
+				"classic-compute"
+			]
+		},
+		{
+			"id": "unity-catalog",
+			"term": "Unity Catalog",
+			"category": "databricks",
+			"aliases": [
+				"Unity Catalog",
+				"UC"
+			],
+			"definition": "Databricks' unified governance layer for data and AI. It provides a three-level namespace (catalog.schema.object), access control with GRANT, row filters, column masks and ABAC policies, plus lineage and audit for tables, volumes, models and functions. Its policies apply wherever data is queried through Databricks.",
+			"related": [
+				"row-filters-masks",
+				"abac",
+				"metric-views",
+				"delta-lake",
+				"genie-agent",
+				"uc-mirroring"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/"
+		},
+		{
+			"id": "row-filters-masks",
+			"term": "Row filters and column masks",
+			"category": "databricks",
+			"aliases": [
+				"row filter",
+				"column mask"
+			],
+			"definition": "Unity Catalog functions attached to tables that filter rows or mask column values depending on who's querying. Every Databricks query enforces them, but tables that use them aren't mirrored into Fabric.",
+			"related": [
+				"unity-catalog",
+				"abac",
+				"dynamic-views",
+				"uc-mirroring"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/tables/row-and-column-filters"
+		},
+		{
+			"id": "abac",
+			"term": "ABAC (attribute-based access control)",
+			"category": "databricks",
+			"aliases": [
+				"ABAC",
+				"attribute-based access control",
+				"governed tag"
+			],
+			"definition": "Unity Catalog policies that apply row filters and column masks based on governed tags, across many tables at once, instead of attaching them table by table.",
+			"related": [
+				"row-filters-masks",
+				"unity-catalog"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/abac/"
+		},
+		{
+			"id": "dynamic-views",
+			"term": "Dynamic views",
+			"category": "databricks",
+			"aliases": [
+				"dynamic view"
+			],
+			"definition": "Views that use functions such as is_account_group_member() to filter rows or mask columns for each user. They're the older pattern that row filters, column masks and ABAC improve on.",
+			"related": [
+				"row-filters-masks",
+				"abac"
+			]
+		},
+		{
+			"id": "metric-views",
+			"term": "Metric views",
+			"category": "databricks",
+			"aliases": [
+				"metric view"
+			],
+			"definition": "Unity Catalog objects that define governed business metrics and dimensions once, for reuse by Genie, dashboards and SQL. They don't mirror to Fabric, and Power BI's connection to them was in private preview in late 2026.",
+			"related": [
+				"unity-catalog",
+				"genie-agent",
+				"semantic-model"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/metric-views/"
+		},
+		{
+			"id": "delta-lake",
+			"term": "Delta Lake",
+			"category": "databricks",
+			"aliases": [
+				"Delta Lake",
+				"Delta table",
+				"Delta Parquet",
+				"Delta format"
+			],
+			"definition": "An open table format that adds ACID transactions, schema enforcement, time travel and history on top of Parquet files. It's the default table format in both Databricks and Fabric, which is why the two engines can share one copy of the data.",
+			"related": [
+				"parquet",
+				"iceberg",
+				"onelake",
+				"unity-catalog",
+				"liquid-clustering"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/delta/"
+		},
+		{
+			"id": "parquet",
+			"term": "Parquet",
+			"category": "databricks",
+			"aliases": [
+				"Parquet"
+			],
+			"definition": "An open columnar file format. Delta and Iceberg tables store their data in Parquet files.",
+			"related": [
+				"delta-lake",
+				"iceberg"
+			]
+		},
+		{
+			"id": "iceberg",
+			"term": "Apache Iceberg",
+			"category": "databricks",
+			"aliases": [
+				"Apache Iceberg",
+				"Iceberg"
+			],
+			"definition": "An open table format similar to Delta Lake. OneLake supports Iceberg through metadata virtualization, and Unity Catalog can serve tables to Iceberg clients.",
+			"related": [
+				"delta-lake",
+				"parquet",
+				"onelake"
+			]
+		},
+		{
+			"id": "liquid-clustering",
+			"term": "Liquid clustering",
+			"category": "databricks",
+			"aliases": [
+				"liquid clustering"
+			],
+			"definition": "A flexible Delta Lake data layout that clusters data by chosen keys and lets you change them without rewriting the whole table. For most new tables it replaces partitioning plus Z-ordering.",
+			"related": [
+				"delta-lake",
+				"predictive-optimization"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/delta/clustering"
+		},
+		{
+			"id": "predictive-optimization",
+			"term": "Predictive optimization",
+			"category": "databricks",
+			"aliases": [
+				"predictive optimization"
+			],
+			"definition": "A Databricks service that automatically runs OPTIMIZE, VACUUM and statistics collection on Unity Catalog managed tables.",
+			"related": [
+				"liquid-clustering",
+				"delta-lake",
+				"managed-external-tables"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/optimizations/predictive-optimization"
+		},
+		{
+			"id": "managed-external-tables",
+			"term": "Managed and external tables",
+			"category": "databricks",
+			"aliases": [
+				"managed table",
+				"external table"
+			],
+			"definition": "Unity Catalog manages both the metadata and the storage lifecycle of a managed table. An external table points at a storage path you manage, and dropping it leaves the files in place.",
+			"related": [
+				"unity-catalog",
+				"delta-lake",
+				"predictive-optimization"
+			]
+		},
+		{
+			"id": "auto-loader",
+			"term": "Auto Loader",
+			"category": "databricks",
+			"aliases": [
+				"Auto Loader",
+				"cloudFiles"
+			],
+			"definition": "Databricks' incremental file ingestion from cloud storage. It tracks which files it has processed, handles schema inference and evolution, and runs as a stream, often with trigger(availableNow=True) for batch-style runs.",
+			"related": [
+				"copy-into",
+				"structured-streaming",
+				"lakeflow-connect"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/"
+		},
+		{
+			"id": "copy-into",
+			"term": "COPY INTO",
+			"category": "databricks",
+			"aliases": [
+				"=COPY INTO"
+			],
+			"definition": "A SQL command that idempotently loads new files from cloud storage into a Delta table and skips files it has already loaded. It suits simpler, smaller-scale ingestion than Auto Loader.",
+			"related": [
+				"auto-loader"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/copy-into/"
+		},
+		{
+			"id": "lakeflow-connect",
+			"term": "Lakeflow Connect",
+			"category": "databricks",
+			"aliases": [
+				"Lakeflow Connect"
+			],
+			"definition": "Databricks' ingestion connectors: managed connectors for enterprise SaaS apps and databases such as Salesforce, Workday and SQL Server, and standard connectors for cloud storage and message buses.",
+			"related": [
+				"auto-loader",
+				"lakeflow-declarative-pipelines"
+			]
+		},
+		{
+			"id": "lakeflow-declarative-pipelines",
+			"term": "Lakeflow Declarative Pipelines",
+			"category": "databricks",
+			"aliases": [
+				"Lakeflow Declarative Pipelines",
+				"Lakeflow Spark Declarative Pipelines",
+				"Delta Live Tables",
+				"DLT",
+				"declarative pipeline"
+			],
+			"definition": "Databricks' framework, formerly Delta Live Tables, for declaring streaming tables, materialized views and data quality expectations. Databricks manages the orchestration, retries and infrastructure.",
+			"related": [
+				"streaming-table",
+				"materialized-view",
+				"expectations",
+				"lakeflow-jobs"
+			]
+		},
+		{
+			"id": "streaming-table",
+			"term": "Streaming table",
+			"category": "databricks",
+			"aliases": [
+				"streaming table"
+			],
+			"definition": "A Delta table fed incrementally by a stream, so each record is processed once. It's typical for bronze and silver ingestion in declarative pipelines.",
+			"related": [
+				"lakeflow-declarative-pipelines",
+				"structured-streaming",
+				"materialized-view"
+			]
+		},
+		{
+			"id": "materialized-view",
+			"term": "Materialized view",
+			"category": "databricks",
+			"aliases": [
+				"materialized view"
+			],
+			"definition": "A view whose results are computed ahead of time and stored, then refreshed on a schedule, on demand, or when upstream data changes. It's common for gold-layer aggregates in Databricks, and Fabric lakehouses have their own version.",
+			"related": [
+				"streaming-table",
+				"medallion",
+				"lakeflow-declarative-pipelines"
+			]
+		},
+		{
+			"id": "expectations",
+			"term": "Expectations",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"expectation"
+			],
+			"definition": "Data quality rules in declarative pipelines that can warn, drop invalid rows or fail the update, with results recorded in the pipeline event log.",
+			"related": [
+				"lakeflow-declarative-pipelines"
+			]
+		},
+		{
+			"id": "medallion",
+			"term": "Medallion architecture",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"medallion",
+				"bronze layer",
+				"silver layer",
+				"gold layer",
+				"bronze table",
+				"silver table",
+				"gold table"
+			],
+			"definition": "Layering lakehouse data as bronze (raw), silver (cleaned) and gold (business-ready).",
+			"related": [
+				"streaming-table",
+				"materialized-view"
+			]
+		},
+		{
+			"id": "structured-streaming",
+			"term": "Structured Streaming",
+			"category": "databricks",
+			"aliases": [
+				"Structured Streaming",
+				"readStream",
+				"writeStream",
+				"availableNow"
+			],
+			"definition": "Spark's streaming engine, which processes data incrementally with exactly-once guarantees using checkpoints. Auto Loader and streaming tables are built on it.",
+			"related": [
+				"auto-loader",
+				"streaming-table",
+				"spark"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/"
+		},
+		{
+			"id": "photon",
+			"term": "Photon",
+			"category": "databricks",
+			"aliases": [
+				"Photon"
+			],
+			"definition": "Databricks' vectorized native query engine, which speeds up Spark SQL and DataFrame workloads. Fabric's Native Execution Engine is comparable.",
+			"related": [
+				"spark",
+				"native-execution-engine"
+			]
+		},
+		{
+			"id": "spark-ui",
+			"term": "Spark UI and query profile",
+			"category": "databricks",
+			"aliases": [
+				"Spark UI",
+				"query profile"
+			],
+			"definition": "Diagnostic views of a Spark application's jobs, stages, tasks and SQL plans, used to find skew, spill, shuffle and memory problems. Serverless compute provides the query profile instead.",
+			"related": [
+				"spark"
+			]
+		},
+		{
+			"id": "lakeflow-jobs",
+			"term": "Lakeflow Jobs",
+			"category": "databricks",
+			"aliases": [
+				"Lakeflow Jobs",
+				"Databricks Jobs"
+			],
+			"definition": "Databricks' orchestrator, formerly Workflows, for running notebooks, SQL, pipelines and dashboards as tasks in a DAG. It supports schedules, file-arrival and table-update triggers, conditions, for-each loops, retries and repair runs.",
+			"related": [
+				"lakeflow-declarative-pipelines",
+				"bundles"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/jobs/"
+		},
+		{
+			"id": "serverless",
+			"term": "Serverless compute (Databricks)",
+			"category": "databricks",
+			"aliases": [
+				"serverless compute",
+				"serverless SQL",
+				"serverless jobs",
+				"serverless notebooks"
+			],
+			"definition": "Databricks-managed compute that starts quickly, scales automatically and is billed by usage, with no clusters to configure. It's available for notebooks, jobs, pipelines and SQL warehouses.",
+			"related": [
+				"classic-compute",
+				"sql-warehouse",
+				"dbu"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/compute/serverless/"
+		},
+		{
+			"id": "classic-compute",
+			"term": "Classic compute (clusters)",
+			"category": "databricks",
+			"aliases": [
+				"all-purpose compute",
+				"all-purpose cluster",
+				"job cluster",
+				"jobs compute",
+				"classic compute"
+			],
+			"definition": "Clusters that run in the customer's own cloud account. All-purpose compute is for interactive work, and jobs compute is created for each automated run at a lower DBU rate.",
+			"related": [
+				"serverless",
+				"dbu",
+				"instance-pool"
+			]
+		},
+		{
+			"id": "instance-pool",
+			"term": "Instance pool",
+			"category": "databricks",
+			"aliases": [
+				"instance pool"
+			],
+			"definition": "A set of idle, ready-to-use cloud VMs that classic clusters can draw from so they start faster.",
+			"related": [
+				"classic-compute"
+			]
+		},
+		{
+			"id": "sql-warehouse",
+			"term": "Databricks SQL warehouse",
+			"category": "databricks",
+			"aliases": [
+				"SQL warehouse",
+				"Databricks SQL"
+			],
+			"definition": "Databricks compute optimized for SQL and BI, in serverless, pro or classic types. Genie, dashboards and Power BI DirectQuery run their queries on it, billed in DBUs.",
+			"related": [
+				"genie-agent",
+				"serverless",
+				"dbu",
+				"ai-bi-dashboards"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/compute/sql-warehouse/"
+		},
+		{
+			"id": "bundles",
+			"term": "Declarative Automation Bundles",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"Declarative Automation Bundles",
+				"Databricks Asset Bundles",
+				"bundle",
+				"databricks.yml",
+				"bundle variable",
+				"bundle target",
+				"deployment mode"
+			],
+			"definition": "Databricks' infrastructure-as-code format, formerly Databricks Asset Bundles. A databricks.yml project defines jobs, pipelines and other resources, with variables and per-target overrides for dev, test and prod, and the Databricks CLI deploys it.",
+			"related": [
+				"databricks-cli",
+				"git-folders",
+				"lakeflow-jobs"
+			]
+		},
+		{
+			"id": "databricks-cli",
+			"term": "Databricks CLI",
+			"category": "databricks",
+			"aliases": [
+				"Databricks CLI",
+				"databricks bundle"
+			],
+			"definition": "Databricks' command-line tool for validating, deploying, running and destroying bundles, and for automating workspace tasks.",
+			"related": [
+				"bundles"
+			]
+		},
+		{
+			"id": "git-folders",
+			"term": "Git folders",
+			"category": "databricks",
+			"aliases": [
+				"Git folder",
+				"Repos"
+			],
+			"definition": "Databricks workspace folders synced with a Git repository, for branches, commits, pull requests and keeping production code current.",
+			"related": [
+				"bundles"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/repos/"
+		},
+		{
+			"id": "delta-sharing",
+			"term": "Delta Sharing",
+			"category": "databricks",
+			"aliases": [
+				"Delta Sharing"
+			],
+			"definition": "An open protocol for sharing live Delta data across platforms and organizations without copying it. Fabric doesn't mirror Delta Sharing tables.",
+			"related": [
+				"unity-catalog",
+				"uc-mirroring"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/delta-sharing/"
+		},
+		{
+			"id": "lakehouse-federation",
+			"term": "Lakehouse Federation",
+			"category": "databricks",
+			"aliases": [
+				"Lakehouse Federation",
+				"query federation",
+				"foreign catalog"
+			],
+			"definition": "Unity Catalog's ability to query external systems as foreign catalogs without moving the data: databases, and OneLake through catalog federation.",
+			"related": [
+				"onelake-catalog-federation",
+				"unity-catalog"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/query-federation/"
+		},
+		{
+			"id": "consumer-access",
+			"term": "Consumer access (Databricks)",
+			"category": "databricks",
+			"aliases": [
+				"consumer access"
+			],
+			"definition": "A Databricks entitlement that lets business users use Genie and other consumer experiences without broader workspace rights. Data access still comes from Unity Catalog grants.",
+			"related": [
+				"genie-one",
+				"unity-catalog"
+			]
+		},
+		{
+			"id": "ai-bi-dashboards",
+			"term": "AI/BI dashboards",
+			"category": "databricks",
+			"aliases": [
+				"AI/BI dashboard",
+				"AI/BI dashboards"
+			],
+			"definition": "Databricks' built-in dashboards, governed by Unity Catalog and running on SQL warehouses. They're often used alongside Genie for self-service analytics.",
+			"related": [
+				"genie-agent",
+				"sql-warehouse"
+			]
+		},
+		{
+			"id": "dataframe",
+			"term": "DataFrame",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"DataFrame"
+			],
+			"definition": "Spark's distributed table of rows and named columns, transformed with PySpark or SQL. Transformations are lazy, and Spark plans and runs them only when an action such as write, count or display needs a result.",
+			"related": [
+				"spark",
+				"delta-lake"
+			]
+		},
+		{
+			"id": "optimize-zorder",
+			"term": "OPTIMIZE and Z-ORDER",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"=OPTIMIZE",
+				"Z-ORDER",
+				"ZORDER",
+				"file compaction",
+				"small files"
+			],
+			"definition": "OPTIMIZE compacts many small files in a Delta table into fewer large ones, so reads are faster. Z-ORDER co-locates related values in the same files to improve data skipping. Liquid clustering and predictive optimization automate most of this for new tables.",
+			"related": [
+				"delta-lake",
+				"liquid-clustering",
+				"predictive-optimization",
+				"vacuum"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/delta/optimize"
+		},
+		{
+			"id": "vacuum",
+			"term": "VACUUM",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"=VACUUM"
+			],
+			"definition": "A Delta Lake command that permanently deletes data files no longer referenced by the table and older than the retention threshold (7 days by default). It frees storage but limits how far back time travel can go.",
+			"related": [
+				"delta-lake",
+				"time-travel",
+				"optimize-zorder"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/delta-vacuum"
+		},
+		{
+			"id": "time-travel",
+			"term": "Delta time travel and history",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"time travel",
+				"VERSION AS OF",
+				"TIMESTAMP AS OF",
+				"DESCRIBE HISTORY",
+				"RESTORE"
+			],
+			"definition": "Delta Lake keeps a transaction log, so you can query a table as of an earlier version or timestamp, list its changes with DESCRIBE HISTORY, and roll back with RESTORE, within the retention window.",
+			"related": [
+				"delta-lake",
+				"vacuum"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/delta/history"
+		},
+		{
+			"id": "merge-into",
+			"term": "MERGE INTO",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"=MERGE INTO",
+				"=MERGE",
+				"upsert"
+			],
+			"definition": "A Delta Lake command that inserts, updates and deletes rows in a target table from a source in one atomic operation (an upsert). It's commonly used to apply change data and deduplicate in silver tables.",
+			"related": [
+				"delta-lake",
+				"change-data",
+				"medallion"
+			]
+		},
+		{
+			"id": "change-data",
+			"term": "Change data capture and change data feed",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"change data feed",
+				"change data capture",
+				"CDC",
+				"AUTO CDC",
+				"APPLY CHANGES"
+			],
+			"definition": "Ways to process only what changed. Change data capture (CDC) ingests inserts, updates and deletes from a source, for example with AUTO CDC (formerly APPLY CHANGES) in declarative pipelines. A Delta table's change data feed records row-level changes so downstream jobs can read them incrementally.",
+			"related": [
+				"merge-into",
+				"lakeflow-declarative-pipelines",
+				"lakeflow-connect"
+			]
+		},
+		{
+			"id": "schema-evolution",
+			"term": "Schema inference and evolution",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"schema evolution",
+				"schema inference",
+				"mergeSchema",
+				"schema hints",
+				"rescued data",
+				"_rescued_data",
+				"schemaEvolutionMode"
+			],
+			"definition": "How ingestion handles changing data structures. Auto Loader infers a schema and can add new columns as they appear (with mergeSchema or schemaEvolutionMode), while the rescued data column catches values that don't fit, instead of failing or dropping them.",
+			"related": [
+				"auto-loader",
+				"semi-structured",
+				"delta-lake"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ingestion/cloud-object-storage/auto-loader/schema"
+		},
+		{
+			"id": "checkpoint",
+			"term": "Streaming checkpoint",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"checkpoint",
+				"checkpointLocation"
+			],
+			"definition": "The storage location where a Structured Streaming query records its progress and state, so it can restart where it left off with exactly-once results. Each stream needs its own checkpoint.",
+			"related": [
+				"structured-streaming",
+				"auto-loader"
+			]
+		},
+		{
+			"id": "semi-structured",
+			"term": "Semi-structured data functions",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"explode",
+				"explode_outer",
+				"from_json",
+				"schema_of_json",
+				"VARIANT",
+				"get_json_object",
+				"semi-structured"
+			],
+			"definition": "Tools for JSON-like data: from_json parses strings into structs, explode turns array elements into rows, dot or colon syntax reaches nested fields, and the VARIANT type stores flexible JSON efficiently.",
+			"related": [
+				"schema-evolution",
+				"dataframe"
+			]
+		},
+		{
+			"id": "shuffle-skew-spill",
+			"term": "Shuffle, skew and spill",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"shuffle",
+				"skew",
+				"data skew",
+				"spill",
+				"spark.sql.shuffle.partitions"
+			],
+			"definition": "Common Spark performance problems. A shuffle redistributes data across executors for joins and aggregations. Skew means a few partitions hold far more data than others, so a handful of tasks run long. Spill happens when data doesn't fit in memory and is written to disk. The Spark UI shows all three.",
+			"related": [
+				"spark-ui",
+				"broadcast-join",
+				"aqe"
+			]
+		},
+		{
+			"id": "broadcast-join",
+			"term": "Broadcast join",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"broadcast join",
+				"broadcast hash join",
+				"broadcast()"
+			],
+			"definition": "A join strategy that copies a small table to every executor so the large table doesn't have to be shuffled. Spark chooses it automatically below a size threshold, or you can hint it.",
+			"related": [
+				"shuffle-skew-spill",
+				"aqe",
+				"spark"
+			]
+		},
+		{
+			"id": "aqe",
+			"term": "Adaptive Query Execution (AQE)",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"Adaptive Query Execution",
+				"AQE"
+			],
+			"definition": "Spark's runtime re-optimization, on by default in Databricks. It coalesces small shuffle partitions, switches to broadcast joins when data turns out small, and splits skewed partitions.",
+			"related": [
+				"shuffle-skew-spill",
+				"broadcast-join"
+			]
+		},
+		{
+			"id": "out-of-memory",
+			"term": "Out-of-memory errors",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"OutOfMemoryError",
+				"out-of-memory",
+				"OOM",
+				"Driver is temporarily unavailable"
+			],
+			"definition": "Failures when the driver or executors run out of memory, for example from collecting large results to the driver, heavy skew, or oversized partitions. Typical fixes are avoiding collect(), fixing skew, or choosing larger nodes.",
+			"related": [
+				"shuffle-skew-spill",
+				"spark-ui",
+				"classic-compute"
+			]
+		},
+		{
+			"id": "uc-volume",
+			"term": "Unity Catalog volume",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"volume",
+				"/Volumes/"
+			],
+			"definition": "A Unity Catalog object that governs access to non-tabular files (CSV, JSON, images, PDFs) in cloud storage, addressed as /Volumes/catalog/schema/volume/path. It's commonly used as a landing zone for ingestion.",
+			"related": [
+				"unity-catalog",
+				"auto-loader",
+				"copy-into"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/volumes/"
+		},
+		{
+			"id": "uc-privileges",
+			"term": "Unity Catalog privileges",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"=GRANT",
+				"=REVOKE",
+				"USE CATALOG",
+				"USE SCHEMA",
+				"privilege",
+				"MODIFY",
+				"ownership"
+			],
+			"definition": "Unity Catalog's permission model. Securables (catalog, schema, table, volume) are granted to users, groups or service principals. Querying a table needs USE CATALOG and USE SCHEMA on its parents plus SELECT on the table, and writes need MODIFY.",
+			"related": [
+				"unity-catalog",
+				"row-filters-masks",
+				"service-principal"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/"
+		},
+		{
+			"id": "access-mode",
+			"term": "Access mode (compute)",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"access mode",
+				"standard access mode",
+				"dedicated access mode"
+			],
+			"definition": "How a classic cluster isolates users. Standard access mode (formerly shared) lets many users share compute safely under Unity Catalog. Dedicated access mode (formerly single user) assigns compute to one user or group.",
+			"related": [
+				"classic-compute",
+				"unity-catalog"
+			]
+		},
+		{
+			"id": "catalog-explorer",
+			"term": "Catalog Explorer",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"Catalog Explorer"
+			],
+			"definition": "The Databricks UI for browsing Unity Catalog objects, viewing schemas, lineage, permissions and history, and managing grants.",
+			"related": [
+				"unity-catalog"
+			]
+		},
+		{
+			"id": "job-triggers",
+			"term": "Job triggers",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"file arrival trigger",
+				"table update trigger",
+				"scheduled trigger",
+				"continuous trigger"
+			],
+			"definition": "What starts a Lakeflow job: a cron schedule, new files arriving in a storage location or volume, updates to source tables, or a continuous trigger that restarts the job as soon as a run ends. Time-based triggers suit fixed SLAs, and data-driven triggers avoid empty runs.",
+			"related": [
+				"lakeflow-jobs",
+				"task-values"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/jobs/triggers"
+		},
+		{
+			"id": "task-values",
+			"term": "Task values and job parameters",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"task values",
+				"taskValues",
+				"job parameter",
+				"task parameter",
+				"dynamic value reference"
+			],
+			"definition": "Ways to pass data through a Lakeflow job: job parameters apply to the whole run, task parameters to one task, task values let one task publish small results for downstream tasks, and dynamic value references such as {{job.run_id}} insert run context.",
+			"related": [
+				"lakeflow-jobs",
+				"run-if"
+			]
+		},
+		{
+			"id": "run-if",
+			"term": "Run if conditions and control flow",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"Run if",
+				"If/else condition",
+				"For each task",
+				"for each",
+				"repair run"
+			],
+			"definition": "Lakeflow Jobs control flow. Run if decides when a task runs based on upstream results (the default is All succeeded), If/else condition tasks branch, For each tasks loop over inputs, and repair runs re-run only the failed tasks and their dependents.",
+			"related": [
+				"lakeflow-jobs",
+				"task-values"
+			]
+		},
+		{
+			"id": "event-log",
+			"term": "Pipeline event log",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"event log"
+			],
+			"definition": "The record of a declarative pipeline's updates, including data quality results from expectations, lineage and errors. It can be queried as a table for monitoring.",
+			"related": [
+				"lakeflow-declarative-pipelines",
+				"expectations"
+			]
+		},
+		{
+			"id": "system-tables",
+			"term": "System tables",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"system tables",
+				"system table",
+				"system.billing",
+				"system.lakeflow",
+				"system.access"
+			],
+			"definition": "Databricks-managed tables in the system catalog for billing usage, job and pipeline runs, audit logs, lineage and more. They're the basis for cost and operations dashboards beyond what the UI retains.",
+			"related": [
+				"dbu",
+				"lakeflow-jobs",
+				"unity-catalog"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/admin/system-tables/"
+		},
+		{
+			"id": "jdbc",
+			"term": "JDBC and ODBC",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"JDBC",
+				"ODBC"
+			],
+			"definition": "Standard database connectivity protocols. Spark reads external databases over JDBC (using partitionColumn, lowerBound, upperBound and numPartitions to read in parallel), and BI tools connect to Databricks SQL over JDBC or ODBC.",
+			"related": [
+				"lakeflow-connect",
+				"sql-warehouse"
+			]
+		},
+		{
+			"id": "compute-policy",
+			"term": "Compute policies",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"cluster policy",
+				"compute policy",
+				"cluster policies",
+				"compute policies"
+			],
+			"definition": "Admin-defined rules that limit which compute users can create (node types, sizes, auto-termination, tags), used to control cost and standardize configuration.",
+			"related": [
+				"classic-compute",
+				"dbu"
+			]
+		},
+		{
+			"id": "dbutils",
+			"term": "dbutils",
+			"category": "databricks",
+			"decks": [
+				"databricks"
+			],
+			"aliases": [
+				"dbutils"
+			],
+			"definition": "Databricks Utilities for notebooks: working with files, secrets, widgets, notebook workflows and job task values (dbutils.jobs.taskValues).",
+			"related": [
+				"task-values"
+			]
+		},
+		{
+			"id": "genie",
+			"term": "Databricks Genie",
+			"category": "genie",
+			"aliases": [
+				"Databricks Genie",
+				"Genie"
+			],
+			"definition": "Databricks' family of AI data experiences: Genie One for business users, Genie Agents for curated domain analytics, and Genie Code for developers. There's no per-seat price: each user gets a free monthly AI allowance, and compute is billed separately.",
+			"related": [
+				"genie-one",
+				"genie-agent",
+				"genie-code",
+				"unity-catalog"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie/"
+		},
+		{
+			"id": "genie-one",
+			"term": "Genie One",
+			"category": "genie",
+			"aliases": [
+				"Genie One"
+			],
+			"definition": "Databricks' agentic coworker for business users (GA June 2026, on web, mobile and desktop). It answers questions across governed data and connected apps, respects Unity Catalog permissions, and can be reached from Teams, Microsoft 365 Copilot and Cowork. Usage is free through January 31, 2027, but compute is still billed.",
+			"related": [
+				"genie-agent",
+				"genie-plugin",
+				"genie-teams",
+				"unity-catalog",
+				"consumer-access"
+			],
+			"source": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents"
+		},
+		{
+			"id": "genie-agent",
+			"term": "Genie Agent",
+			"category": "genie",
+			"aliases": [
+				"Genie Agent",
+				"Genie Agents",
+				"Genie Agent ID",
+				"Genie space",
+				"Genie spaces"
+			],
+			"definition": "A curated, domain-specific Genie (formerly a Genie space) that a data team builds from chosen tables, metric views, instructions and sample queries. It supports up to 50 tables, and Copilot Studio connects to Genie Agents one at a time by ID.",
+			"related": [
+				"genie-one",
+				"metric-views",
+				"copilot-studio",
+				"databricks-managed-mcp",
+				"fabric-data-agent"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie/"
+		},
+		{
+			"id": "genie-ontology",
+			"term": "Genie Ontology",
+			"category": "genie",
+			"aliases": [
+				"Genie Ontology"
+			],
+			"definition": "An automatic context layer (public preview) that maps an organization's data and business meaning for Genie One and Genie Agents, and shows users only what they're permitted to see.",
+			"related": [
+				"genie-one",
+				"ontology",
+				"fabric-iq"
+			],
+			"source": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents"
+		},
+		{
+			"id": "genie-code",
+			"term": "Genie Code",
+			"category": "genie",
+			"aliases": [
+				"Genie Code"
+			],
+			"definition": "The developer member of the Genie family, an AI assistant for building with code. It's billed pay-as-you-go, with a free monthly allowance.",
+			"related": [
+				"genie"
+			]
+		},
+		{
+			"id": "genie-plugin",
+			"term": "Azure Databricks Genie plugin",
+			"category": "genie",
+			"aliases": [
+				"Azure Databricks Genie plugin",
+				"Azure Databricks Genie Plugin",
+				"Genie plugin"
+			],
+			"definition": "The recommended way (public preview) to use Genie One from Microsoft 365 Copilot Chat and Cowork. Each user installs it and signs in with Entra ID. It needs a Microsoft 365 Copilot license and has no VNet support.",
+			"related": [
+				"genie-one",
+				"cowork",
+				"m365-copilot",
+				"oauth-obo"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-m365-copilot"
+		},
+		{
+			"id": "genie-teams",
+			"term": "Databricks Genie app for Teams",
+			"category": "genie",
+			"aliases": [
+				"Genie app",
+				"Genie Teams app",
+				"Databricks Genie app"
+			],
+			"definition": "A Teams app that brings Genie One, or a pinned Genie Agent, into Teams chats. Each request runs as the user who asked. Copilot-licensed users can also @-mention it in Copilot. Its central service runs in East US 2 and stores only the tenant-to-workspace mapping.",
+			"related": [
+				"genie-one",
+				"oauth-obo",
+				"private-link"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-teams"
+		},
+		{
+			"id": "databricks-managed-mcp",
+			"term": "Databricks managed MCP servers",
+			"category": "genie",
+			"aliases": [
+				"Managed MCP Servers",
+				"managed MCP server",
+				"Genie managed MCP server"
+			],
+			"definition": "Databricks-hosted MCP endpoints that let external agents use Genie Agents (/api/2.0/mcp/genie/{id}), Genie One and other Databricks services. The Copilot Studio Genie tool depends on them.",
+			"related": [
+				"mcp",
+				"genie-agent",
+				"copilot-studio",
+				"foundry"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/mcp/managed-mcp"
+		},
+		{
+			"id": "mcp",
+			"term": "Model Context Protocol (MCP)",
+			"category": "integration",
+			"aliases": [
+				"Model Context Protocol",
+				"MCP"
+			],
+			"definition": "An open protocol for connecting AI agents to tools and data. Copilot Studio, Foundry, Work IQ and Databricks all support it, and it's how Genie plugs into Microsoft's agents.",
+			"related": [
+				"a2a",
+				"databricks-managed-mcp",
+				"copilot-studio",
+				"foundry"
+			]
+		},
+		{
+			"id": "a2a",
+			"term": "Agent2Agent (A2A)",
+			"category": "integration",
+			"aliases": [
+				"A2A",
+				"Agent2Agent"
+			],
+			"definition": "An open protocol that lets agents discover and delegate to other agents across platforms. Foundry supports A2A v1.0, which is GA.",
+			"related": [
+				"mcp",
+				"foundry"
+			],
+			"source": "https://learn.microsoft.com/en-us/azure/foundry/agents/overview"
+		}
+	]
+}

@@ -101,12 +101,143 @@
 			]
 		}
 	],
+	"tags": [
+		{
+			"id": "auto-loader",
+			"name": "Auto Loader",
+			"kind": "technology",
+			"count": 21
+		},
+		{
+			"id": "copy-into",
+			"name": "COPY INTO",
+			"kind": "technology",
+			"count": 10
+		},
+		{
+			"id": "lakeflow-connect",
+			"name": "Lakeflow Connect",
+			"kind": "technology",
+			"count": 17
+		},
+		{
+			"id": "pipelines",
+			"name": "Lakeflow Declarative Pipelines",
+			"kind": "technology",
+			"count": 19
+		},
+		{
+			"id": "jobs",
+			"name": "Lakeflow Jobs",
+			"kind": "technology",
+			"count": 63
+		},
+		{
+			"id": "delta",
+			"name": "Delta Lake",
+			"kind": "technology",
+			"count": 34
+		},
+		{
+			"id": "unity-catalog",
+			"name": "Unity Catalog",
+			"kind": "technology",
+			"count": 72
+		},
+		{
+			"id": "spark",
+			"name": "Spark and PySpark",
+			"kind": "technology",
+			"count": 61
+		},
+		{
+			"id": "compute",
+			"name": "Compute and SQL warehouses",
+			"kind": "technology",
+			"count": 37
+		},
+		{
+			"id": "bundles",
+			"name": "Declarative Automation Bundles",
+			"kind": "technology",
+			"count": 22
+		},
+		{
+			"id": "cli",
+			"name": "Databricks CLI",
+			"kind": "technology",
+			"count": 9
+		},
+		{
+			"id": "git-folders",
+			"name": "Git folders",
+			"kind": "technology",
+			"count": 12
+		},
+		{
+			"id": "ingestion",
+			"name": "Ingestion",
+			"kind": "theme",
+			"count": 77
+		},
+		{
+			"id": "streaming",
+			"name": "Streaming and incremental",
+			"kind": "theme",
+			"count": 33
+		},
+		{
+			"id": "data-quality",
+			"name": "Data quality",
+			"kind": "theme",
+			"count": 38
+		},
+		{
+			"id": "semi-structured",
+			"name": "Semi-structured data",
+			"kind": "theme",
+			"count": 27
+		},
+		{
+			"id": "governance",
+			"name": "Governance and access",
+			"kind": "theme",
+			"count": 68
+		},
+		{
+			"id": "performance",
+			"name": "Performance tuning",
+			"kind": "theme",
+			"count": 34
+		},
+		{
+			"id": "troubleshooting",
+			"name": "Troubleshooting",
+			"kind": "theme",
+			"count": 62
+		},
+		{
+			"id": "cost",
+			"name": "Cost",
+			"kind": "theme",
+			"count": 10
+		},
+		{
+			"id": "cicd",
+			"name": "CI/CD",
+			"kind": "theme",
+			"count": 42
+		}
+	],
 	"questions": [
 		{
 			"id": "S1-001",
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Platform architecture",
+			"tags": [
+				"compute"
+			],
 			"difficulty": "easy",
 			"question": "In the Databricks architecture, where do classic compute resources such as all-purpose clusters and job clusters run?",
 			"choices": [
@@ -125,6 +256,9 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Platform architecture",
+			"tags": [
+				"compute"
+			],
 			"difficulty": "easy",
 			"question": "A team switches its notebooks from classic clusters to serverless compute. Where does the serverless compute now run?",
 			"choices": [
@@ -143,6 +277,11 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Delta Lake",
+			"tags": [
+				"delta",
+				"git-folders",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "Which component of Delta Lake makes ACID transactions possible on top of cloud object storage?",
 			"choices": [
@@ -161,6 +300,10 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Delta Lake",
+			"tags": [
+				"delta",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "Yesterday a faulty ingest overwrote rows in the Delta table main.sales.orders. The data engineer wants to return the table to its state just before that write as quickly as possible. What should they run?",
 			"choices": [
@@ -179,6 +322,10 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Delta Lake",
+			"tags": [
+				"delta",
+				"performance"
+			],
 			"difficulty": "easy",
 			"question": "Which command lists, for each write to a Delta table, the version number, timestamp, operation (WRITE, MERGE, OPTIMIZE, ...) and the user who performed it?",
 			"choices": [
@@ -197,6 +344,13 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Delta Lake",
+			"tags": [
+				"delta",
+				"spark",
+				"semi-structured",
+				"troubleshooting",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A job appends a DataFrame that contains one extra column that does not exist in the target Delta table. No schema evolution option (such as mergeSchema) is set. What happens?",
 			"choices": [
@@ -215,6 +369,10 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Unity Catalog",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "How is a table referenced using Unity Catalog's three-level namespace?",
 			"choices": [
@@ -233,6 +391,10 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Unity Catalog",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Which statement about Unity Catalog metastores is correct?",
 			"choices": [
@@ -251,6 +413,11 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Delta Lake + Unity Catalog",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A data engineer needs fast iteration on pipelines, reliable rollback after bad loads, an audit trail for regulators, and one governed source of truth for both BI dashboards and ML training. Which approach meets all of these requirements?",
 			"choices": [
@@ -269,6 +436,11 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Compute selection",
+			"tags": [
+				"compute",
+				"cost",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A production ETL notebook runs once a night on classic compute. The team wants the lowest cost for this workload. Which compute should it use?",
 			"choices": [
@@ -287,6 +459,10 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Compute cost model",
+			"tags": [
+				"compute",
+				"cost"
+			],
 			"difficulty": "easy",
 			"question": "Which statement correctly compares all-purpose compute and jobs compute?",
 			"choices": [
@@ -305,6 +481,11 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "SQL warehouses",
+			"tags": [
+				"delta",
+				"compute",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Business analysts run ad hoc SQL against curated Delta tables throughout the day. The team wants startup in seconds, automatic scaling when queries queue, and little administration. Which compute is the best fit?",
 			"choices": [
@@ -323,6 +504,9 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "SQL warehouses",
+			"tags": [
+				"compute"
+			],
 			"difficulty": "medium",
 			"question": "Which SQL warehouse type is the only one that includes Intelligent Workload Management?",
 			"choices": [
@@ -341,6 +525,11 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Instance pools",
+			"tags": [
+				"compute",
+				"troubleshooting",
+				"cost"
+			],
 			"difficulty": "medium",
 			"question": "Job clusters on classic compute spend several minutes waiting for cloud VMs before every run. Which feature cuts that startup time, and how is idle capacity billed?",
 			"choices": [
@@ -359,6 +548,9 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Serverless compute",
+			"tags": [
+				"compute"
+			],
 			"difficulty": "medium",
 			"question": "Which workload is NOT supported on serverless compute for notebooks and jobs?",
 			"choices": [
@@ -377,6 +569,11 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Access modes",
+			"tags": [
+				"unity-catalog",
+				"compute",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Several data engineers need to share one classic cluster, with Unity Catalog access and isolation between users. Which access mode should the cluster use?",
 			"choices": [
@@ -395,6 +592,13 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Serverless jobs",
+			"tags": [
+				"delta",
+				"compute",
+				"performance",
+				"troubleshooting",
+				"cost"
+			],
 			"difficulty": "medium",
 			"question": "A nightly serverless job has no tight deadline, and the team wants to minimize cost. What should it configure?",
 			"choices": [
@@ -413,6 +617,10 @@
 			"section": 1,
 			"sectionName": "Databricks Intelligence Platform",
 			"topic": "Compute cost model",
+			"tags": [
+				"compute",
+				"cost"
+			],
 			"difficulty": "medium",
 			"question": "How does billing for serverless compute differ from billing for classic compute?",
 			"choices": [
@@ -431,6 +639,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Ingestion patterns",
+			"tags": [
+				"auto-loader",
+				"copy-into",
+				"ingestion",
+				"streaming"
+			],
 			"difficulty": "easy",
 			"question": "Which ingestion pattern loads only the files that have arrived since the last run, tracking which files were already processed so that nothing is loaded twice?",
 			"choices": [
@@ -449,6 +663,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Ingestion patterns",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "A team wants an Auto Loader stream to process every file currently available and then stop, so it can run as a scheduled batch job. Which trigger should it use?",
 			"choices": [
@@ -467,6 +686,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Local file upload",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"ingestion",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "An analyst has a 50 MB CSV file on their laptop and wants it as a Unity Catalog table without writing any code. What is the simplest option?",
 			"choices": [
@@ -485,6 +710,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Local file upload",
+			"tags": [
+				"ingestion",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "Which statement describes the limits of the 'create or modify a table using file upload' UI?",
 			"choices": [
@@ -503,6 +732,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Local file upload",
+			"tags": [
+				"unity-catalog",
+				"ingestion",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A 4 GB CSV file is too large for the table upload UI. What is the recommended way to turn it into a Unity Catalog table using the UI?",
 			"choices": [
@@ -521,6 +755,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"lakeflow-connect",
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "Which description fits Lakeflow Connect managed connectors?",
 			"choices": [
@@ -539,6 +777,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"auto-loader",
+				"lakeflow-connect",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "Which of these is a Lakeflow Connect standard connector rather than a managed connector?",
 			"choices": [
@@ -557,6 +800,14 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Ingestion patterns",
+			"tags": [
+				"lakeflow-connect",
+				"pipelines",
+				"spark",
+				"ingestion",
+				"streaming",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "Databricks describes three ingestion layers: Structured Streaming, Lakeflow Spark Declarative Pipelines, and managed connectors. Which layer does Databricks recommend starting with?",
 			"choices": [
@@ -575,6 +826,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Ingestion patterns",
+			"tags": [
+				"pipelines",
+				"delta",
+				"ingestion",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "Events are published to Apache Kafka and must land in a bronze Delta table within seconds. Which ingestion approach fits?",
 			"choices": [
@@ -593,6 +850,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Audit log ingestion",
+			"tags": [
+				"ingestion",
+				"semi-structured",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A pipeline will ingest Databricks audit logs that are delivered to a customer-owned S3 bucket. What should the engineer expect from the delivered files?",
 			"choices": [
@@ -611,6 +873,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "COPY INTO",
+			"tags": [
+				"copy-into",
+				"delta",
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "COPY INTO loads a folder of CSV files into a Delta table. The next day the same command is run again, and no new files have arrived. What happens?",
 			"choices": [
@@ -629,6 +896,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "COPY INTO",
+			"tags": [
+				"copy-into",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "After fixing a bug, an engineer needs COPY INTO to reload files it has already loaded. Which option does that?",
 			"choices": [
@@ -647,6 +918,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "COPY INTO",
+			"tags": [
+				"copy-into",
+				"ingestion",
+				"semi-structured",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "New JSON files contain a column that the target table doesn't have. Which COPY INTO setting lets the target table's schema evolve to add it?",
 			"choices": [
@@ -665,6 +942,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "COPY INTO",
+			"tags": [
+				"copy-into",
+				"ingestion",
+				"cicd"
+			],
 			"difficulty": "hard",
 			"question": "An engineer wants COPY INTO to work out the target table's schema from the source files instead of writing the column list by hand. What should they do?",
 			"choices": [
@@ -683,6 +965,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "COPY INTO",
+			"tags": [
+				"copy-into",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "A landing folder holds many kinds of files, and only files whose names start with sales_2026 and end in .csv should be loaded. Which COPY INTO clause does this?",
 			"choices": [
@@ -701,6 +987,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "COPY INTO",
+			"tags": [
+				"copy-into",
+				"unity-catalog",
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "Which COPY INTO statement correctly loads CSV files that have a header row and lets column types be inferred?",
 			"choices": [
@@ -719,6 +1010,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "COPY INTO",
+			"tags": [
+				"auto-loader",
+				"copy-into",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "When is COPY INTO a reasonable choice instead of Auto Loader?",
 			"choices": [
@@ -737,6 +1033,13 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "COPY INTO",
+			"tags": [
+				"copy-into",
+				"delta",
+				"unity-catalog",
+				"ingestion",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A user runs COPY INTO from s3://acme-landing/orders/, a path covered by a Unity Catalog external location, into the managed table main.bronze.orders. Which privileges does the user need?",
 			"choices": [
@@ -755,6 +1058,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "COPY INTO",
+			"tags": [
+				"copy-into",
+				"unity-catalog",
+				"ingestion",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "Raw files are stored in the Unity Catalog volume raw_files in the main.landing schema. Which source path should COPY INTO use?",
 			"choices": [
@@ -773,6 +1082,14 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"unity-catalog",
+				"spark",
+				"ingestion",
+				"streaming",
+				"semi-structured"
+			],
 			"difficulty": "easy",
 			"question": "Which code reads new JSON files incrementally from a landing folder with Auto Loader?",
 			"choices": [
@@ -791,6 +1108,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "What is the cloudFiles.schemaLocation option used for in Auto Loader?",
 			"choices": [
@@ -809,6 +1130,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "With default settings, which data type does Auto Loader infer for columns when reading JSON or CSV files?",
 			"choices": [
@@ -827,6 +1153,13 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"streaming",
+				"semi-structured",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "An Auto Loader stream was started without a schema and uses the default schema evolution mode. A file arrives with a new column. What happens?",
 			"choices": [
@@ -845,6 +1178,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"streaming",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A bronze stream must never fail because of schema changes, and it must not change the table schema, but any unexpected fields must be kept for later review. Which cloudFiles.schemaEvolutionMode should it use?",
 			"choices": [
@@ -863,6 +1202,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"semi-structured",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A regulated feed has to stop as soon as an unexpected column appears, and should stay stopped until someone updates the provided schema or removes the offending file. Which schema evolution mode does this?",
 			"choices": [
@@ -881,6 +1226,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"data-quality",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "What does the _rescued_data column that Auto Loader adds contain?",
 			"choices": [
@@ -899,6 +1250,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "Auto Loader infers order_date as a STRING, but it should be a DATE. The other columns should still be inferred automatically. Which option should the engineer set?",
 			"choices": [
@@ -917,6 +1272,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "Which file detection mode does Auto Loader use by default?",
 			"choices": [
@@ -935,6 +1294,13 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"streaming",
+				"performance",
+				"cost"
+			],
 			"difficulty": "medium",
 			"question": "An Auto Loader stream reads a very large landing zone that receives files constantly, and directory listing is getting slow and costly. What does Databricks recommend for most workloads like this?",
 			"choices": [
@@ -953,6 +1319,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"ingestion"
+			],
 			"difficulty": "hard",
 			"question": "An engineer supplies an explicit schema to Auto Loader with .schema(...) and doesn't set cloudFiles.schemaEvolutionMode. What happens when a file contains a column that isn't in that schema?",
 			"choices": [
@@ -971,6 +1341,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Auto Loader",
+			"tags": [
+				"auto-loader",
+				"compute",
+				"ingestion",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "What lets an Auto Loader stream into a bronze table process each file exactly once, even after the cluster restarts?",
 			"choices": [
@@ -989,6 +1365,15 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"lakeflow-connect",
+				"pipelines",
+				"unity-catalog",
+				"compute",
+				"ingestion",
+				"streaming",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Which set of components makes up a typical Lakeflow Connect managed connector for a SaaS source such as Salesforce?",
 			"choices": [
@@ -1007,6 +1392,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"lakeflow-connect",
+				"compute",
+				"ingestion",
+				"streaming"
+			],
 			"difficulty": "hard",
 			"question": "In a SQL Server managed ingestion that uses the gateway-based standard CDC architecture, which component runs continuously on classic compute to capture changes before the source's change logs are truncated?",
 			"choices": [
@@ -1025,6 +1416,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"lakeflow-connect",
+				"ingestion",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "What must be done on the source database before setting up incremental ingestion from SQL Server with Lakeflow Connect?",
 			"choices": [
@@ -1043,6 +1439,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"lakeflow-connect",
+				"unity-catalog",
+				"ingestion",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A user needs to create a new Lakeflow Connect connection for a source. Which privilege is required?",
 			"choices": [
@@ -1061,6 +1463,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"lakeflow-connect",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "Analysts want to see how each Salesforce account record looked over time, not just its latest values. Which managed ingestion setting provides this?",
 			"choices": [
@@ -1079,6 +1485,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"lakeflow-connect",
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "With history tracking turned off (SCD type 1) in a managed ingestion pipeline, how are source updates and deletes handled?",
 			"choices": [
@@ -1097,6 +1507,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"lakeflow-connect",
+				"jobs",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "How is a Lakeflow Connect managed ingestion pipeline normally run on a recurring schedule, for example every 30 minutes?",
 			"choices": [
@@ -1115,6 +1530,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"lakeflow-connect",
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "How does a Lakeflow Connect managed connector behave on its first run compared with later runs?",
 			"choices": [
@@ -1133,6 +1552,14 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Lakeflow Connect",
+			"tags": [
+				"lakeflow-connect",
+				"pipelines",
+				"unity-catalog",
+				"ingestion",
+				"streaming",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "What kind of object do Lakeflow Connect managed connectors write the ingested data into?",
 			"choices": [
@@ -1151,6 +1578,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "JDBC ingestion",
+			"tags": [
+				"spark",
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "A notebook must read the table sales.orders from a PostgreSQL database over JDBC. Which code is correct, and keeps the password out of the notebook?",
 			"choices": [
@@ -1169,6 +1600,9 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "JDBC ingestion",
+			"tags": [
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "What is the recommended way to supply a database password to JDBC code in a Databricks notebook?",
 			"choices": [
@@ -1187,6 +1621,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "JDBC ingestion",
+			"tags": [
+				"spark",
+				"ingestion",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "A JDBC read of a 200-million-row table runs as a single task and is very slow. Which options let Spark read it in parallel?",
 			"choices": [
@@ -1205,6 +1644,9 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "JDBC ingestion",
+			"tags": [
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "Only yesterday's rows should be pulled from a large source table over JDBC, and the filtering should happen in the source database. What should the engineer do?",
 			"choices": [
@@ -1223,6 +1665,13 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "REST API ingestion",
+			"tags": [
+				"auto-loader",
+				"unity-catalog",
+				"ingestion",
+				"semi-structured",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A notebook calls a partner REST API that returns JSON pages. The raw responses must be kept in Unity Catalog-governed storage so Auto Loader can ingest them later. Where should the notebook write the files?",
 			"choices": [
@@ -1241,6 +1690,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "REST API ingestion",
+			"tags": [
+				"spark",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "A notebook has turned a REST API response into a Spark DataFrame, api_df. Which call appends it straight into the governed table main.bronze.partner_events?",
 			"choices": [
@@ -1259,6 +1712,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "REST API ingestion",
+			"tags": [
+				"jobs",
+				"ingestion",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "A REST ingestion notebook must run every morning at 6:00 and be retried automatically if the partner API returns a transient error. How should this be set up?",
 			"choices": [
@@ -1277,6 +1735,13 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Choosing an ingestion method",
+			"tags": [
+				"lakeflow-connect",
+				"unity-catalog",
+				"ingestion",
+				"semi-structured",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "Salesforce objects must be ingested every day into Unity Catalog with as little code and maintenance as possible, including handling of API changes and schema evolution. What should the team use?",
 			"choices": [
@@ -1295,6 +1760,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Choosing an ingestion method",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "An IoT platform writes millions of small JSON files a day into an S3 bucket. Ingestion must scale, process each file exactly once, and cope with schema drift. Which method fits best?",
 			"choices": [
@@ -1313,6 +1783,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Choosing an ingestion method",
+			"tags": [
+				"lakeflow-connect",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "A niche SaaS tool has no Lakeflow Connect managed connector, but it is supported by a third-party ingestion vendor. The team wants a no-code option. What should it consider?",
 			"choices": [
@@ -1331,6 +1805,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Choosing an ingestion method",
+			"tags": [
+				"unity-catalog",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "Analysts occasionally need to query a few tables in an operational PostgreSQL database for ad hoc reports and a proof of concept, without building pipelines or copying data. Which option fits?",
 			"choices": [
@@ -1349,6 +1827,13 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Choosing an ingestion method",
+			"tags": [
+				"lakeflow-connect",
+				"delta",
+				"unity-catalog",
+				"ingestion",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "Dashboards hit the same external MySQL tables thousands of times a day, and performance at higher data volumes with low latency is now the priority. What does Databricks recommend instead of federating every query?",
 			"choices": [
@@ -1367,6 +1852,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Choosing an ingestion method",
+			"tags": [
+				"pipelines",
+				"unity-catalog",
+				"ingestion",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "A SQL-only analytics team needs to ingest new CSV files from a volume incrementally every hour, without writing Python. What does Databricks recommend?",
 			"choices": [
@@ -1385,6 +1876,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Choosing an ingestion method",
+			"tags": [
+				"lakeflow-connect",
+				"unity-catalog",
+				"ingestion",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Several teams ingest from the same SQL Server database, each using notebooks with hardcoded JDBC credentials. Governance wants the credentials managed centrally and the ingestion governed and visible in Unity Catalog. What is the best change?",
 			"choices": [
@@ -1403,6 +1900,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Choosing an ingestion method",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"streaming",
+				"cost"
+			],
 			"difficulty": "medium",
 			"question": "New files arrive in cloud storage throughout the day, but the business only needs the data refreshed once a day, as cheaply as possible. Which design fits?",
 			"choices": [
@@ -1421,6 +1924,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Choosing an ingestion method",
+			"tags": [
+				"lakeflow-connect",
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "What best describes partner connectors compared with Lakeflow Connect managed connectors?",
 			"choices": [
@@ -1439,6 +1946,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Semi-structured data",
+			"tags": [
+				"ingestion",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "The STRING column raw in a bronze table holds JSON documents. Which Databricks SQL expression extracts the nested field customer.address.city?",
 			"choices": [
@@ -1457,6 +1968,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Semi-structured data",
+			"tags": [
+				"ingestion",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "Which function turns a JSON string into the VARIANT type, which Databricks recommends over storing JSON as plain strings?",
 			"choices": [
@@ -1475,6 +1990,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Semi-structured data",
+			"tags": [
+				"spark",
+				"ingestion",
+				"semi-structured"
+			],
 			"difficulty": "easy",
 			"question": "An orders table has an items column of type ARRAY<STRUCT<sku STRING, qty INT>>. Which PySpark code produces one row per item?",
 			"choices": [
@@ -1493,6 +2013,11 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Semi-structured data",
+			"tags": [
+				"spark",
+				"ingestion",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "A Kafka-sourced DataFrame has a STRING column payload containing JSON with a known structure. How can it be parsed into a typed struct in PySpark?",
 			"choices": [
@@ -1511,6 +2036,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Semi-structured data",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"semi-structured",
+				"troubleshooting"
+			],
 			"difficulty": "hard",
 			"question": "JSON event schemas change often and unpredictably. The team wants Auto Loader to land each whole record in one flexible column, without schema inference failures. Which option does that?",
 			"choices": [
@@ -1529,6 +2060,10 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Semi-structured data",
+			"tags": [
+				"ingestion",
+				"semi-structured"
+			],
 			"difficulty": "easy",
 			"question": "Each JSON file in a folder holds one large, pretty-printed object that spans many lines. Reading with default options produces corrupt records. Which option fixes this?",
 			"choices": [
@@ -1547,6 +2082,12 @@
 			"section": 2,
 			"sectionName": "Data Ingestion and Loading",
 			"topic": "Unstructured data",
+			"tags": [
+				"auto-loader",
+				"ingestion",
+				"streaming",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "A team needs to ingest a stream of PDF and image files incrementally, keeping the raw bytes along with each file's path and size. Which Auto Loader format should it use?",
 			"choices": [
@@ -1565,6 +2106,12 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data cleaning",
+			"tags": [
+				"unity-catalog",
+				"spark",
+				"data-quality",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "Which PySpark call reads the Unity Catalog table main.bronze.orders into a DataFrame?",
 			"choices": [
@@ -1583,6 +2130,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data cleaning",
+			"tags": [
+				"spark",
+				"data-quality"
+			],
 			"difficulty": "easy",
 			"question": "In a silver transformation, NULLs in quantity should become 0 and NULLs in country should become 'Unknown'. Which call does both?",
 			"choices": [
@@ -1601,6 +2152,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data cleaning",
+			"tags": [
+				"spark",
+				"data-quality"
+			],
 			"difficulty": "easy",
 			"question": "Rows with no order_id cannot be used and must be removed. Rows with NULLs in other columns should be kept. Which call does this?",
 			"choices": [
@@ -1619,6 +2174,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data cleaning",
+			"tags": [
+				"spark",
+				"data-quality"
+			],
 			"difficulty": "medium",
 			"question": "What does df.dropna(how='all') do?",
 			"choices": [
@@ -1637,6 +2196,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data cleaning",
+			"tags": [
+				"spark",
+				"data-quality"
+			],
 			"difficulty": "easy",
 			"question": "The bronze column amount is a STRING. In silver it should be DECIMAL(10,2). Which code converts it?",
 			"choices": [
@@ -1655,6 +2218,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data cleaning",
+			"tags": [
+				"data-quality"
+			],
 			"difficulty": "medium",
 			"question": "A bronze column order_date holds strings such as '03/27/2026'. Which expression turns it into a proper DATE?",
 			"choices": [
@@ -1673,6 +2239,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data cleaning",
+			"tags": [
+				"data-quality"
+			],
 			"difficulty": "easy",
 			"question": "Emails arrive with mixed case and stray spaces, such as '  Jane.Doe@Example.COM '. Which expression standardizes them?",
 			"choices": [
@@ -1691,6 +2260,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data cleaning",
+			"tags": [
+				"data-quality"
+			],
 			"difficulty": "easy",
 			"question": "In a SQL silver query, phone should come from mobile_phone when it isn't NULL, otherwise from home_phone, and otherwise be 'N/A'. Which expression does that?",
 			"choices": [
@@ -1709,6 +2281,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data cleaning",
+			"tags": [
+				"data-quality",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "With ANSI SQL mode on, CAST('abc' AS INT) raises an error and stops the silver load. The goal is to turn bad values into NULL instead. Which function should be used?",
 			"choices": [
@@ -1727,6 +2303,12 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data cleaning",
+			"tags": [
+				"unity-catalog",
+				"spark",
+				"data-quality",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A cleaned DataFrame silver_df should fully replace the contents of the Unity Catalog table main.silver.orders on every run. Which write does this?",
 			"choices": [
@@ -1745,6 +2327,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Joins",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "easy",
 			"question": "Orders must be matched to customers on both customer_id and region, keeping only orders that have a matching customer. Which code does this?",
 			"choices": [
@@ -1763,6 +2348,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Joins",
+			"tags": [
+				"spark",
+				"data-quality"
+			],
 			"difficulty": "easy",
 			"question": "orders has 1,000 rows. It is left-joined to customers on customer_id, and customer_id is unique in customers. Some orders have no matching customer. What does the result contain?",
 			"choices": [
@@ -1781,6 +2370,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Joins",
+			"tags": [
+				"spark",
+				"performance",
+				"cost"
+			],
 			"difficulty": "medium",
 			"question": "A 2 TB fact table is joined to a 5 MB country lookup table. How can the expensive shuffle of the fact table be avoided?",
 			"choices": [
@@ -1799,6 +2393,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Joins",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "sizes has 4 rows and colors has 6 rows. What does sizes.crossJoin(colors) return?",
 			"choices": [
@@ -1817,6 +2414,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Unions",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "Two monthly extracts have the same columns, but in a different order. Which call combines them correctly?",
 			"choices": [
@@ -1835,6 +2435,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Unions",
+			"tags": [
+				"spark",
+				"data-quality"
+			],
 			"difficulty": "medium",
 			"question": "How does the DataFrame method df1.union(df2) handle duplicate rows?",
 			"choices": [
@@ -1853,6 +2457,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Unions",
+			"tags": [
+				"spark",
+				"data-quality"
+			],
 			"difficulty": "easy",
 			"question": "In Databricks SQL, what is the difference between UNION and UNION ALL?",
 			"choices": [
@@ -1871,6 +2479,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Unions",
+			"tags": [
+				"spark",
+				"data-quality"
+			],
 			"difficulty": "medium",
 			"question": "The 2026 extract has an extra column, promo_code, that the 2025 extract lacks. The two must be combined, with NULL for promo_code in the 2025 rows. Which call works?",
 			"choices": [
@@ -1889,6 +2501,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Joins",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "Both orders and customers have a column named customer_id. Which join produces a result with a single customer_id column?",
 			"choices": [
@@ -1907,6 +2522,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Joins",
+			"tags": [
+				"spark",
+				"data-quality"
+			],
 			"difficulty": "medium",
 			"question": "Data quality needs a list of orders whose customer_id doesn't exist in the customers table, using only the orders columns. Which join type gives this?",
 			"choices": [
@@ -1925,6 +2544,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Column manipulation",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "easy",
 			"question": "Which code adds a new column total equal to qty multiplied by unit_price?",
 			"choices": [
@@ -1943,6 +2565,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Column manipulation",
+			"tags": [
+				"spark",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "The columns tmp_flag and debug_info have to be removed before writing to silver. Which code does this?",
 			"choices": [
@@ -1961,6 +2587,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Column manipulation",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "easy",
 			"question": "Which code renames the column cust_nm to customer_name?",
 			"choices": [
@@ -1979,6 +2608,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Column manipulation",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "full_name holds values such as 'Ada Lovelace'. Which code creates a first_name column holding the part before the space?",
 			"choices": [
@@ -1997,6 +2629,12 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Row filtering",
+			"tags": [
+				"unity-catalog",
+				"spark",
+				"governance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Which filter keeps only rows where status is 'active' AND amount is greater than 100?",
 			"choices": [
@@ -2015,6 +2653,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Exploding arrays",
+			"tags": [
+				"spark",
+				"data-quality",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "After explode('tags'), the orders whose tags array is NULL or empty have disappeared from the result. Which function keeps those orders, with a NULL tag?",
 			"choices": [
@@ -2033,6 +2676,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Column manipulation",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "easy",
 			"question": "Every row written by the point-of-sale pipeline should carry a constant column source with the value 'pos'. Which code adds it?",
 			"choices": [
@@ -2051,6 +2697,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Table structure",
+			"tags": [
+				"delta",
+				"semi-structured",
+				"troubleshooting"
+			],
 			"difficulty": "hard",
 			"question": "An engineer runs ALTER TABLE main.silver.customers RENAME COLUMN cust_nm TO customer_name on a Delta table and gets an error. What is the most likely cause?",
 			"choices": [
@@ -2069,6 +2720,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Nested data",
+			"tags": [
+				"spark",
+				"semi-structured"
+			],
 			"difficulty": "easy",
 			"question": "A DataFrame has a STRUCT column customer with a nested struct address that contains a city field. Which code selects city as a top-level column?",
 			"choices": [
@@ -2087,6 +2742,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Column manipulation",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "Which code keeps only order_id and amount, and renames amount to order_amount in the same step?",
 			"choices": [
@@ -2105,6 +2763,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Deduplication",
+			"tags": [
+				"spark",
+				"data-quality"
+			],
 			"difficulty": "easy",
 			"question": "Bronze holds several copies of some orders. Exactly one row per order_id is needed, and which copy is kept doesn't matter. Which call does this?",
 			"choices": [
@@ -2123,6 +2785,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Deduplication",
+			"tags": [
+				"data-quality"
+			],
 			"difficulty": "medium",
 			"question": "For each customer_id, only the most recent record (the latest updated_at) should be kept. Which approach does this reliably?",
 			"choices": [
@@ -2141,6 +2806,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Aggregation",
+			"tags": [
+				"spark",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A dashboard needs the number of distinct visitors across billions of events, and about 5% error is acceptable for a much faster answer. Which function fits?",
 			"choices": [
@@ -2159,6 +2828,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Aggregation",
+			"tags": [
+				"data-quality"
+			],
 			"difficulty": "medium",
 			"question": "An orders table has 10 rows, and coupon_code is NULL in 4 of them. What do SELECT COUNT(*) and SELECT COUNT(coupon_code) return?",
 			"choices": [
@@ -2177,6 +2849,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Aggregation",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "easy",
 			"question": "Which code computes the average amount for each region and names the result avg_amount?",
 			"choices": [
@@ -2195,6 +2870,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Aggregation",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "An engineer wants quick profile statistics for numeric columns, including the 25th, 50th, and 75th percentiles. Which method returns them by default?",
 			"choices": [
@@ -2213,6 +2891,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Deduplication",
+			"tags": [
+				"data-quality",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "Which SQL query returns only the latest row for each customer_id in Databricks SQL?",
 			"choices": [
@@ -2231,6 +2913,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Aggregation",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "easy",
 			"question": "Which aggregate computes the exact number of distinct product_id values for each store?",
 			"choices": [
@@ -2249,6 +2934,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Deduplication",
+			"tags": [
+				"streaming",
+				"data-quality",
+				"semi-structured"
+			],
 			"difficulty": "hard",
 			"question": "A Structured Streaming query calls dropDuplicates(['event_id']) without a watermark. What risk does that create?",
 			"choices": [
@@ -2267,6 +2957,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Spark tuning",
+			"tags": [
+				"spark",
+				"performance"
+			],
 			"difficulty": "easy",
 			"question": "What does spark.sql.shuffle.partitions control, and what is its Apache Spark default?",
 			"choices": [
@@ -2285,6 +2979,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Spark tuning",
+			"tags": [
+				"spark",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "How does spark.default.parallelism differ from spark.sql.shuffle.partitions?",
 			"choices": [
@@ -2303,6 +3001,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Spark tuning",
+			"tags": [
+				"spark",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "What does spark.sql.autoBroadcastJoinThreshold do, and how do you disable automatic broadcast joins?",
 			"choices": [
@@ -2321,6 +3023,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Spark tuning",
+			"tags": [
+				"spark",
+				"compute",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "A 60 MB dimension table is joined to a large fact table with a sort-merge join that shuffles both sides. The executors have plenty of memory. Which change is most likely to speed up the job?",
 			"choices": [
@@ -2339,6 +3046,12 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Spark tuning",
+			"tags": [
+				"spark",
+				"compute",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A notebook on a classic cluster fails with an OutOfMemoryError on the driver while running df.collect() on a large result. Which setting matters most here?",
 			"choices": [
@@ -2357,6 +3070,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Spark tuning",
+			"tags": [
+				"spark",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "A job aggregates only 50 MB of data, yet the Spark UI shows 200 tiny shuffle tasks, each finishing in milliseconds with heavy scheduling overhead. What is the best tuning response?",
 			"choices": [
@@ -2375,6 +3092,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Spark tuning",
+			"tags": [
+				"spark",
+				"performance"
+			],
 			"difficulty": "easy",
 			"question": "After changing spark.sql.shuffle.partitions, how should an engineer tell whether performance actually improved?",
 			"choices": [
@@ -2393,6 +3114,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Spark tuning",
+			"tags": [
+				"spark",
+				"compute",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "An engineer runs spark.conf.set('spark.executor.memory', '16g') in a notebook on a running classic cluster, but the executors still OOM. Why?",
 			"choices": [
@@ -2411,6 +3137,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Spark tuning",
+			"tags": [
+				"spark",
+				"compute",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "A team has moved its notebooks to serverless compute and wants to keep tuning Spark configs. Which statement is true?",
 			"choices": [
@@ -2429,6 +3160,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Gold layer objects",
+			"tags": [
+				"pipelines",
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "What is the key difference between a view and a materialized view in Unity Catalog?",
 			"choices": [
@@ -2447,6 +3183,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Gold layer objects",
+			"tags": [
+				"pipelines",
+				"delta",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "Which statement best describes a streaming table?",
 			"choices": [
@@ -2465,6 +3206,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Gold layer objects",
+			"tags": [
+				"pipelines"
+			],
 			"difficulty": "medium",
 			"question": "A gold dataset aggregates revenue per day by joining several silver tables that receive updates and deletes. Many dashboards read it. Which object fits best?",
 			"choices": [
@@ -2483,6 +3227,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Gold layer objects",
+			"tags": [
+				"pipelines"
+			],
 			"difficulty": "medium",
 			"question": "Which statement creates a materialized view that refreshes every day at 03:30 UTC?",
 			"choices": [
@@ -2501,6 +3248,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Gold layer objects",
+			"tags": [
+				"pipelines",
+				"compute",
+				"cost"
+			],
 			"difficulty": "hard",
 			"question": "A materialized view is created and refreshed from a Pro SQL warehouse. Which compute does the actual data processing for the refresh, and how is it billed?",
 			"choices": [
@@ -2519,6 +3271,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Gold layer objects",
+			"tags": [
+				"pipelines"
+			],
 			"difficulty": "medium",
 			"question": "A materialized view must reflect a late correction to its source data right away, without waiting for its schedule. What should the engineer run?",
 			"choices": [
@@ -2537,6 +3292,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Gold layer objects",
+			"tags": [
+				"pipelines",
+				"spark",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "In a Lakeflow Spark Declarative Pipelines Python file (from pyspark import pipelines as dp), a function decorated with @dp.table returns spark.readStream.table('silver.events'). What is created?",
 			"choices": [
@@ -2555,6 +3315,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Gold layer objects",
+			"tags": [
+				"pipelines",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "An engineer changes the WHERE clause of an existing streaming table's query to remove a filter. What happens to the rows that the old filter excluded?",
 			"choices": [
@@ -2573,6 +3337,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Gold layer objects",
+			"tags": [
+				"pipelines",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "A materialized view should refresh automatically whenever its upstream source tables change, rather than on a fixed schedule. Which clause does this?",
 			"choices": [
@@ -2591,6 +3359,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Gold layer objects",
+			"tags": [
+				"unity-catalog"
+			],
 			"difficulty": "easy",
 			"question": "BI users need a gold object that always shows the current base data, holds no stored copy, and returns results computed when queried. Which object fits?",
 			"choices": [
@@ -2609,6 +3380,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data quality",
+			"tags": [
+				"data-quality",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A pipeline defines CONSTRAINT valid_email EXPECT (email IS NOT NULL) with no ON VIOLATION clause. What happens to rows with a NULL email?",
 			"choices": [
@@ -2627,6 +3402,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data quality",
+			"tags": [
+				"pipelines",
+				"streaming",
+				"data-quality"
+			],
 			"difficulty": "easy",
 			"question": "Which SQL expectation removes rows with a non-positive amount from a silver streaming table but lets the pipeline keep running?",
 			"choices": [
@@ -2645,6 +3425,11 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data quality",
+			"tags": [
+				"pipelines",
+				"data-quality",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A gold table feeds financial reporting. If even one record has a NULL account_id, the update must stop so that nothing is published. Which expectation action does this?",
 			"choices": [
@@ -2663,6 +3448,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data quality",
+			"tags": [
+				"data-quality"
+			],
 			"difficulty": "medium",
 			"question": "In a Python pipeline file, which decorator drops records that have a NULL id from the dataset being defined?",
 			"choices": [
@@ -2681,6 +3469,12 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data quality",
+			"tags": [
+				"pipelines",
+				"spark",
+				"data-quality",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "Where can an engineer see how many records passed or failed each expectation in a Lakeflow Spark Declarative Pipeline?",
 			"choices": [
@@ -2699,6 +3493,10 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data quality",
+			"tags": [
+				"data-quality",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "An engineer runs ALTER TABLE main.silver.payments ADD CONSTRAINT positive_amount CHECK (amount > 0). Later, an INSERT includes one row with amount = -5. What happens?",
 			"choices": [
@@ -2717,6 +3515,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data quality",
+			"tags": [
+				"data-quality"
+			],
 			"difficulty": "medium",
 			"question": "A silver table has a PRIMARY KEY (order_id) constraint, and a load inserts two rows with the same order_id. What happens?",
 			"choices": [
@@ -2735,6 +3536,9 @@
 			"section": 3,
 			"sectionName": "Data Transformation and Modeling",
 			"topic": "Data quality",
+			"tags": [
+				"data-quality"
+			],
 			"difficulty": "hard",
 			"question": "Invalid records must not reach the silver table, but they must be kept for investigation instead of being discarded. What is the recommended pipeline pattern?",
 			"choices": [
@@ -2753,6 +3557,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Retries",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A task has a 30-minute timeout and a retry policy of 2 retries. How do the timeout and the retries interact?",
 			"choices": [
@@ -2771,6 +3579,12 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Run if conditions",
+			"tags": [
+				"jobs",
+				"streaming",
+				"data-quality",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "A cleanup task should run after its upstream tasks finish, whether they succeeded or failed. Which Run if condition should it use?",
 			"choices": [
@@ -2789,6 +3603,12 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Run if conditions",
+			"tags": [
+				"jobs",
+				"ingestion",
+				"streaming",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "A notification task should run only if at least one of its upstream ingestion tasks failed. Which Run if condition should it use?",
 			"choices": [
@@ -2807,6 +3627,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Run if conditions",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "easy",
 			"question": "What is the default Run if condition for a task that has dependencies?",
 			"choices": [
@@ -2825,6 +3648,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Run if conditions",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Which Run if condition means that none of the dependencies failed and at least one dependency ran?",
 			"choices": [
@@ -2843,6 +3670,11 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "If/else condition task",
+			"tags": [
+				"jobs",
+				"git-folders",
+				"data-quality"
+			],
 			"difficulty": "medium",
 			"question": "A validation notebook task named validate sets a task value row_count. The load task should run only when row_count is greater than 0. How should the job be built?",
 			"choices": [
@@ -2861,6 +3693,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "If/else condition task",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "hard",
 			"question": "An If/else condition task compares the task value 12.0 with 12. Which statement about the result is correct?",
 			"choices": [
@@ -2879,6 +3714,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "For each task",
+			"tags": [
+				"jobs",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "One ingestion notebook must run once for each region in the list [\"us\", \"eu\", \"apac\"]. Which Lakeflow Jobs feature does this, and how does the notebook receive the current region?",
 			"choices": [
@@ -2897,6 +3736,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "For each task",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "medium",
 			"question": "A For each task over 40 table names runs its iterations one after another, which takes too long. What should be changed?",
 			"choices": [
@@ -2915,6 +3757,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "For each task",
+			"tags": [
+				"jobs",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "Which statement about the For each task is true?",
 			"choices": [
@@ -2933,6 +3779,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Repair runs",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "In a 10-task job run, task 6 fails, and tasks 7 and 8 depend on it. After the bug is fixed, what does Repair run do?",
 			"choices": [
@@ -2951,6 +3801,11 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Repair runs",
+			"tags": [
+				"jobs",
+				"data-quality",
+				"troubleshooting"
+			],
 			"difficulty": "hard",
 			"question": "A task appended half of its output to a table and then failed. What risk should the engineer consider before repairing the run?",
 			"choices": [
@@ -2969,6 +3824,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Modular orchestration",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "medium",
 			"question": "Several pipelines need to start the same shared 'refresh dimensions' job as one step of their own workflows. Which task type supports this modular design?",
 			"choices": [
@@ -2987,6 +3845,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Control flow",
+			"tags": [
+				"jobs",
+				"cicd"
+			],
 			"difficulty": "easy",
 			"question": "A task in a production job should be skipped temporarily, but its configuration and history must be kept. What should the engineer do?",
 			"choices": [
@@ -3005,6 +3867,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "SQL task",
+			"tags": [
+				"jobs",
+				"compute"
+			],
 			"difficulty": "medium",
 			"question": "Which compute must a SQL task in Lakeflow Jobs use?",
 			"choices": [
@@ -3023,6 +3889,11 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "SQL task",
+			"tags": [
+				"jobs",
+				"git-folders",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A job has to run etl/silver/build_orders.sql from the team's Git repository; the file holds several statements separated by semicolons. How should the task be configured?",
 			"choices": [
@@ -3041,6 +3912,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Dashboard task",
+			"tags": [
+				"jobs",
+				"compute"
+			],
 			"difficulty": "medium",
 			"question": "After the nightly ETL finishes, a published AI/BI dashboard must be refreshed and its subscribers emailed. Which task does this, and what does it require?",
 			"choices": [
@@ -3059,6 +3934,11 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Pipeline task",
+			"tags": [
+				"pipelines",
+				"jobs",
+				"spark"
+			],
 			"difficulty": "easy",
 			"question": "A Lakeflow Spark Declarative Pipeline has to run as one step of a multi-task job, and occasionally be reprocessed completely. Which task type is used, and which option reprocesses everything?",
 			"choices": [
@@ -3077,6 +3957,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Pipeline task",
+			"tags": [
+				"pipelines",
+				"jobs"
+			],
 			"difficulty": "hard",
 			"question": "A job containing a Pipeline task is set to a maximum of 5 concurrent runs, yet only one run is ever active at a time. Why?",
 			"choices": [
@@ -3095,6 +3979,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Task parameters",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "easy",
 			"question": "A notebook task is configured with the parameter run_date. How does the notebook code read its value?",
 			"choices": [
@@ -3113,6 +4000,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Job parameters",
+			"tags": [
+				"jobs",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A job defines the job-level parameter env with the default 'dev'. How can a task's settings refer to that value?",
 			"choices": [
@@ -3131,6 +4022,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Task values",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "medium",
 			"question": "A Python notebook task named extract has to pass the number of rows it loaded to later tasks. Which code sets the value?",
 			"choices": [
@@ -3149,6 +4043,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Task values",
+			"tags": [
+				"jobs",
+				"semi-structured"
+			],
 			"difficulty": "medium",
 			"question": "Which statement about task values is correct?",
 			"choices": [
@@ -3167,6 +4065,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Task dependencies",
+			"tags": [
+				"jobs",
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "Task A ingests data. Tasks B and C each depend on A, and task D depends on both B and C. With default settings, when does D start?",
 			"choices": [
@@ -3185,6 +4087,11 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Job compute",
+			"tags": [
+				"jobs",
+				"compute",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Five notebook tasks in one job each create their own job cluster, and startup time dominates the run. With classic compute, what reduces this overhead?",
 			"choices": [
@@ -3203,6 +4110,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Dynamic value references",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "medium",
 			"question": "A task parameter should hold the date of the run in ISO format (for example 2026-10-07), without any code computing it. Which value should be used?",
 			"choices": [
@@ -3221,6 +4131,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Task types",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "medium",
 			"question": "The team ships its transformation logic as a Python package. Which task type runs a function from it through an entry point defined in the package?",
 			"choices": [
@@ -3239,6 +4152,13 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "File arrival trigger",
+			"tags": [
+				"jobs",
+				"unity-catalog",
+				"ingestion",
+				"governance",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "Which storage locations can a Lakeflow Jobs file arrival trigger monitor?",
 			"choices": [
@@ -3257,6 +4177,12 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "File arrival trigger",
+			"tags": [
+				"jobs",
+				"ingestion",
+				"data-quality",
+				"cost"
+			],
 			"difficulty": "medium",
 			"question": "How often does a file arrival trigger check for new files, and what does checking cost?",
 			"choices": [
@@ -3275,6 +4201,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "File arrival trigger",
+			"tags": [
+				"jobs",
+				"ingestion"
+			],
 			"difficulty": "hard",
 			"question": "Without file events enabled on the external location, which limits apply to file arrival triggers?",
 			"choices": [
@@ -3293,6 +4223,13 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "File arrival trigger",
+			"tags": [
+				"jobs",
+				"unity-catalog",
+				"ingestion",
+				"streaming",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "An upstream system overwrites daily_extract.csv in a monitored volume each day, using the same file name. The file arrival trigger never fires. Why?",
 			"choices": [
@@ -3311,6 +4248,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "File arrival trigger",
+			"tags": [
+				"jobs",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "Files for a batch arrive one by one over several minutes, and the job should start only once the batch has finished landing. Which file arrival setting helps?",
 			"choices": [
@@ -3329,6 +4270,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "File arrival trigger",
+			"tags": [
+				"jobs",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "Files arrive constantly, but the job should run at most once every 15 minutes. Which setting enforces that?",
 			"choices": [
@@ -3347,6 +4292,12 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Table update trigger",
+			"tags": [
+				"jobs",
+				"unity-catalog",
+				"streaming",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A job should start when either of two upstream Unity Catalog tables is updated. What does a table update trigger support?",
 			"choices": [
@@ -3365,6 +4316,11 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Table update trigger",
+			"tags": [
+				"jobs",
+				"governance",
+				"troubleshooting"
+			],
 			"difficulty": "hard",
 			"question": "A table update trigger has been configured, but the job never starts when the monitored table changes. Which permission problem is the most likely cause?",
 			"choices": [
@@ -3383,6 +4339,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Scheduled trigger",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "medium",
 			"question": "A job uses the Quartz cron expression 0 0 2 * * ? with the time zone set to UTC. When does it run?",
 			"choices": [
@@ -3401,6 +4360,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Scheduled trigger",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "medium",
 			"question": "Which statement about scheduled triggers in Lakeflow Jobs is correct?",
 			"choices": [
@@ -3419,6 +4381,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Scheduled trigger",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "medium",
 			"question": "An hourly job scheduled in a time zone that observes daylight saving time sometimes appears skipped or delayed when the clocks change. What does Databricks recommend for running on every absolute hour?",
 			"choices": [
@@ -3437,6 +4402,11 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Continuous trigger",
+			"tags": [
+				"jobs",
+				"streaming",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "What does a continuous trigger do in Lakeflow Jobs?",
 			"choices": [
@@ -3455,6 +4425,11 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Choosing a trigger",
+			"tags": [
+				"jobs",
+				"unity-catalog",
+				"ingestion"
+			],
 			"difficulty": "easy",
 			"question": "A vendor drops files into a volume at unpredictable times, sometimes twice a day and sometimes not for three days. Processing should start soon after each delivery without wasting runs. Which trigger fits?",
 			"choices": [
@@ -3473,6 +4448,11 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Choosing a trigger",
+			"tags": [
+				"jobs",
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Another team's job refreshes the Unity Catalog table finance.silver.ledger at varying times. Your gold job should run right after each refresh, without coordinating schedules between the teams. Which trigger fits?",
 			"choices": [
@@ -3491,6 +4471,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Choosing a trigger",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "easy",
 			"question": "Executives need a summary report refreshed by 07:00 every business day, whether or not new data has arrived. Which trigger fits?",
 			"choices": [
@@ -3509,6 +4492,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Choosing a trigger",
+			"tags": [
+				"jobs",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "What is the main advantage of data-driven triggers (file arrival, table update) over a frequent polling schedule?",
 			"choices": [
@@ -3527,6 +4514,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Choosing a trigger",
+			"tags": [
+				"jobs",
+				"ingestion"
+			],
 			"difficulty": "medium",
 			"question": "In one job, the transform task should run as soon as the ingest task finishes. Which mechanism should the engineer use?",
 			"choices": [
@@ -3545,6 +4536,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Choosing a trigger",
+			"tags": [
+				"jobs",
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "A gold job joins orders and payments, and should run only once both silver tables have been refreshed since its last run. How should the trigger be configured?",
 			"choices": [
@@ -3563,6 +4558,10 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Choosing a trigger",
+			"tags": [
+				"jobs",
+				"streaming"
+			],
 			"difficulty": "medium",
 			"question": "A fraud model needs events processed within seconds of arrival. Which design fits best?",
 			"choices": [
@@ -3581,6 +4580,9 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "Choosing a trigger",
+			"tags": [
+				"jobs"
+			],
 			"difficulty": "easy",
 			"question": "Month-end close processing must run at 23:00 on the last day of each month. Which trigger fits?",
 			"choices": [
@@ -3599,6 +4601,11 @@
 			"section": 4,
 			"sectionName": "Working with Lakeflow Jobs",
 			"topic": "File arrival trigger",
+			"tags": [
+				"jobs",
+				"ingestion",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A job started by a file arrival trigger needs to pass the monitored storage location to its notebook as a parameter. Which dynamic value reference provides it?",
 			"choices": [
@@ -3617,6 +4624,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Git folders",
+			"tags": [
+				"git-folders",
+				"cicd"
+			],
 			"difficulty": "easy",
 			"question": "A developer wants to start a feature branch from main inside a Databricks Git folder. What do they do?",
 			"choices": [
@@ -3635,6 +4646,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Git folders",
+			"tags": [
+				"git-folders",
+				"cicd"
+			],
 			"difficulty": "easy",
 			"question": "How are changes committed from a Databricks Git folder in the workspace UI?",
 			"choices": [
@@ -3653,6 +4668,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Git folders",
+			"tags": [
+				"git-folders",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A developer has pushed a feature branch from a Git folder and wants it reviewed and merged into main, which is protected. How is the pull request created?",
 			"choices": [
@@ -3671,6 +4690,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Git folders",
+			"tags": [
+				"git-folders",
+				"troubleshooting",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A developer has uncommitted edits on feature-a and switches the Git folder to feature-b. What happens to the edits?",
 			"choices": [
@@ -3689,6 +4713,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Git folders",
+			"tags": [
+				"git-folders",
+				"streaming",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A developer clicks Pull in a Git folder while notebooks in it are attached and have run cells. What side effect should they expect?",
 			"choices": [
@@ -3707,6 +4736,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Git folders",
+			"tags": [
+				"git-folders",
+				"cicd"
+			],
 			"difficulty": "easy",
 			"question": "Five engineers are working on the same repository. What is the recommended Git folder setup?",
 			"choices": [
@@ -3725,6 +4758,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Git folders",
+			"tags": [
+				"git-folders",
+				"cicd"
+			],
 			"difficulty": "hard",
 			"question": "Which statement about rebase and reset in Databricks Git folders is correct?",
 			"choices": [
@@ -3743,6 +4780,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Git folders",
+			"tags": [
+				"git-folders",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A team uses a shared production Git folder as the code source for its jobs. How should that folder be kept up to date?",
 			"choices": [
@@ -3761,6 +4802,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Bundle variables",
+			"tags": [
+				"unity-catalog",
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "easy",
 			"question": "In a bundle's databricks.yml, a custom variable catalog is declared with the default dev_catalog. How is it referenced elsewhere in the configuration?",
 			"choices": [
@@ -3779,6 +4825,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Bundle variables",
+			"tags": [
+				"bundles",
+				"cli",
+				"cicd"
+			],
 			"difficulty": "hard",
 			"question": "A bundle variable has a value in several places. Which list orders them from highest to lowest precedence?",
 			"choices": [
@@ -3797,6 +4848,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Bundle variables",
+			"tags": [
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A CI/CD pipeline must set the bundle variable warehouse_id without editing databricks.yml and without passing command-line flags. How can it do this?",
 			"choices": [
@@ -3815,6 +4870,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Bundle variables",
+			"tags": [
+				"unity-catalog",
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "The variable catalog should be dev_catalog by default but prod_catalog when deploying to the prod target. How is this written in databricks.yml?",
 			"choices": [
@@ -3833,6 +4893,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Bundle variables",
+			"tags": [
+				"compute",
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A job in a bundle needs the ID of the SQL warehouse named 'Shared Analytics', and that ID differs in each workspace. Which feature avoids hardcoding the IDs?",
 			"choices": [
@@ -3851,6 +4916,12 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Bundle variables",
+			"tags": [
+				"spark",
+				"compute",
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A team wants one bundle variable to hold an entire cluster specification (node type, worker count, Spark version) that several jobs can reuse. How is it declared?",
 			"choices": [
@@ -3869,6 +4940,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Bundle substitutions",
+			"tags": [
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "Pipelines should write to a schema named after the deployment target, such as sales_dev or sales_prod, without a separate variable for each target. Which substitution helps?",
 			"choices": [
@@ -3887,6 +4962,12 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Bundle targets",
+			"tags": [
+				"jobs",
+				"compute",
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "hard",
 			"question": "The top-level resources mapping defines a job with a notebook task and a small job cluster. The prod target needs a bigger cluster but the same task. What is the right approach?",
 			"choices": [
@@ -3905,6 +4986,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Bundle deployment modes",
+			"tags": [
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A developer deploys a bundle to a target with mode: development. Which behaviors does that mode turn on?",
 			"choices": [
@@ -3923,6 +5008,12 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Bundle deployment modes",
+			"tags": [
+				"compute",
+				"bundles",
+				"git-folders",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "Which checks does mode: production add to a bundle target?",
 			"choices": [
@@ -3941,6 +5032,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Declarative Automation Bundles",
+			"tags": [
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "easy",
 			"question": "What do Declarative Automation Bundles (formerly Databricks Asset Bundles) package and deploy?",
 			"choices": [
@@ -3959,6 +5054,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Declarative Automation Bundles",
+			"tags": [
+				"bundles",
+				"cli",
+				"cicd"
+			],
 			"difficulty": "easy",
 			"question": "A team wants to start a new bundle project from a standard Python project layout with example jobs and pipelines. Which command should it run?",
 			"choices": [
@@ -3977,6 +5077,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Declarative Automation Bundles",
+			"tags": [
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A bundle's databricks.yml is becoming too long. How can each job and pipeline definition live in its own YAML file under resources/?",
 			"choices": [
@@ -3995,6 +5099,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Declarative Automation Bundles",
+			"tags": [
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "Using bundles, how does a team promote the same pipeline code from dev to test to prod?",
 			"choices": [
@@ -4013,6 +5121,10 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Declarative Automation Bundles",
+			"tags": [
+				"bundles",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "Production jobs deployed by a bundle should not run under any individual engineer's identity. What should the prod target configure?",
 			"choices": [
@@ -4031,6 +5143,12 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Databricks CLI",
+			"tags": [
+				"bundles",
+				"cli",
+				"data-quality",
+				"cicd"
+			],
 			"difficulty": "easy",
 			"question": "Which CLI command checks that a bundle's configuration files are syntactically correct, and shows the resolved values, before anything is deployed?",
 			"choices": [
@@ -4049,6 +5167,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Databricks CLI",
+			"tags": [
+				"bundles",
+				"cli",
+				"cicd"
+			],
 			"difficulty": "easy",
 			"question": "Which command deploys a bundle to the prod target that is defined in databricks.yml?",
 			"choices": [
@@ -4067,6 +5190,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Databricks CLI",
+			"tags": [
+				"bundles",
+				"cli",
+				"cicd"
+			],
 			"difficulty": "easy",
 			"question": "A bundle defines a job under the resource key nightly_etl. After deploying to dev, how does the developer run it from the CLI?",
 			"choices": [
@@ -4085,6 +5213,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Databricks CLI",
+			"tags": [
+				"bundles",
+				"cli",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A feature is cancelled, and every job, pipeline, and file that its bundle deployed to the dev workspace should be removed. Which command does this?",
 			"choices": [
@@ -4103,6 +5236,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Databricks CLI",
+			"tags": [
+				"bundles",
+				"cli",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "Before a production deployment, a reviewer wants to see which resources would be created, updated, or deleted, without changing anything. Which command shows that?",
 			"choices": [
@@ -4121,6 +5259,12 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "Databricks CLI",
+			"tags": [
+				"bundles",
+				"cli",
+				"data-quality",
+				"cicd"
+			],
 			"difficulty": "hard",
 			"question": "A job was built by hand in the UI, and the team now wants to manage it with a bundle without creating a duplicate. Which commands should it use?",
 			"choices": [
@@ -4139,6 +5283,11 @@
 			"section": 5,
 			"sectionName": "Implementing CI/CD",
 			"topic": "CI/CD authentication",
+			"tags": [
+				"bundles",
+				"cli",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A GitHub Actions workflow runs databricks bundle deploy against production. How should it authenticate?",
 			"choices": [
@@ -4157,6 +5306,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Run history",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "In a job's matrix view of run history, what does the height of each run bar and task bar represent?",
 			"choices": [
@@ -4175,6 +5328,11 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Run history",
+			"tags": [
+				"jobs",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A nightly job that used to take 40 minutes now takes 70. The engineer wants to find which task is responsible and when the slowdown began. What is the quickest way?",
 			"choices": [
@@ -4193,6 +5351,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Run history",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Leadership wants job duration trends over the past 6 months, but the Jobs UI only reaches back about two months. Where should the engineer look?",
 			"choices": [
@@ -4211,6 +5373,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Run history",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "The team wants an alert whenever an important job runs much longer than its usual 30 minutes, even if it still succeeds. What should it configure?",
 			"choices": [
@@ -4229,6 +5395,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Run history",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "In a single job run with many parallel tasks, which view best shows which tasks took longest and how they overlapped?",
 			"choices": [
@@ -4247,6 +5417,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Job statuses",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A job run shows the status 'Succeeded with failures'. What does that mean?",
 			"choices": [
@@ -4265,6 +5439,11 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Job statuses",
+			"tags": [
+				"jobs",
+				"streaming",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "Task C depends on task B, and B fails. C uses the default Run if condition. Which status does C show?",
 			"choices": [
@@ -4283,6 +5462,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Job statuses",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A notify_on_failure task with the Run if condition At least one failed shows 'Excluded' in a run where everything succeeded. How should this be read?",
 			"choices": [
@@ -4301,6 +5484,11 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Job monitoring",
+			"tags": [
+				"jobs",
+				"streaming",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "A 12-task job run failed, and several downstream tasks never ran. How can the engineer find the upstream task that blocked the run?",
 			"choices": [
@@ -4319,6 +5507,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Job monitoring",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "An on-call engineer needs an overview of recent failures across every job and pipeline in the workspace, including runs started by external orchestrators such as Airflow. Where should they look?",
 			"choices": [
@@ -4337,6 +5529,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Job monitoring",
+			"tags": [
+				"jobs",
+				"troubleshooting"
+			],
 			"difficulty": "hard",
 			"question": "A job is scheduled every 5 minutes, allows 1 concurrent run, and has queueing turned off. Some runs appear as 'Skipped'. What is the most likely cause?",
 			"choices": [
@@ -4355,6 +5551,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Spark UI",
+			"tags": [
+				"spark",
+				"data-quality",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "In the Spark UI for a slow stage, the task summary shows a median duration of 20 seconds but a maximum of 14 minutes, and the maximum shuffle read is far larger than the median. What does this indicate, and what should be checked first?",
 			"choices": [
@@ -4373,6 +5575,11 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Spark UI",
+			"tags": [
+				"spark",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A stage's detail page shows large Spill (Memory) and Spill (Disk) values. What does that mean?",
 			"choices": [
@@ -4391,6 +5598,11 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Spark UI",
+			"tags": [
+				"spark",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "The Spark UI shows a stage writing hundreds of gigabytes of shuffle data before a join of a huge fact table with a 15 MB reference table. Which change most directly cuts the shuffle?",
 			"choices": [
@@ -4409,6 +5621,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Spark UI",
+			"tags": [
+				"spark",
+				"compute",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "In the Spark UI, tasks in a stage show GC Time making up a large share of their duration. What does this usually indicate?",
 			"choices": [
@@ -4427,6 +5645,11 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Spark UI",
+			"tags": [
+				"spark",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "According to the Databricks Spark UI diagnosis guide, where should you start investigating a slow Spark job?",
 			"choices": [
@@ -4445,6 +5668,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Query profile",
+			"tags": [
+				"spark",
+				"compute",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "easy",
 			"question": "A slow notebook runs on serverless compute, and the engineer can't find the Spark UI. What should they use instead?",
 			"choices": [
@@ -4463,6 +5692,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Spark UI",
+			"tags": [
+				"delta",
+				"spark",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A query against a Delta table launches thousands of tasks, each reading only a few kilobytes, and spends most of its time on overhead. What is the likely cause, and the fix?",
 			"choices": [
@@ -4481,6 +5716,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Liquid clustering",
+			"tags": [
+				"delta",
+				"compute",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Which statement about liquid clustering on Delta tables is correct?",
 			"choices": [
@@ -4499,6 +5740,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Liquid clustering",
+			"tags": [
+				"delta",
+				"compute",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Query patterns have changed, and a liquid-clustered table should now be clustered by customer_id instead of order_date. What happens when the engineer runs ALTER TABLE t CLUSTER BY (customer_id)?",
 			"choices": [
@@ -4517,6 +5764,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Liquid clustering",
+			"tags": [
+				"delta",
+				"streaming",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "How is data in a liquid-clustered table actually reclustered?",
 			"choices": [
@@ -4535,6 +5788,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Liquid clustering",
+			"tags": [
+				"delta",
+				"compute",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "hard",
 			"question": "An engineer wants Databricks to choose and adapt a table's clustering keys automatically based on its query history. What is required?",
 			"choices": [
@@ -4553,6 +5812,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Predictive optimization",
+			"tags": [
+				"delta",
+				"compute",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Which statement about predictive optimization is correct?",
 			"choices": [
@@ -4571,6 +5836,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Predictive optimization",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Predictive optimization should be enabled for every managed table in the sales catalog except those in sales.sandbox, and the operations it performs need to be monitored. What should the engineer do?",
 			"choices": [
@@ -4589,6 +5860,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Cluster startup failures",
+			"tags": [
+				"compute",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A classic cluster fails to start with the termination reason INIT_SCRIPT_FAILURE. What should the engineer do first?",
 			"choices": [
@@ -4607,6 +5882,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Cluster startup failures",
+			"tags": [
+				"compute",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A cluster won't launch, and the event log shows that the cloud provider couldn't allocate the requested VM size in the zone (a stockout), or that a quota was exceeded. Which actions are appropriate?",
 			"choices": [
@@ -4625,6 +5904,10 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Library conflicts",
+			"tags": [
+				"compute",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Version 1.5 of a library is installed as a cluster library, and a notebook runs %pip install mylib==2.0. Which version does that notebook use, and does it affect other notebooks on the cluster?",
 			"choices": [
@@ -4643,6 +5926,9 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Library conflicts",
+			"tags": [
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Halfway through a session, a notebook upgrades a package with %pip install, but import still returns the old version that was loaded earlier. What should the engineer run?",
 			"choices": [
@@ -4661,6 +5947,12 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Out-of-memory issues",
+			"tags": [
+				"spark",
+				"compute",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "A job fails with 'Driver is temporarily unavailable', and the event log shows Driver_Not_Responding with a message about GC. The notebook calls toPandas() on a large DataFrame. What is the best fix?",
 			"choices": [
@@ -4679,6 +5971,13 @@
 			"section": 6,
 			"sectionName": "Troubleshooting, Monitoring, and Optimization",
 			"topic": "Out-of-memory issues",
+			"tags": [
+				"spark",
+				"compute",
+				"performance",
+				"troubleshooting",
+				"cicd"
+			],
 			"difficulty": "hard",
 			"question": "A few executor tasks fail with OutOfMemoryError during a large join, while most tasks finish without trouble. Which response best targets the root cause?",
 			"choices": [
@@ -4697,6 +5996,11 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Managed vs external tables",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "What happens to the data files when a Unity Catalog managed table is dropped?",
 			"choices": [
@@ -4715,6 +6019,11 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Managed vs external tables",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "What happens when an external table in Unity Catalog is dropped?",
 			"choices": [
@@ -4733,6 +6042,11 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Managed vs external tables",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "An engineer needs a Unity Catalog table over existing data at s3://acme-data/erp/orders/. What is required?",
 			"choices": [
@@ -4751,6 +6065,12 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Managed vs external tables",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"governance",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "Which capabilities are available on Unity Catalog managed tables but not on external tables?",
 			"choices": [
@@ -4769,6 +6089,11 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Converting tables",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "An existing external Delta table in Unity Catalog should become a managed table, with minimal downtime and without recreating it. Which command does this?",
 			"choices": [
@@ -4787,6 +6112,11 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Converting tables",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A week after running ALTER TABLE ... SET MANAGED, the team finds that an external reader still needs the original path and wants to roll the conversion back. What is possible?",
 			"choices": [
@@ -4805,6 +6135,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Converting tables",
+			"tags": [
+				"delta",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A managed table, main.sales.orders, must become an external table at s3://acme-ext/orders/. There is no in-place ALTER for this direction. What is a valid approach?",
 			"choices": [
@@ -4823,6 +6157,11 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Managed vs external tables",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Where does Unity Catalog store the data files of a managed table?",
 			"choices": [
@@ -4841,6 +6180,12 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Managed vs external tables",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"semi-structured",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Which file formats can Unity Catalog external tables use?",
 			"choices": [
@@ -4859,6 +6204,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Managed vs external tables",
+			"tags": [
+				"delta",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "A user dropped the managed table main.hr.employees by mistake two days ago, and the default retention settings are unchanged. How can it be recovered?",
 			"choices": [
@@ -4877,6 +6226,11 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Managed vs external tables",
+			"tags": [
+				"delta",
+				"data-quality",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "How can an engineer check whether main.sales.orders is a managed or an external table, and where its files are?",
 			"choices": [
@@ -4895,6 +6249,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Managed vs external tables",
+			"tags": [
+				"delta",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "When does Databricks recommend an external table over a managed table?",
 			"choices": [
@@ -4913,6 +6271,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "What is the minimum set of privileges the analysts group needs to query the table main.sales.orders?",
 			"choices": [
@@ -4931,6 +6293,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "Which SQL statement gives the analysts account group read access to main.sales.orders?",
 			"choices": [
@@ -4949,6 +6315,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "The contractors group should no longer be able to modify main.sales.orders. Which statement removes that privilege?",
 			"choices": [
@@ -4967,6 +6337,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "An admin runs GRANT SELECT ON SCHEMA main.sales TO `analysts`. Which tables can the analysts read, provided they also have USE CATALOG and USE SCHEMA?",
 			"choices": [
@@ -4985,6 +6359,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A security lead asks for a DENY SELECT statement on a Unity Catalog table to block a group. What is the correct response?",
 			"choices": [
@@ -5003,6 +6381,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "In the legacy hive_metastore catalog with table access control, a user has been DENIED SELECT on a table and is also GRANTED SELECT through a group. How is this resolved, and how is the DENY undone?",
 			"choices": [
@@ -5021,6 +6403,12 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"jobs",
+				"unity-catalog",
+				"governance",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "A production job runs as a service principal that needs to write to main.silver.orders. How is the service principal named in a GRANT statement?",
 			"choices": [
@@ -5039,6 +6427,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "How can a table owner give the analysts group read access to a table without writing SQL?",
 			"choices": [
@@ -5057,6 +6449,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "Which Unity Catalog privilege allows inserting, updating, and deleting rows in a table?",
 			"choices": [
@@ -5075,6 +6471,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A team lead is granted ALL PRIVILEGES on the schema main.marketing. Which ability does that grant NOT include?",
 			"choices": [
@@ -5093,6 +6493,9 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "The engineer who owns main.sales.orders is leaving the company. Ownership should go to the data_engineers group. Which statement does this?",
 			"choices": [
@@ -5111,6 +6514,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "An auditor wants to see which principals hold which privileges on main.sales.orders. Which command shows this?",
 			"choices": [
@@ -5129,6 +6536,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Access control",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Analysts should be able to discover which tables exist in a catalog, and see their metadata in Catalog Explorer, without being able to read any data. Which privilege fits?",
 			"choices": [
@@ -5147,6 +6558,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Row filters",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "The function region_filter(region STRING) RETURNS BOOLEAN already exists. How is it attached as a row filter on the region column of main.sales.orders?",
 			"choices": [
@@ -5165,6 +6580,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Column masks",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "The mask function ssn_mask(ssn STRING) RETURNS STRING exists. Which statement applies it to the ssn column of main.hr.employees?",
 			"choices": [
@@ -5183,6 +6602,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Column masks",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Members of the hr_admins group should see full SSNs, and everyone else only the last four digits. Which mask function body does this?",
 			"choices": [
@@ -5201,6 +6624,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Row filters",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Why should row filter and column mask functions in Unity Catalog generally use is_account_group_member() rather than is_member()?",
 			"choices": [
@@ -5219,6 +6646,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Row filters",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "Members of us_sales should see only rows where region = 'US', and members of admins should see every row. Which row filter function body does this?",
 			"choices": [
@@ -5237,6 +6668,11 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Row filters and column masks",
+			"tags": [
+				"delta",
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "Which statement about tables with row filters or column masks is correct?",
 			"choices": [
@@ -5255,6 +6691,12 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Row filters and column masks",
+			"tags": [
+				"unity-catalog",
+				"governance",
+				"performance",
+				"troubleshooting"
+			],
 			"difficulty": "medium",
 			"question": "Row filter functions on large tables are slowing queries down. Which guidance does Databricks give for writing these functions?",
 			"choices": [
@@ -5273,6 +6715,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Dynamic views",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "A team wants to share a curated subset of a table's columns, with an email column redacted for non-members of a group, without attaching a filter or mask to the base table. Which approach fits?",
 			"choices": [
@@ -5291,6 +6737,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Row filters and column masks",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "Masking must be removed from the ssn column of main.hr.employees. Which statement does this?",
 			"choices": [
@@ -5309,6 +6759,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "Row filters and column masks",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "How are row filters and column masks applied when a user queries a protected table?",
 			"choices": [
@@ -5327,6 +6781,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "What is the main advantage of Unity Catalog attribute-based access control (ABAC) policies over per-table row filters and column masks?",
 			"choices": [
@@ -5345,6 +6803,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "What are governed tags in Databricks?",
 			"choices": [
@@ -5363,6 +6825,11 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance",
+				"cicd"
+			],
 			"difficulty": "hard",
 			"question": "Which policy masks every column tagged pii=ssn, for all tables in the schema prod.customers, for us_analysts but not for admins?",
 			"choices": [
@@ -5381,6 +6848,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "In an ABAC row filter policy, what does MATCH COLUMNS has_tag('geo_region') AS region USING COLUMNS (region) do?",
 			"choices": [
@@ -5399,6 +6870,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "At which levels can ABAC row filter and column mask policies be attached, and how do they reach child objects?",
 			"choices": [
@@ -5417,6 +6892,11 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance",
+				"cicd"
+			],
 			"difficulty": "medium",
 			"question": "What does a user need in order to create an ABAC policy on the catalog prod?",
 			"choices": [
@@ -5435,6 +6915,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "easy",
 			"question": "In an ABAC policy written as TO `account users` EXCEPT `compliance_team`, what do members of compliance_team see?",
 			"choices": [
@@ -5453,6 +6937,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "An ABAC row filter policy on a schema has no WHEN clause. Which tables does it apply to?",
 			"choices": [
@@ -5471,6 +6959,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "Governance wants to stop table owners in the finance catalog (other than data_admins) from granting access to tables tagged sensitive, even though owners can normally grant privileges. Which Unity Catalog feature does this?",
 			"choices": [
@@ -5489,6 +6981,10 @@
 			"section": 7,
 			"sectionName": "Governance and Security",
 			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "SHOW GRANTS on a table shows that a user holds SELECT, yet the user sees masked values. Which command reveals the policies affecting that table, inherited ones included?",
 			"choices": [

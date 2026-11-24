@@ -100,12 +100,167 @@
 			"questionCount": 20
 		}
 	],
+	"tags": [
+		{
+			"id": "capacity",
+			"name": "Capacity and SKUs",
+			"kind": "technology",
+			"count": 72
+		},
+		{
+			"id": "throttling",
+			"name": "Smoothing and throttling",
+			"kind": "technology",
+			"count": 23
+		},
+		{
+			"id": "onelake",
+			"name": "OneLake",
+			"kind": "technology",
+			"count": 49
+		},
+		{
+			"id": "shortcuts",
+			"name": "Shortcuts",
+			"kind": "technology",
+			"count": 13
+		},
+		{
+			"id": "mirroring",
+			"name": "Mirroring",
+			"kind": "technology",
+			"count": 21
+		},
+		{
+			"id": "direct-lake",
+			"name": "Direct Lake",
+			"kind": "technology",
+			"count": 16
+		},
+		{
+			"id": "power-bi",
+			"name": "Power BI",
+			"kind": "technology",
+			"count": 34
+		},
+		{
+			"id": "warehouse",
+			"name": "Warehouse and SQL",
+			"kind": "technology",
+			"count": 18
+		},
+		{
+			"id": "spark",
+			"name": "Spark and data engineering",
+			"kind": "technology",
+			"count": 20
+		},
+		{
+			"id": "rti",
+			"name": "Real-Time Intelligence",
+			"kind": "technology",
+			"count": 8
+		},
+		{
+			"id": "data-factory",
+			"name": "Data Factory",
+			"kind": "technology",
+			"count": 7
+		},
+		{
+			"id": "data-agents",
+			"name": "Fabric data agents",
+			"kind": "technology",
+			"count": 8
+		},
+		{
+			"id": "copilot-fabric",
+			"name": "Copilot in Fabric",
+			"kind": "technology",
+			"count": 18
+		},
+		{
+			"id": "fabric-iq",
+			"name": "Fabric IQ",
+			"kind": "technology",
+			"count": 3
+		},
+		{
+			"id": "databricks",
+			"name": "Databricks interop",
+			"kind": "technology",
+			"count": 22
+		},
+		{
+			"id": "networking",
+			"name": "Networking",
+			"kind": "technology",
+			"count": 13
+		},
+		{
+			"id": "cicd",
+			"name": "CI/CD",
+			"kind": "technology",
+			"count": 2
+		},
+		{
+			"id": "pricing",
+			"name": "Pricing and cost",
+			"kind": "theme",
+			"count": 42
+		},
+		{
+			"id": "licensing",
+			"name": "Licensing",
+			"kind": "theme",
+			"count": 25
+		},
+		{
+			"id": "governance",
+			"name": "Governance",
+			"kind": "theme",
+			"count": 19
+		},
+		{
+			"id": "security",
+			"name": "Security and identity",
+			"kind": "theme",
+			"count": 40
+		},
+		{
+			"id": "oversharing",
+			"name": "Oversharing",
+			"kind": "theme",
+			"count": 12
+		},
+		{
+			"id": "residency",
+			"name": "Data residency and privacy",
+			"kind": "theme",
+			"count": 12
+		},
+		{
+			"id": "performance",
+			"name": "Performance and freshness",
+			"kind": "theme",
+			"count": 18
+		},
+		{
+			"id": "whats-new",
+			"name": "New in 2026",
+			"kind": "theme",
+			"count": 4
+		}
+	],
 	"questions": [
 		{
 			"id": "F1-001",
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "OneLake",
+			"tags": [
+				"onelake"
+			],
 			"difficulty": "easy",
 			"question": "How many OneLake instances does a Fabric tenant get?",
 			"choices": [
@@ -124,6 +279,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "OneLake",
+			"tags": [
+				"onelake"
+			],
 			"difficulty": "medium",
 			"question": "In what open table formats does OneLake store and expose tables?",
 			"choices": [
@@ -142,6 +300,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "OneLake",
+			"tags": [
+				"onelake"
+			],
 			"difficulty": "medium",
 			"question": "How can existing ADLS tools and SDKs access OneLake?",
 			"choices": [
@@ -160,6 +321,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Warehouse vs lakehouse",
+			"tags": [
+				"warehouse"
+			],
 			"difficulty": "medium",
 			"question": "What's the key difference between a Fabric Warehouse and a Lakehouse's SQL analytics endpoint?",
 			"choices": [
@@ -178,6 +342,12 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "SQL analytics endpoint",
+			"tags": [
+				"power-bi",
+				"warehouse",
+				"spark",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "A Spark job writes new rows to a lakehouse table, but a report on the SQL analytics endpoint doesn't show them for a while. Why?",
 			"choices": [
@@ -196,6 +366,10 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "SQL analytics endpoint",
+			"tags": [
+				"warehouse",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "What does Microsoft say about the SQL analytics endpoint's sync when many lakehouses share one workspace?",
 			"choices": [
@@ -214,6 +388,10 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "SQL database",
+			"tags": [
+				"onelake",
+				"warehouse"
+			],
 			"difficulty": "medium",
 			"question": "What is SQL database in Fabric?",
 			"choices": [
@@ -232,6 +410,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Real-Time Intelligence",
+			"tags": [
+				"rti"
+			],
 			"difficulty": "easy",
 			"question": "In Fabric Real-Time Intelligence, what is an Eventhouse?",
 			"choices": [
@@ -250,6 +431,10 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Real-Time Intelligence",
+			"tags": [
+				"spark",
+				"rti"
+			],
 			"difficulty": "medium",
 			"question": "Which Real-Time Intelligence component turns detected conditions into actions such as running a pipeline, a notebook or a Power Automate flow?",
 			"choices": [
@@ -268,6 +453,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Real-Time Intelligence",
+			"tags": [
+				"rti"
+			],
 			"difficulty": "medium",
 			"question": "What does Eventstream do?",
 			"choices": [
@@ -286,6 +474,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Data Factory",
+			"tags": [
+				"data-factory"
+			],
 			"difficulty": "medium",
 			"question": "Which Data Factory item does Microsoft describe as the preferred solution for simplified data movement, supporting bulk, incremental and CDC copies?",
 			"choices": [
@@ -304,6 +495,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Data Factory",
+			"tags": [
+				"data-factory"
+			],
 			"difficulty": "easy",
 			"question": "What is Dataflow Gen2 used for in Fabric?",
 			"choices": [
@@ -322,6 +516,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Spark",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "What is the Native Execution Engine in Fabric Spark?",
 			"choices": [
@@ -340,6 +537,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Spark",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "What is a Fabric environment?",
 			"choices": [
@@ -358,6 +558,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Data Science",
+			"tags": [
+				"spark"
+			],
 			"difficulty": "easy",
 			"question": "What does Microsoft position Fabric Data Science for?",
 			"choices": [
@@ -376,6 +579,11 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Fabric IQ",
+			"tags": [
+				"power-bi",
+				"data-agents",
+				"fabric-iq"
+			],
 			"difficulty": "medium",
 			"question": "What does Microsoft's Fabric overview describe Fabric IQ as unifying?",
 			"choices": [
@@ -394,6 +602,10 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Ignite 2026",
+			"tags": [
+				"warehouse",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "Which Fabric capabilities did Microsoft announce as generally available at Ignite 2026?",
 			"choices": [
@@ -412,6 +624,12 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Ignite 2026",
+			"tags": [
+				"capacity",
+				"onelake",
+				"warehouse",
+				"whats-new"
+			],
 			"difficulty": "hard",
 			"question": "What is Fabric HorizonDB, announced in preview at Ignite 2026?",
 			"choices": [
@@ -430,6 +648,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Workloads",
+			"tags": [
+				"onelake"
+			],
 			"difficulty": "easy",
 			"question": "What underlies every Fabric workload?",
 			"choices": [
@@ -448,6 +669,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Warehouse",
+			"tags": [
+				"warehouse"
+			],
 			"difficulty": "medium",
 			"question": "How do cross-database queries work in Fabric?",
 			"choices": [
@@ -466,6 +690,9 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Data Factory",
+			"tags": [
+				"data-factory"
+			],
 			"difficulty": "medium",
 			"question": "What availability SLA does Microsoft state for Fabric Data Factory activity runs?",
 			"choices": [
@@ -484,6 +711,10 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "SQL analytics endpoint",
+			"tags": [
+				"warehouse",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "How can a team force a SQL analytics endpoint to pick up a data-only change to one table right away, once new metadata sync is on?",
 			"choices": [
@@ -502,6 +733,10 @@
 			"section": 1,
 			"sectionName": "Platform and workloads",
 			"topic": "Spark",
+			"tags": [
+				"spark",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "Which workloads does the Native Execution Engine not accelerate?",
 			"choices": [
@@ -520,6 +755,10 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "SKUs",
+			"tags": [
+				"capacity",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "How many capacity units (CUs) does an F64 provide?",
 			"choices": [
@@ -538,6 +777,11 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "SKUs",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "Which F SKU does Microsoft's licensing table list alongside Power BI Premium P1?",
 			"choices": [
@@ -556,6 +800,11 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "P SKU retirement",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "What's Microsoft's position on Power BI Premium per-capacity (P) SKUs?",
 			"choices": [
@@ -574,6 +823,12 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Power BI licensing",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "On an F32 capacity, what do report consumers need to view Power BI content shared in a workspace?",
 			"choices": [
@@ -592,6 +847,12 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Power BI licensing",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "What are the US list prices for Power BI Pro and Premium Per User (PPU), paid yearly?",
 			"choices": [
@@ -610,6 +871,12 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Power BI licensing",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"spark",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "A customer buys PPU for its analysts and assumes it can now build lakehouses and notebooks. What's wrong?",
 			"choices": [
@@ -628,6 +895,12 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Power BI licensing",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "According to Microsoft, below roughly how many users is PPU usually more cost-effective than capacity for Premium Power BI features?",
 			"choices": [
@@ -646,6 +919,12 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Power BI licensing",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"licensing",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "What limits apply to semantic models in a Pro (shared capacity) workspace?",
 			"choices": [
@@ -664,6 +943,10 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Billing",
+			"tags": [
+				"capacity",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "How does Azure bill Fabric capacity on pay-as-you-go?",
 			"choices": [
@@ -682,6 +965,11 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Reservations",
+			"tags": [
+				"capacity",
+				"networking",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "How is a Fabric capacity reservation discount applied?",
 			"choices": [
@@ -700,6 +988,10 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Overage",
+			"tags": [
+				"capacity",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "How are Fabric capacity overages priced?",
 			"choices": [
@@ -718,6 +1010,11 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Overage",
+			"tags": [
+				"capacity",
+				"pricing",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "An admin sets a 24-hour limit on paid overages. Why can billed overage still exceed it?",
 			"choices": [
@@ -736,6 +1033,12 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Pause",
+			"tags": [
+				"capacity",
+				"throttling",
+				"pricing",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What happens financially when an admin pauses a Fabric capacity that has accumulated smoothed usage and overages?",
 			"choices": [
@@ -754,6 +1057,10 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Pause",
+			"tags": [
+				"capacity",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "Who can pause or resume a Fabric F SKU?",
 			"choices": [
@@ -772,6 +1079,16 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Trial",
+			"tags": [
+				"capacity",
+				"mirroring",
+				"data-agents",
+				"copilot-fabric",
+				"networking",
+				"pricing",
+				"licensing",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Which capabilities are not available on a Fabric trial capacity?",
 			"choices": [
@@ -790,6 +1107,10 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Trial",
+			"tags": [
+				"capacity",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "How long does a Fabric trial capacity last?",
 			"choices": [
@@ -808,6 +1129,12 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Mirroring storage",
+			"tags": [
+				"capacity",
+				"mirroring",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "How much free mirroring storage comes with an F64?",
 			"choices": [
@@ -826,6 +1153,10 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "On-demand billing",
+			"tags": [
+				"capacity",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "What does Microsoft's pricing page say about 'Fabric zero-provisioned (F0)'?",
 			"choices": [
@@ -844,6 +1175,12 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Spark billing",
+			"tags": [
+				"capacity",
+				"throttling",
+				"spark",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "When on-demand billing for Apache Spark is enabled on a capacity, what changes?",
 			"choices": [
@@ -862,6 +1199,9 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Buying capacity",
+			"tags": [
+				"capacity"
+			],
 			"difficulty": "medium",
 			"question": "Which of these is a prerequisite for buying a Fabric capacity?",
 			"choices": [
@@ -880,6 +1220,10 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "MACC",
+			"tags": [
+				"capacity",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "Is Fabric capacity spend eligible to count toward a Microsoft Azure Consumption Commitment (MACC)?",
 			"choices": [
@@ -898,6 +1242,11 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Embedding",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "For 'embed for your organization' on an F16 capacity, what do end users need?",
 			"choices": [
@@ -916,6 +1265,11 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "SKUs",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "What can Power BI A SKUs and EM SKUs run?",
 			"choices": [
@@ -934,6 +1288,11 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Storage billing",
+			"tags": [
+				"capacity",
+				"onelake",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "Is OneLake storage included in the capacity price?",
 			"choices": [
@@ -952,6 +1311,10 @@
 			"section": 2,
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Deleted workspaces",
+			"tags": [
+				"capacity",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "Is storage in a deleted Fabric workspace still billed?",
 			"choices": [
@@ -970,6 +1333,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Smoothing",
+			"tags": [
+				"capacity",
+				"throttling",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "Over what window does Fabric smooth background operations such as scheduled refreshes and pipelines?",
 			"choices": [
@@ -988,6 +1356,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Smoothing",
+			"tags": [
+				"capacity",
+				"throttling",
+				"power-bi"
+			],
 			"difficulty": "hard",
 			"question": "How are interactive operations, such as a report query, smoothed?",
 			"choices": [
@@ -1006,6 +1379,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Bursting",
+			"tags": [
+				"capacity",
+				"throttling",
+				"licensing"
+			],
 			"difficulty": "easy",
 			"question": "What is bursting in Fabric capacity?",
 			"choices": [
@@ -1024,6 +1402,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Throttling stages",
+			"tags": [
+				"capacity",
+				"throttling",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "What does Fabric's 'overage protection' stage allow before any throttling starts?",
 			"choices": [
@@ -1042,6 +1425,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Throttling stages",
+			"tags": [
+				"capacity",
+				"throttling",
+				"power-bi"
+			],
 			"difficulty": "medium",
 			"question": "A capacity has used 30 minutes of future capacity. What do report users experience?",
 			"choices": [
@@ -1060,6 +1448,10 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Throttling stages",
+			"tags": [
+				"capacity",
+				"throttling"
+			],
 			"difficulty": "hard",
 			"question": "At what level of future capacity use does Fabric start rejecting all new requests, background jobs included?",
 			"choices": [
@@ -1078,6 +1470,10 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Throttling",
+			"tags": [
+				"capacity",
+				"throttling"
+			],
 			"difficulty": "medium",
 			"question": "When throttling begins, what happens to operations already running?",
 			"choices": [
@@ -1096,6 +1492,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Carryforward",
+			"tags": [
+				"capacity",
+				"throttling",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "How does a throttled capacity recover?",
 			"choices": [
@@ -1114,6 +1515,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Carryforward",
+			"tags": [
+				"capacity",
+				"throttling",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "A capacity is deep in throttling before a board meeting. Which option immediately returns it to a healthy state?",
 			"choices": [
@@ -1132,6 +1538,10 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Throttling",
+			"tags": [
+				"capacity",
+				"throttling"
+			],
 			"difficulty": "medium",
 			"question": "The Capacity Metrics app shows utilization above 100%. Does that mean the capacity is throttled?",
 			"choices": [
@@ -1150,6 +1560,10 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Surge protection",
+			"tags": [
+				"capacity",
+				"throttling"
+			],
 			"difficulty": "medium",
 			"question": "What does capacity-level surge protection do?",
 			"choices": [
@@ -1168,6 +1582,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Surge protection",
+			"tags": [
+				"capacity",
+				"throttling",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "What does workspace-level surge protection let an admin do?",
 			"choices": [
@@ -1186,6 +1605,10 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Surge protection",
+			"tags": [
+				"capacity",
+				"throttling"
+			],
 			"difficulty": "hard",
 			"question": "Does marking a workspace 'Mission critical' exempt it from capacity-level surge protection?",
 			"choices": [
@@ -1204,6 +1627,12 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Spark compute",
+			"tags": [
+				"capacity",
+				"throttling",
+				"spark",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "How many Spark vCores does one Fabric capacity unit provide?",
 			"choices": [
@@ -1222,6 +1651,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Spark compute",
+			"tags": [
+				"capacity",
+				"throttling",
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "What burst multiplier does Fabric apply to Spark vCores?",
 			"choices": [
@@ -1240,6 +1674,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Monitoring",
+			"tags": [
+				"capacity",
+				"throttling",
+				"rti"
+			],
 			"difficulty": "medium",
 			"question": "How quickly does usage data appear in the Fabric Capacity Metrics app, and can it send alerts?",
 			"choices": [
@@ -1258,6 +1697,12 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Planning",
+			"tags": [
+				"capacity",
+				"throttling",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "How many CU-seconds does an F64 have in each 30-second timepoint?",
 			"choices": [
@@ -1276,6 +1721,11 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Throttling",
+			"tags": [
+				"capacity",
+				"throttling",
+				"rti"
+			],
 			"difficulty": "medium",
 			"question": "Are Real-Time Intelligence operations subject to the 20-second interactive delay stage?",
 			"choices": [
@@ -1294,6 +1744,10 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Throttling",
+			"tags": [
+				"capacity",
+				"throttling"
+			],
 			"difficulty": "hard",
 			"question": "What error status do users see when Fabric rejects requests because of capacity limits?",
 			"choices": [
@@ -1312,6 +1766,14 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Workload isolation",
+			"tags": [
+				"capacity",
+				"throttling",
+				"spark",
+				"pricing",
+				"licensing",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "A customer's finance dashboards slow down every morning after a large overnight Spark load on the same F64. Which approach does Fabric support for isolating them?",
 			"choices": [
@@ -1330,6 +1792,10 @@
 			"section": 3,
 			"sectionName": "Smoothing, throttling and capacity health",
 			"topic": "Monitoring",
+			"tags": [
+				"capacity",
+				"throttling"
+			],
 			"difficulty": "easy",
 			"question": "How many days of history does the Capacity Metrics app's compute page show?",
 			"choices": [
@@ -1348,6 +1814,10 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Shortcuts",
+			"tags": [
+				"onelake",
+				"shortcuts"
+			],
 			"difficulty": "easy",
 			"question": "What is a OneLake shortcut?",
 			"choices": [
@@ -1366,6 +1836,10 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Shortcuts",
+			"tags": [
+				"onelake",
+				"shortcuts"
+			],
 			"difficulty": "medium",
 			"question": "Which external storage can OneLake shortcuts point to?",
 			"choices": [
@@ -1384,6 +1858,11 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Shortcut identity",
+			"tags": [
+				"onelake",
+				"shortcuts",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "Whose identity does OneLake use to authorize reads through an internal shortcut (one Fabric item to another)?",
 			"choices": [
@@ -1402,6 +1881,12 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Shortcut identity",
+			"tags": [
+				"onelake",
+				"shortcuts",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "How do ADLS and S3 shortcuts authorize access to external storage?",
 			"choices": [
@@ -1420,6 +1905,14 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Shortcut caching",
+			"tags": [
+				"onelake",
+				"shortcuts",
+				"data-factory",
+				"networking",
+				"pricing",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "Why does OneLake offer shortcut caching, and for which sources?",
 			"choices": [
@@ -1438,6 +1931,12 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Shortcut billing",
+			"tags": [
+				"capacity",
+				"onelake",
+				"shortcuts",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "Workspace A (capacity 1) has a shortcut to data stored in workspace B (capacity 2). Users query through the shortcut in A. Which capacity pays for the read transactions?",
 			"choices": [
@@ -1456,6 +1955,11 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Transaction billing",
+			"tags": [
+				"capacity",
+				"onelake",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "Do reads and writes to OneLake consume capacity units?",
 			"choices": [
@@ -1474,6 +1978,11 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Paused capacity",
+			"tags": [
+				"capacity",
+				"onelake",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "What happens to OneLake data when its capacity is paused?",
 			"choices": [
@@ -1492,6 +2001,10 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Soft delete",
+			"tags": [
+				"onelake",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "How long does OneLake keep soft-deleted files by default, and are they billed?",
 			"choices": [
@@ -1510,6 +2023,12 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "BCDR",
+			"tags": [
+				"capacity",
+				"onelake",
+				"pricing",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "What happens when a customer enables OneLake BCDR on a capacity?",
 			"choices": [
@@ -1528,6 +2047,9 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Redundancy",
+			"tags": [
+				"onelake"
+			],
 			"difficulty": "medium",
 			"question": "What storage redundancy does OneLake use by default?",
 			"choices": [
@@ -1546,6 +2068,11 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "OneLake catalog",
+			"tags": [
+				"onelake",
+				"governance",
+				"security"
+			],
 			"difficulty": "easy",
 			"question": "What are the three tabs of the OneLake catalog?",
 			"choices": [
@@ -1564,6 +2091,10 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Shortcut limits",
+			"tags": [
+				"onelake",
+				"shortcuts"
+			],
 			"difficulty": "hard",
 			"question": "What's the limit on chaining shortcuts that point to other shortcuts?",
 			"choices": [
@@ -1582,6 +2113,11 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Shortcuts",
+			"tags": [
+				"onelake",
+				"shortcuts",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "A user deletes a file through a shortcut. What happens to the target data?",
 			"choices": [
@@ -1600,6 +2136,11 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Storage tiers",
+			"tags": [
+				"capacity",
+				"onelake",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "What extra charge applies when reading OneLake data stored in the cool or cold tier?",
 			"choices": [
@@ -1618,6 +2159,11 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "On-demand",
+			"tags": [
+				"capacity",
+				"onelake",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "Where can OneLake on-demand billing (preview) be enabled?",
 			"choices": [
@@ -1636,6 +2182,12 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "OneLake security cost",
+			"tags": [
+				"capacity",
+				"onelake",
+				"pricing",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "What does OneLake charge to enforce row-level security on a secured table?",
 			"choices": [
@@ -1654,6 +2206,12 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "OneLake",
+			"tags": [
+				"capacity",
+				"onelake",
+				"pricing",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "How is each workspace's OneLake data tied to capacity and region?",
 			"choices": [
@@ -1672,6 +2230,15 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Shortcuts",
+			"tags": [
+				"onelake",
+				"shortcuts",
+				"direct-lake",
+				"power-bi",
+				"warehouse",
+				"spark",
+				"rti"
+			],
 			"difficulty": "medium",
 			"question": "Which Fabric engines can read data through OneLake shortcuts?",
 			"choices": [
@@ -1690,6 +2257,13 @@
 			"section": 4,
 			"sectionName": "OneLake, shortcuts and storage cost",
 			"topic": "Lineage",
+			"tags": [
+				"onelake",
+				"shortcuts",
+				"power-bi",
+				"warehouse",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "What does Microsoft note about lineage for shortcuts?",
 			"choices": [
@@ -1708,6 +2282,10 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Mirroring types",
+			"tags": [
+				"shortcuts",
+				"mirroring"
+			],
 			"difficulty": "medium",
 			"question": "What are Fabric's three types of mirroring?",
 			"choices": [
@@ -1726,6 +2304,12 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Mirroring sources",
+			"tags": [
+				"shortcuts",
+				"mirroring",
+				"databricks",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "Which mirroring type does Fabric use for Azure Databricks?",
 			"choices": [
@@ -1744,6 +2328,11 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Mirroring cost",
+			"tags": [
+				"capacity",
+				"mirroring",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "What does Fabric charge for the compute that replicates data into a mirrored database?",
 			"choices": [
@@ -1762,6 +2351,12 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Mirroring cost",
+			"tags": [
+				"capacity",
+				"onelake",
+				"mirroring",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "When is mirrored data billed as regular OneLake storage?",
 			"choices": [
@@ -1780,6 +2375,12 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Mirroring latency",
+			"tags": [
+				"mirroring",
+				"networking",
+				"residency",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "How fresh can database-mirrored data be, according to Microsoft?",
 			"choices": [
@@ -1798,6 +2399,10 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Open mirroring",
+			"tags": [
+				"onelake",
+				"mirroring"
+			],
 			"difficulty": "medium",
 			"question": "What is open mirroring?",
 			"choices": [
@@ -1816,6 +2421,11 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake",
+			"tags": [
+				"onelake",
+				"direct-lake",
+				"power-bi"
+			],
 			"difficulty": "easy",
 			"question": "How does Direct Lake differ from Import mode in Power BI?",
 			"choices": [
@@ -1834,6 +2444,10 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake",
+			"tags": [
+				"direct-lake",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "What is 'framing' in Direct Lake?",
 			"choices": [
@@ -1852,6 +2466,10 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake modes",
+			"tags": [
+				"onelake",
+				"direct-lake"
+			],
 			"difficulty": "hard",
 			"question": "What's the key behavioral difference between Direct Lake on OneLake and Direct Lake on SQL endpoints?",
 			"choices": [
@@ -1870,6 +2488,10 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake fallback",
+			"tags": [
+				"direct-lake",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "With DirectLakeBehavior set to DirectLakeOnly on a Direct Lake on SQL model, what happens when a query can't run in Direct Lake?",
 			"choices": [
@@ -1888,6 +2510,13 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake guardrails",
+			"tags": [
+				"capacity",
+				"direct-lake",
+				"pricing",
+				"licensing",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "What are the Direct Lake guardrails on an F64 for rows per table and memory?",
 			"choices": [
@@ -1906,6 +2535,11 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake guardrails",
+			"tags": [
+				"onelake",
+				"direct-lake",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "What happens when a Direct Lake on OneLake model exceeds a guardrail?",
 			"choices": [
@@ -1924,6 +2558,12 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake security",
+			"tags": [
+				"onelake",
+				"direct-lake",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "A team secured a lakehouse with SQL-endpoint row-level security, then built a Direct Lake on OneLake model. What happens?",
 			"choices": [
@@ -1942,6 +2582,9 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake",
+			"tags": [
+				"direct-lake"
+			],
 			"difficulty": "medium",
 			"question": "Which data types or features does Direct Lake not support?",
 			"choices": [
@@ -1960,6 +2603,10 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake",
+			"tags": [
+				"direct-lake",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "When does a Direct Lake column get loaded into memory?",
 			"choices": [
@@ -1978,6 +2625,10 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake",
+			"tags": [
+				"direct-lake",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "A Direct Lake on SQL model has a table built on a non-materialized SQL view. What happens to queries on it?",
 			"choices": [
@@ -1996,6 +2647,13 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Mirroring",
+			"tags": [
+				"mirroring",
+				"direct-lake",
+				"power-bi",
+				"warehouse",
+				"spark"
+			],
 			"difficulty": "medium",
 			"question": "What does mirroring a database produce in Fabric, beyond the replicated Delta tables?",
 			"choices": [
@@ -2014,6 +2672,9 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Mirroring sources",
+			"tags": [
+				"mirroring"
+			],
 			"difficulty": "hard",
 			"question": "Which mirroring source did Microsoft's mirroring overview mark as now generally available, with a banner?",
 			"choices": [
@@ -2032,6 +2693,10 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Power BI limits",
+			"tags": [
+				"power-bi",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "How much native Power BI storage does a Pro user get, compared with PPU?",
 			"choices": [
@@ -2050,6 +2715,12 @@
 			"section": 5,
 			"sectionName": "Mirroring, Direct Lake and Power BI",
 			"topic": "Direct Lake",
+			"tags": [
+				"direct-lake",
+				"data-factory",
+				"networking",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "Can Direct Lake models refresh through an on-premises data gateway?",
 			"choices": [
@@ -2068,6 +2739,10 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Workspace roles",
+			"tags": [
+				"power-bi",
+				"security"
+			],
 			"difficulty": "easy",
 			"question": "What are Fabric's four workspace roles?",
 			"choices": [
@@ -2086,6 +2761,14 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Workspace roles",
+			"tags": [
+				"onelake",
+				"power-bi",
+				"warehouse",
+				"spark",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "A user has the Viewer role on a workspace with a lakehouse. How can they read its data?",
 			"choices": [
@@ -2104,6 +2787,11 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Workspace roles",
+			"tags": [
+				"capacity",
+				"cicd",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Which workspace actions are reserved for the Admin role?",
 			"choices": [
@@ -2122,6 +2810,11 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "OneLake security",
+			"tags": [
+				"onelake",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "Which workspace roles bypass OneLake security data-access roles?",
 			"choices": [
@@ -2140,6 +2833,11 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "OneLake security",
+			"tags": [
+				"onelake",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "What kinds of roles does OneLake security support?",
 			"choices": [
@@ -2158,6 +2856,10 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "OneLake security",
+			"tags": [
+				"onelake",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "A team creates one OneLake security role with row-level security and a separate role with column-level security, and assigns a user to both. What happens?",
 			"choices": [
@@ -2176,6 +2878,13 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "OneLake security",
+			"tags": [
+				"onelake",
+				"power-bi",
+				"warehouse",
+				"spark",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Which engines enforce OneLake row- and column-level security?",
 			"choices": [
@@ -2194,6 +2903,11 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Domains",
+			"tags": [
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "Does assigning a workspace to a Fabric domain control who can access its data?",
 			"choices": [
@@ -2212,6 +2926,10 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Domains",
+			"tags": [
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "What can a Fabric domain admin not do?",
 			"choices": [
@@ -2230,6 +2948,10 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Purview",
+			"tags": [
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What does Microsoft Purview provide for Fabric?",
 			"choices": [
@@ -2248,6 +2970,10 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Private links",
+			"tags": [
+				"networking",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What does enabling tenant-level Private Link with 'Block Public Internet Access' do to Fabric?",
 			"choices": [
@@ -2266,6 +2992,11 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Private links",
+			"tags": [
+				"copilot-fabric",
+				"networking",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "A security team insists on tenant-level Private Link with public access blocked, and the business wants Copilot in Fabric. What's the conflict?",
 			"choices": [
@@ -2284,6 +3015,10 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Workspace identity",
+			"tags": [
+				"networking",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What is a Fabric workspace identity used for?",
 			"choices": [
@@ -2302,6 +3037,9 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Workspace identity",
+			"tags": [
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "What happens if a workspace identity is deleted?",
 			"choices": [
@@ -2320,6 +3058,11 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "CMK",
+			"tags": [
+				"mirroring",
+				"databricks",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "Which items prevent a workspace from enabling customer-managed keys (CMK)?",
 			"choices": [
@@ -2338,6 +3081,12 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "CMK",
+			"tags": [
+				"warehouse",
+				"spark",
+				"security",
+				"performance"
+			],
 			"difficulty": "hard",
 			"question": "Which data is not protected by Fabric workspace CMK?",
 			"choices": [
@@ -2356,6 +3105,10 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Tenant settings",
+			"tags": [
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Are Fabric tenant settings a security boundary?",
 			"choices": [
@@ -2374,6 +3127,11 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "CI/CD",
+			"tags": [
+				"cicd",
+				"governance",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Which Fabric CI/CD tools does Microsoft document?",
 			"choices": [
@@ -2392,6 +3150,11 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Private links",
+			"tags": [
+				"data-factory",
+				"networking",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "Which gateway works with tenant-level Private Link?",
 			"choices": [
@@ -2410,6 +3173,13 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Purview",
+			"tags": [
+				"power-bi",
+				"spark",
+				"networking",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "In a network-isolated environment, what does Microsoft note about Purview sensitivity labels in Power BI Desktop?",
 			"choices": [
@@ -2428,6 +3198,12 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "Workspace identity",
+			"tags": [
+				"capacity",
+				"networking",
+				"licensing",
+				"security"
+			],
 			"difficulty": "medium",
 			"question": "What stops trusted workspace access to a firewall-enabled storage account from working?",
 			"choices": [
@@ -2446,6 +3222,10 @@
 			"section": 6,
 			"sectionName": "Security and governance",
 			"topic": "OneLake security",
+			"tags": [
+				"onelake",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "What does OneLake security do with table formats other than Delta Parquet and virtualized Iceberg for users in a security role?",
 			"choices": [
@@ -2464,6 +3244,11 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Copilot in Fabric",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"copilot-fabric"
+			],
 			"difficulty": "easy",
 			"question": "What capacity does Copilot in Fabric need?",
 			"choices": [
@@ -2482,6 +3267,12 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Copilot in Fabric",
+			"tags": [
+				"capacity",
+				"copilot-fabric",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "Is Copilot in Fabric licensed per user, like Microsoft 365 Copilot?",
 			"choices": [
@@ -2500,6 +3291,13 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Copilot in Fabric",
+			"tags": [
+				"capacity",
+				"copilot-fabric",
+				"governance",
+				"security",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "A UK customer's Fabric capacity is in UK South. What must the admin enable for Copilot to work?",
 			"choices": [
@@ -2518,6 +3316,15 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Copilot in Fabric",
+			"tags": [
+				"power-bi",
+				"warehouse",
+				"spark",
+				"rti",
+				"data-factory",
+				"copilot-fabric",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "Which Fabric experiences include Copilot?",
 			"choices": [
@@ -2536,6 +3343,12 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Copilot settings",
+			"tags": [
+				"capacity",
+				"copilot-fabric",
+				"governance",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "What do Fabric admins control through Copilot tenant settings?",
 			"choices": [
@@ -2554,6 +3367,14 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Data agents",
+			"tags": [
+				"power-bi",
+				"warehouse",
+				"rti",
+				"data-agents",
+				"copilot-fabric",
+				"fabric-iq"
+			],
 			"difficulty": "medium",
 			"question": "How many data sources can a Fabric data agent combine, and which types?",
 			"choices": [
@@ -2572,6 +3393,12 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Data agents",
+			"tags": [
+				"data-agents",
+				"copilot-fabric",
+				"governance",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "Which tenant setting must be on for Fabric data agents to work?",
 			"choices": [
@@ -2590,6 +3417,11 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Data agents",
+			"tags": [
+				"data-agents",
+				"copilot-fabric",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "Where are Fabric data agent responses processed when the agent is used from Microsoft 365 Copilot?",
 			"choices": [
@@ -2608,6 +3440,12 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Fabric Copilot capacity",
+			"tags": [
+				"capacity",
+				"data-agents",
+				"copilot-fabric",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "What is a Fabric Copilot capacity?",
 			"choices": [
@@ -2626,6 +3464,11 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Fabric IQ",
+			"tags": [
+				"copilot-fabric",
+				"fabric-iq",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "What was the status of Fabric IQ integrations in Microsoft Copilot after Ignite 2026?",
 			"choices": [
@@ -2644,6 +3487,12 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Copilot in Power BI",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"copilot-fabric",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "When an analyst uses Copilot in Power BI Desktop, which capacity pays?",
 			"choices": [
@@ -2662,6 +3511,10 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Data agents",
+			"tags": [
+				"data-agents",
+				"copilot-fabric"
+			],
 			"difficulty": "hard",
 			"question": "A Fabric data agent's results feel truncated for a detailed list request. Why?",
 			"choices": [
@@ -2680,6 +3533,13 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Data agents",
+			"tags": [
+				"power-bi",
+				"data-agents",
+				"copilot-fabric",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "How do Fabric data agents enforce semantic model security?",
 			"choices": [
@@ -2698,6 +3558,11 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Copilot in Fabric",
+			"tags": [
+				"capacity",
+				"copilot-fabric",
+				"licensing"
+			],
 			"difficulty": "medium",
 			"question": "Is Copilot in Fabric available on a trial capacity?",
 			"choices": [
@@ -2716,6 +3581,11 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "AI consumption",
+			"tags": [
+				"capacity",
+				"copilot-fabric",
+				"pricing"
+			],
 			"difficulty": "hard",
 			"question": "A Copilot request in Fabric uses 2,000 input and 500 output tokens. Using Microsoft's rates, how many CU-seconds does it consume?",
 			"choices": [
@@ -2734,6 +3604,10 @@
 			"section": 7,
 			"sectionName": "Copilot and AI in Fabric",
 			"topic": "Copilot in Fabric",
+			"tags": [
+				"spark",
+				"copilot-fabric"
+			],
 			"difficulty": "medium",
 			"question": "Can Copilot in Fabric be turned on or off per individual experience, such as only in notebooks?",
 			"choices": [
@@ -2752,6 +3626,13 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Mirroring Unity Catalog",
+			"tags": [
+				"onelake",
+				"shortcuts",
+				"mirroring",
+				"databricks",
+				"performance"
+			],
 			"difficulty": "medium",
 			"question": "When a Unity Catalog catalog is mirrored into Fabric, how does Fabric access the table data?",
 			"choices": [
@@ -2770,6 +3651,13 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Mirroring Unity Catalog",
+			"tags": [
+				"mirroring",
+				"databricks",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "A mirrored Unity Catalog catalog in Fabric shows fewer tables than the Databricks catalog. Which are documented reasons?",
 			"choices": [
@@ -2788,6 +3676,12 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Mirroring Unity Catalog",
+			"tags": [
+				"mirroring",
+				"databricks",
+				"networking",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "What does mirroring Unity Catalog into Fabric require at the storage layer?",
 			"choices": [
@@ -2806,6 +3700,10 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Mirroring Unity Catalog",
+			"tags": [
+				"mirroring",
+				"databricks"
+			],
 			"difficulty": "medium",
 			"question": "How quickly do Unity Catalog schema changes appear in a mirrored catalog in Fabric?",
 			"choices": [
@@ -2824,6 +3722,12 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "OneLake federation",
+			"tags": [
+				"onelake",
+				"warehouse",
+				"databricks",
+				"governance"
+			],
 			"difficulty": "medium",
 			"question": "What does OneLake catalog federation let Azure Databricks do?",
 			"choices": [
@@ -2842,6 +3746,12 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "OneLake federation",
+			"tags": [
+				"onelake",
+				"databricks",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "What identity does Azure Databricks use to read OneLake through catalog federation?",
 			"choices": [
@@ -2860,6 +3770,12 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "OneLake federation",
+			"tags": [
+				"onelake",
+				"databricks",
+				"governance",
+				"residency"
+			],
 			"difficulty": "hard",
 			"question": "Which is a documented limitation of OneLake catalog federation?",
 			"choices": [
@@ -2878,6 +3794,12 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "OneLake federation",
+			"tags": [
+				"onelake",
+				"databricks",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "Which Fabric tenant settings does OneLake catalog federation require?",
 			"choices": [
@@ -2896,6 +3818,14 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Who pays",
+			"tags": [
+				"capacity",
+				"mirroring",
+				"direct-lake",
+				"power-bi",
+				"databricks",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "A Power BI report uses Direct Lake over a mirrored Unity Catalog catalog. Which platform's compute serves the report queries?",
 			"choices": [
@@ -2914,6 +3844,13 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Who pays",
+			"tags": [
+				"onelake",
+				"databricks",
+				"pricing",
+				"governance",
+				"residency"
+			],
 			"difficulty": "medium",
 			"question": "When Databricks queries Fabric data through OneLake catalog federation, whose compute does the work?",
 			"choices": [
@@ -2932,6 +3869,12 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "UC tables in OneLake",
+			"tags": [
+				"onelake",
+				"mirroring",
+				"databricks",
+				"whats-new"
+			],
 			"difficulty": "medium",
 			"question": "What did Microsoft announce in 2026 about Unity Catalog and OneLake storage?",
 			"choices": [
@@ -2950,6 +3893,12 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Power BI with Databricks",
+			"tags": [
+				"mirroring",
+				"power-bi",
+				"warehouse",
+				"databricks"
+			],
 			"difficulty": "medium",
 			"question": "How can Azure Databricks data get into the Power BI service without mirroring?",
 			"choices": [
@@ -2968,6 +3917,15 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Coaching",
+			"tags": [
+				"capacity",
+				"power-bi",
+				"databricks",
+				"pricing",
+				"licensing",
+				"governance",
+				"security"
+			],
 			"difficulty": "hard",
 			"question": "A customer wants governed self-service BI over Databricks data for 3,000 viewers and is choosing between an F32 and an F64. What's the key licensing fact?",
 			"choices": [
@@ -2986,6 +3944,15 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Coaching",
+			"tags": [
+				"mirroring",
+				"direct-lake",
+				"power-bi",
+				"databricks",
+				"governance",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "hard",
 			"question": "A customer's data platform team runs everything on Databricks with Unity Catalog row filters. The BI team proposes mirroring into Fabric for Direct Lake reports. What's the strongest governance concern?",
 			"choices": [
@@ -3004,6 +3971,12 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Coaching",
+			"tags": [
+				"direct-lake",
+				"power-bi",
+				"databricks",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "When is Fabric arguably the better fit than adding Databricks, to give fair, credible coaching?",
 			"choices": [
@@ -3022,6 +3995,14 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Coaching",
+			"tags": [
+				"capacity",
+				"onelake",
+				"mirroring",
+				"databricks",
+				"pricing",
+				"licensing"
+			],
 			"difficulty": "hard",
 			"question": "A customer plans to pause its F64 every night to save money, and it has database mirroring running from Azure SQL. What breaks?",
 			"choices": [
@@ -3040,6 +4021,11 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Coaching",
+			"tags": [
+				"capacity",
+				"databricks",
+				"pricing"
+			],
 			"difficulty": "medium",
 			"question": "Do Fabric capacity and Azure Databricks consumption compete for a customer's Azure MACC?",
 			"choices": [
@@ -3058,6 +4044,12 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Coaching",
+			"tags": [
+				"mirroring",
+				"power-bi",
+				"databricks",
+				"governance"
+			],
 			"difficulty": "hard",
 			"question": "A customer wants one semantic definition of revenue used by both Power BI and AI agents. What's the tradeoff between Unity Catalog metric views and Power BI semantic models?",
 			"choices": [
@@ -3076,6 +4068,13 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Coaching",
+			"tags": [
+				"onelake",
+				"power-bi",
+				"databricks",
+				"security",
+				"oversharing"
+			],
 			"difficulty": "medium",
 			"question": "A customer's Fabric security relies on workspace Contributor roles for analysts who only need to read curated data. What should you recommend?",
 			"choices": [
@@ -3094,6 +4093,12 @@
 			"section": 8,
 			"sectionName": "Fabric with Databricks: coaching",
 			"topic": "Coaching",
+			"tags": [
+				"onelake",
+				"spark",
+				"databricks",
+				"networking"
+			],
 			"difficulty": "hard",
 			"question": "A customer in a network-isolated tenant wants Databricks to read Fabric lakehouses through catalog federation. What networking detail matters on newer Databricks runtimes?",
 			"choices": [

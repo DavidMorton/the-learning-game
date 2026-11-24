@@ -185,8 +185,8 @@
       daily: { date: null, n: 0, done: false },
       achievements: {},
       mocks: [],
-      settings: { sound: true },
-      prefs: { quick: { sections: [], difficulty: 'any', length: 10, order: 'smart' } },
+      settings: { sound: true, glossary: false },
+      prefs: { quick: { sections: [], tags: [], difficulty: 'any', length: 10, order: 'smart' } },
     };
   }
 
@@ -212,13 +212,13 @@
   let store = defaultStore();
 
   // Switch the game over to a deck: its saved progress, achievements wording, page title and colors.
-  // The sound setting follows the player from deck to deck.
+  // The sound and glossary settings follow the player from deck to deck.
   function useDeck(d, switching) {
-    const sound = store.settings.sound;
+    const carried = { sound: store.settings.sound, glossary: store.settings.glossary };
     deck = d;
     store = loadStore();
-    if (switching && store.settings.sound !== sound) {
-      store.settings.sound = sound;
+    if (switching && (store.settings.sound !== carried.sound || store.settings.glossary !== carried.glossary)) {
+      Object.assign(store.settings, carried);
       save();
     }
     achievements = ACHIEVEMENTS.map(a => ({ ...a, ...(d.achievements[a.id] || {}) }));
@@ -260,6 +260,18 @@
     }
     const used = sections.filter(s => bySection.get(s.id).length);
     const weightSum = used.reduce((a, s) => a + s.weight, 0);
+
+    // Tags are a second, overlapping grouping: a question can carry several (a technology and a theme).
+    const tagDefs = (Array.isArray(data.tags) ? data.tags : [])
+      .filter(t => t && t.id)
+      .map(t => ({ id: String(t.id), name: t.name || String(t.id), kind: t.kind === 'theme' ? 'theme' : 'technology' }));
+    const byTag = new Map(tagDefs.map(t => [t.id, []]));
+    for (const q of questions) {
+      q.tags = (Array.isArray(q.tags) ? q.tags.map(String) : []).filter(id => byTag.has(id));
+      for (const id of q.tags) byTag.get(id).push(q);
+    }
+    const tags = tagDefs.filter(t => byTag.get(t.id).length);
+
     return {
       title: data.title || 'Practice questions',
       questions,
@@ -267,12 +279,124 @@
       bySection,
       sectionById: new Map(used.map(s => [s.id, s])),
       weightsArePercent: Math.abs(weightSum - 100) < 0.5,
+      tags,
+      byTag,
+      tagById: new Map(tags.map(t => [t.id, t])),
     };
   }
 
+  // ─── Glossary ───────────────────────────────────────────────────────────────
+  // One glossary serves every deck. Terms are found in question text by their aliases, longest
+  // alias first, so "Direct Lake on OneLake" wins over "OneLake". Aliases that are all capitals
+  // (CU, MCP) or start with "=" must match exactly; others ignore case and allow a plural.
+
+  let glossary = null;
+  let glossaryPromise = null;
+  const termCache = new Map();
+  const termIndexCache = new Map();
+  const matcherCache = new Map();
+  const GLOSSARY_MODES = new Set(['quick', 'review', 'survival']);
+  const ACRONYM = /^[A-Z0-9][A-Z0-9&/.\-]*$/;
+
+  function loadGlossary() {
+    if (!glossaryPromise) {
+      glossaryPromise = fetch('glossary.json', { cache: 'no-cache' })
+        .then(res => (res.ok ? res.json() : null))
+        .then(data => { glossary = prepareGlossary(data); return glossary; })
+        .catch(() => null);
+    }
+    return glossaryPromise;
+  }
+
+  function prepareGlossary(data) {
+    if (!data || !Array.isArray(data.terms)) return null;
+    const categories = (Array.isArray(data.categories) ? data.categories : [])
+      .map(c => ({ id: String(c.id), name: c.name || String(c.id) }));
+    const terms = data.terms.filter(t => t && t.id && t.term && t.definition).map(t => ({
+      id: String(t.id),
+      term: String(t.term),
+      definition: String(t.definition),
+      category: String(t.category || ''),
+      aliases: (Array.isArray(t.aliases) && t.aliases.length ? t.aliases : [t.term]).map(String),
+      related: Array.isArray(t.related) ? t.related.map(String) : [],
+      decks: Array.isArray(t.decks) ? t.decks.map(String) : null,
+      source: safeUrl(t.source),
+    }));
+    const byId = new Map(terms.map(t => [t.id, t]));
+    for (const t of terms) t.related = t.related.filter(id => byId.has(id) && id !== t.id);
+    return { terms, byId, categories, catById: new Map(categories.map(c => [c.id, c])) };
+  }
+
+  const escapeRegExp = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  function aliasPattern(alias) {
+    const exact = alias.startsWith('=') || ACRONYM.test(alias);
+    const text = alias.replace(/^=/, '');
+    let body = escapeRegExp(text);
+    if (/[A-Za-z]$/.test(text)) body += exact ? 's?' : '(?:s|es)?';
+    return { re: new RegExp(`(?<![A-Za-z0-9])${body}(?![A-Za-z0-9])`, exact ? 'g' : 'gi'), len: text.length };
+  }
+
+  function termMatcher() {
+    if (!matcherCache.has(deck.id)) {
+      const list = [];
+      for (const t of glossary.terms) {
+        if (t.decks && !t.decks.includes(deck.id)) continue;
+        for (const a of t.aliases) list.push({ id: t.id, ...aliasPattern(a) });
+      }
+      list.sort((a, b) => b.len - a.len);
+      matcherCache.set(deck.id, list);
+    }
+    return matcherCache.get(deck.id);
+  }
+
+  // Non-overlapping term mentions in a piece of text, in reading order: [{ id, start, end }].
+  function findTerms(text) {
+    const taken = [];
+    for (const m of termMatcher()) {
+      m.re.lastIndex = 0;
+      let r;
+      while ((r = m.re.exec(text))) {
+        const start = r.index, end = start + r[0].length;
+        if (!taken.some(t => start < t.end && end > t.start)) taken.push({ id: m.id, start, end });
+      }
+    }
+    return taken.sort((a, b) => a.start - b.start);
+  }
+
+  // Glossary terms in a question (its text and choices, plus the explanation once answered).
+  function termsFor(q, withExplanation) {
+    const key = `${deck.id}|${q.id}|${withExplanation ? 1 : 0}`;
+    if (!termCache.has(key)) {
+      const text = [q.question, ...q.choices, withExplanation ? q.explanation : ''].join('\n');
+      termCache.set(key, [...new Set(findTerms(text).map(m => m.id))]);
+    }
+    return termCache.get(key);
+  }
+
+  // term id -> Set of question ids in the current deck that mention it.
+  function deckTermIndex() {
+    if (!termIndexCache.has(deck.id)) {
+      const index = new Map();
+      for (const q of bank.questions) {
+        for (const id of termsFor(q, true)) {
+          if (!index.has(id)) index.set(id, new Set());
+          index.get(id).add(q.id);
+        }
+      }
+      termIndexCache.set(deck.id, index);
+    }
+    return termIndexCache.get(deck.id);
+  }
+
+  const glossAvailable = () => Boolean(glossary && session && GLOSSARY_MODES.has(session.mode));
+  const glossOn = () => glossAvailable() && store.settings.glossary;
+
   // ─── Progress model ─────────────────────────────────────────────────────────
 
-  function record(q, correct) {
+  // `assisted` means the player opened a glossary definition before answering: a right answer
+  // still counts as right, but doesn't move the question up toward mastery.
+  function record(q, correct, assisted) {
     const now = Date.now();
     const prev = store.q[q.id];
     const r = prev ? { ...prev } : { box: 0, n: 0, right: 0, wrong: 0 };
@@ -281,7 +405,8 @@
     if (correct) {
       r.right++;
       // Knowing it cold the first time skips a box.
-      r.box = prev ? Math.min(r.box + 1, CONFIG.maxBox) : 2;
+      if (assisted) r.box = prev ? r.box : 1;
+      else r.box = prev ? Math.min(r.box + 1, CONFIG.maxBox) : 2;
     } else {
       r.wrong++;
       r.box = 0;
@@ -351,6 +476,17 @@
       return { ...s, count: qs.length, mastery, seen: sSeen, mastered: sMastered, accuracy: sAttempts ? sRight / sAttempts : null };
     });
     return { sections, readiness: weightSum ? weighted / weightSum : 0, mastered, seen, accuracy: attempts ? right / attempts : null };
+  }
+
+  function groupMastery(qs) {
+    let m = 0, seen = 0;
+    for (const q of qs) {
+      const r = store.q[q.id];
+      if (!r) continue;
+      seen++;
+      m += Math.min(r.box, CONFIG.masteryBox) / CONFIG.masteryBox;
+    }
+    return { count: qs.length, seen, mastery: qs.length ? m / qs.length : 0 };
   }
 
   function tierFor(mastery) {
@@ -601,6 +737,7 @@
     results: () => renderResults(),
     mock: () => { renderMock(); startMockClock(); },
     mockResults: () => renderMockResults(),
+    glossary: () => renderGlossary(),
   };
 
   function go(name) {
@@ -636,6 +773,7 @@
         ${deckSwitch()}
         <div class="top-actions">
           <span class="chip ${days ? 'lit' : ''}" title="Days in a row you've practiced">🔥 ${plural(days, 'day')}</span>
+          ${glossary ? '<button class="icon-btn" data-action="glossary" aria-label="Glossary" title="Glossary of terms">📖</button>' : ''}
           ${soundButton()}
         </div>
       </header>
@@ -701,6 +839,8 @@
       <h2 class="h-section">Section mastery <span class="muted small">Raw → Bronze → Silver → Gold · click a section to practice it</span></h2>
       <div class="card sections">${m.sections.map(sectionRow).join('')}</div>
 
+      ${topicsBlock()}
+
       <h2 class="h-section">Achievements <span class="muted small">${unlocked} / ${achievements.length}</span></h2>
       <div class="achievements">
         ${achievements.map(a => `
@@ -715,6 +855,35 @@
         <span class="muted small">${bank.questions.length} questions · ${esc(bank.title)}</span>
         <button class="link-btn small" data-action="reset">Reset ${esc(deck.label)} progress</button>
       </footer>`;
+  }
+
+  // Tags as practice shortcuts on the home screen, grouped into technologies and themes.
+  function topicsBlock() {
+    if (!bank.tags.length) return '';
+    const groups = [['technology', 'Technologies'], ['theme', 'Themes']]
+      .map(([kind, label]) => [label, bank.tags.filter(t => t.kind === kind)])
+      .filter(([, tags]) => tags.length);
+    return `
+      <h2 class="h-section">Practice by topic <span class="muted small">Topics cut across sections · a question can sit in several</span></h2>
+      <div class="card topics">
+        ${groups.map(([label, tags]) => `
+          <div class="topic-group">
+            <div class="eyebrow">${label}</div>
+            <div class="topic-chips">${tags.map(topicChip).join('')}</div>
+          </div>`).join('')}
+        ${glossary ? '<button class="link-btn small topics-gloss" data-action="glossary">📖 Browse the glossary of terms</button>' : ''}
+      </div>`;
+  }
+
+  function topicChip(t) {
+    const g = groupMastery(bank.byTag.get(t.id));
+    const tier = tierFor(g.mastery);
+    return `
+      <button class="topic-chip tier-${tier.key}" data-action="practice-tag" data-tag="${esc(t.id)}" style="--p:${pct(g.mastery)}%"
+        title="${esc(t.name)}: ${g.count} questions, ${pct(g.mastery)}% mastered. Click to practice.">
+        <span class="topic-name">${esc(t.name)}</span>
+        <span class="topic-meta">${g.count} · ${pct(g.mastery)}%</span>
+      </button>`;
   }
 
   function brandMark() {
@@ -785,6 +954,8 @@
     const p = store.prefs.quick || {};
     setup = {
       sections: (p.sections || []).filter(id => bank.sectionById.has(id)),
+      tags: (p.tags || []).filter(id => bank.tagById.has(id)),
+      tagMatch: p.tagMatch === 'all' ? 'all' : 'any',
       difficulty: p.difficulty || 'any',
       length: CONFIG.quickLengths.includes(p.length) ? p.length : CONFIG.quickLengths[0],
       order: p.order === 'random' ? 'random' : 'smart',
@@ -792,9 +963,16 @@
     go('setup');
   }
 
+  // Sections and topics each narrow the pool. Within topics, a question needs any one of the
+  // selected tags, or all of them when tagMatch is 'all' (e.g. Fabric data agents AND Oversharing).
   function filterPool(cfg) {
+    const tags = cfg.tags || [];
+    const matchAll = cfg.tagMatch === 'all';
+    const termIds = cfg.term && glossary ? deckTermIndex().get(cfg.term) || new Set() : null;
     return bank.questions.filter(q =>
       (!cfg.sections.length || cfg.sections.includes(q.section)) &&
+      (!tags.length || (matchAll ? tags.every(t => q.tags.includes(t)) : q.tags.some(t => tags.includes(t)))) &&
+      (!termIds || termIds.has(q.id)) &&
       (cfg.difficulty === 'any' || q.difficulty === cfg.difficulty));
   }
 
@@ -824,6 +1002,24 @@
               </button>`).join('')}
           </div>
         </div>
+        ${bank.tags.length ? `
+        <div class="field">
+          <div class="field-label">Topics <span class="muted small">topics cut across sections</span></div>
+          <div class="chips topic-match">
+            <button class="chip-toggle ${setup.tags.length ? '' : 'on'}" data-action="setup-tag" data-tag=""><span class="chip-num">★</span>Any topic</button>
+            ${setup.tags.length > 1 ? seg('setup-match', setup.tagMatch, [['any', 'Match any'], ['all', 'Match all']]) : ''}
+          </div>
+          ${[['technology', 'Technologies'], ['theme', 'Themes']].map(([kind, label]) => {
+            const tags = bank.tags.filter(t => t.kind === kind);
+            return tags.length ? `
+              <div class="chips-sub">${label}</div>
+              <div class="chips">${tags.map(t => `
+                <button class="chip-toggle ${setup.tags.includes(t.id) ? 'on' : ''}" data-action="setup-tag" data-tag="${esc(t.id)}">
+                  ${esc(t.name)}<span class="chip-count">${bank.byTag.get(t.id).length}</span>
+                </button>`).join('')}
+              </div>` : '';
+          }).join('')}
+        </div>` : ''}
         <div class="field">
           <div class="field-label">Difficulty</div>
           ${seg('setup-diff', setup.difficulty, [['any', 'Any'], ['easy', 'Easy'], ['medium', 'Medium'], ['hard', 'Hard']])}
@@ -900,7 +1096,11 @@
   }
 
   function startQuick(cfg, remember) {
-    if (remember) { store.prefs.quick = { ...cfg }; save(); }
+    if (remember) {
+      const { term, ...prefs } = cfg;
+      store.prefs.quick = prefs;
+      save();
+    }
     const pool = filterPool(cfg);
     const picks = cfg.order === 'random' ? shuffle(pool).slice(0, cfg.length) : pickSmart(pool, cfg.length);
     if (!picks.length) return toast({ icon: '🤔', title: 'No questions match', body: 'Try widening your filters.' });
@@ -989,7 +1189,7 @@
     }
     if (!q) return finishSession();
     s.used.add(q.id);
-    s.current = { q, order: shuffle(q.choices.map((_, i) => i)), picked: null, correct: null };
+    s.current = { q, order: shuffle(q.choices.map((_, i) => i)), picked: null, correct: null, openTerms: [], peeked: false };
     s.paused = false;
     renderPlay();
   }
@@ -1017,8 +1217,10 @@
             <span class="tag">§${esc(sec.id)} ${esc(sec.name)}</span>
             <span class="pill diff-${q.difficulty}">${q.difficulty}</span>
             ${q.topic ? `<span class="topic">${esc(q.topic)}</span>` : ''}
+            ${glossAvailable() ? glossToggle(q) : ''}
           </div>
-          <h1 class="qtext">${esc(q.question)}</h1>
+          ${q.tags.length ? `<div class="qtags">${q.tags.map(id => `<span class="qtag">${esc(bank.tagById.get(id).name)}</span>`).join('')}</div>` : ''}
+          <h1 class="qtext" id="qtext">${questionHtml(q)}</h1>
           <div class="choices" role="group" aria-label="Answer choices">
             ${c.order.map((ci, pos) => `
               <button class="choice" data-action="answer" data-pos="${pos}">
@@ -1026,12 +1228,108 @@
                 <span class="ctext ${looksLikeCode(q.choices[ci]) ? 'code' : ''}">${esc(q.choices[ci])}</span>
               </button>`).join('')}
           </div>
+          <div id="gloss" class="gloss" hidden></div>
           <div id="feedback" aria-live="polite"></div>
         </article>
         <p class="hint">Press <kbd>1</kbd>–<kbd>${keys}</kbd> or <kbd>A</kbd>–<kbd>${LETTERS[keys - 1]}</kbd> to answer${s.mode === 'lightning'
           ? ` · a miss costs ${CONFIG.lightning.penalty} seconds`
-          : ' · <kbd>Enter</kbd> for the next question · <kbd>Esc</kbd> to end the round'}</p>
+          : ' · <kbd>Enter</kbd> for the next question · <kbd>Esc</kbd> to end the round'}${glossAvailable() ? ' · <kbd>T</kbd> glossary terms' : ''}</p>
       </div>`;
+    refreshGlossary();
+  }
+
+  // ─── Glossary in play ───────────────────────────────────────────────────────
+
+  function glossToggle(q) {
+    const n = termsFor(q, false).length;
+    const on = store.settings.glossary;
+    return `<button class="gloss-toggle ${on ? 'on' : ''}" data-action="gloss-toggle" aria-pressed="${on}" title="Show glossary terms (T)">📖 Terms <b>${n}</b></button>`;
+  }
+
+  // The question text, with glossary terms underlined and clickable when the glossary is on.
+  function questionHtml(q) {
+    if (!glossOn()) return esc(q.question);
+    const text = q.question;
+    let html = '', at = 0;
+    for (const m of findTerms(text)) {
+      html += esc(text.slice(at, m.start));
+      html += `<button type="button" class="term-link" data-action="term" data-term="${esc(m.id)}">${esc(text.slice(m.start, m.end))}</button>`;
+      at = m.end;
+    }
+    return html + esc(text.slice(at));
+  }
+
+  function termChip(id, open) {
+    const t = glossary.byId.get(id);
+    return `<button class="term-chip ${open ? 'on' : ''}" data-action="term" data-term="${esc(id)}" aria-expanded="${open}">${esc(t.term)}</button>`;
+  }
+
+  function termCard(id) {
+    const t = glossary.byId.get(id);
+    const cat = glossary.catById.get(t.category);
+    return `
+      <div class="term-card">
+        <div class="term-card-head">
+          <b>${esc(t.term)}</b>
+          ${cat ? `<span class="term-cat">${esc(cat.name)}</span>` : ''}
+          <button class="link-btn small term-close" data-action="term" data-term="${esc(id)}" aria-label="Close ${esc(t.term)}">✕</button>
+        </div>
+        <p>${esc(t.definition)}</p>
+        ${t.related.length ? `
+          <div class="term-related"><span class="muted small">Related</span>${t.related.map(r => termChip(r, session.current.openTerms.includes(r))).join('')}</div>` : ''}
+        ${t.source ? `<a class="small" href="${esc(t.source)}" target="_blank" rel="noopener">📖 Read the docs</a>` : ''}
+      </div>`;
+  }
+
+  // Redraws the underlined question text and the terms panel without disturbing the rest of the card.
+  function refreshGlossary() {
+    const c = session && session.current;
+    const panel = document.getElementById('gloss');
+    if (!c || !panel) return;
+    const on = glossOn();
+    const toggle = app.querySelector('.gloss-toggle');
+    if (toggle) {
+      toggle.classList.toggle('on', on);
+      toggle.setAttribute('aria-pressed', String(on));
+    }
+    const qtext = document.getElementById('qtext');
+    if (qtext) qtext.innerHTML = questionHtml(c.q);
+    if (!on) {
+      panel.hidden = true;
+      panel.innerHTML = '';
+      return;
+    }
+    const answered = c.picked !== null;
+    const ids = termsFor(c.q, answered);
+    panel.hidden = false;
+    panel.innerHTML = `
+      <div class="gloss-head">
+        <span class="eyebrow">Terms in this question${answered ? ' and its explanation' : ''}</span>
+        ${answered ? '' : '<span class="muted small">Opening a definition before you answer means this question won\'t count toward mastery.</span>'}
+      </div>
+      <div class="gloss-chips">${ids.length ? ids.map(id => termChip(id, c.openTerms.includes(id))).join('') : '<span class="muted small">No glossary terms in this question.</span>'}</div>
+      ${c.openTerms.map(termCard).join('')}`;
+  }
+
+  function toggleTerm(id) {
+    const c = session && session.current;
+    if (!c || !glossary || !glossary.byId.has(id)) return;
+    const opening = !c.openTerms.includes(id);
+    c.openTerms = opening ? [...c.openTerms, id] : c.openTerms.filter(x => x !== id);
+    if (opening && c.picked === null) c.peeked = true;
+    refreshGlossary();
+    if (opening) {
+      const cards = app.querySelectorAll('.term-card');
+      const card = cards[cards.length - 1];
+      if (card) card.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
+    }
+  }
+
+  function toggleGlossary() {
+    if (!glossAvailable()) return;
+    store.settings.glossary = !store.settings.glossary;
+    save();
+    refreshGlossary();
   }
 
   function barMid() {
@@ -1073,7 +1371,7 @@
     s.answered++;
     if (s.mode === 'lightning') s.paused = true;
 
-    const info = record(q, correct);
+    const info = record(q, correct, c.peeked);
     let gained = 0, points = 0;
     if (correct) {
       s.correct++;
@@ -1154,12 +1452,14 @@
           ${info.redeemed ? '<span class="badge">Redeemed</span>' : ''}
         </div>
         ${correct ? '' : `<p class="fb-answer">The answer is <b>${LETTERS[correctPos]}</b>: ${esc(q.choices[q.answerIndex])}</p>`}
+        ${correct && c.peeked ? '<p class="fb-assist">📖 You opened a definition before answering, so this counts as correct but won\'t raise mastery yet. Answer it unaided next time to master it.</p>' : ''}
         <p class="fb-expl">${esc(q.explanation)}</p>
         <div class="fb-foot">
           ${src ? `<a href="${esc(src)}" target="_blank" rel="noopener">📖 Read the docs</a>` : '<span></span>'}
           <button class="btn primary" data-action="next" id="next-btn">${isLastQuestion() ? 'See results' : 'Next question'} →</button>
         </div>
       </div>`;
+    refreshGlossary();
     document.getElementById('next-btn').focus({ preventScroll: true });
     fb.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
   }
@@ -1521,6 +1821,107 @@
       </div>`;
   }
 
+  // ─── Glossary screen ────────────────────────────────────────────────────────
+
+  let glossView = { query: '', category: 'all', deckOnly: true };
+
+  function renderGlossary() {
+    app.innerHTML = `
+      <div class="screen-head">
+        <button class="icon-btn" data-action="home" aria-label="Back to home">←</button>
+        <h1>📖 Glossary</h1>
+      </div>
+      <div class="gloss-searchbar">
+        <input type="search" id="gloss-search" class="gloss-search" placeholder="Search terms, aliases and definitions" value="${esc(glossView.query)}" aria-label="Search the glossary" autocomplete="off">
+      </div>
+      <div class="card gloss-tools">
+        <div class="chips" id="gloss-cats"></div>
+        <label class="gloss-deckonly"><input type="checkbox" id="gloss-deck" ${glossView.deckOnly ? 'checked' : ''}> Only terms used in the ${esc(deck.label)} deck</label>
+      </div>
+      <div id="gloss-list"></div>`;
+    document.getElementById('gloss-search').addEventListener('input', e => {
+      glossView.query = e.target.value;
+      renderGlossaryCats();
+      renderGlossaryList();
+    });
+    document.getElementById('gloss-deck').addEventListener('change', e => {
+      glossView.deckOnly = e.target.checked;
+      renderGlossaryCats();
+      renderGlossaryList();
+    });
+    renderGlossaryCats();
+    renderGlossaryList();
+  }
+
+  function visibleTerms() {
+    const index = deckTermIndex();
+    const q = glossView.query.trim().toLowerCase();
+    return glossary.terms.filter(t =>
+      (!glossView.deckOnly || index.has(t.id)) &&
+      (!q || [t.term, t.definition, ...t.aliases].some(s => s.replace(/^=/, '').toLowerCase().includes(q))));
+  }
+
+  function renderGlossaryCats() {
+    const terms = visibleTerms();
+    const cats = glossary.categories
+      .map(c => [c.id, c.name, terms.filter(t => t.category === c.id).length])
+      .filter(([, , n]) => n);
+    if (glossView.category !== 'all' && !cats.some(([id]) => id === glossView.category)) glossView.category = 'all';
+    document.getElementById('gloss-cats').innerHTML = [['all', 'All', terms.length], ...cats].map(([id, name, n]) => `
+      <button class="chip-toggle ${glossView.category === id ? 'on' : ''}" data-action="gloss-cat" data-v="${esc(id)}">
+        ${esc(name)}<span class="chip-count">${n}</span>
+      </button>`).join('');
+  }
+
+  function renderGlossaryList() {
+    const index = deckTermIndex();
+    const terms = visibleTerms();
+    const groups = glossary.categories
+      .filter(c => glossView.category === 'all' || c.id === glossView.category)
+      .map(c => [c, terms.filter(t => t.category === c.id).sort((a, b) => a.term.localeCompare(b.term))])
+      .filter(([, list]) => list.length);
+    document.getElementById('gloss-list').innerHTML = groups.length
+      ? groups.map(([c, list]) => `
+          <h2 class="h-section">${esc(c.name)} <span class="muted small">${list.length}</span></h2>
+          <div class="gcards">${list.map(t => glossaryCard(t, index)).join('')}</div>`).join('')
+      : '<p class="center muted">No terms match. Try another search, or include terms from other decks.</p>';
+  }
+
+  function glossaryCard(t, index) {
+    const n = index.has(t.id) ? index.get(t.id).size : 0;
+    const aliases = t.aliases.map(a => a.replace(/^=/, '')).filter(a => a.toLowerCase() !== t.term.toLowerCase());
+    return `
+      <article class="card gcard" id="term-${esc(t.id)}">
+        <div class="gcard-head">
+          <h3>${esc(t.term)}</h3>
+          <span class="muted small">${n ? `in ${plural(n, 'question')}` : 'not in this deck'}</span>
+        </div>
+        ${aliases.length ? `<div class="gcard-aliases muted small">Also: ${aliases.slice(0, 6).map(esc).join(' · ')}</div>` : ''}
+        <p>${esc(t.definition)}</p>
+        ${t.related.length ? `
+          <div class="term-related"><span class="muted small">Related</span>${t.related.map(id =>
+            `<button class="term-chip" data-action="gloss-jump" data-term="${esc(id)}">${esc(glossary.byId.get(id).term)}</button>`).join('')}</div>` : ''}
+        <div class="gcard-foot">
+          ${t.source ? `<a class="small" href="${esc(t.source)}" target="_blank" rel="noopener">📖 Docs</a>` : '<span></span>'}
+          ${n ? `<button class="btn small" data-action="practice-term" data-term="${esc(t.id)}">Practice ${plural(n, 'question')} →</button>` : ''}
+        </div>
+      </article>`;
+  }
+
+  // Scroll to a related term, clearing filters first if they hide it.
+  function glossJump(id) {
+    if (!document.getElementById(`term-${id}`)) {
+      glossView = { query: '', category: 'all', deckOnly: false };
+      renderGlossary();
+    }
+    const el = document.getElementById(`term-${id}`);
+    if (!el) return;
+    el.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'center' });
+    el.classList.remove('flash');
+    void el.offsetWidth;
+    el.classList.add('flash');
+  }
+
   // ─── Input ──────────────────────────────────────────────────────────────────
 
   const ACTIONS = {
@@ -1544,7 +1945,14 @@
         if (ok) startMock();
       }
     },
-    'practice-section': el => startQuick({ sections: [el.dataset.section], difficulty: 'any', length: CONFIG.quickLengths[0], order: 'smart' }, false),
+    'practice-section': el => startQuick({ sections: [el.dataset.section], tags: [], difficulty: 'any', length: CONFIG.quickLengths[0], order: 'smart' }, false),
+    'practice-tag': el => startQuick({ sections: [], tags: [el.dataset.tag], difficulty: 'any', length: CONFIG.quickLengths[0], order: 'smart' }, false),
+    'practice-term': el => startQuick({ sections: [], tags: [], term: el.dataset.term, difficulty: 'any', length: CONFIG.quickLengths[0], order: 'smart' }, false),
+    'glossary': () => { if (glossary) go('glossary'); },
+    'gloss-cat': el => { glossView.category = el.dataset.v; renderGlossaryCats(); renderGlossaryList(); },
+    'gloss-jump': el => glossJump(el.dataset.term),
+    'gloss-toggle': () => toggleGlossary(),
+    'term': el => toggleTerm(el.dataset.term),
     'deck': el => switchDeck(el.dataset.deck),
     'reset': async () => {
       const ok = await confirmModal(`Reset ${deck.label} progress?`, `This clears your XP, mastery, achievements and history for the ${deck.label} deck. Other decks are not affected. It cannot be undone.`, 'Reset this deck', 'Cancel');
@@ -1563,10 +1971,18 @@
       if (setup.sections.length === bank.sections.length) setup.sections = [];
       renderSetup();
     },
+    'setup-tag': el => {
+      const id = el.dataset.tag;
+      if (!id) setup.tags = [];
+      else if (setup.tags.includes(id)) setup.tags = setup.tags.filter(x => x !== id);
+      else setup.tags = [...setup.tags, id];
+      renderSetup();
+    },
+    'setup-match': el => { setup.tagMatch = el.dataset.v; renderSetup(); },
     'setup-diff': el => { setup.difficulty = el.dataset.v; renderSetup(); },
     'setup-len': el => { setup.length = Number(el.dataset.v); renderSetup(); },
     'setup-order': el => { setup.order = el.dataset.v; renderSetup(); },
-    'setup-start': () => startQuick({ ...setup, sections: [...setup.sections] }, true),
+    'setup-start': () => startQuick({ ...setup, sections: [...setup.sections], tags: [...setup.tags] }, true),
     'answer': el => answer(Number(el.dataset.pos)),
     'next': () => next(),
     'quit': () => quit(),
@@ -1601,6 +2017,7 @@
 
     if (screen === 'play' && s && !s.over && s.current) {
       if (key === 'escape') { e.preventDefault(); quit(); return; }
+      if (key === 't' && glossAvailable()) { e.preventDefault(); toggleGlossary(); return; }
       if (s.current.picked === null) {
         const pos = keyToPos(key);
         if (pos !== null && pos < s.current.order.length) { e.preventDefault(); answer(pos); }
@@ -1682,7 +2099,8 @@
     screen = 'loading';
     app.innerHTML = `<div class="loading"><div class="spinner"></div><p>Loading the ${esc(d.label)} deck…</p></div>`;
     try {
-      const res = await fetch(d.file, { cache: 'no-cache' });
+      // The glossary is optional: if it fails to load, the game simply runs without it.
+      const [res] = await Promise.all([fetch(d.file, { cache: 'no-cache' }), loadGlossary()]);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       if (token === loadToken) startWith(data);
