@@ -1,15 +1,14 @@
-/* Lakehouse Quest: a practice game for the Databricks Certified Data Engineer Associate exam.
-   Plain browser JavaScript with no build step. Questions come from questions.json and
-   progress is kept in localStorage. */
+/* Lakehouse Quest: a practice game with several question decks (the Databricks Certified Data
+   Engineer Associate exam, Microsoft Copilot and agents). Plain browser JavaScript with no
+   build step. Each deck is a JSON file listed in DECKS, and each deck keeps its own progress
+   in localStorage. */
 (() => {
   'use strict';
 
   // ─── Configuration ──────────────────────────────────────────────────────────
 
   const CONFIG = {
-    bankUrl: 'questions.json',
-    storageKey: 'lakehouse-quest:v1',
-    mock: { questions: 45, minutes: 90 },
+    deckKey: 'lakehouse-quest:deck', // remembers the last deck played
     passTarget: 0.7,
     quickLengths: [10, 20, 30],
     reviewLength: 15,
@@ -24,18 +23,49 @@
     xp: { easy: 10, medium: 15, hard: 25, streakStep: 2, streakCap: 10, redemption: 5, mockPass: 150, dailyGoal: 50 },
   };
 
-  const LEVELS = [
-    { xp: 0, title: 'Raw File' },
-    { xp: 150, title: 'Bronze Ingestor' },
-    { xp: 400, title: 'Silver Refiner' },
-    { xp: 800, title: 'Gold Curator' },
-    { xp: 1400, title: 'Stream Wrangler' },
-    { xp: 2200, title: 'Pipeline Pilot' },
-    { xp: 3200, title: 'Job Orchestrator' },
-    { xp: 4500, title: 'Catalog Keeper' },
-    { xp: 6000, title: 'Lakehouse Architect' },
-    { xp: 8000, title: 'Delta Legend' },
+  const LEVEL_XP = [0, 150, 400, 800, 1400, 2200, 3200, 4500, 6000, 8000];
+  const levels = titles => titles.map((title, i) => ({ xp: LEVEL_XP[i], title }));
+
+  // Each deck has its own question file, saved progress, ranks, wording and accent colors.
+  // The Databricks deck keeps the original storage key so earlier progress carries over.
+  const DECKS = [
+    {
+      id: 'databricks',
+      file: 'questions.json',
+      storageKey: 'lakehouse-quest:v1',
+      icon: '🧱',
+      brand: ['Lakehouse', 'Quest'],
+      label: 'Databricks',
+      mock: { questions: 45, minutes: 90 },
+      levels: levels(['Raw File', 'Bronze Ingestor', 'Silver Refiner', 'Gold Curator', 'Stream Wrangler',
+        'Pipeline Pilot', 'Job Orchestrator', 'Catalog Keeper', 'Lakehouse Architect', 'Delta Legend']),
+      copy: {
+        readiness: 'Exam readiness', nearly: 'Nearly exam-ready', ready: 'Exam-ready',
+        weightNote: 'weighted by its share of the exam', weightUnit: 'of exam',
+      },
+      achievements: {},
+    },
+    {
+      id: 'copilot',
+      file: 'copilot-questions.json',
+      storageKey: 'lakehouse-quest:v1:copilot',
+      icon: '🤖',
+      brand: ['Copilot', 'Quest'],
+      label: 'Microsoft Copilot',
+      mock: { questions: 40, minutes: 60 },
+      levels: levels(['Curious Prompter', 'Chat Explorer', 'Agent Builder', 'Credit Counter', 'Connector Wrangler',
+        'Governance Guardian', 'Licensing Navigator', 'Estate Strategist', 'Agent Architect', 'Trusted Advisor']),
+      copy: {
+        readiness: 'Coaching readiness', nearly: 'Nearly customer-ready', ready: 'Customer-ready',
+        weightNote: 'weighted by how much it matters in customer conversations', weightUnit: 'of deck',
+      },
+      achievements: {
+        first: { name: 'Hello, Copilot' },
+        mockPass: { name: 'Customer Ready' },
+      },
+    },
   ];
+  const DECK_BY_ID = new Map(DECKS.map(d => [d.id, d]));
 
   const ACHIEVEMENTS = [
     { id: 'first', icon: '🎯', name: 'Hello, Lakehouse', desc: 'Answer your first question correctly' },
@@ -57,7 +87,11 @@
     { id: 'mockPass', icon: '🏆', name: 'Exam Ready', desc: `Score ${Math.round(CONFIG.passTarget * 100)}%+ on a Mock Exam` },
     { id: 'mockAce', icon: '👑', name: 'Ace', desc: 'Score 90%+ on a Mock Exam' },
   ];
-  const ACH_BY_ID = new Map(ACHIEVEMENTS.map(a => [a.id, a]));
+
+  // The deck being played. Set by useDeck() before anything renders.
+  let deck = DECKS[0];
+  let achievements = ACHIEVEMENTS;
+  let achById = new Map(ACHIEVEMENTS.map(a => [a.id, a]));
 
   const LETTERS = 'ABCDEFGH';
   const DAY_MS = 86400000;
@@ -137,7 +171,7 @@
   function loadStore() {
     const base = defaultStore();
     try {
-      const saved = JSON.parse(localStorage.getItem(CONFIG.storageKey) || 'null');
+      const saved = JSON.parse(localStorage.getItem(deck.storageKey) || 'null');
       if (saved && typeof saved === 'object') {
         for (const key of Object.keys(base)) {
           if (saved[key] === undefined) continue;
@@ -150,14 +184,37 @@
   }
 
   function save() {
-    try { localStorage.setItem(CONFIG.storageKey, JSON.stringify(store)); } catch (e) { /* play on without saving */ }
+    try { localStorage.setItem(deck.storageKey, JSON.stringify(store)); } catch (e) { /* play on without saving */ }
   }
 
-  let store = loadStore();
+  let store = defaultStore();
+
+  // Switch the game over to a deck: its saved progress, achievements wording, page title and colors.
+  // The sound setting follows the player from deck to deck.
+  function useDeck(d, switching) {
+    const sound = store.settings.sound;
+    deck = d;
+    store = loadStore();
+    if (switching && store.settings.sound !== sound) {
+      store.settings.sound = sound;
+      save();
+    }
+    achievements = ACHIEVEMENTS.map(a => ({ ...a, ...(d.achievements[a.id] || {}) }));
+    achById = new Map(achievements.map(a => [a.id, a]));
+    document.documentElement.dataset.deck = d.id;
+    document.title = d.brand.join(' ');
+    try { localStorage.setItem(CONFIG.deckKey, d.id); } catch (e) { /* not remembered */ }
+    const url = new URL(window.location.href);
+    if (url.searchParams.get('deck') !== d.id) {
+      url.searchParams.set('deck', d.id);
+      try { history.replaceState(null, '', url); } catch (e) { /* file:// pages may refuse */ }
+    }
+  }
 
   // ─── Question bank ──────────────────────────────────────────────────────────
 
   let bank = null;
+  const bankCache = new Map(); // deck id -> prepared bank
 
   function prepareBank(data) {
     if (!data || !Array.isArray(data.questions)) throw new Error('the file has no "questions" array');
@@ -286,14 +343,15 @@
     if (r < 0.25) return 'Warming up';
     if (r < 0.5) return 'Building momentum';
     if (r < 0.75) return 'Getting close';
-    if (r < 0.9) return 'Nearly exam-ready';
-    return 'Exam-ready';
+    if (r < 0.9) return deck.copy.nearly;
+    return deck.copy.ready;
   }
 
   function levelFor(xp) {
+    const ranks = deck.levels;
     let i = 0;
-    while (i + 1 < LEVELS.length && xp >= LEVELS[i + 1].xp) i++;
-    const cur = LEVELS[i], next = LEVELS[i + 1] || null;
+    while (i + 1 < ranks.length && xp >= ranks[i + 1].xp) i++;
+    const cur = ranks[i], next = ranks[i + 1] || null;
     return { index: i, num: i + 1, title: cur.title, next, progress: next ? (xp - cur.xp) / (next.xp - cur.xp) : 1 };
   }
 
@@ -331,7 +389,7 @@
 
   function unlock(id) {
     if (store.achievements[id]) return;
-    const a = ACH_BY_ID.get(id);
+    const a = achById.get(id);
     if (!a) return;
     store.achievements[id] = Date.now();
     if (session && session.newAchievements) session.newAchievements.push(a);
@@ -548,11 +606,12 @@
       else if (r.ok && r.due <= now) due++;
     }
     const best = store.best;
-    const unlocked = ACHIEVEMENTS.filter(a => store.achievements[a.id]).length;
+    const unlocked = achievements.filter(a => store.achievements[a.id]).length;
 
     app.innerHTML = `
       <header class="topbar">
-        <div class="brand"><span class="brand-mark" aria-hidden="true">🧱</span><span>Lakehouse <b>Quest</b></span></div>
+        ${brandMark()}
+        ${deckSwitch()}
         <div class="top-actions">
           <span class="chip ${days ? 'lit' : ''}" title="Days in a row you've practiced">🔥 ${plural(days, 'day')}</span>
           ${soundButton()}
@@ -578,14 +637,14 @@
           <div class="player-stats">
             <div><b>${fmtNum(store.totals.answered)}</b><span>answered</span></div>
             <div><b>${best.streak}</b><span>best streak</span></div>
-            <div><b>${unlocked}/${ACHIEVEMENTS.length}</b><span>achievements</span></div>
+            <div><b>${unlocked}/${achievements.length}</b><span>achievements</span></div>
           </div>
         </div>
 
         <div class="card readiness">
           ${ring(m.readiness, 'ready')}
           <div class="readiness-info">
-            <div class="eyebrow">Exam readiness</div>
+            <div class="eyebrow">${esc(deck.copy.readiness)}</div>
             <div class="readiness-label">${readinessLabel(m.readiness)}</div>
             <ul class="kv">
               <li><span>Mastered</span><b>${m.mastered} / ${bank.questions.length}</b></li>
@@ -594,7 +653,7 @@
               <li><span>Best mock exam</span><b>${store.mocks.length ? `${pct(best.mock)}%` : '—'}</b></li>
             </ul>
           </div>
-          <p class="readiness-note muted small">Readiness is your mastery of each section, weighted by its share of the exam. A question counts as mastered once you've answered it right on spaced repeats.</p>
+          <p class="readiness-note muted small">Readiness is your mastery of each section, ${esc(deck.copy.weightNote)}. A question counts as mastered once you've answered it right on spaced repeats.</p>
         </div>
       </section>
 
@@ -610,7 +669,7 @@
           desc: `${CONFIG.survivalLives} lives. Questions get harder the longer you last.`,
           meta: best.survival ? `Best: ${best.survival} correct` : 'No run yet' })}
         ${modeCard({ mode: 'mock', icon: '📝', title: 'Mock Exam',
-          desc: `${CONFIG.mock.questions} questions in ${CONFIG.mock.minutes} minutes, spread across sections by exam weight. Score at the end.`,
+          desc: `${deck.mock.questions} questions in ${deck.mock.minutes} minutes, spread across sections by weight. Score at the end.`,
           meta: store.mocks.length ? `Best: ${pct(best.mock)}% · ${plural(store.mocks.length, 'attempt')}` : `Target: ${pct(CONFIG.passTarget)}%` })}
         ${modeCard({ mode: 'review', icon: '🔁', title: 'Fix Mistakes', disabled: !mistakes,
           desc: 'Replay the questions you got wrong last time until they stick.',
@@ -620,9 +679,9 @@
       <h2 class="h-section">Section mastery <span class="muted small">Raw → Bronze → Silver → Gold · click a section to practice it</span></h2>
       <div class="card sections">${m.sections.map(sectionRow).join('')}</div>
 
-      <h2 class="h-section">Achievements <span class="muted small">${unlocked} / ${ACHIEVEMENTS.length}</span></h2>
+      <h2 class="h-section">Achievements <span class="muted small">${unlocked} / ${achievements.length}</span></h2>
       <div class="achievements">
-        ${ACHIEVEMENTS.map(a => `
+        ${achievements.map(a => `
           <div class="ach ${store.achievements[a.id] ? 'got' : ''}">
             <span class="ach-icon" aria-hidden="true">${a.icon}</span>
             <span class="ach-name">${esc(a.name)}</span>
@@ -632,8 +691,20 @@
 
       <footer class="foot">
         <span class="muted small">${bank.questions.length} questions · ${esc(bank.title)}</span>
-        <button class="link-btn small" data-action="reset">Reset progress</button>
+        <button class="link-btn small" data-action="reset">Reset ${esc(deck.label)} progress</button>
       </footer>`;
+  }
+
+  function brandMark() {
+    const [first, second] = deck.brand;
+    return `<div class="brand"><span class="brand-mark" aria-hidden="true">${deck.icon}</span><span>${esc(first)} <b>${esc(second)}</b></span></div>`;
+  }
+
+  function deckSwitch() {
+    return `
+      <nav class="deck-switch" aria-label="Question deck">
+        ${DECKS.map(d => `<button class="${d.id === deck.id ? 'on' : ''}" data-action="deck" data-deck="${esc(d.id)}" aria-pressed="${d.id === deck.id}"><span aria-hidden="true">${d.icon}</span> ${esc(d.label)}</button>`).join('')}
+      </nav>`;
   }
 
   function soundButton() {
@@ -653,7 +724,7 @@
 
   function sectionRow(s) {
     const tier = tierFor(s.mastery);
-    const weight = bank.weightsArePercent ? ` · ${s.weight}% of exam` : '';
+    const weight = bank.weightsArePercent ? ` · ${s.weight}% ${deck.copy.weightUnit}` : '';
     return `
       <button class="sec-row" data-action="practice-section" data-section="${esc(s.id)}">
         <span class="sec-num">${esc(s.id)}</span>
@@ -1196,7 +1267,7 @@
   // ─── Mock exam ──────────────────────────────────────────────────────────────
 
   function startMock() {
-    const n = Math.min(CONFIG.mock.questions, bank.questions.length);
+    const n = Math.min(deck.mock.questions, bank.questions.length);
     const quota = allocate(n, bank.sections);
     let picks = [];
     for (const s of bank.sections) picks.push(...shuffle(bank.bySection.get(s.id)).slice(0, quota[s.id]));
@@ -1211,7 +1282,7 @@
       items: picks.map(q => ({ q, order: shuffle(q.choices.map((_, i) => i)), picked: null, flagged: false })),
       index: 0,
       startedAt: now,
-      deadline: now + CONFIG.mock.minutes * 60000,
+      deadline: now + deck.mock.minutes * 60000,
       over: false,
       xp: 0,
       newAchievements: [],
@@ -1446,14 +1517,15 @@
       if (mode === 'review') return startReview();
       if (mode === 'mock') {
         const ok = await confirmModal('Start a mock exam?',
-          `${CONFIG.mock.questions} questions, ${CONFIG.mock.minutes} minutes on the clock. You can flag questions and change answers until you submit. Results come at the end.`,
+          `${deck.mock.questions} questions, ${deck.mock.minutes} minutes on the clock. You can flag questions and change answers until you submit. Results come at the end.`,
           'Start exam', 'Not now');
         if (ok) startMock();
       }
     },
     'practice-section': el => startQuick({ sections: [el.dataset.section], difficulty: 'any', length: CONFIG.quickLengths[0], order: 'smart' }, false),
+    'deck': el => switchDeck(el.dataset.deck),
     'reset': async () => {
-      const ok = await confirmModal('Reset all progress?', 'This clears your XP, mastery, achievements and history. It cannot be undone.', 'Reset everything', 'Cancel');
+      const ok = await confirmModal(`Reset ${deck.label} progress?`, `This clears your XP, mastery, achievements and history for the ${deck.label} deck. Other decks are not affected. It cannot be undone.`, 'Reset this deck', 'Cancel');
       if (!ok) return;
       const sound = store.settings.sound;
       store = defaultStore();
@@ -1539,7 +1611,7 @@
     }
   });
 
-  // ─── Boot ───────────────────────────────────────────────────────────────────
+  // ─── Boot and deck switching ────────────────────────────────────────────────
 
   function startWith(data) {
     try {
@@ -1548,19 +1620,22 @@
       renderLoadError(err);
       return;
     }
+    bankCache.set(deck.id, bank);
     go('home');
   }
 
   function renderLoadError(err) {
+    clearTimers();
     screen = 'load';
     app.innerHTML = `
+      <header class="topbar">${brandMark()}${deckSwitch()}</header>
       <div class="card load-card">
-        <h1>🧱 Lakehouse Quest</h1>
-        <p>Couldn't load <code>${esc(CONFIG.bankUrl)}</code>: ${esc(err && err.message ? err.message : err)}.</p>
+        <h1>${deck.icon} ${esc(deck.brand.join(' '))}</h1>
+        <p>Couldn't load <code>${esc(deck.file)}</code>: ${esc(err && err.message ? err.message : err)}.</p>
         <p class="muted">Browsers block pages opened straight from disk from reading other files. Start a small web server in this folder:</p>
         <pre>python3 -m http.server 8000</pre>
         <p class="muted">then open <code>http://localhost:8000</code>. Or load the question file by hand:</p>
-        <label class="btn primary file-btn">Choose questions.json<input type="file" accept=".json,application/json" id="bank-file" hidden></label>
+        <label class="btn primary file-btn">Choose ${esc(deck.file)}<input type="file" accept=".json,application/json" id="bank-file" hidden></label>
       </div>`;
     document.getElementById('bank-file').addEventListener('change', async e => {
       const file = e.target.files[0];
@@ -1569,16 +1644,43 @@
     });
   }
 
-  async function boot() {
-    app.innerHTML = '<div class="loading"><div class="spinner"></div><p>Loading questions…</p></div>';
+  let loadToken = 0;
+
+  async function openDeck(d, switching) {
+    const token = ++loadToken;
+    clearTimers();
+    dismissModal();
+    session = null;
+    useDeck(d, switching);
+    if (bankCache.has(d.id)) {
+      bank = bankCache.get(d.id);
+      go('home');
+      return;
+    }
+    screen = 'loading';
+    app.innerHTML = `<div class="loading"><div class="spinner"></div><p>Loading the ${esc(d.label)} deck…</p></div>`;
     try {
-      const res = await fetch(CONFIG.bankUrl, { cache: 'no-cache' });
+      const res = await fetch(d.file, { cache: 'no-cache' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      startWith(await res.json());
+      const data = await res.json();
+      if (token === loadToken) startWith(data);
     } catch (err) {
-      renderLoadError(err);
+      if (token === loadToken) renderLoadError(err);
     }
   }
 
-  boot();
+  function switchDeck(id) {
+    const d = DECK_BY_ID.get(id);
+    if (!d || (d === deck && screen === 'home')) return;
+    openDeck(d, true);
+  }
+
+  function initialDeck() {
+    const fromUrl = new URLSearchParams(window.location.search).get('deck');
+    let remembered = null;
+    try { remembered = localStorage.getItem(CONFIG.deckKey); } catch (e) { /* storage unavailable */ }
+    return DECK_BY_ID.get(fromUrl) || DECK_BY_ID.get(remembered) || DECKS[0];
+  }
+
+  openDeck(initialDeck(), false);
 })();
