@@ -1,7 +1,7 @@
 {
 	"title": "Databricks agents and the competitive landscape: coaching question bank",
 	"asOf": "2026-11-24",
-	"generated": "2026-11-24",
+	"generated": "2026-11-25",
 	"format": {
 		"choices": "Four options per question, in display order.",
 		"answerIndex": "Zero-based index into choices of the single correct option.",
@@ -10,7 +10,7 @@
 		"source": "The Databricks, Microsoft or vendor page the question was checked against."
 	},
 	"notes": "Prices, rates and release states change often. Each question reflects its source as of the asOf date.",
-	"totalQuestions": 195,
+	"totalQuestions": 245,
 	"sections": [
 		{
 			"id": 1,
@@ -21,7 +21,7 @@
 				"Names, renames and release states as of late 2026",
 				"Which audience and job each product serves"
 			],
-			"questionCount": 21
+			"questionCount": 27
 		},
 		{
 			"id": 2,
@@ -32,7 +32,7 @@
 				"Benchmarks, permissions, identity and limits",
 				"Conversation API and metric views"
 			],
-			"questionCount": 29
+			"questionCount": 36
 		},
 		{
 			"id": 3,
@@ -43,7 +43,7 @@
 				"Agent Runtime, ResponsesAgent, Model Serving deployment and tools",
 				"MLflow tracing, scorers, feedback and monitoring"
 			],
-			"questionCount": 27
+			"questionCount": 29
 		},
 		{
 			"id": 4,
@@ -54,7 +54,7 @@
 				"App authorization vs user authorization; permissions and credentials",
 				"External models, residency and networking"
 			],
-			"questionCount": 24
+			"questionCount": 35
 		},
 		{
 			"id": 5,
@@ -65,7 +65,7 @@
 				"Databricks Apps hosting, billing and deployment",
 				"AI Search, AI Functions and ai_parse_document"
 			],
-			"questionCount": 21
+			"questionCount": 27
 		},
 		{
 			"id": 6,
@@ -76,7 +76,7 @@
 				"DBU math, pay-per-token, priority and provisioned throughput",
 				"AI Functions cost layers and Unity Gateway budgets"
 			],
-			"questionCount": 25
+			"questionCount": 34
 		},
 		{
 			"id": 7,
@@ -87,7 +87,7 @@
 				"AWS AgentCore and Quick, Snowflake Cortex, Salesforce Agentforce and Glean",
 				"Seat-plus-usage vs consumption pricing across vendors"
 			],
-			"questionCount": 28
+			"questionCount": 33
 		},
 		{
 			"id": 8,
@@ -98,7 +98,7 @@
 				"Controlling cost and enforcing per-user governance",
 				"Positioning Databricks alongside Copilot and other assistants"
 			],
-			"questionCount": 20
+			"questionCount": 24
 		}
 	],
 	"tags": [
@@ -106,79 +106,79 @@
 			"id": "genie",
 			"name": "Databricks Genie",
 			"kind": "technology",
-			"count": 49
+			"count": 68
 		},
 		{
 			"id": "agent-bricks",
 			"name": "Agent Bricks",
 			"kind": "technology",
-			"count": 30
+			"count": 31
 		},
 		{
 			"id": "unity-gateway",
 			"name": "Unity Gateway",
 			"kind": "technology",
-			"count": 26
+			"count": 33
 		},
 		{
 			"id": "unity-catalog",
 			"name": "Unity Catalog",
 			"kind": "technology",
-			"count": 34
+			"count": 46
 		},
 		{
 			"id": "mlflow",
 			"name": "MLflow and evaluation",
 			"kind": "technology",
-			"count": 14
+			"count": 15
 		},
 		{
 			"id": "model-serving",
 			"name": "Model Serving and FMAPI",
 			"kind": "technology",
-			"count": 21
+			"count": 26
 		},
 		{
 			"id": "mcp",
 			"name": "MCP and tools",
 			"kind": "technology",
-			"count": 21
+			"count": 24
 		},
 		{
 			"id": "lakebase",
 			"name": "Lakebase",
 			"kind": "technology",
-			"count": 7
+			"count": 9
 		},
 		{
 			"id": "apps",
 			"name": "Databricks Apps",
 			"kind": "technology",
-			"count": 15
+			"count": 16
 		},
 		{
 			"id": "ai-search",
 			"name": "AI Search",
 			"kind": "technology",
-			"count": 15
+			"count": 18
 		},
 		{
 			"id": "ai-functions",
 			"name": "AI Functions",
 			"kind": "technology",
-			"count": 12
+			"count": 13
 		},
 		{
 			"id": "metric-views",
 			"name": "Metric views",
 			"kind": "technology",
-			"count": 4
+			"count": 7
 		},
 		{
 			"id": "openai",
 			"name": "OpenAI ChatGPT",
 			"kind": "technology",
-			"count": 10
+			"count": 12
 		},
 		{
 			"id": "anthropic",
@@ -196,19 +196,19 @@
 			"id": "aws",
 			"name": "AWS AgentCore and Quick",
 			"kind": "technology",
-			"count": 5
+			"count": 6
 		},
 		{
 			"id": "snowflake",
 			"name": "Snowflake Cortex",
 			"kind": "technology",
-			"count": 7
+			"count": 8
 		},
 		{
 			"id": "salesforce",
 			"name": "Salesforce Agentforce",
 			"kind": "technology",
-			"count": 5
+			"count": 7
 		},
 		{
 			"id": "glean",
@@ -220,61 +220,109 @@
 			"id": "m365-copilot",
 			"name": "Microsoft Copilot",
 			"kind": "technology",
-			"count": 3
+			"count": 4
 		},
 		{
 			"id": "pricing",
 			"name": "Pricing and cost",
 			"kind": "theme",
-			"count": 62
+			"count": 77
 		},
 		{
 			"id": "spend-controls",
 			"name": "Spend controls",
 			"kind": "theme",
-			"count": 12
+			"count": 14
 		},
 		{
 			"id": "governance",
 			"name": "Governance",
 			"kind": "theme",
-			"count": 41
+			"count": 57
 		},
 		{
 			"id": "security",
 			"name": "Security and identity",
 			"kind": "theme",
-			"count": 37
+			"count": 49
 		},
 		{
 			"id": "residency",
 			"name": "Data residency and privacy",
 			"kind": "theme",
-			"count": 9
+			"count": 11
 		},
 		{
 			"id": "quality",
 			"name": "Quality and evaluation",
 			"kind": "theme",
-			"count": 19
+			"count": 26
 		},
 		{
 			"id": "architecture",
 			"name": "Agent architecture",
 			"kind": "theme",
-			"count": 34
+			"count": 41
 		},
 		{
 			"id": "competitive",
 			"name": "Competitive landscape",
 			"kind": "theme",
-			"count": 38
+			"count": 46
 		},
 		{
 			"id": "whats-new",
 			"name": "New in 2026",
 			"kind": "theme",
 			"count": 16
+		},
+		{
+			"id": "style-definition",
+			"name": "Definitions",
+			"kind": "style",
+			"count": 13
+		},
+		{
+			"id": "style-best-fit",
+			"name": "Best fit",
+			"kind": "style",
+			"count": 7
+		},
+		{
+			"id": "style-lookalikes",
+			"name": "Look-alikes",
+			"kind": "style",
+			"count": 7
+		},
+		{
+			"id": "style-troubleshooting",
+			"name": "Troubleshooting",
+			"kind": "style",
+			"count": 6
+		},
+		{
+			"id": "style-objections",
+			"name": "Objections and myths",
+			"kind": "style",
+			"count": 6
+		},
+		{
+			"id": "style-request-flow",
+			"name": "Following a request",
+			"kind": "style",
+			"count": 4
+		},
+		{
+			"id": "style-prerequisites",
+			"name": "Prerequisites and approvals",
+			"kind": "style",
+			"count": 1
+		},
+		{
+			"id": "style-cost-math",
+			"name": "Cost estimates",
+			"kind": "style",
+			"count": 6
 		}
 	],
 	"questions": [
@@ -755,6 +803,142 @@
 			"answer": "C",
 			"explanation": "Unity Gateway holds budgets (with hard caps that block usage), rate limits, usage tracking and service policies for guardrails such as PII and prompt-injection detection. MLflow observes and evaluates, Lakebase stores state and Apps host the agent; none of them enforces spend or content policy.",
 			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/"
+		},
+		{
+			"id": "A1-022",
+			"section": 1,
+			"sectionName": "The Databricks AI platform map",
+			"topic": "Unity Catalog",
+			"tags": [
+				"unity-catalog",
+				"governance",
+				"security",
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What is Unity Catalog?",
+			"choices": [
+				"Databricks' data marketplace, where customers buy and sell third-party datasets and prebuilt models",
+				"A file format for storing tables, similar to Parquet, that adds ACID transactions, schema checks and time travel",
+				"The Databricks workspace's home page, which lists every notebook, job and dashboard a user owns",
+				"Databricks' governance layer for data and AI: access control, row and column security, lineage and audit"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Unity Catalog governs tables, volumes, models, functions and agents' tools with a three-level namespace (catalog.schema.object), GRANT-based access control, row filters, column masks and ABAC policies, plus lineage and audit. Its policies apply wherever data is queried through Databricks, which is what makes Genie and agents governable.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/"
+		},
+		{
+			"id": "A1-023",
+			"section": 1,
+			"sectionName": "The Databricks AI platform map",
+			"topic": "Billing basics",
+			"tags": [
+				"pricing",
+				"residency",
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What is a DBU (Databricks Unit)?",
+			"choices": [
+				"The normalized unit of compute Databricks bills by, with a rate that depends on workload type and tier",
+				"A credit that Databricks grants each user every month for free use of Genie and AI Functions",
+				"One gigabyte of data kept in Unity Catalog managed tables for one month in the customer's own cloud account",
+				"A fixed monthly fee per Databricks user, similar to a seat license for each workspace member"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Databricks bills compute in DBUs. The price per DBU depends on the workload (jobs, SQL, serverless, model serving) and the tier, and the cloud and region. To estimate cost, multiply the DBUs used by the customer's $/DBU rate.",
+			"source": "https://azure.microsoft.com/en-us/pricing/details/databricks/"
+		},
+		{
+			"id": "A1-024",
+			"section": 1,
+			"sectionName": "The Databricks AI platform map",
+			"topic": "AI/BI",
+			"tags": [
+				"unity-catalog",
+				"governance",
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What are AI/BI dashboards in Databricks?",
+			"choices": [
+				"Notebooks with charts that refresh automatically whenever their tables change",
+				"Power BI reports that Databricks generates automatically and publishes into a Fabric workspace",
+				"Databricks' built-in dashboards, governed by Unity Catalog and running on SQL warehouses",
+				"Monitoring pages that show the health and cost of model serving endpoints"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "AI/BI dashboards are Databricks' native dashboards. They run on SQL warehouses, respect Unity Catalog permissions, and are often paired with Genie: the dashboard answers the standard questions, and Genie handles the follow-ups.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/dashboards/"
+		},
+		{
+			"id": "A1-025",
+			"section": 1,
+			"sectionName": "The Databricks AI platform map",
+			"topic": "Sharing data",
+			"tags": [
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What is Delta Sharing?",
+			"choices": [
+				"A Unity Catalog setting that lets two workspaces in the same account see and edit each other's notebooks",
+				"A feature that emails a CSV extract of a table to a list of recipients on a schedule",
+				"A Genie option that lets one user share a conversation and its answers with a colleague",
+				"An open protocol for sharing live Delta data with other platforms and organizations without copying it"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Delta Sharing shares live Delta tables across platforms and organizations without making copies, and recipients don't need Databricks. Fabric doesn't mirror Delta Sharing tables, which matters in mixed estates.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/delta-sharing/"
+		},
+		{
+			"id": "A1-026",
+			"section": 1,
+			"sectionName": "The Databricks AI platform map",
+			"topic": "Federation",
+			"tags": [
+				"unity-catalog",
+				"style-definition"
+			],
+			"difficulty": "medium",
+			"question": "What is Lakehouse Federation?",
+			"choices": [
+				"Unity Catalog's ability to query external systems as foreign catalogs without moving the data",
+				"A way to merge two Databricks accounts into one after a company acquisition",
+				"A replication service that copies external databases into Delta tables every night on a fixed schedule",
+				"A program that lets partners resell Databricks workspaces under their own brand"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Lakehouse Federation exposes external databases, and OneLake through catalog federation, as foreign catalogs in Unity Catalog. Databricks queries the data in place, and Unity Catalog grants control who can query it.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/query-federation/"
+		},
+		{
+			"id": "A1-027",
+			"section": 1,
+			"sectionName": "The Databricks AI platform map",
+			"topic": "Genie family",
+			"tags": [
+				"genie",
+				"architecture",
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What is Genie Code?",
+			"choices": [
+				"A certification that data teams earn before they can publish Genie Agents",
+				"The SQL that Genie writes for each answer, which users can copy and paste into a notebook",
+				"The developer member of the Genie family: an AI assistant for building with code",
+				"The API key a developer needs before calling the Genie Conversation API"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Genie is a family: Genie One for business users, Genie Agents for curated domain analytics, and Genie Code for developers. Genie Code moved to pay-as-you-go billing with a free monthly allowance in July 2026, and the Genie One and Genie Agents promotion doesn't cover it.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie/"
 		},
 		{
 			"id": "A2-001",
@@ -1399,6 +1583,172 @@
 			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie-agents/best-practices"
 		},
 		{
+			"id": "A2-030",
+			"section": 2,
+			"sectionName": "Genie in depth",
+			"topic": "SQL warehouses",
+			"tags": [
+				"genie",
+				"pricing",
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What role does a Databricks SQL warehouse play when someone asks Genie a question?",
+			"choices": [
+				"It stores a copy of the data that Genie is allowed to answer from",
+				"It keeps the conversation history so Genie can learn from it",
+				"It's the compute that runs the SQL Genie writes, billed in DBUs",
+				"It hosts the language model that turns the question into SQL"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Genie turns a question into SQL, and a SQL warehouse runs that SQL against Unity Catalog tables. The warehouse is billed in DBUs, separately from Genie's own AI usage, so a Genie rollout needs a warehouse budget even while AI usage is free.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/compute/sql-warehouse/"
+		},
+		{
+			"id": "A2-031",
+			"section": 2,
+			"sectionName": "Genie in depth",
+			"topic": "Genie family",
+			"tags": [
+				"genie",
+				"style-lookalikes"
+			],
+			"difficulty": "easy",
+			"question": "What's the difference between Genie One and a Genie Agent?",
+			"choices": [
+				"Genie One answers from documents only; a Genie Agent answers from tables only and never from documents",
+				"Genie One is for developers writing code; a Genie Agent is for business users asking questions",
+				"They're the same thing: 'Genie One' is the new name that Genie Agents took in late 2026",
+				"Genie One is a broad coworker for business users; a Genie Agent is a curated Genie for one domain"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Genie One is the agentic coworker for business users across governed data and connected apps. A Genie Agent (formerly a Genie space) is built by a data team from chosen tables, metric views, instructions and example SQL for a specific domain. Copilot Studio connects to Genie Agents one at a time by ID.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie/"
+		},
+		{
+			"id": "A2-032",
+			"section": 2,
+			"sectionName": "Genie in depth",
+			"topic": "Genie quality",
+			"tags": [
+				"genie",
+				"unity-catalog",
+				"metric-views",
+				"quality",
+				"style-troubleshooting"
+			],
+			"difficulty": "medium",
+			"question": "Genie keeps getting 'fiscal quarter' wrong because the company's fiscal year starts in July. What's the best first fix?",
+			"choices": [
+				"Define fiscal quarter once in the Genie Agent, for example as a SQL expression or in a metric view",
+				"Ask users to add 'our fiscal year starts in July' to the end of every question they ask",
+				"Load a benchmark of fiscal questions, which Genie learns from overnight to fix its answers",
+				"Retrain Genie's underlying model on the company's past finance reports so it learns the fiscal calendar"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Databricks recommends adding business semantics as SQL expressions first, then example SQL, then text instructions. A metric view or SQL expression that defines fiscal quarter makes every answer consistent. Genie doesn't retrain on your data, and benchmarks only measure accuracy.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie-agents/best-practices"
+		},
+		{
+			"id": "A2-033",
+			"section": 2,
+			"sectionName": "Genie in depth",
+			"topic": "Genie permissions",
+			"tags": [
+				"genie",
+				"unity-catalog",
+				"security",
+				"style-troubleshooting"
+			],
+			"difficulty": "medium",
+			"question": "A Genie Agent answers for most users, but some get a permission error on one table. What's the likely cause?",
+			"choices": [
+				"Genie runs as the agent's creator, whose session has expired",
+				"The table is too big for Genie, so it errors for users with fewer rows",
+				"Those users lack SELECT on the table, or USE CATALOG and USE SCHEMA on its parents",
+				"Genie caps each agent at 50 users, and the extra users are refused"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Genie runs queries as the asking user, so Unity Catalog permissions apply. Querying a table needs SELECT on it plus USE CATALOG and USE SCHEMA on its catalog and schema. Grant through groups so new users don't hit the same wall.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/manage-privileges/"
+		},
+		{
+			"id": "A2-034",
+			"section": 2,
+			"sectionName": "Genie in depth",
+			"topic": "Genie myths",
+			"tags": [
+				"genie",
+				"unity-catalog",
+				"metric-views",
+				"quality",
+				"style-objections"
+			],
+			"difficulty": "medium",
+			"question": "A data lead says, 'Once we load benchmarks, Genie will learn from them and get better.' What's accurate?",
+			"choices": [
+				"Benchmarks improve Genie only for the user who wrote them, not for anyone else who uses the agent",
+				"Benchmarks only measure; better answers come from SQL expressions, example SQL and metric views",
+				"Genie learns from benchmarks only if the agent is in Agent mode, never in Chat mode",
+				"That's right: Genie retrains on its benchmark questions every night and improves within a week"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Genie doesn't learn from benchmarks. They're up to 500 test questions, ideally with SQL answers, that measure accuracy so you can see whether a change helped. To improve answers, add SQL expressions, example SQL, trusted assets, instructions or metric views, then rerun the benchmarks.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie-agents/monitor"
+		},
+		{
+			"id": "A2-035",
+			"section": 2,
+			"sectionName": "Genie in depth",
+			"topic": "Genie myths",
+			"tags": [
+				"genie",
+				"security",
+				"style-objections"
+			],
+			"difficulty": "medium",
+			"question": "Which of these claims about Genie would be wrong to make to a customer?",
+			"choices": [
+				"Genie answers from a copy of your data, so permissions are checked once at setup",
+				"Genie enforces Unity Catalog permissions on every answer using the asker's identity",
+				"A Genie Agent can include up to 50 tables, views or metric views",
+				"Genie has no per-seat price; compute is billed separately"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Genie queries data in place and checks permissions on every answer with the asking user's identity, so row filters and column masks stay in force. The other three statements are accurate. A wrong claim about security is the fastest way to lose a security team's trust.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie/"
+		},
+		{
+			"id": "A2-036",
+			"section": 2,
+			"sectionName": "Genie in depth",
+			"topic": "Genie permissions",
+			"tags": [
+				"genie",
+				"unity-catalog",
+				"security",
+				"style-request-flow"
+			],
+			"difficulty": "medium",
+			"question": "Where in a Genie answer are Unity Catalog row filters actually enforced?",
+			"choices": [
+				"When the Genie Agent is created, for the creator",
+				"When the data is copied into Genie each night",
+				"When Genie formats the answer, by hiding rows",
+				"When the generated SQL runs on the warehouse, for the asking user's identity"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Genie writes SQL, and the SQL runs on a warehouse against Unity Catalog tables as the asking user. Row filters and column masks are applied at query time, so two people asking the same question can get different results. Nothing is copied into Genie.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/tables/row-and-column-filters"
+		},
+		{
 			"id": "A3-001",
 			"section": 3,
 			"sectionName": "Building and evaluating agents",
@@ -2004,6 +2354,53 @@
 			"source": "https://www.databricks.com/blog/agent-bricks-dais-2026"
 		},
 		{
+			"id": "A3-028",
+			"section": 3,
+			"sectionName": "Building and evaluating agents",
+			"topic": "Code-based agents",
+			"tags": [
+				"agent-bricks",
+				"architecture",
+				"style-best-fit"
+			],
+			"difficulty": "medium",
+			"question": "A team has a LangGraph agent that runs long tasks and must survive crashes without repeating work. Where should it run on Databricks?",
+			"choices": [
+				"On Agent Runtime, deployed with the Agent Bricks CLI, which serves it with DurableAgentServer",
+				"In an AI/BI dashboard, using a scheduled refresh to trigger each step of the agent's work in order",
+				"On a classic all-purpose cluster, started by hand whenever the agent needs to run a task",
+				"On a Genie Agent, pasting the LangGraph code into its instructions so that Genie runs it"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "New code-based agents are built and deployed with the Agent Bricks CLI and run on Agent Runtime. DurableAgentServer adds persistent run state, crash recovery, idempotent invocations and ordered sessions. Older MLflow AgentServer and Model Serving deployment paths are labeled legacy.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-framework/author-agent"
+		},
+		{
+			"id": "A3-029",
+			"section": 3,
+			"sectionName": "Building and evaluating agents",
+			"topic": "Evaluation",
+			"tags": [
+				"genie",
+				"mlflow",
+				"quality",
+				"style-lookalikes"
+			],
+			"difficulty": "medium",
+			"question": "MLflow scorers and Genie benchmarks both measure quality. What does each measure?",
+			"choices": [
+				"Scorers grade any agent's traces in development and production; benchmarks test a Genie Agent's answers",
+				"Scorers measure only latency and cost; benchmarks measure only whether the SQL ran without error",
+				"Scorers test a Genie Agent's answers to set questions; benchmarks grade any agent's traces in production",
+				"They're the same tool: benchmarks are simply what MLflow scorers are called inside the Genie UI"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "MLflow scorers, including LLM judges and code-based checks, grade traces from any agent, on evaluation datasets and on live traffic. Genie benchmarks are up to 500 test questions for one Genie Agent, ideally with SQL answers, to measure its accuracy. Neither trains the model; they tell you whether changes helped.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie-agents/monitor"
+		},
+		{
 			"id": "A4-001",
 			"section": 4,
 			"sectionName": "Governing models, agents and tools",
@@ -2573,6 +2970,277 @@
 			"source": "https://www.databricks.com/blog/ai-governance-data-ai-summit-2026-whats-new-unity-ai-gateway"
 		},
 		{
+			"id": "A4-025",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "Row and column security",
+			"tags": [
+				"unity-catalog",
+				"governance",
+				"security",
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What are row filters and column masks in Unity Catalog?",
+			"choices": [
+				"Dashboard filters that users pick to narrow what a chart shows during a session",
+				"Functions attached to tables that filter rows or mask column values depending on who is querying",
+				"Views that a data team copies for each department, with the rows that department may see",
+				"Settings in Genie that hide columns from answers but leave the underlying table unchanged for everyone"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Row filters and column masks are Unity Catalog functions attached to a table. Every Databricks query enforces them for the person querying, so Genie, dashboards, SQL and agents all respect them. Tables that use them aren't mirrored into Fabric.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/tables/row-and-column-filters"
+		},
+		{
+			"id": "A4-026",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "ABAC",
+			"tags": [
+				"unity-catalog",
+				"governance",
+				"security",
+				"style-definition"
+			],
+			"difficulty": "medium",
+			"question": "What is attribute-based access control (ABAC) in Unity Catalog?",
+			"choices": [
+				"A list of approved attributes that agents may read from a user's Entra profile",
+				"Policies that apply row filters and column masks by governed tag, across many tables at once",
+				"A sign-in method that checks a user's device, network and location before opening the workspace",
+				"A Genie setting that answers differently depending on each user's job title"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "ABAC lets you write a policy once, for example 'mask columns tagged PII for everyone outside HR', and apply it wherever the governed tag appears, instead of attaching filters and masks table by table. It scales governance as the number of tables grows.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/abac/"
+		},
+		{
+			"id": "A4-027",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "MCP",
+			"tags": [
+				"mcp",
+				"governance",
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What is the Model Context Protocol (MCP)?",
+			"choices": [
+				"An open protocol for connecting AI agents to tools and data",
+				"A security standard for encrypting prompts between agents",
+				"A Microsoft licensing model for agents that call other agents",
+				"A Databricks file format for packaging and deploying agents"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "MCP is an open protocol that lets agents use tools and data sources. Databricks offers managed MCP servers for Genie and other services, and Unity Gateway can govern MCP services. It's how Genie plugs into Copilot Studio and Cowork.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/mcp/managed-mcp"
+		},
+		{
+			"id": "A4-028",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "External models",
+			"tags": [
+				"unity-gateway",
+				"openai",
+				"spend-controls",
+				"governance",
+				"competitive",
+				"style-best-fit"
+			],
+			"difficulty": "medium",
+			"question": "A team wants to call OpenAI and Anthropic models from Databricks with keys stored centrally, plus rate limits and logging. Which option fits?",
+			"choices": [
+				"External model endpoints governed by Unity Gateway",
+				"Provisioned throughput for each vendor",
+				"API keys in each developer's notebook",
+				"A Genie Agent set to use those models"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "External models route requests to third-party providers such as OpenAI, Azure OpenAI, Anthropic, Amazon Bedrock and Google Vertex AI. Keys are stored centrally and encrypted, and Unity Gateway can add rate limits, logging to inference tables and guardrails. Keys in notebooks are hard to govern and rotate.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/external-models/"
+		},
+		{
+			"id": "A4-029",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "Serving and governance",
+			"tags": [
+				"unity-gateway",
+				"model-serving",
+				"governance",
+				"style-lookalikes"
+			],
+			"difficulty": "medium",
+			"question": "What's the difference between Model Serving and Unity Gateway?",
+			"choices": [
+				"Model Serving hosts models and agents as endpoints; Unity Gateway governs access to them",
+				"Model Serving is for batch jobs only; Unity Gateway is for real-time requests only",
+				"They're the same service: Unity Gateway is the new name for Model Serving in 2026",
+				"Model Serving governs external models; Unity Gateway hosts the Databricks-served models and agents"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Model Serving runs foundation models, custom models and agents as REST endpoints. Unity Gateway sits in front of models (Databricks-hosted and external), MCP services, UC functions and HTTP connections, adding usage tracking, inference tables, rate limits, fallbacks, budgets, guardrails and service policies.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/"
+		},
+		{
+			"id": "A4-030",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "Row and column security",
+			"tags": [
+				"unity-catalog",
+				"governance",
+				"security",
+				"architecture",
+				"style-lookalikes"
+			],
+			"difficulty": "hard",
+			"question": "Row filters, ABAC policies and dynamic views can all limit what users see. How do they differ?",
+			"choices": [
+				"Row filters work only in Genie; ABAC works only in dashboards; dynamic views work only when queried from notebooks",
+				"Row filters apply by tag across many tables; ABAC attaches to one table; dynamic views are the newest of the three patterns",
+				"Row filters attach to one table; ABAC applies them by tag across tables; dynamic views are the older pattern",
+				"They're three names for the same feature, and Unity Catalog converts each one into the others automatically"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "A row filter or column mask is a function attached to a single table. ABAC policies apply filters and masks wherever a governed tag appears, across many tables. Dynamic views, using functions such as is_account_group_member(), are the older pattern that the other two improve on.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/abac/"
+		},
+		{
+			"id": "A4-031",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "Inference tables",
+			"tags": [
+				"unity-gateway",
+				"governance",
+				"style-troubleshooting"
+			],
+			"difficulty": "hard",
+			"question": "An audit finds that some agent requests are missing from the inference table. What's a likely explanation?",
+			"choices": [
+				"Payloads larger than 1 MB aren't logged to inference tables",
+				"Requests from users in other regions are logged separately",
+				"Inference tables keep only a random 10% sample of requests",
+				"Inference tables drop requests that the model answered quickly"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Inference tables are Unity Catalog Delta tables that log requests and responses through governed endpoints, but payloads over 1 MB aren't logged. If audits need large payloads, log them another way, for example with MLflow tracing.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/"
+		},
+		{
+			"id": "A4-032",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "Governing tools",
+			"tags": [
+				"unity-gateway",
+				"unity-catalog",
+				"mcp",
+				"governance",
+				"security",
+				"quality",
+				"style-objections"
+			],
+			"difficulty": "medium",
+			"question": "A security lead says, 'Agents that can call tools are impossible to govern.' What's the accurate reply on Databricks?",
+			"choices": [
+				"Unity Gateway governs MCP services, UC functions and HTTP connections, with policies and logging",
+				"Tool calls are safe by default because every tool call is checked by a human before it runs",
+				"Tools are governed only when the agent runs in Genie, never when it runs on Agent Runtime or Apps",
+				"That's right: tool calls bypass Unity Catalog, so the only safe choice is agents with no tools at all"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Unity Gateway covers MCP services, Unity Catalog functions and HTTP connections as well as models. It adds usage tracking, inference tables, rate limits, guardrails for PII and prompt injection, and Contextual Service Policies that can allow, deny or require approval. Governance is built in rather than bolted on.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/"
+		},
+		{
+			"id": "A4-033",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "User authorization",
+			"tags": [
+				"genie",
+				"apps",
+				"governance",
+				"security",
+				"style-request-flow"
+			],
+			"difficulty": "medium",
+			"question": "An agent on Databricks Apps uses user authorization and calls Genie for the signed-in user. Whose permissions apply when Genie queries the data?",
+			"choices": [
+				"The app's service principal, for every user",
+				"The signed-in user's, passed through by the app",
+				"The workspace admin who deployed the app",
+				"The SQL warehouse owner who pays for compute"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "With user authorization, the app acts as each signed-in user (it receives the user's token, for example through the x-forwarded-access-token header, within the scopes the app declares). Genie and Unity Catalog then see that user, so row filters and column masks apply.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-framework/agent-authentication"
+		},
+		{
+			"id": "A4-034",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "Logging",
+			"tags": [
+				"unity-gateway",
+				"pricing",
+				"governance",
+				"style-request-flow"
+			],
+			"difficulty": "medium",
+			"question": "An agent calls an external model through Unity Gateway. Where can you later see the request and its cost?",
+			"choices": [
+				"Only in MLflow experiments created by the developer",
+				"Nowhere, because external calls leave Databricks",
+				"Only in the external provider's own billing console",
+				"Requests and responses in inference tables, and spend in system tables"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Unity Gateway can log requests and responses to inference tables in Unity Catalog, and usage and spend land in system tables, with external provider estimates in system.ai_gateway.external_model_spend. That gives one place to audit and charge back, even when the model lives elsewhere.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/budgets"
+		},
+		{
+			"id": "A4-035",
+			"section": 4,
+			"sectionName": "Governing models, agents and tools",
+			"topic": "External models",
+			"tags": [
+				"unity-gateway",
+				"openai",
+				"governance",
+				"security",
+				"competitive",
+				"style-prerequisites"
+			],
+			"difficulty": "medium",
+			"question": "Before an external model endpoint can call OpenAI from Databricks, what has to be set up?",
+			"choices": [
+				"Nothing, because Databricks includes OpenAI usage in every workspace's DBUs",
+				"A Databricks-hosted copy of the OpenAI model, deployed on provisioned throughput endpoints",
+				"The provider's API key, stored centrally and encrypted, which the endpoint references",
+				"A Fabric connection, because external models route through Microsoft's network"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "External model endpoints route to third-party providers using credentials you supply, stored centrally and encrypted rather than in notebooks. The provider bills the usage, and Unity Gateway can add limits, logging and guardrails on top.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/external-models/"
+		},
+		{
 			"id": "A5-001",
 			"section": 5,
 			"sectionName": "Data and apps for agents",
@@ -3021,6 +3689,141 @@
 			"answerIndex": 2,
 			"answer": "C",
 			"explanation": "The docs list a full-text index type (Beta) that requires a storage-optimized endpoint and triggered sync. Hybrid queries are capped at 200 results versus 10,000 for ANN queries.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/vector-search"
+		},
+		{
+			"id": "A5-022",
+			"section": 5,
+			"sectionName": "Data and apps for agents",
+			"topic": "AI Functions",
+			"tags": [
+				"ai-functions",
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What are Databricks AI Functions?",
+			"choices": [
+				"Serverless functions that run when a file lands in a Unity Catalog volume",
+				"SQL functions that apply AI to data at scale, such as ai_query, ai_extract and ai_classify",
+				"Prebuilt chat agents that answer questions about the functions in a workspace",
+				"Python decorators that turn any function into an agent tool and register it in Unity Catalog automatically"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "AI Functions bring AI into SQL. ai_query calls any supported model endpoint, and task functions such as ai_extract, ai_classify, ai_summarize and ai_parse_document run on Databricks-managed systems. You pay for the query's compute plus inference for most functions.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/large-language-models/ai-functions"
+		},
+		{
+			"id": "A5-023",
+			"section": 5,
+			"sectionName": "Data and apps for agents",
+			"topic": "Agent state",
+			"tags": [
+				"lakebase",
+				"style-best-fit"
+			],
+			"difficulty": "medium",
+			"question": "An agent needs to remember each user's preferences and conversation state across sessions, with fast reads and writes. Which Databricks service fits?",
+			"choices": [
+				"A Unity Catalog volume of JSON files",
+				"A Delta table read through a SQL warehouse",
+				"An AI Search Direct Vector Access index",
+				"Lakebase"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Lakebase is Databricks' managed Postgres with autoscaling, scale to zero and branching, and it's a natural home for agent memory and app state. Analytical warehouses and file volumes aren't designed for many small, low-latency reads and writes.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/oltp/"
+		},
+		{
+			"id": "A5-024",
+			"section": 5,
+			"sectionName": "Data and apps for agents",
+			"topic": "Retrieval",
+			"tags": [
+				"ai-search",
+				"style-best-fit"
+			],
+			"difficulty": "medium",
+			"question": "An agent needs to find similar past support tickets among millions, by meaning rather than exact words. Which service fits?",
+			"choices": [
+				"A metric view over the tickets table",
+				"A Genie Agent with the tickets table added",
+				"A Databricks AI Search index kept in sync with the tickets table",
+				"A Lakebase synced table of the tickets"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "AI Search (formerly Vector Search) does vector and full-text search, and a Delta Sync index stays in sync with its source table. Genie writes SQL, which is great for counts and trends but not for 'find tickets like this one'. Note that AI Search indexes don't support row- or column-level security.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/vector-search"
+		},
+		{
+			"id": "A5-025",
+			"section": 5,
+			"sectionName": "Data and apps for agents",
+			"topic": "Lakebase",
+			"tags": [
+				"lakebase",
+				"style-lookalikes"
+			],
+			"difficulty": "medium",
+			"question": "What's the difference between Lakebase and a Databricks SQL warehouse?",
+			"choices": [
+				"Lakebase stores only vector embeddings for search; a SQL warehouse stores every other kind of table in the lakehouse",
+				"They're the same engine with two prices: Lakebase is simply the serverless edition of a Databricks SQL warehouse",
+				"Lakebase runs analytics over lakehouse tables; a SQL warehouse is managed Postgres for fast transactional reads and writes",
+				"Lakebase is managed Postgres for fast transactional reads and writes; a SQL warehouse runs analytics over lakehouse tables"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Lakebase is an operational (OLTP) Postgres database: app state, agent memory, low-latency lookups, with synced tables bringing lakehouse data in. A SQL warehouse is analytical compute for SQL and BI over Delta tables, and it's what Genie and dashboards run on.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/oltp/"
+		},
+		{
+			"id": "A5-026",
+			"section": 5,
+			"sectionName": "Data and apps for agents",
+			"topic": "Retrieval vs SQL",
+			"tags": [
+				"genie",
+				"ai-search",
+				"governance",
+				"style-lookalikes"
+			],
+			"difficulty": "medium",
+			"question": "What's the difference between AI Search and Genie?",
+			"choices": [
+				"AI Search writes SQL over governed tables; Genie finds documents by meaning for retrieval",
+				"They're the same engine: Genie is the chat interface on top of an AI Search index",
+				"AI Search is for business users in Teams; Genie is a developer API with no user interface",
+				"AI Search finds content by meaning; Genie turns questions into SQL over governed tables"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "AI Search (formerly Vector Search) is a retrieval service: vector and full-text search over indexed content, used inside agents. Genie answers analytical questions by writing SQL against Unity Catalog tables and metric views. Many agents use both: retrieval for documents, Genie for numbers.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/vector-search"
+		},
+		{
+			"id": "A5-027",
+			"section": 5,
+			"sectionName": "Data and apps for agents",
+			"topic": "AI Search",
+			"tags": [
+				"ai-search",
+				"security",
+				"style-troubleshooting"
+			],
+			"difficulty": "hard",
+			"question": "An agent's retrieval step returns passages from documents that some users shouldn't see. The index is an AI Search index. Why?",
+			"choices": [
+				"The agent uses the wrong embedding model, which ignores the table's row filters",
+				"AI Search indexes don't support row- or column-level security, so they return whatever they hold",
+				"AI Search applies row filters only to the first 1,000 results that it returns for each query a user sends",
+				"AI Search checks each user's permissions only when the index is rebuilt each night"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "AI Search indexes are governed in Unity Catalog as objects, but they don't support row- or column-level security. Control what goes into each index, split indexes by audience, or filter results by user attributes in the agent's code.",
 			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/vector-search"
 		},
 		{
@@ -3588,6 +4391,216 @@
 			"answer": "D",
 			"explanation": "Unity Gateway provides cost analysis by model, principal and tag, built on system tables. Tag agents and use cases at creation so chargeback works later.",
 			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/"
+		},
+		{
+			"id": "A6-026",
+			"section": 6,
+			"sectionName": "Cost and pricing",
+			"topic": "Serverless",
+			"tags": [
+				"pricing",
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What is serverless compute in Databricks?",
+			"choices": [
+				"Compute that runs on users' laptops and syncs results back to the workspace",
+				"Compute that runs in the customer's own cloud account, configured and sized by a workspace admin",
+				"Databricks-managed compute that starts quickly, scales automatically and bills by usage",
+				"A free tier of compute that Databricks gives every workspace for testing"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Serverless compute is managed by Databricks, so there are no clusters to configure. It's available for notebooks, jobs, pipelines and SQL warehouses, starts in seconds and bills by usage. Classic compute runs in the customer's own cloud account.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/compute/serverless/"
+		},
+		{
+			"id": "A6-027",
+			"section": 6,
+			"sectionName": "Cost and pricing",
+			"topic": "Foundation Model APIs",
+			"tags": [
+				"model-serving",
+				"pricing",
+				"style-definition"
+			],
+			"difficulty": "easy",
+			"question": "What are Databricks Foundation Model APIs?",
+			"choices": [
+				"A catalog of third-party model providers that Databricks resells under a single monthly subscription per user",
+				"Databricks-hosted models, open and proprietary, served through endpoints and billed pay-per-token by default",
+				"Tools for training a new foundation model from scratch on the customer's own data and GPUs",
+				"A directory of public model APIs that agents can call without any credentials or governance"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Foundation Model APIs serve hosted models such as Llama, GPT, Claude and Gemini through endpoints with the databricks- prefix. Pay-per-token is the default, priority pay-per-token costs more per request, and provisioned throughput reserves capacity by the hour.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/machine-learning/foundation-model-apis/"
+		},
+		{
+			"id": "A6-028",
+			"section": 6,
+			"sectionName": "Cost and pricing",
+			"topic": "Budgets",
+			"tags": [
+				"unity-gateway",
+				"model-serving",
+				"pricing",
+				"spend-controls",
+				"style-troubleshooting"
+			],
+			"difficulty": "medium",
+			"question": "A Unity Gateway budget is set to block usage, yet costs from a provisioned throughput endpoint keep growing. Why?",
+			"choices": [
+				"Budgets cover provisioned throughput, but only after 30 days",
+				"Budgets block usage only on weekends, when most batch jobs run",
+				"Unity Gateway budgets don't cover provisioned throughput, which needs other controls",
+				"The endpoint's owner is exempt from every budget they create"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Budgets cover pay-per-token, AI Functions, Genie and, optionally, external models. They don't cover provisioned throughput or standalone Model Serving endpoints, which are billed by the hour. Control those through sizing, scale-to-zero and who can create endpoints.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/budgets"
+		},
+		{
+			"id": "A6-029",
+			"section": 6,
+			"sectionName": "Cost and pricing",
+			"topic": "Genie billing",
+			"tags": [
+				"genie",
+				"pricing",
+				"security",
+				"style-troubleshooting"
+			],
+			"difficulty": "hard",
+			"question": "During Genie's free usage period, finance sees Genie AI charges from one workload: a nightly job that calls the Conversation API as a service principal. Why?",
+			"choices": [
+				"The charges are for Genie Code, which every API call is billed as",
+				"Service principals don't get free usage and are billed at standard pay-as-you-go rates",
+				"The job ran outside business hours, which the free period doesn't cover",
+				"The free period covers only questions asked in the Genie One app, not calls made through the API"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Databricks excludes service principals from Genie's free usage and bills them at standard pay-as-you-go. Running a shared workload as a service principal also weakens per-user Unity Catalog enforcement. Budget for service principal usage separately.",
+			"source": "https://www.databricks.com/product/pricing/genie"
+		},
+		{
+			"id": "A6-030",
+			"section": 6,
+			"sectionName": "Cost and pricing",
+			"topic": "Pricing models",
+			"tags": [
+				"pricing",
+				"quality",
+				"style-objections"
+			],
+			"difficulty": "medium",
+			"question": "A CFO says, 'Per-seat AI is easier to predict, so it must be cheaper.' What's the accurate reply?",
+			"choices": [
+				"Seats are predictable but bill every licensed user; usage pricing tracks real use and can be capped",
+				"Predictability doesn't matter, because AI costs are too small to appear in an annual budget",
+				"Usage pricing is always cheaper because vendors never charge for compute when users ask questions",
+				"That's right: per-seat pricing is always cheaper because vendors discount seats far more than they discount usage"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Per-seat pricing buys predictability, but you pay for every licensed user whether they use the tool or not. Genie has no seats: each user gets a free monthly allowance and pays for usage beyond it, with compute billed separately, and Unity Gateway budgets can alert or block. The right answer depends on how many people will really use it.",
+			"source": "https://www.databricks.com/product/pricing/genie"
+		},
+		{
+			"id": "A6-031",
+			"section": 6,
+			"sectionName": "Cost and pricing",
+			"topic": "Following the money",
+			"tags": [
+				"genie",
+				"pricing",
+				"style-request-flow"
+			],
+			"difficulty": "medium",
+			"question": "A user asks a Genie Agent a question. Which costs does that one question create?",
+			"choices": [
+				"A per-question fee charged to the Genie Agent's creator",
+				"Only Genie's AI usage, because warehouse compute is included",
+				"Only the SQL warehouse compute, because Genie's AI is always free",
+				"Genie's AI usage, counted against the user's allowance, plus SQL warehouse compute for the query"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Each question uses Genie's AI, which draws on the user's monthly free allowance (and is free through January 31, 2027 for users), and runs SQL on a warehouse billed in DBUs. Model both when sizing a rollout, and watch warehouse sizing as usage grows.",
+			"source": "https://www.databricks.com/product/pricing/genie"
+		},
+		{
+			"id": "A6-032",
+			"section": 6,
+			"sectionName": "Cost and pricing",
+			"topic": "Genie after the promotion",
+			"tags": [
+				"genie",
+				"pricing",
+				"residency",
+				"style-cost-math"
+			],
+			"difficulty": "medium",
+			"question": "After Genie's promotion ends, 600 users each use about $14 of Genie AI a month. Assuming a $10 free allowance per user, what's the monthly AI cost, before compute?",
+			"choices": [
+				"$2,400",
+				"$0",
+				"$6,000",
+				"$8,400"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Each user is $4 over the allowance, and 600 × $4 = $2,400 a month. Warehouse compute is billed separately. The allowance is 150 DBUs, about $10.50 in US East, so the dollar figure varies by region.",
+			"source": "https://www.databricks.com/product/pricing/genie"
+		},
+		{
+			"id": "A6-033",
+			"section": 6,
+			"sectionName": "Cost and pricing",
+			"topic": "Token math",
+			"tags": [
+				"model-serving",
+				"pricing",
+				"style-cost-math"
+			],
+			"difficulty": "hard",
+			"question": "An agent uses 50 million input tokens and 5 million output tokens of Claude Sonnet 4.5 on Databricks (42.857 DBUs per million input, 214.286 per million output). About how many DBUs is that?",
+			"choices": [
+				"About 1,071 DBUs",
+				"About 12,857 DBUs",
+				"About 2,143 DBUs",
+				"About 3,214 DBUs"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "Input: 50 × 42.857 ≈ 2,143 DBUs. Output: 5 × 214.286 ≈ 1,071 DBUs. Total ≈ 3,214 DBUs. Output is a third of the bill from a tenth of the tokens, so capping answer length matters. Multiply by the customer's $/DBU rate for dollars.",
+			"source": "https://www.databricks.com/product/pricing/proprietary-foundation-model-serving"
+		},
+		{
+			"id": "A6-034",
+			"section": 6,
+			"sectionName": "Cost and pricing",
+			"topic": "GPU serving",
+			"tags": [
+				"model-serving",
+				"pricing",
+				"style-cost-math"
+			],
+			"difficulty": "medium",
+			"question": "A custom model runs on one H100 GPU endpoint, listed at 100 DBUs per hour, around the clock for 30 days. How many DBUs is that?",
+			"choices": [
+				"720,000 DBUs",
+				"2,400 DBUs",
+				"3,000 DBUs",
+				"72,000 DBUs"
+			],
+			"answerIndex": 3,
+			"answer": "D",
+			"explanation": "100 DBUs × 24 hours × 30 days = 72,000 DBUs. GPU endpoints bill by the hour whether or not requests arrive, so scale-to-zero and right-sizing are the main cost levers for spiky workloads.",
+			"source": "https://www.databricks.com/product/pricing/model-serving"
 		},
 		{
 			"id": "A7-001",
@@ -4244,6 +5257,125 @@
 			"source": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents"
 		},
 		{
+			"id": "A7-029",
+			"section": 7,
+			"sectionName": "Competitive landscape",
+			"topic": "Honest positioning",
+			"tags": [
+				"salesforce",
+				"governance",
+				"competitive",
+				"style-best-fit"
+			],
+			"difficulty": "medium",
+			"question": "A sales team wants an agent that updates opportunities and logs calls inside Salesforce's own interface. Which platform fits that job best?",
+			"choices": [
+				"A Databricks AI/BI dashboard embedded in Salesforce, with a writeback button added for updates",
+				"Salesforce Agentforce, with Databricks supplying governed analytics where it's needed",
+				"AWS Quick, since it's the only platform that can act on Salesforce records",
+				"A Genie Agent, which can update Salesforce records from inside the Genie One app"
+			],
+			"answerIndex": 1,
+			"answer": "B",
+			"explanation": "Agentforce is Salesforce's agent platform and works natively on Salesforce records and workflows. Genie is strongest at governed questions over data. Recommending the right tool for an in-app CRM job, and showing where Databricks adds value, keeps your credibility with the customer.",
+			"source": "https://www.salesforce.com/agentforce/pricing/"
+		},
+		{
+			"id": "A7-030",
+			"section": 7,
+			"sectionName": "Competitive landscape",
+			"topic": "Snowflake",
+			"tags": [
+				"genie",
+				"snowflake",
+				"competitive",
+				"style-lookalikes"
+			],
+			"difficulty": "medium",
+			"question": "Which Snowflake capability is the closest equivalent to a Genie Agent?",
+			"choices": [
+				"Snowpark Container Services, which hosts apps",
+				"Snowflake Marketplace, which shares datasets",
+				"Cortex Analyst, which writes SQL over semantic views",
+				"Cortex Search, which retrieves unstructured data"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Cortex Analyst turns natural-language questions into SQL over semantic views, much as a Genie Agent does over Unity Catalog tables and metric views. Cortex Search is Snowflake's retrieval service, closer to AI Search, and Cortex Agents orchestrate the two. Snowflake bills warehouse compute for generated SQL separately, like Databricks.",
+			"source": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents"
+		},
+		{
+			"id": "A7-031",
+			"section": 7,
+			"sectionName": "Competitive landscape",
+			"topic": "Benchmarks",
+			"tags": [
+				"quality",
+				"competitive",
+				"style-objections"
+			],
+			"difficulty": "medium",
+			"question": "A competitor shows a benchmark in which its agent beats everyone. How should you respond, given Databricks publishes its own benchmark too?",
+			"choices": [
+				"Point out that only Databricks' benchmark is truly independent, so the competitor's results can be ignored",
+				"Agree that benchmarks settle the question, and recommend whichever vendor scored highest",
+				"Treat every vendor benchmark as a prompt to run a head-to-head on the customer's own data and questions",
+				"Avoid the topic, since accuracy doesn't matter for agents that answer data questions"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Databricks reported 84.5% first-attempt accuracy for Genie against 52.4% for the strongest general-purpose agent it tested, but that's a vendor benchmark too. The credible move is to propose a bake-off on the customer's data. Genie benchmarks make that easy to run and repeat.",
+			"source": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents"
+		},
+		{
+			"id": "A7-032",
+			"section": 7,
+			"sectionName": "Competitive landscape",
+			"topic": "AWS Quick",
+			"tags": [
+				"aws",
+				"pricing",
+				"competitive",
+				"style-cost-math"
+			],
+			"difficulty": "hard",
+			"question": "100 people on AWS Quick Professional ($20 a user, 8 agent hours included each) use 10 agent hours each in a month. With a $250 account fee and $3 per extra agent hour, what's the monthly bill?",
+			"choices": [
+				"$3,250",
+				"$2,250",
+				"$2,850",
+				"$5,250"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Seats: 100 × $20 = $2,000. Account fee: $250. Extra hours: 100 users × 2 hours × $3 = $600. Total: $2,850. Seat-plus-usage pricing means heavy users push the bill past the seat count.",
+			"source": "https://aws.amazon.com/quicksuite/pricing/"
+		},
+		{
+			"id": "A7-033",
+			"section": 7,
+			"sectionName": "Competitive landscape",
+			"topic": "Agentforce",
+			"tags": [
+				"salesforce",
+				"pricing",
+				"competitive",
+				"style-cost-math"
+			],
+			"difficulty": "medium",
+			"question": "An Agentforce deployment runs 30,000 actions a month. At 20 Flex Credits per action and $500 per 100,000 Flex Credits, what does that cost?",
+			"choices": [
+				"$6,000",
+				"$300",
+				"$3,000",
+				"$30,000"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "30,000 × 20 = 600,000 Flex Credits, and 600,000 ÷ 100,000 × $500 = $3,000, about $0.10 per action. Data 360 consumption is extra, so ask what else each action touches.",
+			"source": "https://www.salesforce.com/agentforce/pricing/"
+		},
+		{
 			"id": "A8-001",
 			"section": 8,
 			"sectionName": "Coaching scenarios",
@@ -4737,6 +5869,106 @@
 			"answer": "A",
 			"explanation": "Genie reaches users in Teams, Copilot and other front ends while answers stay governed by Unity Catalog with the asker's identity, benchmarks and metric views. Genie has no seats, and its usage is free for users through January 31, 2027. That positions Databricks as the governed data layer behind whichever assistant the customer chooses.",
 			"source": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents"
+		},
+		{
+			"id": "A8-021",
+			"section": 8,
+			"sectionName": "Coaching scenarios",
+			"topic": "Choosing a pattern",
+			"tags": [
+				"genie",
+				"unity-catalog",
+				"metric-views",
+				"architecture",
+				"style-best-fit"
+			],
+			"difficulty": "easy",
+			"question": "Analysts want to ask plain-language questions over 12 curated sales tables and get answers that match certified metrics. Which Databricks option fits?",
+			"choices": [
+				"A custom LangGraph agent served on Model Serving",
+				"An AI Search index built over the sales tables",
+				"A Genie Agent over those tables and their metric views",
+				"A Supervisor Agent with one subagent per table"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "A Genie Agent is built for curated, domain-specific analytics: chosen tables (up to 50), metric views, instructions and example SQL. Metric views define metrics once so answers stay consistent. A custom agent or search index adds work without the governed NL-to-SQL Genie already provides.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/genie/"
+		},
+		{
+			"id": "A8-022",
+			"section": 8,
+			"sectionName": "Coaching scenarios",
+			"topic": "When not to use Genie",
+			"tags": [
+				"genie",
+				"architecture",
+				"style-best-fit"
+			],
+			"difficulty": "medium",
+			"question": "Executives want the same 12 KPIs every morning in a fixed layout, with occasional follow-up questions. What's the best fit?",
+			"choices": [
+				"An AI/BI dashboard for the KPIs, with Genie alongside for follow-ups",
+				"AI Functions that summarize the KPI tables into a nightly email",
+				"A Genie Agent alone, asked the same 12 questions every morning",
+				"A Supervisor Agent that rebuilds the same KPIs from scratch in each conversation"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "Fixed, repeated views belong in a dashboard: consistent, fast and cheap to run on a schedule. Genie shines at the follow-up 'why' and 'what about' questions. Using Genie for a fixed report adds model calls without adding value.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/dashboards/"
+		},
+		{
+			"id": "A8-023",
+			"section": 8,
+			"sectionName": "Coaching scenarios",
+			"topic": "Positioning Genie",
+			"tags": [
+				"genie",
+				"mcp",
+				"m365-copilot",
+				"governance",
+				"quality",
+				"architecture",
+				"competitive",
+				"style-objections"
+			],
+			"difficulty": "medium",
+			"question": "A customer says, 'Copilot Studio can already query Databricks, so we don't need Genie.' What's the accurate reply?",
+			"choices": [
+				"Copilot Studio's Databricks tool calls a Genie Agent, so Genie still answers the governed question",
+				"That's right: Copilot Studio writes and runs its own SQL against Unity Catalog without Genie",
+				"Copilot Studio can't reach Databricks at all, so Genie is the only way for Microsoft users to get there",
+				"Copilot Studio reaches Databricks only through Fabric mirroring, so Genie isn't involved"
+			],
+			"answerIndex": 0,
+			"answer": "A",
+			"explanation": "The Azure Databricks Genie tool in Copilot Studio connects to a specific Genie Agent by ID. Copilot Studio handles the conversation and orchestration, and Genie turns the question into governed SQL under Unity Catalog. They're complementary, and the quality of the answer depends on how well the Genie Agent is curated.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-power-platform/copilot-studio"
+		},
+		{
+			"id": "A8-024",
+			"section": 8,
+			"sectionName": "Coaching scenarios",
+			"topic": "Seats vs usage",
+			"tags": [
+				"genie",
+				"pricing",
+				"architecture",
+				"style-cost-math"
+			],
+			"difficulty": "hard",
+			"question": "A 5,000-person company compares a $30 per user per month seat for everyone with Genie, where 600 people use about $15 of AI a month after a $10 allowance. What's the monthly AI cost of each, before compute?",
+			"choices": [
+				"Seats: $150,000; Genie: $9,000",
+				"Seats: $18,000; Genie: $9,000",
+				"Seats: $150,000; Genie: $3,000",
+				"Seats: $15,000; Genie: $3,000"
+			],
+			"answerIndex": 2,
+			"answer": "C",
+			"explanation": "Seats: 5,000 × $30 = $150,000. Genie: 600 × ($15 − $10) = $3,000, plus warehouse compute. It isn't like for like, because a Copilot seat buys much more than data questions, but it shows why usage pricing suits tools that only some people use. Make that point fairly and it lands.",
+			"source": "https://www.databricks.com/product/pricing/genie"
 		}
 	]
 }

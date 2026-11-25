@@ -5,8 +5,10 @@ way to slice a deck: a question about oversharing through a Fabric data agent is
 "Fabric data agents" and "Oversharing", so a player can practice one technology or one theme
 across every section.
 
-Tags come from keyword rules below plus a short list of manual overrides. Run this after adding
-or editing questions:
+Tags come from keyword rules below plus a short list of manual overrides. Question-style tags
+(Definitions, Best fit, Troubleshooting and so on) are the exception: they describe what kind of
+question it is, so they're set by hand when a question is written, and this script keeps them.
+Run this after adding or editing questions:
 
     python3 tools/tag_questions.py
 
@@ -19,7 +21,20 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-TECH, THEME = "technology", "theme"
+TECH, THEME, STYLE = "technology", "theme", "style"
+
+# Question styles, set by hand on each question (not by keyword rules), in display order.
+STYLE_TAGS = [
+    ("style-definition", "Definitions"),
+    ("style-best-fit", "Best fit"),
+    ("style-lookalikes", "Look-alikes"),
+    ("style-troubleshooting", "Troubleshooting"),
+    ("style-objections", "Objections and myths"),
+    ("style-request-flow", "Following a request"),
+    ("style-prerequisites", "Prerequisites and approvals"),
+    ("style-cost-math", "Cost estimates"),
+]
+STYLE_IDS = [s[0] for s in STYLE_TAGS]
 
 
 def tag(id, name, kind, pattern, fields="qat"):
@@ -199,14 +214,15 @@ def main():
     for filename, rules in DECKS.items():
         path = ROOT / filename
         deck = json.loads(path.read_text())
-        order = [r["id"] for r in rules]
-        counts = {r["id"]: 0 for r in rules}
+        order = [r["id"] for r in rules] + STYLE_IDS
+        counts = {t: 0 for t in order}
         untagged = []
         for q in deck["questions"]:
             tags = {r["id"] for r in rules if r["re"].search(text_for(q, r["fields"]))}
             tags |= set(SECTION_TAGS.get(filename, {}).get(q["section"], []))
             fix = OVERRIDES.get(q["id"], {})
             tags = (tags | set(fix.get("add", []))) - set(fix.get("remove", []))
+            tags |= set(q.get("tags", [])) & set(STYLE_IDS)  # hand-set styles survive a rerun
             q_tags = [t for t in order if t in tags]
             # Rebuild the question with tags placed right after topic.
             rebuilt = {}
@@ -226,6 +242,8 @@ def main():
                 untagged.append(q["id"])
         tag_list = [{"id": r["id"], "name": r["name"], "kind": r["kind"], "count": counts[r["id"]]}
                     for r in rules if counts[r["id"]]]
+        tag_list += [{"id": id, "name": name, "kind": STYLE, "count": counts[id]}
+                     for id, name in STYLE_TAGS if counts[id]]
         rebuilt_deck = {}
         for k, v in deck.items():
             if k == "tags":

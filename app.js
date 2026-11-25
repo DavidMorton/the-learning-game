@@ -257,6 +257,10 @@
   // ─── Question bank ──────────────────────────────────────────────────────────
 
   let bank = null;
+  // Tag kinds in display order. Question styles describe what kind of question it is
+  // (Definitions, Troubleshooting...), so they come first as the easiest way into a deck.
+  const TAG_KINDS = [['style', 'Question styles'], ['technology', 'Technologies'], ['theme', 'Themes']];
+
   const bankCache = new Map(); // deck id -> prepared bank
 
   function prepareBank(data) {
@@ -285,7 +289,7 @@
     // Tags are a second, overlapping grouping: a question can carry several (a technology and a theme).
     const tagDefs = (Array.isArray(data.tags) ? data.tags : [])
       .filter(t => t && t.id)
-      .map(t => ({ id: String(t.id), name: t.name || String(t.id), kind: t.kind === 'theme' ? 'theme' : 'technology' }));
+      .map(t => ({ id: String(t.id), name: t.name || String(t.id), kind: TAG_KINDS.some(([k]) => k === t.kind) ? t.kind : 'technology' }));
     const byTag = new Map(tagDefs.map(t => [t.id, []]));
     for (const q of questions) {
       q.tags = (Array.isArray(q.tags) ? q.tags.map(String) : []).filter(id => byTag.has(id));
@@ -878,10 +882,10 @@
       </footer>`;
   }
 
-  // Tags as practice shortcuts on the home screen, grouped into technologies and themes.
+  // Tags as practice shortcuts on the home screen, grouped by kind (see TAG_KINDS).
   function topicsBlock() {
     if (!bank.tags.length) return '';
-    const groups = [['technology', 'Technologies'], ['theme', 'Themes']]
+    const groups = TAG_KINDS
       .map(([kind, label]) => [label, bank.tags.filter(t => t.kind === kind)])
       .filter(([, tags]) => tags.length);
     return `
@@ -1036,7 +1040,7 @@
             <button class="chip-toggle ${setup.tags.length ? '' : 'on'}" data-action="setup-tag" data-tag=""><span class="chip-num">★</span>Any topic</button>
             ${setup.tags.length > 1 ? seg('setup-match', setup.tagMatch, [['any', 'Match any'], ['all', 'Match all']]) : ''}
           </div>
-          ${[['technology', 'Technologies'], ['theme', 'Themes']].map(([kind, label]) => {
+          ${TAG_KINDS.map(([kind, label]) => {
             const tags = bank.tags.filter(t => t.kind === kind);
             return tags.length ? `
               <div class="chips-sub">${label}</div>
