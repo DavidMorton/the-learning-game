@@ -10,7 +10,7 @@
 		"source": "The Microsoft (or Databricks) page the question was checked against."
 	},
 	"notes": "Prices, rates and release states change often. Each question reflects its source as of the asOf date.",
-	"totalQuestions": 219,
+	"totalQuestions": 217,
 	"sections": [
 		{
 			"id": 1,
@@ -97,7 +97,7 @@
 				"Where compute runs, who pays and where governance holds",
 				"Coaching scenarios across both platforms"
 			],
-			"questionCount": 25
+			"questionCount": 23
 		}
 	],
 	"tags": [
@@ -129,7 +129,7 @@
 			"id": "mirroring",
 			"name": "Mirroring",
 			"kind": "technology",
-			"count": 29
+			"count": 27
 		},
 		{
 			"id": "direct-lake",
@@ -189,7 +189,7 @@
 			"id": "databricks",
 			"name": "Databricks interop",
 			"kind": "technology",
-			"count": 27
+			"count": 25
 		},
 		{
 			"id": "networking",
@@ -225,7 +225,7 @@
 			"id": "security",
 			"name": "Security and identity",
 			"kind": "theme",
-			"count": 54
+			"count": 52
 		},
 		{
 			"id": "oversharing",
@@ -255,25 +255,25 @@
 			"id": "style-definition",
 			"name": "Definitions",
 			"kind": "style",
-			"count": 14
+			"count": 35
 		},
 		{
 			"id": "style-best-fit",
-			"name": "Best fit",
+			"name": "Best practice",
 			"kind": "style",
-			"count": 7
+			"count": 10
 		},
 		{
 			"id": "style-lookalikes",
 			"name": "Look-alikes",
 			"kind": "style",
-			"count": 6
+			"count": 10
 		},
 		{
 			"id": "style-troubleshooting",
 			"name": "Troubleshooting",
 			"kind": "style",
-			"count": 6
+			"count": 10
 		},
 		{
 			"id": "style-objections",
@@ -285,19 +285,19 @@
 			"id": "style-request-flow",
 			"name": "Following a request",
 			"kind": "style",
-			"count": 4
+			"count": 12
 		},
 		{
 			"id": "style-prerequisites",
 			"name": "Prerequisites and approvals",
 			"kind": "style",
-			"count": 5
+			"count": 12
 		},
 		{
 			"id": "style-cost-math",
 			"name": "Cost estimates",
 			"kind": "style",
-			"count": 4
+			"count": 6
 		}
 	],
 	"questions": [
@@ -370,7 +370,8 @@
 			"sectionName": "Platform and workloads",
 			"topic": "Warehouse vs lakehouse",
 			"tags": [
-				"warehouse"
+				"warehouse",
+				"style-lookalikes"
 			],
 			"difficulty": "medium",
 			"question": "What's the key difference between a Fabric Warehouse and a Lakehouse's SQL analytics endpoint?",
@@ -438,7 +439,8 @@
 			"topic": "SQL database",
 			"tags": [
 				"onelake",
-				"warehouse"
+				"warehouse",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What is SQL database in Fabric?",
@@ -459,7 +461,8 @@
 			"sectionName": "Platform and workloads",
 			"topic": "Real-Time Intelligence",
 			"tags": [
-				"rti"
+				"rti",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "In Fabric Real-Time Intelligence, what is an Eventhouse?",
@@ -481,7 +484,8 @@
 			"topic": "Real-Time Intelligence",
 			"tags": [
 				"spark",
-				"rti"
+				"rti",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "Which Real-Time Intelligence component turns detected conditions into actions such as running a pipeline, a notebook or a Power Automate flow?",
@@ -502,7 +506,8 @@
 			"sectionName": "Platform and workloads",
 			"topic": "Real-Time Intelligence",
 			"tags": [
-				"rti"
+				"rti",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What does Eventstream do?",
@@ -544,7 +549,8 @@
 			"sectionName": "Platform and workloads",
 			"topic": "Data Factory",
 			"tags": [
-				"data-factory"
+				"data-factory",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "What is Dataflow Gen2 used for in Fabric?",
@@ -565,7 +571,8 @@
 			"sectionName": "Platform and workloads",
 			"topic": "Spark",
 			"tags": [
-				"spark"
+				"spark",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What is the Native Execution Engine in Fabric Spark?",
@@ -586,7 +593,8 @@
 			"sectionName": "Platform and workloads",
 			"topic": "Spark",
 			"tags": [
-				"spark"
+				"spark",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What is a Fabric environment?",
@@ -607,7 +615,8 @@
 			"sectionName": "Platform and workloads",
 			"topic": "Data Science",
 			"tags": [
-				"spark"
+				"spark",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "What does Microsoft position Fabric Data Science for?",
@@ -630,7 +639,8 @@
 			"tags": [
 				"power-bi",
 				"data-agents",
-				"fabric-iq"
+				"fabric-iq",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What does Microsoft's Fabric overview describe Fabric IQ as unifying?",
@@ -676,7 +686,8 @@
 				"capacity",
 				"onelake",
 				"warehouse",
-				"whats-new"
+				"whats-new",
+				"style-definition"
 			],
 			"difficulty": "hard",
 			"question": "What is Fabric HorizonDB, announced in preview at Ignite 2026?",
@@ -697,7 +708,8 @@
 			"sectionName": "Platform and workloads",
 			"topic": "Workloads",
 			"tags": [
-				"onelake"
+				"onelake",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "What underlies every Fabric workload?",
@@ -1105,7 +1117,8 @@
 				"capacity",
 				"power-bi",
 				"pricing",
-				"licensing"
+				"licensing",
+				"style-prerequisites"
 			],
 			"difficulty": "medium",
 			"question": "On an F32 capacity, what do report consumers need to view Power BI content shared in a workspace?",
@@ -1478,7 +1491,8 @@
 			"sectionName": "Capacity, SKUs and licensing",
 			"topic": "Buying capacity",
 			"tags": [
-				"capacity"
+				"capacity",
+				"style-prerequisites"
 			],
 			"difficulty": "medium",
 			"question": "Which of these is a prerequisite for buying a Fabric capacity?",
@@ -1523,7 +1537,8 @@
 			"tags": [
 				"capacity",
 				"power-bi",
-				"licensing"
+				"licensing",
+				"style-prerequisites"
 			],
 			"difficulty": "hard",
 			"question": "For 'embed for your organization' on an F16 capacity, what do end users need?",
@@ -1782,7 +1797,8 @@
 			"tags": [
 				"capacity",
 				"throttling",
-				"licensing"
+				"licensing",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "What is bursting in Fabric capacity?",
@@ -1962,7 +1978,8 @@
 			"topic": "Surge protection",
 			"tags": [
 				"capacity",
-				"throttling"
+				"throttling",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What does capacity-level surge protection do?",
@@ -2101,7 +2118,8 @@
 				"capacity",
 				"throttling",
 				"pricing",
-				"licensing"
+				"licensing",
+				"style-cost-math"
 			],
 			"difficulty": "medium",
 			"question": "How many CU-seconds does an F64 have in each 30-second timepoint?",
@@ -2146,7 +2164,8 @@
 			"topic": "Throttling",
 			"tags": [
 				"capacity",
-				"throttling"
+				"throttling",
+				"style-troubleshooting"
 			],
 			"difficulty": "hard",
 			"question": "What error status do users see when Fabric rejects requests because of capacity limits?",
@@ -2172,7 +2191,8 @@
 				"spark",
 				"pricing",
 				"licensing",
-				"performance"
+				"performance",
+				"style-troubleshooting"
 			],
 			"difficulty": "hard",
 			"question": "A customer's finance dashboards slow down every morning after a large overnight Spark load on the same F64. Which approach does Fabric support for isolating them?",
@@ -2356,7 +2376,8 @@
 			"topic": "Shortcuts",
 			"tags": [
 				"onelake",
-				"shortcuts"
+				"shortcuts",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "What is a OneLake shortcut?",
@@ -2401,7 +2422,8 @@
 			"tags": [
 				"onelake",
 				"shortcuts",
-				"security"
+				"security",
+				"style-request-flow"
 			],
 			"difficulty": "hard",
 			"question": "Whose identity does OneLake use to authorize reads through an internal shortcut (one Fabric item to another)?",
@@ -2475,7 +2497,8 @@
 				"capacity",
 				"onelake",
 				"shortcuts",
-				"pricing"
+				"pricing",
+				"style-request-flow"
 			],
 			"difficulty": "hard",
 			"question": "Workspace A (capacity 1) has a shortcut to data stored in workspace B (capacity 2). Users query through the shortcut in A. Which capacity pays for the read transactions?",
@@ -2920,7 +2943,8 @@
 			"topic": "Mirroring types",
 			"tags": [
 				"shortcuts",
-				"mirroring"
+				"mirroring",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What are Fabric's three types of mirroring?",
@@ -3037,7 +3061,8 @@
 			"topic": "Open mirroring",
 			"tags": [
 				"onelake",
-				"mirroring"
+				"mirroring",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What is open mirroring?",
@@ -3060,7 +3085,8 @@
 			"tags": [
 				"onelake",
 				"direct-lake",
-				"power-bi"
+				"power-bi",
+				"style-lookalikes"
 			],
 			"difficulty": "easy",
 			"question": "How does Direct Lake differ from Import mode in Power BI?",
@@ -3082,7 +3108,8 @@
 			"topic": "Direct Lake",
 			"tags": [
 				"direct-lake",
-				"performance"
+				"performance",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What is 'framing' in Direct Lake?",
@@ -3104,7 +3131,8 @@
 			"topic": "Direct Lake modes",
 			"tags": [
 				"onelake",
-				"direct-lake"
+				"direct-lake",
+				"style-lookalikes"
 			],
 			"difficulty": "hard",
 			"question": "What's the key behavioral difference between Direct Lake on OneLake and Direct Lake on SQL endpoints?",
@@ -3411,8 +3439,8 @@
 			],
 			"answerIndex": 3,
 			"answer": "D",
-			"explanation": "Microsoft renamed Power BI datasets to semantic models. A semantic model holds the tables, relationships, measures and security that reports query. Fabric data agents can use semantic models as a source, and their row-level and column-level security still applies.",
-			"source": "https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand"
+			"explanation": "Microsoft renamed the Power BI dataset content type to semantic model, along with related terms such as 'shared semantic model'. A semantic model holds the tables, relationships, measures and security that reports query. Fabric data agents can use semantic models as a source, and their row-level and column-level security still applies.",
+			"source": "https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-rename"
 		},
 		{
 			"id": "F5-023",
@@ -3637,7 +3665,8 @@
 			"topic": "Workspace roles",
 			"tags": [
 				"power-bi",
-				"security"
+				"security",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "What are Fabric's four workspace roles?",
@@ -3913,7 +3942,8 @@
 			"topic": "Workspace identity",
 			"tags": [
 				"networking",
-				"security"
+				"security",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What is a Fabric workspace identity used for?",
@@ -4098,7 +4128,8 @@
 				"capacity",
 				"networking",
 				"licensing",
-				"security"
+				"security",
+				"style-troubleshooting"
 			],
 			"difficulty": "medium",
 			"question": "What stops trusted workspace access to a firewall-enabled storage account from working?",
@@ -4312,7 +4343,8 @@
 				"copilot-fabric",
 				"governance",
 				"security",
-				"residency"
+				"residency",
+				"style-prerequisites"
 			],
 			"difficulty": "hard",
 			"question": "A UK customer's Fabric capacity is in UK South. What must the admin enable for Copilot to work?",
@@ -4436,7 +4468,8 @@
 			"tags": [
 				"data-agents",
 				"copilot-fabric",
-				"residency"
+				"residency",
+				"style-request-flow"
 			],
 			"difficulty": "hard",
 			"question": "Where are Fabric data agent responses processed when the agent is used from Microsoft 365 Copilot?",
@@ -4460,7 +4493,8 @@
 				"capacity",
 				"data-agents",
 				"copilot-fabric",
-				"residency"
+				"residency",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What is a Fabric Copilot capacity?",
@@ -4507,7 +4541,8 @@
 				"capacity",
 				"power-bi",
 				"copilot-fabric",
-				"pricing"
+				"pricing",
+				"style-request-flow"
 			],
 			"difficulty": "medium",
 			"question": "When an analyst uses Copilot in Power BI Desktop, which capacity pays?",
@@ -4600,7 +4635,8 @@
 			"tags": [
 				"capacity",
 				"copilot-fabric",
-				"pricing"
+				"pricing",
+				"style-cost-math"
 			],
 			"difficulty": "hard",
 			"question": "A Copilot request in Fabric uses 2,000 input and 500 output tokens. Using Microsoft's rates, how many CU-seconds does it consume?",
@@ -4793,7 +4829,8 @@
 				"shortcuts",
 				"mirroring",
 				"databricks",
-				"performance"
+				"performance",
+				"style-request-flow"
 			],
 			"difficulty": "medium",
 			"question": "When a Unity Catalog catalog is mirrored into Fabric, how does Fabric access the table data?",
@@ -4818,7 +4855,8 @@
 				"databricks",
 				"governance",
 				"security",
-				"oversharing"
+				"oversharing",
+				"style-troubleshooting"
 			],
 			"difficulty": "hard",
 			"question": "A mirrored Unity Catalog catalog in Fabric shows fewer tables than the Databricks catalog. Which are documented reasons?",
@@ -4842,7 +4880,8 @@
 				"mirroring",
 				"databricks",
 				"networking",
-				"oversharing"
+				"oversharing",
+				"style-prerequisites"
 			],
 			"difficulty": "hard",
 			"question": "What does mirroring Unity Catalog into Fabric require at the storage layer?",
@@ -4888,7 +4927,8 @@
 				"onelake",
 				"warehouse",
 				"databricks",
-				"governance"
+				"governance",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What does OneLake catalog federation let Azure Databricks do?",
@@ -4912,7 +4952,8 @@
 				"onelake",
 				"databricks",
 				"security",
-				"oversharing"
+				"oversharing",
+				"style-request-flow"
 			],
 			"difficulty": "hard",
 			"question": "What identity does Azure Databricks use to read OneLake through catalog federation?",
@@ -4960,7 +5001,8 @@
 				"onelake",
 				"databricks",
 				"governance",
-				"security"
+				"security",
+				"style-prerequisites"
 			],
 			"difficulty": "hard",
 			"question": "Which Fabric tenant settings does OneLake catalog federation require?",
@@ -4986,7 +5028,8 @@
 				"direct-lake",
 				"power-bi",
 				"databricks",
-				"pricing"
+				"pricing",
+				"style-request-flow"
 			],
 			"difficulty": "medium",
 			"question": "A Power BI report uses Direct Lake over a mirrored Unity Catalog catalog. Which platform's compute serves the report queries?",
@@ -5011,7 +5054,8 @@
 				"databricks",
 				"pricing",
 				"governance",
-				"residency"
+				"residency",
+				"style-request-flow"
 			],
 			"difficulty": "medium",
 			"question": "When Databricks queries Fabric data through OneLake catalog federation, whose compute does the work?",
@@ -5059,7 +5103,8 @@
 				"mirroring",
 				"power-bi",
 				"warehouse",
-				"databricks"
+				"databricks",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "How can Azure Databricks data get into the Power BI service without mirroring?",
@@ -5113,7 +5158,8 @@
 				"databricks",
 				"governance",
 				"security",
-				"oversharing"
+				"oversharing",
+				"style-best-fit"
 			],
 			"difficulty": "hard",
 			"question": "A customer's data platform team runs everything on Databricks with Unity Catalog row filters. The BI team proposes mirroring into Fabric for Direct Lake reports. What's the strongest governance concern?",
@@ -5137,7 +5183,8 @@
 				"direct-lake",
 				"power-bi",
 				"databricks",
-				"pricing"
+				"pricing",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "When is Fabric arguably the better fit than adding Databricks, to give fair, credible coaching?",
@@ -5163,7 +5210,8 @@
 				"mirroring",
 				"databricks",
 				"pricing",
-				"licensing"
+				"licensing",
+				"style-troubleshooting"
 			],
 			"difficulty": "hard",
 			"question": "A customer plans to pause its F64 every night to save money, and it has database mirroring running from Azure SQL. What breaks?",
@@ -5210,7 +5258,8 @@
 				"mirroring",
 				"power-bi",
 				"databricks",
-				"governance"
+				"governance",
+				"style-lookalikes"
 			],
 			"difficulty": "hard",
 			"question": "A customer wants one semantic definition of revenue used by both Power BI and AI agents. What's the tradeoff between Unity Catalog metric views and Power BI semantic models?",
@@ -5235,7 +5284,8 @@
 				"power-bi",
 				"databricks",
 				"security",
-				"oversharing"
+				"oversharing",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "A customer's Fabric security relies on workspace Contributor roles for analysts who only need to read curated data. What should you recommend?",
@@ -5259,7 +5309,8 @@
 				"onelake",
 				"spark",
 				"databricks",
-				"networking"
+				"networking",
+				"style-prerequisites"
 			],
 			"difficulty": "hard",
 			"question": "A customer in a network-isolated tenant wants Databricks to read Fabric lakehouses through catalog federation. What networking detail matters on newer Databricks runtimes?",
@@ -5273,30 +5324,6 @@
 			"answer": "B",
 			"explanation": "From Databricks Runtime 19, federation uses per-workspace endpoints (<workspace-id>.z<xy>.dfs.fabric.microsoft.com), so firewall allow-lists for the global endpoint may need changes. Workspaces that block public access need a resource instance rule (same tenant) or a private endpoint (cross-tenant).",
 			"source": "https://learn.microsoft.com/en-us/azure/databricks/query-federation/onelake"
-		},
-		{
-			"id": "F8-021",
-			"section": 8,
-			"sectionName": "Fabric with Databricks: coaching",
-			"topic": "When not to mirror",
-			"tags": [
-				"mirroring",
-				"databricks",
-				"security",
-				"style-best-fit"
-			],
-			"difficulty": "hard",
-			"question": "When is mirroring a Unity Catalog catalog into Fabric the wrong choice for a set of tables?",
-			"choices": [
-				"When the tables rely on row filters or column masks, because those tables aren't mirrored",
-				"When the tables are stored as Delta, because Fabric can only mirror plain Parquet files today",
-				"When the tables are updated daily, because mirroring only supports weekly syncs",
-				"When the tables are larger than 1 TB, because mirroring is capped at that size"
-			],
-			"answerIndex": 0,
-			"answer": "A",
-			"explanation": "Tables with row filters or column masks aren't mirrored, and neither are views or metric views. Mirrored data is also governed by Fabric, not Unity Catalog. For governed, per-user data, query it through Databricks, for example with Genie or a Databricks SQL connection from Power BI.",
-			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/azure-databricks-limitations"
 		},
 		{
 			"id": "F8-022",
@@ -5322,30 +5349,6 @@
 			"answer": "A",
 			"explanation": "A mirrored Azure Databricks catalog is a Fabric item that mirrors a Unity Catalog catalog's metadata and reads its Delta files through shortcuts; access in Fabric is governed by Fabric. OneLake catalog federation goes the other way: Databricks exposes Fabric lakehouses and warehouses as a read-only foreign catalog in Unity Catalog.",
 			"source": "https://learn.microsoft.com/en-us/azure/databricks/query-federation/onelake"
-		},
-		{
-			"id": "F8-023",
-			"section": 8,
-			"sectionName": "Fabric with Databricks: coaching",
-			"topic": "Mirroring Unity Catalog",
-			"tags": [
-				"mirroring",
-				"databricks",
-				"security",
-				"style-troubleshooting"
-			],
-			"difficulty": "medium",
-			"question": "After mirroring a Unity Catalog catalog into Fabric, several tables and all the metric views are missing. What's the likely explanation?",
-			"choices": [
-				"The workspace's capacity is too small, so Fabric dropped the largest tables first",
-				"Mirroring copies only tables created in the last 90 days, so older tables are skipped",
-				"Tables with row filters or column masks, views and metric views aren't mirrored",
-				"Fabric mirrors one schema at a time, and the others are still waiting in the queue"
-			],
-			"answerIndex": 2,
-			"answer": "C",
-			"explanation": "The Azure Databricks mirroring limitations list tables with row filters or column masks, views and metric views among the things that aren't mirrored. Check which tables rely on Unity Catalog security or semantics before promising a Fabric experience over them.",
-			"source": "https://learn.microsoft.com/en-us/fabric/mirroring/azure-databricks-limitations"
 		},
 		{
 			"id": "F8-024",

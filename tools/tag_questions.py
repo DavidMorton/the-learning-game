@@ -26,7 +26,7 @@ TECH, THEME, STYLE = "technology", "theme", "style"
 # Question styles, set by hand on each question (not by keyword rules), in display order.
 STYLE_TAGS = [
     ("style-definition", "Definitions"),
-    ("style-best-fit", "Best fit"),
+    ("style-best-fit", "Best practice"),
     ("style-lookalikes", "Look-alikes"),
     ("style-troubleshooting", "Troubleshooting"),
     ("style-objections", "Objections and myths"),

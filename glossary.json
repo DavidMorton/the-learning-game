@@ -295,7 +295,8 @@
 			"related": [
 				"microsoft-graph",
 				"pay-as-you-go"
-			]
+			],
+			"source": "https://learn.microsoft.com/en-us/graph/connecting-external-content-experiences"
 		},
 		{
 			"id": "everyday-advanced-ai",
@@ -2337,7 +2338,7 @@
 				"dynamic-views",
 				"uc-mirroring"
 			],
-			"source": "https://learn.microsoft.com/en-us/azure/databricks/tables/row-and-column-filters"
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/filters-and-masks/"
 		},
 		{
 			"id": "abac",
@@ -2778,17 +2779,18 @@
 		},
 		{
 			"id": "delta-sharing",
-			"term": "Delta Sharing",
+			"term": "OpenSharing (Delta Sharing)",
 			"category": "databricks",
 			"aliases": [
+				"OpenSharing",
 				"Delta Sharing"
 			],
-			"definition": "An open protocol for sharing live Delta data across platforms and organizations without copying it. Fabric doesn't mirror Delta Sharing tables.",
+			"definition": "Databricks' secure sharing platform and open protocol for sharing live data and AI assets with other organizations, whether or not they use Databricks, without copying the data. Azure Databricks docs now call it OpenSharing; older material says Delta Sharing. It underpins Databricks Marketplace and Clean Rooms. Fabric doesn't mirror Delta Sharing tables.",
 			"related": [
 				"unity-catalog",
 				"uc-mirroring"
 			],
-			"source": "https://learn.microsoft.com/en-us/azure/databricks/delta-sharing/"
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/opensharing/"
 		},
 		{
 			"id": "lakehouse-federation",

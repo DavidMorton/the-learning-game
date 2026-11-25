@@ -10,7 +10,7 @@
 		"source": "The Databricks, Microsoft or vendor page the question was checked against."
 	},
 	"notes": "Prices, rates and release states change often. Each question reflects its source as of the asOf date.",
-	"totalQuestions": 245,
+	"totalQuestions": 240,
 	"sections": [
 		{
 			"id": 1,
@@ -54,7 +54,7 @@
 				"App authorization vs user authorization; permissions and credentials",
 				"External models, residency and networking"
 			],
-			"questionCount": 35
+			"questionCount": 34
 		},
 		{
 			"id": 5,
@@ -65,7 +65,7 @@
 				"Databricks Apps hosting, billing and deployment",
 				"AI Search, AI Functions and ai_parse_document"
 			],
-			"questionCount": 27
+			"questionCount": 25
 		},
 		{
 			"id": 6,
@@ -76,7 +76,7 @@
 				"DBU math, pay-per-token, priority and provisioned throughput",
 				"AI Functions cost layers and Unity Gateway budgets"
 			],
-			"questionCount": 34
+			"questionCount": 33
 		},
 		{
 			"id": 7,
@@ -87,7 +87,7 @@
 				"AWS AgentCore and Quick, Snowflake Cortex, Salesforce Agentforce and Glean",
 				"Seat-plus-usage vs consumption pricing across vendors"
 			],
-			"questionCount": 33
+			"questionCount": 32
 		},
 		{
 			"id": 8,
@@ -118,7 +118,7 @@
 			"id": "unity-gateway",
 			"name": "Unity Gateway",
 			"kind": "technology",
-			"count": 33
+			"count": 31
 		},
 		{
 			"id": "unity-catalog",
@@ -136,7 +136,7 @@
 			"id": "model-serving",
 			"name": "Model Serving and FMAPI",
 			"kind": "technology",
-			"count": 26
+			"count": 25
 		},
 		{
 			"id": "mcp",
@@ -148,7 +148,7 @@
 			"id": "lakebase",
 			"name": "Lakebase",
 			"kind": "technology",
-			"count": 9
+			"count": 8
 		},
 		{
 			"id": "apps",
@@ -160,7 +160,7 @@
 			"id": "ai-search",
 			"name": "AI Search",
 			"kind": "technology",
-			"count": 18
+			"count": 17
 		},
 		{
 			"id": "ai-functions",
@@ -178,7 +178,7 @@
 			"id": "openai",
 			"name": "OpenAI ChatGPT",
 			"kind": "technology",
-			"count": 12
+			"count": 11
 		},
 		{
 			"id": "anthropic",
@@ -208,7 +208,7 @@
 			"id": "salesforce",
 			"name": "Salesforce Agentforce",
 			"kind": "technology",
-			"count": 7
+			"count": 6
 		},
 		{
 			"id": "glean",
@@ -226,25 +226,25 @@
 			"id": "pricing",
 			"name": "Pricing and cost",
 			"kind": "theme",
-			"count": 77
+			"count": 75
 		},
 		{
 			"id": "spend-controls",
 			"name": "Spend controls",
 			"kind": "theme",
-			"count": 14
+			"count": 13
 		},
 		{
 			"id": "governance",
 			"name": "Governance",
 			"kind": "theme",
-			"count": 57
+			"count": 56
 		},
 		{
 			"id": "security",
 			"name": "Security and identity",
 			"kind": "theme",
-			"count": 49
+			"count": 47
 		},
 		{
 			"id": "residency",
@@ -268,7 +268,7 @@
 			"id": "competitive",
 			"name": "Competitive landscape",
 			"kind": "theme",
-			"count": 46
+			"count": 44
 		},
 		{
 			"id": "whats-new",
@@ -280,49 +280,49 @@
 			"id": "style-definition",
 			"name": "Definitions",
 			"kind": "style",
-			"count": 13
+			"count": 31
 		},
 		{
 			"id": "style-best-fit",
-			"name": "Best fit",
+			"name": "Best practice",
 			"kind": "style",
-			"count": 7
+			"count": 27
 		},
 		{
 			"id": "style-lookalikes",
 			"name": "Look-alikes",
 			"kind": "style",
-			"count": 7
+			"count": 12
 		},
 		{
 			"id": "style-troubleshooting",
 			"name": "Troubleshooting",
 			"kind": "style",
-			"count": 6
+			"count": 12
 		},
 		{
 			"id": "style-objections",
 			"name": "Objections and myths",
 			"kind": "style",
-			"count": 6
+			"count": 11
 		},
 		{
 			"id": "style-request-flow",
 			"name": "Following a request",
 			"kind": "style",
-			"count": 4
+			"count": 6
 		},
 		{
 			"id": "style-prerequisites",
 			"name": "Prerequisites and approvals",
 			"kind": "style",
-			"count": 1
+			"count": 6
 		},
 		{
 			"id": "style-cost-math",
 			"name": "Cost estimates",
 			"kind": "style",
-			"count": 6
+			"count": 9
 		}
 	],
 	"questions": [
@@ -337,7 +337,8 @@
 				"mcp",
 				"governance",
 				"architecture",
-				"whats-new"
+				"whats-new",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "How does Databricks describe Agent Bricks in its late-2026 documentation?",
@@ -358,7 +359,8 @@
 			"sectionName": "The Databricks AI platform map",
 			"topic": "Platform map",
 			"tags": [
-				"genie"
+				"genie",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "Which Databricks product is aimed at business users who want to ask questions across company data without picking a specific curated agent?",
@@ -379,7 +381,8 @@
 			"sectionName": "The Databricks AI platform map",
 			"topic": "Names and renames",
 			"tags": [
-				"ai-search"
+				"ai-search",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "A customer's 2025 architecture diagram says 'Mosaic AI Vector Search'. What do current Azure Databricks docs call it?",
@@ -403,7 +406,8 @@
 				"unity-gateway",
 				"unity-catalog",
 				"governance",
-				"whats-new"
+				"whats-new",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "What do the current Azure Databricks docs call the AI governance layer that used to be called Mosaic AI Gateway?",
@@ -494,7 +498,8 @@
 			"tags": [
 				"unity-catalog",
 				"mlflow",
-				"governance"
+				"governance",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "Where does Databricks recommend storing agent traces?",
@@ -516,7 +521,8 @@
 			"topic": "Lakebase",
 			"tags": [
 				"unity-catalog",
-				"lakebase"
+				"lakebase",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "What is Lakebase?",
@@ -537,7 +543,8 @@
 			"sectionName": "The Databricks AI platform map",
 			"topic": "Databricks Apps",
 			"tags": [
-				"apps"
+				"apps",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "What are Databricks Apps?",
@@ -561,7 +568,8 @@
 				"agent-bricks",
 				"unity-catalog",
 				"security",
-				"whats-new"
+				"whats-new",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What does Databricks Sandbox provide for agents, per Databricks' DAIS 2026 announcement?",
@@ -742,7 +750,8 @@
 			"sectionName": "The Databricks AI platform map",
 			"topic": "Omnigent",
 			"tags": [
-				"agent-bricks"
+				"agent-bricks",
+				"style-definition"
 			],
 			"difficulty": "hard",
 			"question": "What is Omnigent?",
@@ -789,7 +798,8 @@
 			"tags": [
 				"unity-gateway",
 				"spend-controls",
-				"security"
+				"security",
+				"style-best-fit"
 			],
 			"difficulty": "hard",
 			"question": "A customer asks which Databricks layer stops an agent from overspending on a frontier model and blocks prompts that contain PII. Which one is it?",
@@ -883,17 +893,17 @@
 				"style-definition"
 			],
 			"difficulty": "easy",
-			"question": "What is Delta Sharing?",
+			"question": "What is OpenSharing in Azure Databricks?",
 			"choices": [
 				"A Unity Catalog setting that lets two workspaces in the same account see and edit each other's notebooks",
 				"A feature that emails a CSV extract of a table to a list of recipients on a schedule",
 				"A Genie option that lets one user share a conversation and its answers with a colleague",
-				"An open protocol for sharing live Delta data with other platforms and organizations without copying it"
+				"The platform and open protocol for sharing data and AI assets with organizations outside your own"
 			],
 			"answerIndex": 3,
 			"answer": "D",
-			"explanation": "Delta Sharing shares live Delta tables across platforms and organizations without making copies, and recipients don't need Databricks. Fabric doesn't mirror Delta Sharing tables, which matters in mixed estates.",
-			"source": "https://learn.microsoft.com/en-us/azure/databricks/delta-sharing/"
+			"explanation": "OpenSharing is Azure Databricks' secure sharing platform, built on an open protocol, for sharing data and AI assets with people outside the organization whether or not they use Databricks. It also underpins Databricks Marketplace and Clean Rooms. Older material calls it Delta Sharing, and Learn's Delta Sharing pages now redirect to it.",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/opensharing/"
 		},
 		{
 			"id": "A1-026",
@@ -946,7 +956,8 @@
 			"sectionName": "Genie in depth",
 			"topic": "Curation",
 			"tags": [
-				"genie"
+				"genie",
+				"style-best-fit"
 			],
 			"difficulty": "easy",
 			"question": "How many tables does Databricks recommend starting a Genie Agent with?",
@@ -967,7 +978,8 @@
 			"sectionName": "Genie in depth",
 			"topic": "Curation",
 			"tags": [
-				"genie"
+				"genie",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "In what order does Databricks recommend adding context to a Genie Agent?",
@@ -1011,7 +1023,8 @@
 			"sectionName": "Genie in depth",
 			"topic": "Curation",
 			"tags": [
-				"genie"
+				"genie",
+				"style-troubleshooting"
 			],
 			"difficulty": "medium",
 			"question": "A Genie Agent's text instructions say 'round currency to two decimals', but one example SQL query doesn't round. What's the risk?",
@@ -1057,7 +1070,8 @@
 			"tags": [
 				"genie",
 				"unity-catalog",
-				"quality"
+				"quality",
+				"style-prerequisites"
 			],
 			"difficulty": "hard",
 			"question": "A Genie Agent uses a Unity Catalog SQL function as a trusted asset. What do the agent's users need, and what can Genie see?",
@@ -1168,7 +1182,8 @@
 			"topic": "Benchmarks",
 			"tags": [
 				"genie",
-				"quality"
+				"quality",
+				"style-troubleshooting"
 			],
 			"difficulty": "hard",
 			"question": "A benchmark run finishes, but the Accuracy number is missing. Why?",
@@ -1191,7 +1206,8 @@
 			"tags": [
 				"genie",
 				"unity-catalog",
-				"security"
+				"security",
+				"style-prerequisites"
 			],
 			"difficulty": "medium",
 			"question": "What do business users need to use a published Genie Agent?",
@@ -1213,7 +1229,8 @@
 			"topic": "Permissions",
 			"tags": [
 				"genie",
-				"security"
+				"security",
+				"style-request-flow"
 			],
 			"difficulty": "hard",
 			"question": "Whose identity does Genie use when it answers a question?",
@@ -1304,7 +1321,8 @@
 			"topic": "Modes",
 			"tags": [
 				"genie",
-				"mcp"
+				"mcp",
+				"style-lookalikes"
 			],
 			"difficulty": "medium",
 			"question": "What's the key difference between Genie Chat mode and Agent mode?",
@@ -1431,7 +1449,8 @@
 			"topic": "Conversation API",
 			"tags": [
 				"genie",
-				"security"
+				"security",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "Which authentication does Databricks recommend for a user-facing app that calls the Genie Conversation API?",
@@ -1546,7 +1565,8 @@
 			"tags": [
 				"genie",
 				"unity-catalog",
-				"security"
+				"security",
+				"style-prerequisites"
 			],
 			"difficulty": "medium",
 			"question": "What does someone need to create or edit a Genie Agent?",
@@ -1567,7 +1587,8 @@
 			"sectionName": "Genie in depth",
 			"topic": "Setup",
 			"tags": [
-				"genie"
+				"genie",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "How does Databricks recommend deploying and versioning Genie Agents across environments?",
@@ -1746,7 +1767,7 @@
 			"answerIndex": 3,
 			"answer": "D",
 			"explanation": "Genie writes SQL, and the SQL runs on a warehouse against Unity Catalog tables as the asking user. Row filters and column masks are applied at query time, so two people asking the same question can get different results. Nothing is copied into Genie.",
-			"source": "https://learn.microsoft.com/en-us/azure/databricks/tables/row-and-column-filters"
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/filters-and-masks/"
 		},
 		{
 			"id": "A3-001",
@@ -1936,7 +1957,8 @@
 				"pricing",
 				"spend-controls",
 				"governance",
-				"architecture"
+				"architecture",
+				"style-prerequisites"
 			],
 			"difficulty": "hard",
 			"question": "What do the Agent Bricks agent types require before you can build one?",
@@ -2004,7 +2026,8 @@
 				"agent-bricks",
 				"mlflow",
 				"openai",
-				"competitive"
+				"competitive",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What is MLflow's ResponsesAgent?",
@@ -2025,7 +2048,8 @@
 			"sectionName": "Building and evaluating agents",
 			"topic": "Authoring",
 			"tags": [
-				"apps"
+				"apps",
+				"style-troubleshooting"
 			],
 			"difficulty": "hard",
 			"question": "A developer deploys an agent on Databricks Apps but it doesn't appear in the workspace Agents list. What's the likely cause?",
@@ -2139,7 +2163,8 @@
 			"tags": [
 				"mlflow",
 				"mcp",
-				"pricing"
+				"pricing",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What does MLflow Tracing capture for each agent request?",
@@ -2183,7 +2208,8 @@
 			"tags": [
 				"mlflow",
 				"quality",
-				"architecture"
+				"architecture",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What are MLflow scorers?",
@@ -2207,7 +2233,8 @@
 				"mlflow",
 				"mcp",
 				"apps",
-				"quality"
+				"quality",
+				"style-best-fit"
 			],
 			"difficulty": "hard",
 			"question": "Business reviewers need to give feedback on an agent deployed on Databricks Apps. Which tool should they use?",
@@ -2551,7 +2578,8 @@
 			"tags": [
 				"unity-gateway",
 				"unity-catalog",
-				"governance"
+				"governance",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What are inference tables in Unity Gateway?",
@@ -2574,7 +2602,8 @@
 			"tags": [
 				"apps",
 				"governance",
-				"security"
+				"security",
+				"style-lookalikes"
 			],
 			"difficulty": "medium",
 			"question": "What's the difference between app authorization and user authorization for agents on Databricks Apps?",
@@ -2623,7 +2652,8 @@
 				"apps",
 				"pricing",
 				"governance",
-				"security"
+				"security",
+				"style-troubleshooting"
 			],
 			"difficulty": "hard",
 			"question": "A developer uses user authorization, but the forwarded user token is missing. What does get_user_workspace_client() do?",
@@ -2714,7 +2744,8 @@
 				"genie",
 				"unity-catalog",
 				"governance",
-				"security"
+				"security",
+				"style-troubleshooting"
 			],
 			"difficulty": "medium",
 			"question": "An agent's service principal has CAN RUN on a Genie Agent, but answers come back empty. What's likely missing?",
@@ -2760,7 +2791,8 @@
 			"topic": "Permissions",
 			"tags": [
 				"governance",
-				"security"
+				"security",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "What does Databricks recommend about service principals for apps?",
@@ -2954,7 +2986,8 @@
 				"unity-gateway",
 				"pricing",
 				"governance",
-				"quality"
+				"quality",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What does Unity Gateway's Smart Routing do?",
@@ -2991,7 +3024,7 @@
 			"answerIndex": 1,
 			"answer": "B",
 			"explanation": "Row filters and column masks are Unity Catalog functions attached to a table. Every Databricks query enforces them for the person querying, so Genie, dashboards, SQL and agents all respect them. Tables that use them aren't mirrored into Fabric.",
-			"source": "https://learn.microsoft.com/en-us/azure/databricks/tables/row-and-column-filters"
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/data-governance/unity-catalog/filters-and-masks/"
 		},
 		{
 			"id": "A4-026",
@@ -3215,32 +3248,6 @@
 			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/budgets"
 		},
 		{
-			"id": "A4-035",
-			"section": 4,
-			"sectionName": "Governing models, agents and tools",
-			"topic": "External models",
-			"tags": [
-				"unity-gateway",
-				"openai",
-				"governance",
-				"security",
-				"competitive",
-				"style-prerequisites"
-			],
-			"difficulty": "medium",
-			"question": "Before an external model endpoint can call OpenAI from Databricks, what has to be set up?",
-			"choices": [
-				"Nothing, because Databricks includes OpenAI usage in every workspace's DBUs",
-				"A Databricks-hosted copy of the OpenAI model, deployed on provisioned throughput endpoints",
-				"The provider's API key, stored centrally and encrypted, which the endpoint references",
-				"A Fabric connection, because external models route through Microsoft's network"
-			],
-			"answerIndex": 2,
-			"answer": "C",
-			"explanation": "External model endpoints route to third-party providers using credentials you supply, stored centrally and encrypted rather than in notebooks. The provider bills the usage, and Unity Gateway can add limits, logging and guardrails on top.",
-			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/external-models/"
-		},
-		{
 			"id": "A5-001",
 			"section": 5,
 			"sectionName": "Data and apps for agents",
@@ -3270,7 +3277,8 @@
 			"tags": [
 				"unity-catalog",
 				"lakebase",
-				"security"
+				"security",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What do Lakebase synced tables do?",
@@ -3358,7 +3366,8 @@
 			"sectionName": "Data and apps for agents",
 			"topic": "Databricks Apps",
 			"tags": [
-				"apps"
+				"apps",
+				"style-prerequisites"
 			],
 			"difficulty": "easy",
 			"question": "Which workspace tier do Databricks Apps require?",
@@ -3443,7 +3452,8 @@
 			"sectionName": "Data and apps for agents",
 			"topic": "AI Search",
 			"tags": [
-				"ai-search"
+				"ai-search",
+				"style-lookalikes"
 			],
 			"difficulty": "medium",
 			"question": "What's the difference between a Delta Sync index and a Direct Vector Access index?",
@@ -3464,7 +3474,8 @@
 			"sectionName": "Data and apps for agents",
 			"topic": "AI Search",
 			"tags": [
-				"ai-search"
+				"ai-search",
+				"style-prerequisites"
 			],
 			"difficulty": "hard",
 			"question": "What does a standard AI Search endpoint require on the source table for a Delta Sync index?",
@@ -3527,7 +3538,8 @@
 			"sectionName": "Data and apps for agents",
 			"topic": "AI Functions",
 			"tags": [
-				"ai-functions"
+				"ai-functions",
+				"style-lookalikes"
 			],
 			"difficulty": "medium",
 			"question": "What's the difference between ai_query and task-specific AI Functions such as ai_extract or ai_classify?",
@@ -3569,7 +3581,8 @@
 			"sectionName": "Data and apps for agents",
 			"topic": "AI Functions",
 			"tags": [
-				"ai-functions"
+				"ai-functions",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "What does Databricks recommend for running AI Functions over a large dataset?",
@@ -3590,7 +3603,8 @@
 			"sectionName": "Data and apps for agents",
 			"topic": "ai_parse_document",
 			"tags": [
-				"ai-functions"
+				"ai-functions",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "What does ai_parse_document take and return?",
@@ -3714,28 +3728,6 @@
 			"source": "https://learn.microsoft.com/en-us/azure/databricks/large-language-models/ai-functions"
 		},
 		{
-			"id": "A5-023",
-			"section": 5,
-			"sectionName": "Data and apps for agents",
-			"topic": "Agent state",
-			"tags": [
-				"lakebase",
-				"style-best-fit"
-			],
-			"difficulty": "medium",
-			"question": "An agent needs to remember each user's preferences and conversation state across sessions, with fast reads and writes. Which Databricks service fits?",
-			"choices": [
-				"A Unity Catalog volume of JSON files",
-				"A Delta table read through a SQL warehouse",
-				"An AI Search Direct Vector Access index",
-				"Lakebase"
-			],
-			"answerIndex": 3,
-			"answer": "D",
-			"explanation": "Lakebase is Databricks' managed Postgres with autoscaling, scale to zero and branching, and it's a natural home for agent memory and app state. Analytical warehouses and file volumes aren't designed for many small, low-latency reads and writes.",
-			"source": "https://learn.microsoft.com/en-us/azure/databricks/oltp/"
-		},
-		{
 			"id": "A5-024",
 			"section": 5,
 			"sectionName": "Data and apps for agents",
@@ -3801,29 +3793,6 @@
 			"answerIndex": 3,
 			"answer": "D",
 			"explanation": "AI Search (formerly Vector Search) is a retrieval service: vector and full-text search over indexed content, used inside agents. Genie answers analytical questions by writing SQL against Unity Catalog tables and metric views. Many agents use both: retrieval for documents, Genie for numbers.",
-			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/vector-search"
-		},
-		{
-			"id": "A5-027",
-			"section": 5,
-			"sectionName": "Data and apps for agents",
-			"topic": "AI Search",
-			"tags": [
-				"ai-search",
-				"security",
-				"style-troubleshooting"
-			],
-			"difficulty": "hard",
-			"question": "An agent's retrieval step returns passages from documents that some users shouldn't see. The index is an AI Search index. Why?",
-			"choices": [
-				"The agent uses the wrong embedding model, which ignores the table's row filters",
-				"AI Search indexes don't support row- or column-level security, so they return whatever they hold",
-				"AI Search applies row filters only to the first 1,000 results that it returns for each query a user sends",
-				"AI Search checks each user's permissions only when the index is rebuilt each night"
-			],
-			"answerIndex": 1,
-			"answer": "B",
-			"explanation": "AI Search indexes are governed in Unity Catalog as objects, but they don't support row- or column-level security. Control what goes into each index, split indexes by audience, or filter results by user attributes in the agent's code.",
 			"source": "https://learn.microsoft.com/en-us/azure/databricks/generative-ai/vector-search"
 		},
 		{
@@ -3948,7 +3917,8 @@
 			"topic": "DBU math",
 			"tags": [
 				"model-serving",
-				"pricing"
+				"pricing",
+				"style-cost-math"
 			],
 			"difficulty": "medium",
 			"question": "Llama 3.3 70B pay-per-token input is listed at 7.143 DBUs per million tokens. How many DBUs do 100 million input tokens use?",
@@ -3970,7 +3940,8 @@
 			"topic": "DBU math",
 			"tags": [
 				"model-serving",
-				"pricing"
+				"pricing",
+				"style-cost-math"
 			],
 			"difficulty": "medium",
 			"question": "Claude Sonnet 4.5 on Databricks pay-per-token is listed at 42.857 DBUs per million input tokens and 214.286 per million output tokens. What does that imply?",
@@ -3992,7 +3963,8 @@
 			"topic": "DBU math",
 			"tags": [
 				"model-serving",
-				"pricing"
+				"pricing",
+				"style-cost-math"
 			],
 			"difficulty": "hard",
 			"question": "Using Databricks' listed pay-per-token input rates, how does Claude Sonnet 4.5 compare with Llama 3.3 70B?",
@@ -4014,7 +3986,8 @@
 			"topic": "Serving modes",
 			"tags": [
 				"model-serving",
-				"pricing"
+				"pricing",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "When does Databricks recommend provisioned throughput over pay-per-token for Foundation Model APIs?",
@@ -4036,7 +4009,8 @@
 			"topic": "Serving modes",
 			"tags": [
 				"model-serving",
-				"pricing"
+				"pricing",
+				"style-definition"
 			],
 			"difficulty": "hard",
 			"question": "What is priority pay-per-token on Foundation Model APIs?",
@@ -4148,7 +4122,8 @@
 				"model-serving",
 				"ai-functions",
 				"pricing",
-				"architecture"
+				"architecture",
+				"style-best-fit"
 			],
 			"difficulty": "hard",
 			"question": "For batch ai_query jobs, which models does Databricks recommend?",
@@ -4220,7 +4195,8 @@
 			"tags": [
 				"unity-gateway",
 				"pricing",
-				"spend-controls"
+				"spend-controls",
+				"style-objections"
 			],
 			"difficulty": "hard",
 			"question": "A CFO wants Unity Gateway budgets to guarantee that the billed amount never exceeds $50,000. What does Databricks say?",
@@ -4438,31 +4414,6 @@
 			"source": "https://learn.microsoft.com/en-us/azure/databricks/machine-learning/foundation-model-apis/"
 		},
 		{
-			"id": "A6-028",
-			"section": 6,
-			"sectionName": "Cost and pricing",
-			"topic": "Budgets",
-			"tags": [
-				"unity-gateway",
-				"model-serving",
-				"pricing",
-				"spend-controls",
-				"style-troubleshooting"
-			],
-			"difficulty": "medium",
-			"question": "A Unity Gateway budget is set to block usage, yet costs from a provisioned throughput endpoint keep growing. Why?",
-			"choices": [
-				"Budgets cover provisioned throughput, but only after 30 days",
-				"Budgets block usage only on weekends, when most batch jobs run",
-				"Unity Gateway budgets don't cover provisioned throughput, which needs other controls",
-				"The endpoint's owner is exempt from every budget they create"
-			],
-			"answerIndex": 2,
-			"answer": "C",
-			"explanation": "Budgets cover pay-per-token, AI Functions, Genie and, optionally, external models. They don't cover provisioned throughput or standalone Model Serving endpoints, which are billed by the hour. Control those through sizing, scale-to-zero and who can create endpoints.",
-			"source": "https://learn.microsoft.com/en-us/azure/databricks/ai-gateway/budgets"
-		},
-		{
 			"id": "A6-029",
 			"section": 6,
 			"sectionName": "Cost and pricing",
@@ -4632,7 +4583,8 @@
 			"topic": "ChatGPT",
 			"tags": [
 				"openai",
-				"competitive"
+				"competitive",
+				"style-definition"
 			],
 			"difficulty": "easy",
 			"question": "What was ChatGPT Business called before August 29, 2025?",
@@ -5193,7 +5145,8 @@
 				"glean",
 				"pricing",
 				"security",
-				"competitive"
+				"competitive",
+				"style-definition"
 			],
 			"difficulty": "medium",
 			"question": "How does Glean describe its product, and does it publish prices?",
@@ -5352,30 +5305,6 @@
 			"source": "https://aws.amazon.com/quicksuite/pricing/"
 		},
 		{
-			"id": "A7-033",
-			"section": 7,
-			"sectionName": "Competitive landscape",
-			"topic": "Agentforce",
-			"tags": [
-				"salesforce",
-				"pricing",
-				"competitive",
-				"style-cost-math"
-			],
-			"difficulty": "medium",
-			"question": "An Agentforce deployment runs 30,000 actions a month. At 20 Flex Credits per action and $500 per 100,000 Flex Credits, what does that cost?",
-			"choices": [
-				"$6,000",
-				"$300",
-				"$3,000",
-				"$30,000"
-			],
-			"answerIndex": 2,
-			"answer": "C",
-			"explanation": "30,000 × 20 = 600,000 Flex Credits, and 600,000 ÷ 100,000 × $500 = $3,000, about $0.10 per action. Data 360 consumption is extra, so ask what else each action touches.",
-			"source": "https://www.salesforce.com/agentforce/pricing/"
-		},
-		{
 			"id": "A8-001",
 			"section": 8,
 			"sectionName": "Coaching scenarios",
@@ -5387,7 +5316,8 @@
 				"governance",
 				"security",
 				"residency",
-				"architecture"
+				"architecture",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "A retailer wants 3,000 store managers to ask sales questions in natural language, each seeing only their own region. What's the strongest Databricks design?",
@@ -5411,7 +5341,8 @@
 				"genie",
 				"governance",
 				"quality",
-				"architecture"
+				"architecture",
+				"style-objections"
 			],
 			"difficulty": "medium",
 			"question": "A customer asks, 'How do we know Genie will be accurate enough before rollout?' What's the best answer?",
@@ -5435,7 +5366,8 @@
 				"unity-gateway",
 				"pricing",
 				"spend-controls",
-				"architecture"
+				"architecture",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "Developers across 40 teams are calling frontier models through Databricks, and spend is rising. What's the first control to put in place?",
@@ -5460,7 +5392,8 @@
 				"model-serving",
 				"pricing",
 				"spend-controls",
-				"architecture"
+				"architecture",
+				"style-troubleshooting"
 			],
 			"difficulty": "hard",
 			"question": "A customer's production agent runs on provisioned throughput. They set a Unity Gateway budget, but the agent's spend doesn't show up in it. Why?",
@@ -5486,7 +5419,8 @@
 				"model-serving",
 				"pricing",
 				"quality",
-				"architecture"
+				"architecture",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "A customer's agent runs a classification step on every request using Claude Sonnet. Accuracy is fine on smaller models in tests. What's the cost advice?",
@@ -5509,7 +5443,8 @@
 			"tags": [
 				"model-serving",
 				"pricing",
-				"architecture"
+				"architecture",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "A customer has a steady, high-volume agent with a latency SLA, plus spiky experimental workloads. How should they serve models?",
@@ -5531,7 +5466,8 @@
 			"topic": "Document AI",
 			"tags": [
 				"ai-functions",
-				"architecture"
+				"architecture",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "A customer needs to extract fields from two million invoices every night. Which approach fits best?",
@@ -5555,7 +5491,8 @@
 				"ai-search",
 				"governance",
 				"security",
-				"architecture"
+				"architecture",
+				"style-troubleshooting"
 			],
 			"difficulty": "hard",
 			"question": "A customer wants an HR policy assistant where managers see manager-only documents and employees don't. They plan one AI Search index. What's the risk and fix?",
@@ -5579,7 +5516,8 @@
 				"unity-catalog",
 				"apps",
 				"security",
-				"architecture"
+				"architecture",
+				"style-troubleshooting"
 			],
 			"difficulty": "hard",
 			"question": "A team's agent on Databricks Apps must respect row filters for each user. Testing shows everyone sees the same rows. What's the likely cause?",
@@ -5604,7 +5542,8 @@
 				"unity-catalog",
 				"lakebase",
 				"governance",
-				"architecture"
+				"architecture",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "A customer wants their LangGraph agent to remember user preferences across sessions, governed like other data. Where should memory live?",
@@ -5629,7 +5568,8 @@
 				"unity-catalog",
 				"mcp",
 				"governance",
-				"architecture"
+				"architecture",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "A customer's agents need to read Jira tickets and SharePoint files. How can they keep that governed in Databricks?",
@@ -5654,7 +5594,8 @@
 				"agent-bricks",
 				"governance",
 				"architecture",
-				"whats-new"
+				"whats-new",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "A customer wants a low-code agent that answers from both sales tables and PDF policy documents. Learn now labels Knowledge Assistant and Supervisor Agent as legacy. What should they start with?",
@@ -5681,7 +5622,8 @@
 				"anthropic",
 				"governance",
 				"architecture",
-				"competitive"
+				"competitive",
+				"style-objections"
 			],
 			"difficulty": "hard",
 			"question": "A customer is choosing between Claude Enterprise and ChatGPT Enterprise for all 4,000 employees and asks whether that replaces Genie. What's the best coaching answer?",
@@ -5706,7 +5648,8 @@
 				"snowflake",
 				"pricing",
 				"architecture",
-				"competitive"
+				"competitive",
+				"style-lookalikes"
 			],
 			"difficulty": "hard",
 			"question": "A customer compares Snowflake Cortex Agents with Genie on cost. Which cost layers should they line up?",
@@ -5730,7 +5673,8 @@
 				"salesforce",
 				"pricing",
 				"architecture",
-				"competitive"
+				"competitive",
+				"style-cost-math"
 			],
 			"difficulty": "hard",
 			"question": "An internal Agentforce sales assistant will perform about 50,000 actions a month on Flex Credits. What's the monthly cost at list price?",
@@ -5755,7 +5699,8 @@
 				"pricing",
 				"quality",
 				"architecture",
-				"competitive"
+				"competitive",
+				"style-objections"
 			],
 			"difficulty": "medium",
 			"question": "A customer evaluating AWS Bedrock AgentCore says 'it's cheaper because there are no seats'. What should you point out?",
@@ -5781,7 +5726,8 @@
 				"pricing",
 				"security",
 				"architecture",
-				"competitive"
+				"competitive",
+				"style-request-flow"
 			],
 			"difficulty": "medium",
 			"question": "A customer wants a shared Copilot Studio agent to call Genie with one service principal for all users. What two concerns should you raise?",
@@ -5804,7 +5750,8 @@
 			"tags": [
 				"genie",
 				"quality",
-				"architecture"
+				"architecture",
+				"style-best-fit"
 			],
 			"difficulty": "medium",
 			"question": "A customer wants to promote Genie Agents from dev to prod with review and rollback. What should you recommend?",
@@ -5828,7 +5775,8 @@
 				"unity-gateway",
 				"governance",
 				"security",
-				"architecture"
+				"architecture",
+				"style-best-fit"
 			],
 			"difficulty": "hard",
 			"question": "A customer's AI review board asks how to stop an agent from emailing PII outside the company while still letting it summarize PII internally. Which Databricks feature addresses this?",
@@ -5855,7 +5803,8 @@
 				"governance",
 				"quality",
 				"architecture",
-				"competitive"
+				"competitive",
+				"style-objections"
 			],
 			"difficulty": "hard",
 			"question": "A CIO asks for the one-sentence case for Databricks as the agent platform when Microsoft 365 Copilot is already deployed. Which is most accurate?",
