@@ -1,0 +1,376 @@
+{
+	"title": "Request simulator: who acts, what it touches, what it costs and who can stop it",
+	"asOf": "2026-11-25",
+	"notes": "Each step's facts come from the page in its source field, checked on the asOf date. The app decides which steps apply to a request; rates and wording live here so a price change is a data edit. Facets can be a string or an object keyed by variant (licensed, unlicensed, external, user, sp, web, default).",
+	"rates": {
+		"creditUsd": 0.01,
+		"packCreditUsd": 0.008,
+		"seatUsd": 30,
+		"credits": { "generativeAnswer": 2, "agentAction": 5, "tenantGraphGrounding": 10 },
+		"cowork": { "light": 200, "medium": 500, "heavy": 900 },
+		"fabric": { "inputPer1k": 100, "outputPer1k": 400, "tokensIn": 2000, "tokensOut": 500 },
+		"genie": { "allowanceUsd": 10, "allowanceDbus": 150, "freeUntil": "January 31, 2027" },
+		"sources": {
+			"credits": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management",
+			"creditPrice": "https://www.microsoft.com/licensing/guidance/CopilotCreditsGuide",
+			"packs": "https://www.microsoft.com/en-us/microsoft-365/copilot/pricing/copilot-studio",
+			"fabric": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-consumption",
+			"genie": "https://www.databricks.com/product/pricing/genie"
+		}
+	},
+	"who": [
+		{ "id": "licensed", "label": "Employee with Microsoft 365 Copilot", "phrase": "An employee with a Microsoft 365 Copilot license" },
+		{ "id": "unlicensed", "label": "Employee without a Copilot license", "phrase": "An employee without a Copilot license" },
+		{ "id": "external", "label": "External customer", "phrase": "An external customer" }
+	],
+	"where": [
+		{ "id": "copilot", "label": "Microsoft 365 Copilot Chat", "phrase": "asks Microsoft 365 Copilot Chat" },
+		{ "id": "teams", "label": "A Teams app", "phrase": "asks a Teams app" },
+		{ "id": "studio", "label": "Copilot Studio agent in Teams or Copilot", "phrase": "asks a Copilot Studio agent in Teams or Copilot" },
+		{ "id": "website", "label": "Copilot Studio agent on a website", "phrase": "asks a Copilot Studio agent on a public website" },
+		{ "id": "cowork", "label": "Copilot Cowork task", "phrase": "starts a Copilot Cowork task" },
+		{ "id": "autonomous", "label": "Autonomous agent (event-triggered)", "phrase": "An event triggers an autonomous Copilot Studio agent" }
+	],
+	"what": [
+		{ "id": "m365", "label": "SharePoint and Microsoft 365 content", "phrase": "SharePoint and Microsoft 365 content" },
+		{ "id": "genie", "label": "Governed data in Databricks (Genie)", "phrase": "governed data in Databricks" },
+		{ "id": "fabric", "label": "Data in Fabric (a data agent)", "phrase": "data in Fabric" },
+		{ "id": "web", "label": "Only the public web", "phrase": "the public web" }
+	],
+	"presets": [
+		{ "label": "Same agent, unlicensed users", "hint": "Answers that are free for licensed users become metered", "set": { "who": "unlicensed", "where": "studio", "what": "m365" } },
+		{ "label": "One shared service principal", "hint": "Everyone gets the same rows, and no free allowance", "set": { "who": "unlicensed", "where": "studio", "what": "genie", "auth": "sp" } },
+		{ "label": "Autonomous in a licensed tenant", "hint": "No user is chatting, so the license doesn't cover it", "set": { "who": "licensed", "where": "autonomous", "what": "m365" } },
+		{ "label": "Genie for frontline staff", "hint": "No Copilot license, still per-user governance", "set": { "who": "unlicensed", "where": "teams", "what": "genie" } },
+		{ "label": "Fabric agent behind Copilot Studio", "hint": "A channel limit that's easy to miss", "set": { "who": "licensed", "where": "studio", "what": "fabric" } },
+		{ "label": "Cowork pulls from Genie", "hint": "Two meters on two platforms", "set": { "who": "licensed", "where": "cowork", "what": "genie" } },
+		{ "label": "External customer, governed data", "hint": "No tenant identity, so a service principal it is", "set": { "who": "external", "where": "website", "what": "genie" } }
+	],
+	"hops": {
+		"entry-copilot-licensed": {
+			"icon": "💬",
+			"title": "Signs in to Microsoft 365 Copilot",
+			"identity": "The employee's own Entra ID account.",
+			"access": "Enterprise Data Protection covers the prompt and the response, and they aren't used to train foundation models.",
+			"cost": "Covered by the $30 Microsoft 365 Copilot seat for everyday AI. Advanced AI, such as Cowork, is metered separately.",
+			"control": "Microsoft 365 admin center (seats and Copilot settings) and Entra (sign-in and Conditional Access).",
+			"logs": "Purview audit records the Copilot interaction, and prompts and responses are kept for eDiscovery.",
+			"terms": ["m365-copilot", "edp", "everyday-advanced-ai", "audit-log"],
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy"
+		},
+		"entry-copilot-basic": {
+			"icon": "💬",
+			"title": "Signs in to Copilot Chat without a Copilot license",
+			"identity": "The employee's own Entra ID account.",
+			"access": "Grounded on the web, not on Microsoft Graph. Work content gets in only by upload, by open documents in Teams or Outlook, or through a pay-as-you-go agent.",
+			"cost": "No seat cost. Pay-as-you-go agents are metered in Copilot Credits, and they stay off until an admin sets up billing.",
+			"control": "Microsoft 365 admin center: the pay-as-you-go billing policy and which agents these users can use.",
+			"logs": "Purview audit records the Copilot interaction.",
+			"terms": ["copilot-chat", "pay-as-you-go", "edp"],
+			"source": "https://learn.microsoft.com/en-us/copilot/overview"
+		},
+		"entry-teams": {
+			"icon": "👥",
+			"title": "Opens a Teams app",
+			"identity": "The employee's own Entra ID account. The app acts for them.",
+			"access": "Admins have to approve the app's permissions and install it before anyone can use it.",
+			"cost": "Using a Teams app needs no Copilot license.",
+			"control": "Entra (admin consent for the app) and the Microsoft 365 admin who installs it.",
+			"logs": "Each platform behind the app logs its own part, as the next step shows.",
+			"terms": ["entra-id"],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-teams"
+		},
+		"entry-studio": {
+			"icon": "🤖",
+			"title": "Chats with a Copilot Studio agent in Teams or Copilot",
+			"identity": "The employee's Entra ID, through 'Authenticate with Microsoft', the default for new agents.",
+			"access": "Knowledge from SharePoint, Dataverse and Copilot connectors is trimmed to what this user can open. Files uploaded into the agent aren't.",
+			"cost": {
+				"licensed": "Included: the agent runs in a Microsoft channel under a licensed user's identity, so its answers, actions and grounding aren't charged (fair use applies).",
+				"default": "Metered in Copilot Credits: every answer, action and grounding call, because this user has no Copilot license."
+			},
+			"control": "Power Platform admin center: environments, data policies, billing policies and capacity.",
+			"logs": "Purview audit records Copilot Studio maker activity.",
+			"terms": ["copilot-studio", "knowledge-sources", "power-platform-data-policies", "ppac"],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing"
+		},
+		"entry-website": {
+			"icon": "🌐",
+			"title": "Chats with a Copilot Studio agent on a public website",
+			"identity": {
+				"external": "No identity in your tenant. With 'No authentication', anyone who has the link can chat.",
+				"default": "Whatever sign-in the website offers. 'Authenticate with Microsoft' works in Teams, Power Apps and Microsoft Copilot, not on a website."
+			},
+			"access": "Per-user permissions can't help here, so the agent should reach only content that every visitor may see.",
+			"cost": "Always metered. A website isn't a Microsoft channel, so even licensed employees are billed.",
+			"control": "Power Platform admin center: data policies can block 'No authentication' agents and limit channels.",
+			"logs": "Purview audit records maker activity.",
+			"watch": ["'No authentication' combined with internal knowledge is the main oversharing risk in Copilot Studio."],
+			"terms": ["copilot-studio", "power-platform-data-policies", "pay-as-you-go"],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/configuration-end-user-authentication"
+		},
+		"entry-cowork": {
+			"icon": "🧩",
+			"title": "Starts a Copilot Cowork task",
+			"identity": "The employee's Entra ID. Cowork plans and runs the steps on their behalf.",
+			"access": "Works with the same Microsoft 365 permissions the user has.",
+			"cost": "Needs the Copilot license plus usage-based billing. Each task consumes Copilot Credits; Microsoft's planning range is 100 to 300 for light tasks, 300 to 700 for medium and 700+ for heavy.",
+			"control": "Microsoft 365 admin center spending policies decide who can use Cowork and set budgets. 'Auto-apply new services' is on by default.",
+			"logs": "Copilot Cost Management in the Microsoft 365 admin center reports credit usage.",
+			"terms": ["cowork", "spending-policy", "copilot-credits", "everyday-advanced-ai"],
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance"
+		},
+		"entry-autonomous": {
+			"icon": "⏰",
+			"title": "An event starts an autonomous Copilot Studio agent",
+			"identity": "No person is chatting. The agent acts through the credentials stored in its connections.",
+			"access": "Per-user permissions don't apply: the agent can reach whatever its connections can.",
+			"cost": "Always metered, even if every employee has a Copilot license. The license covers licensed users interacting with an agent, and nobody is.",
+			"control": "Power Platform admin center (environment, data policies, billing). Agent 365 can flag agents that have no owner.",
+			"logs": "Purview audit records maker activity.",
+			"watch": ["Agent flows started by an autonomous run consume credits at the standard rate too."],
+			"terms": ["autonomous-agent", "agent-action", "agent-flow", "agent-365"],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+		},
+		"m365-graph": {
+			"icon": "🗂️",
+			"title": "Copilot searches Microsoft 365 through Microsoft Graph",
+			"identity": "The same employee.",
+			"access": "Only content the user can already open, found through the semantic index. Overshared files count as 'can open'.",
+			"cost": "Included with the Copilot license.",
+			"control": "SharePoint admin (Restricted Content Discovery as a stopgap, Restricted Access Control) and Purview (sensitivity labels, DLP for Copilot).",
+			"logs": "Purview audit. DSPM for AI reports AI activity and oversharing.",
+			"watch": ["Copilot uses an encrypted file only if the user has both the VIEW and EXTRACT rights."],
+			"terms": ["microsoft-graph", "semantic-index", "oversharing", "restricted-content-discovery", "restricted-access-control", "purview-dlp", "sensitivity-labels"],
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy"
+		},
+		"m365-payg-agent": {
+			"icon": "🗂️",
+			"title": "A pay-as-you-go agent grounds the answer in SharePoint",
+			"identity": "The same employee. Results are trimmed to what they can open.",
+			"access": "For users without a Copilot license, tenant content arrives only through metered agents like this one.",
+			"cost": "Each answer is a generative answer (2 credits) plus tenant graph grounding (10).",
+			"control": "Microsoft 365 admin center: the pay-as-you-go billing policy and which agents these users get.",
+			"logs": "Purview audit.",
+			"watch": ["Agents grounded only in instructions and public websites are free for these users. Grounding on SharePoint is what turns on the meter."],
+			"terms": ["tenant-graph-grounding", "generative-answer", "pay-as-you-go", "copilot-credits"],
+			"source": "https://learn.microsoft.com/en-us/copilot/microsoft-365/pay-as-you-go/overview"
+		},
+		"web-grounding": {
+			"icon": "🔎",
+			"title": "Copilot answers from the public web",
+			"identity": "The same employee. Web search queries go out; no organizational data is involved.",
+			"access": "Public content only.",
+			"cost": "Included for licensed users and for Copilot Chat users alike.",
+			"control": "The tenant-wide web search setting.",
+			"logs": "Purview audit records the Copilot interaction.",
+			"terms": ["copilot-chat"],
+			"source": "https://learn.microsoft.com/en-us/copilot/overview"
+		},
+		"studio-sharepoint": {
+			"icon": "🗂️",
+			"title": "The agent answers from SharePoint knowledge",
+			"identity": "Calls are made on behalf of the signed-in user.",
+			"access": "Trimmed to what that user can open. Files uploaded into the agent sit in Dataverse and aren't trimmed, so anyone who can use the agent can get answers from them.",
+			"cost": "A generative answer (2 credits) plus tenant graph grounding (10) when it searches Microsoft 365.",
+			"control": "SharePoint permissions are the real boundary; Power Platform data policies govern the agent.",
+			"logs": "Purview audit.",
+			"watch": ["Tenant graph grounding needs generative orchestration, 'Authenticate with Microsoft' and at least one Copilot license in the tenant."],
+			"terms": ["knowledge-sources", "tenant-graph-grounding", "generative-answer"],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio"
+		},
+		"studio-public-web": {
+			"icon": "🔎",
+			"title": "The agent answers from public website content",
+			"identity": "No user data is involved.",
+			"access": "Public content only, so per-user permissions don't matter.",
+			"cost": "A generative answer (2 credits) per reply.",
+			"control": "The agent's knowledge settings. With 'Allow ungrounded responses' off, answers without a source are blocked.",
+			"logs": "Purview audit records maker changes.",
+			"terms": ["generative-answer", "knowledge-sources"],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio"
+		},
+		"genie-plugin": {
+			"icon": "🔌",
+			"title": "The Azure Databricks Genie plugin calls Genie One",
+			"identity": "Each user installs the plugin and signs in with Entra ID, so Genie sees the same person.",
+			"access": "Answers come from workspace-level Genie One. The plugin has no VNet support, and each user's connection is their own.",
+			"cost": "The plugin needs a Microsoft 365 Copilot license; chatting with it is part of that user's Copilot experience. Genie's side bills on Databricks.",
+			"control": "Databricks workspace admins enable Genie One; users install the plugin themselves.",
+			"logs": "Purview audit records the Copilot interaction.",
+			"watch": ["Unlicensed users can't use the plugin. The Genie app for Teams is their path."],
+			"terms": ["genie-plugin", "genie-one", "databricks-managed-mcp", "oauth-obo"],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-m365-copilot"
+		},
+		"genie-teams-app": {
+			"icon": "🔌",
+			"title": "The Databricks Genie app for Teams calls Genie",
+			"identity": "Each request runs as the user who asked.",
+			"access": "Answers come from Genie One, or from a Genie Agent an admin pinned. Copilot-licensed users can also @-mention the app in Copilot.",
+			"cost": "No Copilot license needed. Genie's side bills on Databricks.",
+			"control": "Entra (tenant-wide consent for the Azure Databricks app) and the Microsoft 365 admin who installs it. Private Link workspaces need an ingress rule.",
+			"logs": "The app's central service runs in East US 2 and stores only the tenant-to-workspace mapping.",
+			"watch": ["Copilot doesn't route questions to Genie on its own: users have to @-mention it."],
+			"terms": ["genie-teams", "genie-one", "entra-id"],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-teams"
+		},
+		"studio-genie-tool": {
+			"icon": "🔌",
+			"title": "The agent calls the Azure Databricks Genie tool",
+			"identity": {
+				"user": "Per-user OAuth: the call carries the signed-in user's identity. That needs Power Platform and Databricks in the same Entra tenant.",
+				"sp": "One service principal makes every call, whoever is asking."
+			},
+			"access": "The tool reaches one Genie Agent, by ID, through Databricks' managed MCP server.",
+			"cost": "Each Genie call is an agent action (5 credits), and the reply is a generative answer (2).",
+			"control": "A Databricks workspace admin enables the Managed MCP Servers preview. The agent needs generative orchestration, and Power Platform data policies govern the connector.",
+			"logs": "Purview audit records maker activity; Databricks logs the Genie side.",
+			"watch": {
+				"sp": ["Cross-tenant setups have to use a service principal, which flattens per-user permissions."],
+				"default": []
+			},
+			"terms": ["generative-orchestration", "agent-action", "genie-agent", "databricks-managed-mcp", "azure-databricks-connector"],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-power-platform/copilot-studio"
+		},
+		"genie-cowork": {
+			"icon": "🔌",
+			"title": "Cowork calls Genie One through the Genie plugin",
+			"identity": "The employee, signed in with Entra ID.",
+			"access": "Genie One answers with progress updates, visuals and citations, using the user's own permissions.",
+			"cost": "Cowork's model responses and tool calls consume Copilot Credits. Genie's AI and compute bill on the Databricks side.",
+			"control": "Spending policies for Cowork, and Databricks workspace settings for Genie One.",
+			"logs": "Copilot Cost Management for the credits; Databricks for the query.",
+			"terms": ["cowork", "genie-plugin", "databricks-managed-mcp"],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-cowork"
+		},
+		"genie-query-user": {
+			"icon": "🧮",
+			"title": "Genie writes SQL and runs it on a SQL warehouse",
+			"identity": "The asking user.",
+			"access": "Unity Catalog checks that user's grants, row filters and column masks on every query. The data stays where it is.",
+			"cost": "Genie's AI counts against the user's monthly allowance (150 DBUs, about $10) and is free for users through January 31, 2027. Warehouse compute is billed in DBUs either way.",
+			"control": "Databricks: Unity Catalog grants, consumer access, and Unity Gateway budgets, which cover Genie.",
+			"logs": "Databricks audit logs and query history, both in system tables.",
+			"watch": ["Genie One artifacts store a snapshot of their data, so sharing an artifact shares the data."],
+			"terms": ["genie", "unity-catalog", "row-filters-masks", "sql-warehouse", "system-tables", "ug-budgets", "consumer-access"],
+			"source": "https://www.databricks.com/product/pricing/genie"
+		},
+		"genie-query-sp": {
+			"icon": "🧮",
+			"title": "Genie writes SQL and runs it on a SQL warehouse",
+			"identity": "The service principal, for every user.",
+			"access": "Row filters and column masks are evaluated for the service principal, so everyone sees the same rows. Grant it only what every user may see.",
+			"cost": "Service principals don't get the free allowance: Genie's AI bills at standard pay-as-you-go from the first question, plus warehouse compute.",
+			"control": "Databricks: Unity Catalog grants on the service principal, and Unity Gateway budgets.",
+			"logs": "Databricks audit logs and query history, which show the service principal, not the person who asked.",
+			"terms": ["service-principal", "row-filters-masks", "unity-catalog", "sql-warehouse", "system-tables"],
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-power-platform/setup"
+		},
+		"fabric-agent-copilot": {
+			"icon": "📊",
+			"title": "A published Fabric data agent answers in Copilot or Teams",
+			"identity": "The asking user, signed in to Fabric and Copilot in the same tenant.",
+			"access": "Read-only queries as that user, so semantic model RLS and CLS still apply. Results are capped at 25 rows by 25 columns.",
+			"cost": "Each user needs a Microsoft Copilot license or an Office 365 commercial subscription. The agent's work consumes Fabric capacity, not Copilot Credits.",
+			"control": "Fabric admin portal: Copilot and AI tenant settings, including cross-geo processing, plus access to the agent and each of its sources.",
+			"logs": "The Capacity Metrics app shows consumption; Purview audit covers Fabric activity.",
+			"watch": ["Microsoft warns that responses may be processed outside Fabric's compliance boundary or region."],
+			"terms": ["fabric-data-agent", "cross-geo-processing", "semantic-model"],
+			"source": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-365-copilot"
+		},
+		"studio-fabric-connected": {
+			"icon": "📊",
+			"title": "The agent hands the question to a connected Fabric data agent",
+			"identity": "The signed-in user.",
+			"access": "As if the user called the data agent directly: read-only, with their own permissions.",
+			"cost": "This simulator counts the hand-off as one agent action (5 credits), like a tool call, plus the generative answer (2). The data agent's tokens bill to Fabric capacity.",
+			"control": "Power Platform admin center for the agent; Fabric tenant settings for the data agent.",
+			"logs": "Purview audit for the agent; the Capacity Metrics app for Fabric.",
+			"watch": ["Microsoft's multi-agent page says Fabric data agents don't work when the main agent is deployed to Microsoft 365 Copilot, and these connections are in preview. Check the channel first."],
+			"terms": ["connected-agents", "fabric-data-agent", "agent-action"],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents"
+		},
+		"fabric-query": {
+			"icon": "🧮",
+			"title": "The data agent runs on Fabric capacity",
+			"identity": "The asking user.",
+			"access": "Up to five sources (lakehouses, warehouses, KQL databases, semantic models, ontologies), read-only, English only, no unstructured files.",
+			"cost": "Tokens convert to capacity: 100 CU-seconds per 1,000 input tokens and 400 per 1,000 output tokens, smoothed as background work.",
+			"control": "The capacity holding the content pays, unless the user is assigned a Fabric Copilot capacity. It needs paid F2+ or P1+; trial capacities don't support it.",
+			"logs": "The Capacity Metrics app (14 days, about 10 to 15 minutes behind).",
+			"terms": ["fabric-capacity", "fabric-copilot-capacity", "smoothing", "capacity-metrics-app"],
+			"source": "https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-consumption"
+		},
+		"cowork-work": {
+			"icon": "🧩",
+			"title": "Cowork plans and runs the task",
+			"identity": "The employee.",
+			"access": {
+				"web": "Browser tasks reach the public web for the user.",
+				"default": "Work IQ grounds it in the user's Microsoft 365 content, within the user's permissions."
+			},
+			"cost": "Model responses, tool calls and browser tasks all consume Copilot Credits.",
+			"control": "Spending policies in the Microsoft 365 admin center.",
+			"logs": "Copilot Cost Management reports credit usage.",
+			"terms": ["cowork", "work-iq", "copilot-credits"],
+			"source": "https://www.microsoft.com/licensing/guidance/CopilotCreditsGuide"
+		},
+		"autonomous-sharepoint": {
+			"icon": "🗂️",
+			"title": "The agent reads SharePoint through its connection",
+			"identity": "The account behind the connection, not any employee.",
+			"access": "Everything that account can open is in reach, so scope the account tightly.",
+			"cost": "Each connector call is an agent action (5 credits), and a generated reply adds a generative answer (2).",
+			"control": "Power Platform data policies for the connector, and SharePoint permissions on the connection's account.",
+			"logs": "Purview audit.",
+			"terms": ["agent-action", "power-platform-data-policies", "service-principal"],
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management"
+		}
+	},
+	"blocked": {
+		"external-not-in-tenant": {
+			"title": "External customers can't use your tenant's Copilot, Teams apps or Cowork",
+			"why": "They have no account in your Entra tenant, and all three sign users in with Entra ID. Reach customers with a Copilot Studio agent published to a website instead.",
+			"instead": { "where": "website" },
+			"insteadLabel": "Try a Copilot Studio agent on a website",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/configuration-end-user-authentication"
+		},
+		"cowork-needs-license": {
+			"title": "Cowork needs a Microsoft 365 Copilot license",
+			"why": "Cowork runs on top of the Copilot license, plus usage-based billing that a spending policy grants. Users without the license can't start Cowork tasks.",
+			"instead": { "who": "licensed" },
+			"insteadLabel": "Try it as a licensed employee",
+			"source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance"
+		},
+		"genie-plugin-needs-license": {
+			"title": "The Genie plugin needs a Microsoft 365 Copilot license",
+			"why": "The Azure Databricks Genie plugin works in Microsoft 365 Copilot Chat and Cowork for licensed users. For users without a license, Databricks points to the Genie app for Teams.",
+			"instead": { "where": "teams" },
+			"insteadLabel": "Try the Genie app for Teams",
+			"source": "https://learn.microsoft.com/en-us/azure/databricks/integrations/msft-m365-copilot"
+		},
+		"website-sharepoint": {
+			"title": "A website agent can't answer from SharePoint with the default sign-in",
+			"why": "SharePoint knowledge needs users to sign in, and 'Authenticate with Microsoft' works in Teams, Power Apps and Microsoft Copilot, not on a public website. External customers can't sign in to your tenant at all.",
+			"instead": { "where": "studio" },
+			"insteadLabel": "Publish the agent in Teams or Copilot instead",
+			"insteadExternal": { "what": "web" },
+			"insteadExternalLabel": "Ground the website agent on public content instead",
+			"source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint"
+		},
+		"fabric-needs-user": {
+			"title": "Fabric data agents need a signed-in user",
+			"why": "A data agent queries read-only with the asking user's identity, and that user has to sign in to Fabric and Copilot in the same tenant. A website visitor or an event-triggered run has no such user.",
+			"instead": { "what": "genie" },
+			"insteadLabel": "Compare with Genie through a service principal",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-365-copilot"
+		},
+		"cowork-fabric": {
+			"title": "No documented path from Cowork to a Fabric data agent",
+			"why": "This simulator only follows documented paths. Cowork reaches Databricks through the Genie plugin; for Fabric, a published data agent answers in Copilot Chat or Teams.",
+			"instead": { "where": "copilot" },
+			"insteadLabel": "Ask the data agent in Copilot Chat instead",
+			"source": "https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-365-copilot"
+		}
+	}
+}

@@ -2,7 +2,8 @@
    Engineer Associate exam, Microsoft Copilot and agents, Microsoft Fabric, Databricks agents and the
    competitive landscape). Plain browser JavaScript with no
    build step. Each deck is a JSON file listed in DECKS, and each deck keeps its own progress
-   in localStorage. */
+   in localStorage. The Copilot, Fabric and Agents decks also offer a request simulator, whose
+   facts and rates live in simulator.json. */
 (() => {
   'use strict';
 
@@ -55,6 +56,7 @@
       brand: ['Copilot', 'Quest'],
       label: 'Microsoft Copilot',
       tab: 'Copilot',
+      simulator: true, // shows the Request Simulator on the home screen
       mock: { questions: 40, minutes: 60 },
       levels: levels(['Curious Prompter', 'Chat Explorer', 'Agent Builder', 'Credit Counter', 'Connector Wrangler',
         'Governance Guardian', 'Licensing Navigator', 'Estate Strategist', 'Agent Architect', 'Trusted Advisor']),
@@ -75,6 +77,7 @@
       brand: ['Fabric', 'Quest'],
       label: 'Microsoft Fabric',
       tab: 'Fabric',
+      simulator: true,
       mock: { questions: 40, minutes: 60 },
       levels: levels(['Trial Tenant', 'F2 Explorer', 'Shortcut Maker', 'Lakehouse Builder', 'Capacity Planner',
         'Smoothing Sage', 'Direct Lake Pilot', 'Mirroring Master', 'OneLake Steward', 'Fabric Architect']),
@@ -95,6 +98,7 @@
       brand: ['Agent', 'Quest'],
       label: 'Databricks agents and the competitive landscape',
       tab: 'Agents',
+      simulator: true,
       mock: { questions: 40, minutes: 60 },
       levels: levels(['Prompt Tinkerer', 'Genie Wrangler', 'Tool Caller', 'Trace Reader', 'Brick Layer',
         'Budget Keeper', 'Gateway Guardian', 'Landscape Scout', 'Platform Strategist', 'Agent Platform Advisor']),
@@ -763,6 +767,7 @@
     mock: () => { renderMock(); startMockClock(); },
     mockResults: () => renderMockResults(),
     glossary: () => renderGlossary(),
+    simulator: () => renderSimulator(),
   };
 
   function go(name) {
@@ -859,6 +864,9 @@
         ${modeCard({ mode: 'review', icon: '🔁', title: 'Fix Mistakes', disabled: !mistakes,
           desc: 'Replay the questions you got wrong last time until they stick.',
           meta: mistakes ? `${mistakes} to fix` : 'Nothing to fix yet' })}
+        ${deck.simulator ? modeCard({ mode: 'simulator', icon: '🧭', title: 'Request Simulator',
+          desc: 'Follow one request step by step: who it acts as, what it can see, what it costs and who can stop it.',
+          meta: 'Copilot · Teams · Genie · Fabric' }) : ''}
       </div>
 
       <h2 class="h-section">Section mastery <span class="muted small">Raw → Bronze → Silver → Gold · click a section to practice it</span></h2>
@@ -1953,6 +1961,382 @@
     el.classList.add('flash');
   }
 
+  // ─── Request simulator ──────────────────────────────────────────────────────
+  // Follows one request from the person asking to the data and back: who each step acts as,
+  // what it can see, what it costs and who can stop it. The facts, rates and sources live in
+  // simulator.json; routeRequest() only decides which steps a request passes through.
+
+  const SIM_KEY = 'lakehouse-quest:sim'; // remembers the last request built, per browser
+  const SIM_DEFAULTS = { who: 'unlicensed', where: 'studio', what: 'm365', auth: 'user', size: 'medium', users: 1000, perUser: 20, tasks: 4, runs: 5000, genieUsd: '' };
+  const SIM_FACETS = [['identity', '🪪 Who it acts as'], ['access', '🔐 What it can see'], ['cost', '💳 What it costs'], ['control', '🛑 Who can stop it'], ['logs', '🧾 Where it\'s logged']];
+  let sim = null;
+  let simPromise = null;
+  let simState = loadSimState();
+  let simOpen = new Set(); // "step:term" keys of glossary cards opened inside steps
+
+  function loadSimState() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(SIM_KEY) || '{}');
+      return { ...SIM_DEFAULTS, ...(saved && typeof saved === 'object' ? saved : {}) };
+    } catch (e) {
+      return { ...SIM_DEFAULTS };
+    }
+  }
+
+  function saveSimState() {
+    try { localStorage.setItem(SIM_KEY, JSON.stringify(simState)); } catch (e) { /* storage unavailable */ }
+  }
+
+  function loadSimulator() {
+    if (!simPromise) {
+      simPromise = fetch('simulator.json', { cache: 'no-cache' })
+        .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
+        .then(data => { sim = data; return data; })
+        .catch(err => { simPromise = null; throw err; });
+    }
+    return simPromise;
+  }
+
+  async function openSimulator() {
+    if (!sim) {
+      screen = 'loading';
+      app.innerHTML = '<div class="loading"><div class="spinner"></div><p>Loading the request simulator…</p></div>';
+      try {
+        await Promise.all([loadSimulator(), loadGlossary()]);
+      } catch (err) {
+        screen = 'load';
+        app.innerHTML = `
+          <div class="screen-head"><button class="icon-btn" data-action="home" aria-label="Back to home">←</button><h1>🧭 Request simulator</h1></div>
+          <div class="card load-card"><p>Couldn't load <code>simulator.json</code>: ${esc(err && err.message ? err.message : err)}.</p></div>`;
+        return;
+      }
+    }
+    simOpen = new Set();
+    go('simulator');
+  }
+
+  // Which steps a request passes through, or why it can't happen. Returns { ctx, blocked } or
+  // { ctx, hops, meters, unit }, where meters are counted per question, task or run.
+  function routeRequest(st) {
+    const { where, what } = st;
+    const who = where === 'autonomous' ? 'none' : st.who;
+    const ctx = { who, where, what, auth: 'user' };
+    const out = extra => ({ ctx, ...extra });
+    if (who === 'external' && where !== 'website') return out({ blocked: 'external-not-in-tenant' });
+    if (where === 'cowork' && who !== 'licensed') return out({ blocked: 'cowork-needs-license' });
+    if (where === 'cowork' && what === 'fabric') return out({ blocked: 'cowork-fabric' });
+    if (where === 'website' && what === 'm365') return out({ blocked: 'website-sharepoint' });
+    if ((where === 'website' || where === 'autonomous') && what === 'fabric') return out({ blocked: 'fabric-needs-user' });
+    if (where === 'copilot' && who === 'unlicensed' && what === 'genie') return out({ blocked: 'genie-plugin-needs-license' });
+
+    // With no signed-in employee (a website visitor, or an event), Genie is reached through a service principal.
+    if (what === 'genie') ctx.auth = where === 'studio' ? st.auth : (where === 'website' || where === 'autonomous') ? 'sp' : 'user';
+
+    const C = sim.rates.credits;
+    const included = where === 'studio' && who === 'licensed'; // licensed user, Microsoft channel
+    const hops = [], meters = [];
+    const credit = (label, credits) => meters.push({ kind: 'credits', label, credits, included });
+    const genie = () => meters.push({ kind: 'genie', sp: ctx.auth === 'sp' });
+    const fabric = () => meters.push({ kind: 'fabric' });
+    let unit = 'question';
+
+    if (where === 'copilot' || (where === 'teams' && (what === 'm365' || what === 'web'))) {
+      if (where === 'teams') ctx.note = 'Copilot in Teams follows the same path as Copilot Chat here.';
+      hops.push(who === 'licensed' ? 'entry-copilot-licensed' : 'entry-copilot-basic');
+      if (what === 'm365' && who === 'licensed') hops.push('m365-graph');
+      if (what === 'm365' && who !== 'licensed') {
+        hops.push('m365-payg-agent');
+        credit('Generative answer', C.generativeAnswer);
+        credit('Tenant graph grounding', C.tenantGraphGrounding);
+      }
+      if (what === 'web') hops.push('web-grounding');
+      if (what === 'genie') { hops.push('genie-plugin', 'genie-query-user'); genie(); }
+      if (what === 'fabric') { hops.push('fabric-agent-copilot', 'fabric-query'); fabric(); }
+    } else if (where === 'teams') {
+      hops.push('entry-teams');
+      if (what === 'genie') { hops.push('genie-teams-app', 'genie-query-user'); genie(); }
+      if (what === 'fabric') { hops.push('fabric-agent-copilot', 'fabric-query'); fabric(); }
+    } else if (where === 'studio' || where === 'website') {
+      hops.push(where === 'studio' ? 'entry-studio' : 'entry-website');
+      if (what === 'm365') { hops.push('studio-sharepoint'); credit('Tenant graph grounding', C.tenantGraphGrounding); }
+      if (what === 'web') hops.push('studio-public-web');
+      if (what === 'genie') { hops.push('studio-genie-tool', `genie-query-${ctx.auth}`); credit('Agent action: the Genie call', C.agentAction); genie(); }
+      if (what === 'fabric') { hops.push('studio-fabric-connected', 'fabric-query'); credit('Agent action: the hand-off', C.agentAction); fabric(); }
+      credit('Generative answer', C.generativeAnswer);
+    } else if (where === 'cowork') {
+      unit = 'task';
+      const size = sim.rates.cowork[st.size] ? st.size : 'medium';
+      hops.push('entry-cowork', what === 'genie' ? 'genie-cowork' : 'cowork-work');
+      if (what === 'genie') { hops.push('genie-query-user'); genie(); }
+      meters.push({ kind: 'credits', label: `Cowork task (${size}, planning estimate)`, credits: sim.rates.cowork[size], included: false });
+    } else if (where === 'autonomous') {
+      unit = 'run';
+      hops.push('entry-autonomous');
+      credit('Agent action: the trigger', C.agentAction);
+      if (what === 'm365') { hops.push('autonomous-sharepoint'); credit('Agent action: the SharePoint call', C.agentAction); }
+      if (what === 'web') hops.push('studio-public-web');
+      if (what === 'genie') { hops.push('studio-genie-tool', 'genie-query-sp'); credit('Agent action: the Genie call', C.agentAction); genie(); }
+      credit('Generative answer', C.generativeAnswer);
+    }
+    return out({ hops, meters, unit });
+  }
+
+  // A facet is a string, or an object keyed by variant: connection (user, sp), person, or target.
+  function simFacet(value, ctx) {
+    if (value == null || typeof value !== 'object' || Array.isArray(value)) return value;
+    return value[ctx.auth] ?? value[ctx.who] ?? value[ctx.what] ?? value.default;
+  }
+
+  function simSentence(ctx) {
+    const find = (list, id) => sim[list].find(x => x.id === id) || { phrase: id };
+    const what = find('what', ctx.what).phrase;
+    if (ctx.where === 'autonomous') return `${find('where', 'autonomous').phrase} that draws on ${what}.`;
+    const tail = ctx.where === 'cowork' ? `that draws on ${what}` : `a question that draws on ${what}`;
+    return `${find('who', ctx.who).phrase} ${find('where', ctx.where).phrase} ${tail}.`;
+  }
+
+  const simUsd = n => `$${n >= 100 ? Math.round(n).toLocaleString() : n.toFixed(2)}`;
+  const simCount = v => Math.max(0, Math.floor(Number(v) || 0));
+
+  function simCost(route, st) {
+    const R = sim.rates;
+    const credits = route.meters.filter(m => m.kind === 'credits');
+    const billed = credits.filter(m => !m.included).reduce((n, m) => n + m.credits, 0);
+    const waived = credits.filter(m => m.included).reduce((n, m) => n + m.credits, 0);
+    const byRun = route.unit === 'run';
+    const users = byRun ? 0 : simCount(st.users);
+    const each = byRun ? 0 : simCount(route.unit === 'task' ? st.tasks : st.perUser);
+    const volume = byRun ? simCount(st.runs) : users * each;
+    const f = R.fabric;
+    const cuPer = route.meters.some(m => m.kind === 'fabric') ? (f.tokensIn / 1000) * f.inputPer1k + (f.tokensOut / 1000) * f.outputPer1k : 0;
+    return {
+      billed, waived, users, each, volume,
+      credits: billed * volume,
+      usd: billed * volume * R.creditUsd,
+      packUsd: billed * volume * R.packCreditUsd,
+      waivedUsd: waived * volume * R.creditUsd,
+      cuPer,
+      avgCu: (cuPer * volume) / (30 * 86400),
+    };
+  }
+
+  function renderSimulator() {
+    const auto = simState.where === 'autonomous';
+    app.innerHTML = `
+      <div class="screen-head">
+        <button class="icon-btn" data-action="home" aria-label="Back to home">←</button>
+        <h1>🧭 Request simulator</h1>
+      </div>
+      <p class="sim-intro muted">Build a request, then follow it step by step: who it acts as, what it can see, what it costs and who can stop it.</p>
+      <div class="card sim-builder">
+        ${simChoices('who', 'Who', sim.who, auto ? 'An event starts this agent, so no one is asking.' : '')}
+        ${simChoices('where', 'Where', sim.where)}
+        ${simChoices('what', 'What it reaches', sim.what)}
+        <div class="sim-options">${simOptions()}</div>
+      </div>
+      <div class="sim-presets">
+        <span class="eyebrow">Try these</span>
+        ${sim.presets.map((p, i) => `<button class="chip-toggle" data-action="sim-preset" data-i="${i}" title="${esc(p.hint)}">${esc(p.label)}</button>`).join('')}
+      </div>
+      <div id="sim-result">${simResultHtml()}</div>`;
+  }
+
+  function simChoices(dim, label, options, note) {
+    const off = Boolean(note);
+    return `
+      <div class="sim-dim" role="group" aria-label="${esc(label)}">
+        <div class="field-label">${esc(label)}${off ? ` <span class="muted small">${esc(note)}</span>` : ''}</div>
+        <div class="chips">${options.map(o => {
+          const on = !off && simState[dim] === o.id;
+          return `<button class="chip-toggle ${on ? 'on' : ''}" data-action="sim-pick" data-dim="${dim}" data-v="${esc(o.id)}" aria-pressed="${on}" ${off ? 'disabled' : ''}>${esc(o.label)}</button>`;
+        }).join('')}</div>
+      </div>`;
+  }
+
+  function simOptions() {
+    const st = simState;
+    const route = routeRequest(st);
+    const parts = [];
+    if (st.what === 'genie' && !route.blocked) {
+      parts.push(`<div class="sim-opt"><div class="field-label">Genie connection</div>${st.where === 'studio'
+        ? seg('sim-auth', st.auth, [['user', 'Each user signs in (OAuth)'], ['sp', 'One service principal']])
+        : route.ctx.auth === 'sp'
+          ? '<p class="muted small">A service principal: there\'s no signed-in employee to act for.</p>'
+          : '<p class="muted small">Each user signs in, so Genie acts as them.</p>'}</div>`);
+    }
+    if (st.where === 'cowork') {
+      const sizes = Object.entries(sim.rates.cowork).map(([k, n]) => [k, `${k[0].toUpperCase()}${k.slice(1)} (~${n})`]);
+      parts.push(`<div class="sim-opt"><div class="field-label">Task size <span class="muted small">credits per task</span></div>${seg('sim-size', st.size, sizes)}</div>`);
+    }
+    const nums = st.where === 'autonomous'
+      ? [['runs', 'Runs per month']]
+      : [['users', 'People'], st.where === 'cowork' ? ['tasks', 'Tasks per person per month'] : ['perUser', 'Questions per person per month']];
+    if (st.what === 'genie') nums.push(['genieUsd', 'Genie AI per question, your estimate ($)']);
+    parts.push(`<div class="sim-nums">${nums.map(([k, label]) => `
+      <label class="sim-num"><span>${esc(label)}</span>
+        <input type="number" min="0" step="${k === 'genieUsd' ? '0.01' : '1'}" inputmode="decimal" data-sim="${k}" value="${esc(st[k])}"${k === 'genieUsd' ? ' placeholder="optional"' : ''}>
+      </label>`).join('')}</div>`);
+    return parts.join('');
+  }
+
+  function simResultHtml() {
+    const route = routeRequest(simState);
+    const ctx = route.ctx;
+    const sentence = `
+      <div class="card sim-sentence">
+        <span class="eyebrow">The request</span>
+        <p>${esc(simSentence(ctx))}</p>
+        ${ctx.note ? `<p class="muted small">${esc(ctx.note)}</p>` : ''}
+      </div>`;
+    if (route.blocked) {
+      const b = sim.blocked[route.blocked];
+      const ext = ctx.who === 'external' && b.insteadExternal;
+      return `${sentence}
+        <div class="card sim-blocked">
+          <h2>⛔ ${esc(b.title)}</h2>
+          <p>${esc(b.why)}</p>
+          <div class="sim-blocked-foot">
+            <button class="btn primary small" data-action="sim-set" data-set="${esc(JSON.stringify(ext ? b.insteadExternal : b.instead))}">${esc(ext ? b.insteadExternalLabel : b.insteadLabel)} →</button>
+            ${safeUrl(b.source) ? `<a class="small" href="${esc(b.source)}" target="_blank" rel="noopener">📖 Source</a>` : ''}
+          </div>
+        </div>`;
+    }
+    return `${sentence}
+      <ol class="sim-steps">${route.hops.map((key, i) => simStepHtml(key, i, ctx)).join('')}</ol>
+      <h2 class="h-section">What it costs <span class="muted small">list prices as of ${esc(sim.asOf)}</span></h2>
+      <div id="sim-cost" class="card sim-cost">${simCostHtml(route)}</div>
+      ${simPracticeHtml()}`;
+  }
+
+  function simStepHtml(key, i, ctx) {
+    const h = sim.hops[key];
+    const watch = simFacet(h.watch, ctx) || [];
+    const terms = glossary ? (h.terms || []).filter(id => glossary.byId.has(id)) : [];
+    const open = terms.filter(id => simOpen.has(`${i}:${id}`));
+    return `
+      <li class="card sim-step">
+        <div class="sim-step-head">
+          <span class="sim-step-num" aria-hidden="true">${i + 1}</span>
+          <h3><span aria-hidden="true">${h.icon || ''}</span> ${esc(h.title)}</h3>
+        </div>
+        <dl class="sim-facets">${SIM_FACETS.map(([f, label]) => {
+          const v = simFacet(h[f], ctx);
+          return v ? `<div class="sim-facet"><dt>${label}</dt><dd>${esc(v)}</dd></div>` : '';
+        }).join('')}</dl>
+        ${watch.map(w => `<p class="sim-watch">⚠️ ${esc(w)}</p>`).join('')}
+        <div class="sim-step-foot">
+          ${terms.map(id => `<button class="term-chip ${open.includes(id) ? 'on' : ''}" data-action="sim-term" data-key="${i}:${esc(id)}" aria-expanded="${open.includes(id)}">${esc(glossary.byId.get(id).term)}</button>`).join('')}
+          ${safeUrl(h.source) ? `<a class="small sim-src" href="${esc(h.source)}" target="_blank" rel="noopener">📖 Source</a>` : ''}
+        </div>
+        ${open.map(id => simTermCard(id, `${i}:${id}`)).join('')}
+      </li>`;
+  }
+
+  function simTermCard(id, key) {
+    const t = glossary.byId.get(id);
+    const index = deckTermIndex();
+    const n = index.has(id) ? index.get(id).size : 0;
+    return `
+      <div class="term-card" data-sim-card="${esc(key)}">
+        <div class="term-card-head">
+          <b>${esc(t.term)}</b>
+          <button class="link-btn small term-close" data-action="sim-term" data-key="${esc(key)}" aria-label="Close ${esc(t.term)}">✕</button>
+        </div>
+        <p>${esc(t.definition)}</p>
+        <div class="sim-term-foot">
+          ${t.source ? `<a class="small" href="${esc(t.source)}" target="_blank" rel="noopener">📖 Read the docs</a>` : '<span></span>'}
+          ${n ? `<button class="btn small" data-action="practice-term" data-term="${esc(id)}">Practice ${plural(n, 'question')} in this deck →</button>` : ''}
+        </div>
+      </div>`;
+  }
+
+  function simCostHtml(route) {
+    const R = sim.rates;
+    const st = simState;
+    const c = simCost(route, st);
+    const unit = route.unit;
+    const credits = route.meters.filter(m => m.kind === 'credits');
+    const genie = route.meters.find(m => m.kind === 'genie');
+
+    const per = credits.map(m => m.included
+      ? `<li class="sim-included"><span>${esc(m.label)}</span><b><s>${fmtNum(m.credits)} credits</s> included</b></li>`
+      : `<li><span>${esc(m.label)}</span><b>${fmtNum(m.credits)} credits</b></li>`);
+    if (c.cuPer) per.push(`<li><span>Fabric capacity (${fmtNum(R.fabric.tokensIn)} input, ${fmtNum(R.fabric.tokensOut)} output tokens)</span><b>${fmtNum(c.cuPer)} CU-seconds</b></li>`);
+    if (genie) {
+      per.push(`<li><span>Genie AI</span><b>${genie.sp ? 'Pay-as-you-go, no allowance' : `Counts against $${R.genie.allowanceUsd} a month per person`}</b></li>`);
+      per.push('<li><span>SQL warehouse</span><b>DBUs while the query runs</b></li>');
+    }
+    if (!per.length) per.push('<li><span>Metered charges</span><b>None beyond the license</b></li>');
+
+    const month = [];
+    if (credits.length) month.push(`<li><span>Copilot Credits</span><b>${fmtNum(c.credits)} · ${simUsd(c.usd)} pay-as-you-go</b></li>`);
+    if (c.credits) month.push(`<li><span>With capacity packs, if usage is steady</span><b>about ${simUsd(c.packUsd)}</b></li>`);
+    if (c.cuPer) month.push(`<li><span>Fabric capacity, averaged over 30 days</span><b>${c.avgCu < 10 ? c.avgCu.toFixed(2) : fmtNum(Math.round(c.avgCu))} CUs</b></li>`);
+    if (genie) month.push(...simGenieLines(genie, c, st));
+    if (!month.length) month.push('<li><span>Metered charges</span><b>$0.00</b></li>');
+
+    const notes = [];
+    if (c.waived) notes.push(`Included for licensed users. The same traffic from people without a Copilot license would use ${fmtNum(c.waived * c.volume)} credits, about ${simUsd(c.waivedUsd)} a month.`);
+    if (route.ctx.who === 'unlicensed' && c.billed && unit === 'question' && c.each) {
+      const breakEven = Math.round(R.seatUsd / (c.billed * R.creditUsd));
+      notes.push(`That's about ${simUsd(c.billed * c.each * R.creditUsd)} per person a month. A Copilot seat is $${R.seatUsd}, so on this path licensing pays off above about ${fmtNum(breakEven)} questions a person a month, and the seat covers far more than this one agent.`);
+    }
+    if (unit === 'run') notes.push('All of it is billed, even if every employee has a Copilot license.');
+    if (unit === 'task') notes.push('Microsoft\'s range per task is wide (light 100 to 300, medium 300 to 700, heavy 700+), so pilot real tasks before setting a spending policy budget.');
+    if (c.cuPer) notes.push(`That's ${fmtNum(Math.round((c.avgCu / 2) * 100))}% of an F2's 2 capacity units on average, before any other workload. Copilot and data agent work is smoothed as background work, but a small capacity can still throttle.`);
+    if (genie && !genie.sp) notes.push(`Genie's AI is free for users through ${R.genie.freeUntil}; after that each person's first $${R.genie.allowanceUsd} a month is free. Warehouse compute is billed either way.`);
+    if (genie && genie.sp) notes.push('A service principal gets no free allowance, and every user sees what it can see.');
+
+    const src = R.sources;
+    return `
+      <div class="sim-cost-cols">
+        <div><div class="eyebrow">Per ${unit}</div><ul class="kv">${per.join('')}</ul></div>
+        <div><div class="eyebrow">Per month · ${unit === 'run' ? `${fmtNum(c.volume)} runs` : `${fmtNum(c.users)} ${c.users === 1 ? 'person' : 'people'} × ${fmtNum(c.each)} ${unit === 'task' ? 'tasks' : 'questions'}`}</div><ul class="kv">${month.join('')}</ul></div>
+      </div>
+      ${notes.length ? `<ul class="sim-notes">${notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
+      <p class="muted small sim-rates">Copilot Credits are $${R.creditUsd.toFixed(2)} each pay-as-you-go (about $${R.packCreditUsd} with capacity packs).
+        Sources: <a href="${esc(src.credits)}" target="_blank" rel="noopener">credit rates</a> ·
+        <a href="${esc(src.fabric)}" target="_blank" rel="noopener">Fabric capacity rates</a> ·
+        <a href="${esc(src.genie)}" target="_blank" rel="noopener">Genie pricing</a></p>`;
+  }
+
+  function simGenieLines(genie, c, st) {
+    const R = sim.rates.genie;
+    const est = st.genieUsd === '' || st.genieUsd == null ? NaN : Number(st.genieUsd);
+    if (!(est >= 0)) return [`<li><span>Genie AI</span><b>${genie.sp ? 'Billed from the first question' : `Free for users through ${esc(R.freeUntil)}`}</b></li>`];
+    if (genie.sp) return [`<li><span>Genie AI at your estimate</span><b>${simUsd(c.volume * est)}</b></li>`];
+    const perPerson = c.each * est;
+    return [
+      `<li><span>Each person's Genie AI at your estimate</span><b>${simUsd(perPerson)} (allowance $${R.allowanceUsd})</b></li>`,
+      `<li><span>Genie AI billed after ${esc(R.freeUntil)}</span><b>${simUsd(Math.max(0, perPerson - R.allowanceUsd) * c.users)}</b></li>`,
+    ];
+  }
+
+  function simPracticeHtml() {
+    const tags = [['style-request-flow', 'Following a request'], ['style-cost-math', 'Cost estimates']].filter(([id]) => bank.tagById.has(id));
+    if (!tags.length) return '';
+    return `
+      <div class="sim-practice">
+        <span class="muted small">Test yourself on this:</span>
+        ${tags.map(([id, name]) => `<button class="btn small" data-action="practice-tag" data-tag="${id}">Practice ${esc(name)} →</button>`).join('')}
+      </div>`;
+  }
+
+  function simChanged() {
+    saveSimState();
+    simOpen = new Set();
+    renderSimulator();
+  }
+
+  function toggleSimTerm(key) {
+    if (simOpen.has(key)) simOpen.delete(key); else simOpen.add(key);
+    const box = document.getElementById('sim-result');
+    if (!box) return;
+    box.innerHTML = simResultHtml();
+    const card = simOpen.has(key) && box.querySelector(`[data-sim-card="${CSS.escape(key)}"]`);
+    if (card) card.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
+  }
+
   // ─── Input ──────────────────────────────────────────────────────────────────
 
   const ACTIONS = {
@@ -1969,6 +2353,7 @@
       if (mode === 'lightning') return startLightning();
       if (mode === 'survival') return startSurvival();
       if (mode === 'review') return startReview();
+      if (mode === 'simulator') return openSimulator();
       if (mode === 'mock') {
         const ok = await confirmModal('Start a mock exam?',
           `${deck.mock.questions} questions, ${deck.mock.minutes} minutes on the clock. You can flag questions and change answers until you submit. Results come at the end.`,
@@ -2025,6 +2410,20 @@
     'mock-flag': () => mockFlag(),
     'mock-submit': () => requestSubmitMock(),
     'mock-filter': el => { session.filter = el.dataset.v; renderMockResults(); },
+    'sim-pick': el => { simState[el.dataset.dim] = el.dataset.v; simChanged(); },
+    'sim-auth': el => { simState.auth = el.dataset.v; simChanged(); },
+    'sim-size': el => { simState.size = el.dataset.v; simChanged(); },
+    'sim-preset': el => {
+      const p = sim.presets[Number(el.dataset.i)];
+      if (!p) return;
+      Object.assign(simState, { auth: 'user' }, p.set);
+      simChanged();
+    },
+    'sim-set': el => {
+      try { Object.assign(simState, JSON.parse(el.dataset.set)); } catch (e) { return; }
+      simChanged();
+    },
+    'sim-term': el => toggleSimTerm(el.dataset.key),
   };
 
   app.addEventListener('click', e => {
@@ -2036,6 +2435,16 @@
 
   app.addEventListener('change', e => {
     if (e.target.matches('[data-change="deck"]')) switchDeck(e.target.value);
+  });
+
+  // Simulator volume fields only redraw the cost card, so the field keeps focus while typing.
+  app.addEventListener('input', e => {
+    const key = e.target.dataset && e.target.dataset.sim;
+    if (!key || screen !== 'simulator') return;
+    simState[key] = key === 'genieUsd' ? e.target.value : simCount(e.target.value);
+    saveSimState();
+    const box = document.getElementById('sim-cost');
+    if (box) box.innerHTML = simCostHtml(routeRequest(simState));
   });
 
   function keyToPos(key) {
